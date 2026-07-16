@@ -1,1 +1,8 @@
 // TODO: Add styles as per the requirement
+@import './abstracts/variables';
+@import './abstracts/breakpoints';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'pages/home';

@@ -1,0 +1,8 @@
+.welcome-message {
+    font-size: $font-secondary-size; // Works automatically via main.scss global import
+    font-family: $font-circularStd-light; // Works automatically via main.scss global import
+    font-weight: bold;
+    color: #3498db;
+    text-align: center;
+    margin-top: 50px;
+}
