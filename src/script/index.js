@@ -1,0 +1,117 @@
+const toggleButton = document.getElementById('header-toggle');
+const dropdown = document.getElementById('header-dropdown');
+
+let isOpen = false;
+
+const dropdownMarkup = `
+    <div class="header__dropdown-brand">
+        <div class="header__dropdown-logo" aria-hidden="true">
+            <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.55273 3.59787C7.12207 4.59823 5.82837 5.78098 4.70532 7.1124C9.29462 6.68633 15.1252 7.38204 21.8944 10.7667C29.123 14.3809 34.9438 14.5031 38.9948 13.7217C38.6272 12.6088 38.1644 11.5392 37.6163 10.5224C32.979 11.0115 27.034 10.3641 20.1056 6.89998C15.706 4.70018 11.8278 3.79401 8.55273 3.59787ZM34.9074 6.66665C31.2453 2.575 25.9234 0 20 0C18.2605 0 16.5727 0.222107 14.9637 0.63948C17.1429 1.23409 19.4579 2.10399 21.8944 3.32227C26.967 5.85853 31.3464 6.67516 34.9074 6.66665ZM39.8609 17.6281C34.9669 18.5945 28.2088 18.396 20.1056 14.3444C12.53 10.5566 6.50043 10.6043 2.4339 11.508C2.224 11.5546 2.01904 11.6036 1.81903 11.6546C1.28662 12.8125 0.861634 14.0301 0.556702 15.2945C0.882386 15.2075 1.21893 15.1248 1.56616 15.0476C6.49957 13.9513 13.4701 13.9989 21.8944 18.2111C29.4701 21.9989 35.4996 21.9512 39.5662 21.0475C39.7055 21.0166 39.8428 20.9846 39.9778 20.9516C39.9926 20.6363 40 20.319 40 20C40 19.1975 39.9528 18.406 39.8609 17.6281ZM39.3248 25.1723C34.4783 26.0196 27.917 25.6944 20.1056 21.7888C12.53 18.001 6.50043 18.0487 2.4339 18.9524C1.53125 19.1529 0.719239 19.3972 0.00293 19.6551C0.000977 19.7698 0 19.8848 0 20C0 31.0457 8.95429 40 20 40C29.2571 40 37.0453 33.7109 39.3248 25.1723Z"
+                    fill="url(#header-dropdown-logo-gradient)"
+                />
+                <defs>
+                    <linearGradient
+                        id="header-dropdown-logo-gradient"
+                        x1="36"
+                        y1="43.2"
+                        x2="-3.73321"
+                        y2="35.5931"
+                        gradientUnits="userSpaceOnUse"
+                    >
+                        <stop stop-color="#5D50C6" />
+                        <stop offset="1" stop-color="#F85E9F" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <span class="header__dropdown-name">Travel Point</span>
+    </div>
+    <ul class="header__dropdown-list">
+        <li class="header__dropdown-item">
+            <a href="/" class="header__dropdown-link">Home</a>
+        </li>
+        <li class="header__dropdown-item">
+            <a href="/" class="header__dropdown-link">Discover</a>
+        </li>
+        <li class="header__dropdown-item">
+            <a href="/" class="header__dropdown-link">Special Deals</a>
+        </li>
+        <li class="header__dropdown-item">
+            <a href="/" class="header__dropdown-link">Contact</a>
+        </li>
+    </ul>
+    <div class="header__actions header__actions--dropdown">
+        <button type="button" class="header__button--login">
+            Login
+        </button>
+        <button type="button" class="header__button--signup">
+            Sign Up
+        </button>
+    </div>
+`;
+
+const closeIcon = `
+    <svg
+        width="40"
+        height="40"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke="#ffffff"
+    >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+            <path
+                d="M6 6L18 18"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+            ></path>
+            <path
+                d="M18 6L6 18"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+            ></path>
+        </g>
+    </svg>
+`;
+
+const openIcon = `
+    <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="#ffffff"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M28.38 0H11.62C4.34 0 0 4.34 0 11.62V28.36C0 35.66 4.34 40 11.62 40H28.36C35.64 40 39.98 35.66 39.98 28.38V11.62C40 4.34 35.66 0 28.38 0ZM30 30.5H10C9.18 30.5 8.5 29.82 8.5 29C8.5 28.18 9.18 27.5 10 27.5H30C30.82 27.5 31.5 28.18 31.5 29C31.5 29.82 30.82 30.5 30 30.5ZM30 21.5H10C9.18 21.5 8.5 20.82 8.5 20C8.5 19.18 9.18 18.5 10 18.5H30C30.82 18.5 31.5 19.18 31.5 20C31.5 20.82 30.82 21.5 30 21.5ZM30 12.5H10C9.18 12.5 8.5 11.82 8.5 11C8.5 10.18 9.18 9.5 10 9.5H30C30.82 9.5 31.5 10.18 31.5 11C31.5 11.82 30.82 12.5 30 12.5Z"
+            fill="#5D50C6"
+        />
+    </svg>
+`;
+
+dropdown.innerHTML = dropdownMarkup;
+
+toggleButton.addEventListener('click', () => {
+    isOpen = !isOpen;
+    dropdown.classList.toggle('is-open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    toggleButton.innerHTML = isOpen ? closeIcon : openIcon;
+});
