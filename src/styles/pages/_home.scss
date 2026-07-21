@@ -1,50 +1,20 @@
-@use '../abstracts/breakpoints' as bp;
-@use '../abstracts/variables' as var;
-@use '../components/button' as btn-primary;
+@use 'sass:map';
+@use '../abstracts/mixins' as bp;
+@use '../abstracts/colors' as color;
+@use '../base/typography' as font;
 
-@mixin flex-center {
-    display: flex;
-    align-items: center;
+.no-scroll {
+    overflow: hidden;
 }
 
 .header {
+    @include bp.flex-center;
     position: relative;
     box-sizing: border-box;
-    @include flex-center;
     justify-content: space-between;
     min-height: 80px;
     width: calc(100% - 33.71px);
     justify-content: space-between;
-
-    @include bp.sm {
-        align-items: center;
-        max-width: 100%;
-
-        .header__toggle {
-            order: 1;
-        }
-
-        .header__logo {
-            order: 2;
-        }
-    }
-
-    @include bp.md {
-        align-items: center;
-
-        .header__toggle {
-            order: 1;
-        }
-
-        .header__actions--tablet {
-            order: 2;
-        }
-    }
-
-    @include bp.lg {
-        max-width: 95%;
-        padding: 20px 40px;
-    }
 
     &__background {
         position: fixed;
@@ -54,35 +24,35 @@
         pointer-events: none;
 
         @include bp.sm {
-            top: -36px;
-            left: -33px;
+            top: 36px;
+            left: 0px;
             width: 272px;
             height: 348px;
-            background-color: var.$color-orange;
+            background-color: map.get(color.$theme-colors, 'text-orange');
             filter: blur(130px);
         }
 
         @include bp.md {
-            top: -174px;
-            left: -163px;
+            top: 0px;
+            left: 0px;
             width: 500px;
             height: 500px;
-            background-color: var.$color-orange;
+            background-color: map.get(color.$theme-colors, 'text-orange');
             filter: blur(130px);
         }
 
         @include bp.lg {
             top: 8px;
-            left: -33px;
+            left: 0px;
             width: 503px;
             height: 494px;
-            background-color: var.$color-orange;
+            background-color: map.get(color.$theme-colors, 'text-orange');
             filter: blur(130px);
         }
     }
 
     &__logo {
-        @include flex-center;
+        @include bp.flex-center;
         display: flex;
         height: 40px;
         width: 40px;
@@ -100,7 +70,7 @@
     }
 
     &__toggle {
-        @include flex-center;
+        @include bp.flex-center;
         display: flex;
         justify-content: center;
         background-color: transparent;
@@ -116,10 +86,10 @@
     }
 
     &__nav {
-        @include flex-center;
+        @include bp.flex-center;
         display: none;
         min-width: 50%;
-        font-family: var.$font-circularStd-bold;
+        font-family: font.$font-circularStd-bold;
 
         @include bp.lg {
             display: flex;
@@ -127,7 +97,7 @@
     }
 
     &__nav-list {
-        @include flex-center;
+        @include bp.flex-center;
         list-style-type: none;
         flex-direction: row;
         justify-content: space-evenly;
@@ -142,10 +112,10 @@
         justify-content: flex-start;
         gap: 30px;
         padding: 20px 40px;
-        background-color: var.$color-bg;
+        background-color: map.get(color.$theme-colors, 'color-bg');
         transition: all 0.3s ease-in-out;
 
-        &.is-open {
+        &--is-open {
             display: flex;
             opacity: 1;
             visibility: visible;
@@ -196,6 +166,7 @@
         height: 40px;
         width: 40px;
         flex-shrink: 0;
+
         @include bp.md {
             display: block;
         }
@@ -206,9 +177,9 @@
     }
 
     &__dropdown-name {
-        font-family: var.$font-circularStd-bold;
+        font-family: font.$font-circularStd-bold;
         font-size: 1.25rem;
-        color: var.$color-text-primary;
+        color: map.get(color.$theme-colors, 'text-primary');
 
         @include bp.md {
             display: block;
@@ -226,7 +197,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        font-family: var.$font-circularStd-light;
+        font-family: font.$font-circularStd-light;
         font-size: 1.2rem;
 
         @include bp.sm {
@@ -279,7 +250,7 @@
         }
 
         &--tablet {
-            @include flex-center;
+            @include bp.flex-center;
             flex-direction: row;
             width: fit-content;
 
@@ -292,9 +263,9 @@
     &__button {
         &--signup,
         &--login {
-            @include btn-primary.button-primary {
-                background-color: var.$button-primary;
-                color: var.$font-primary-color;
+            @include bp.button-primary {
+                background-color: map.get(color.$theme-colors, 'btn-primary');
+                color: map.get(color.$theme-colors, 'text-white');
                 width: 100%;
             }
 
@@ -308,8 +279,9 @@
         }
 
         &--signup-tablet {
-            @include btn-primary.button-primary {
-                background-color: var.$button-primary;
+            @include bp.button-primary {
+                background-color: map.get(color.$theme-colors, 'btn-primary');
+                color: map.get(color.$theme-colors, 'text-white');
                 max-width: 130px;
             }
 
@@ -328,26 +300,56 @@
         }
 
         &--login-tablet {
-            @include btn-primary.button-primary {
+            @include bp.button-primary {
                 background-color: transparent;
-                color: var.$color-text-primary;
+                color: map.get(color.$theme-colors, 'text-primary');
                 max-width: 130px;
             }
 
             @include bp.md {
                 padding: 10px 15px;
                 width: 90px;
-                color: var.$color-text-primary;
+                color: map.get(color.$theme-colors, 'text-primary');
             }
 
             @include bp.lg {
                 padding: 16px 32px;
-                color: var.$color-text-primary;
+                color: map.get(color.$theme-colors, 'text-primary');
             }
 
             &:hover {
                 background-color: rgb(227, 242, 255);
             }
         }
+    }
+
+    @include bp.sm {
+        align-items: center;
+        max-width: 100%;
+
+        .header__toggle {
+            order: 1;
+        }
+
+        .header__logo {
+            order: 2;
+        }
+    }
+
+    @include bp.md {
+        align-items: center;
+
+        .header__toggle {
+            order: 1;
+        }
+
+        .header__actions--tablet {
+            order: 2;
+        }
+    }
+
+    @include bp.lg {
+        max-width: 95%;
+        padding: 20px 40px;
     }
 }

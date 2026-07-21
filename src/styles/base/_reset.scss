@@ -1,5 +1,6 @@
-@use '../abstracts/variables' as var;
-@use '../abstracts/breakpoints' as bp;
+@use 'sass:map';
+@use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as bp;
 
 * {
     box-sizing: border-box;
@@ -8,7 +9,7 @@
 }
 
 body {
-    background-color: var.$color-bg;
+    background-color: map.get(color.$theme-colors, 'color-bg');
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,12 +17,12 @@ body {
 }
 
 a {
-    color: var.$font-links-notFocused;
+    color: map.get(color.$theme-colors, 'font-links-notFocused');
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 
     &:hover {
-        color: var.$color-text-primary;
+        color: map.get(color.$theme-colors, 'text-primary');
     }
 
     &:active {
@@ -29,10 +30,10 @@ a {
     }
 
     &:focus {
-        color: var.$color-text-primary;
+        color: map.get(color.$theme-colors, 'text-primary');
     }
 
     @include bp.sm {
-        color: var.$color-text-primary;
+        color: map.get(color.$theme-colors, 'text-primary');
     }
 }

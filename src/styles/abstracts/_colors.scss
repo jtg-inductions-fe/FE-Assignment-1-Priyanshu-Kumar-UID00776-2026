@@ -1,7 +1,10 @@
 $theme-colors: (
-    'text-primary': rgba(25, 24, 37, 0.5),
+    'text-primary': #000000,
+    'text-white': #ffffff,
     'text-secondary': rgba(248, 94, 159, 1),
     'text-orange': rgba(255, 87, 34, 1),
     'btn-primary': rgba(93, 80, 198, 1),
-    'bg': #ffffff,
+    'color-bg': #ffffff,
+    'hamburger-button-color': #5d50c6,
+    'font-links-notFocused': rgba(25, 24, 37, 0.5),
 );
