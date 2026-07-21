@@ -65,3 +65,23 @@ To set up the project on your local environment, follow these steps:
     ```bash
     npm run lint
     ```
+
+### Design View
+
+#### 1. Mobile View
+
+<p align="left">
+  <img src="assets/mobile1.png" alt="Mobile View - Menu Closed" width="280">
+  <img src="assets/mobile2.png" alt="Mobile View - Menu Open" width="280">
+</p>
+
+#### 2. Tablet View
+
+<p align="left">
+  <img src="assets/tablet1.png" alt="Tablet View - Navigation" width="450">
+  <img src="assets/tablet2.png" alt="Tablet View - Dropdown Open" width="450">
+</p>
+
+#### 3. Desktop View
+
+<img src="assets/desktop.png" alt="Desktop View Design" width="100%">

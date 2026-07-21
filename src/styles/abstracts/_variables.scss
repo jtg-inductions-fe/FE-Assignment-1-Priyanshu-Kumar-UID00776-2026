@@ -6,26 +6,7 @@ $breakpoints: (
     'lg': 1025px,
 );
 
- 
-/* Breakpoints variables for the device viewports */
-// $breakpoint-sm: 430px; // Mobile version
-// $breakpoint-md: 1024px; // Tablet version
-// $breakpoint-lg: 1025px; // Desktop version
-
-/* Colors */
-$color-text-primary: #191825;
-$color-text-secondary: #f85e9f;
-$color-orange: #ff5722;
-$button-primary: #5d50c6;
-$color-bg: #ffffff;
-$font-links-notFocused: rgba(25, 24, 37, 0.5);
-$font-primary-color: #eeeeee;
-
-/* Typography */
-$font-inter: 'Inter', sans-serif, arial;
-$font-circularStd-light: 'Circular-Std-Light', sans-serif, arial;
-$font-circularStd-bold: 'Circular-Std-Bold', sans-serif, arial;
-$font-secondary-size: 0.8rem;
-
-/* Button colors */
-$hamburger-button-color: #5d50c6;
+$font-sizes: (
+    'text-primary-size': 1rem,
+    'text-secondary-size': 1.2rem,
+);

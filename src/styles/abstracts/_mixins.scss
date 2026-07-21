@@ -1,5 +1,7 @@
 @use 'sass:map';
 @use 'variables' as var;
+@use 'colors' as color;
+@use '../base/typography' as font;
 
 $breakpoint-configs: (
     'sm': 'max-width',
@@ -14,5 +16,25 @@ $breakpoint-configs: (
         @media (#{$direction}: #{$size}) {
             @content;
         }
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin button-primary {
+    @content;
+    border: none;
+    border-radius: 30px;
+    font-family: font.$font-circularStd-bold;
+    outline: none;
+    font-size: map.get(var.$font-sizes, 'text-primary-size');
+    height: 49px;
+    cursor: pointer;
+
+    &:hover {
+        transition: all 0.2s ease-in-out;
     }
 }
