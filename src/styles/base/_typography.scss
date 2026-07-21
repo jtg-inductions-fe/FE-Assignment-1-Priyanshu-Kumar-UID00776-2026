@@ -1,19 +1,27 @@
+$font-inter: 'Inter', sans-serif, arial;
+$font-circular-light: 'Circular-Std-Light', sans-serif, arial;
+$font-circular-bold: 'Circular-Std-Bold', sans-serif, arial;
+$size-secondary: 0.8rem;
+
 @font-face {
     font-family: 'Circular-Std-Light';
-    src: url('../../../public/fonts/circular-std-font-family/CircularStd-Book.woff2')
+    src: url('/fonts/circular-std-font-family/CircularStd-Book.woff2')
         format('woff2');
     font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'Circular-Std-Bold';
-    src: url('../../../public/fonts/circular-std-font-family/CircularStd-Bold.woff2')
+    src: url('/fonts/circular-std-font-family/CircularStd-Bold.woff2')
         format('woff2');
     font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('../../../public/fonts/inter/Inter-Regular.woff2') format('woff2');
+    src: url('/fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
     font-weight: 400;
+    font-style: normal;
 }

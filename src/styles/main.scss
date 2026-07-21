@@ -1,7 +1,7 @@
-@import './abstracts/variables';
-@import './abstracts/breakpoints';
+@use 'abstracts/variables';
+@use 'abstracts/breakpoints';
 
-@import 'base/reset';
-@import 'base/typography';
+@use 'base/reset';
+@use 'base/typography';
 
-@import 'pages/home';
+@use 'pages/home';
