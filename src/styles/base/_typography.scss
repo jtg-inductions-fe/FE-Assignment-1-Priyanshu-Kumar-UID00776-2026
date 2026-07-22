@@ -1,7 +1,9 @@
-$font-inter: 'Inter', sans-serif, arial;
+$font-inter: 'Inter', Arial, sans-serif;
 $font-circular-light: 'Circular-Std-Light', sans-serif, arial;
 $font-circular-bold: 'Circular-Std-Bold', sans-serif, arial;
-$size-secondary: 0.8rem;
+
+$font-primary-size: 1rem;
+$font-size-secondary: 0.8rem;
 
 @font-face {
     font-family: 'Circular-Std-Light';

@@ -1,26 +1,18 @@
 @use 'sass:map';
 @use 'variables' as var;
 
-@mixin sm {
-    $size: map.get(var.$breakpoints, 'sm');
+$breakpoint-configs: (
+    'sm': 'max-width',
+    'md': 'max-width',
+    'lg': 'min-width',
+);
 
-    @media (max-width: #{$size}) {
-        @content;
-    }
-}
+@each $name, $direction in $breakpoint-configs {
+    @mixin #{$name} {
+        $size: map.get(var.$breakpoints, $name);
 
-@mixin md {
-    $size: map.get(var.$breakpoints, 'md');
-
-    @media (max-width: #{$size}) {
-        @content;
-    }
-}
-
-@mixin lg {
-    $size: map.get(var.$breakpoints, 'lg');
-
-    @media (min-width: #{$size}) {
-        @content;
+        @media (#{$direction}: #{$size}) {
+            @content;
+        }
     }
 }
