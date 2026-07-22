@@ -7,6 +7,8 @@
     overflow: hidden;
 }
 
+// Header section styling
+
 .header {
     @include bp.flex-center;
     position: relative;
@@ -23,11 +25,11 @@
         z-index: -1;
         pointer-events: none;
 
-        @include bp.sm {
-            top: 36px;
+        @include bp.lg {
+            top: 8px;
             left: 0px;
-            width: 272px;
-            height: 348px;
+            width: 503px;
+            height: 494px;
             background-color: map.get(color.$theme-colors, 'text-orange');
             filter: blur(130px);
         }
@@ -41,13 +43,13 @@
             filter: blur(130px);
         }
 
-        @include bp.lg {
-            top: 8px;
-            left: 0px;
-            width: 503px;
-            height: 494px;
+        @include bp.sm {
+            bottom: 0px;
+            right: 0px;
+            width: 272px;
+            height: 348px;
             background-color: map.get(color.$theme-colors, 'text-orange');
-            filter: blur(130px);
+            filter: blur(100px);
         }
     }
 
@@ -64,7 +66,6 @@
         }
 
         @include bp.sm {
-            margin-left: auto;
             display: block;
         }
     }
@@ -125,8 +126,7 @@
             position: absolute;
             width: 100%;
             max-width: 100%;
-            min-height: auto;
-            max-height: calc(100% - 80px);
+            min-height: 100%;
             overflow-y: auto;
             overflow-x: hidden;
             bottom: 0;
@@ -282,7 +282,8 @@
             @include bp.button-primary {
                 background-color: map.get(color.$theme-colors, 'btn-primary');
                 color: map.get(color.$theme-colors, 'text-white');
-                max-width: 130px;
+                width: 100%;
+                max-width: 150px;
             }
 
             @include bp.md {
@@ -291,7 +292,8 @@
             }
 
             @include bp.lg {
-                padding: 16px 32px;
+                padding: 16px 20px;
+                width: 120px;
             }
 
             &:hover {
@@ -303,7 +305,8 @@
             @include bp.button-primary {
                 background-color: transparent;
                 color: map.get(color.$theme-colors, 'text-primary');
-                max-width: 130px;
+                width: 100%;
+                max-width: 150px;
             }
 
             @include bp.md {
@@ -314,6 +317,7 @@
 
             @include bp.lg {
                 padding: 16px 32px;
+                width: 120px;
                 color: map.get(color.$theme-colors, 'text-primary');
             }
 
@@ -328,11 +332,11 @@
         max-width: 100%;
 
         .header__toggle {
-            order: 1;
+            order: 2;
         }
 
         .header__logo {
-            order: 2;
+            order: 1;
         }
     }
 
@@ -351,5 +355,631 @@
     @include bp.lg {
         max-width: 95%;
         padding: 20px 40px;
+    }
+}
+
+// Hero section styling
+
+// .hero {
+//     width: calc(100% - 5px);
+//     padding-top: 20px;
+//     height: 50vh;
+//     position: relative;
+//     top: 20px;
+
+//     &__design {
+//         height: fit-content;
+//         width: 100%;
+//     }
+
+//     &__design-earth {
+//         height: 50%;
+//         width: 100%;
+//     }
+
+//     &__design-earth-image {
+//         height: 100%;
+//         width: 100%;
+//         object-fit: cover;
+//         object-position: center;
+//     }
+
+//     &__design-images {
+//         @include bp.flex-center;
+//         position: absolute;
+//         width: 100%;
+//         flex-direction: row;
+//         justify-content: space-between;
+
+//         @include bp.md {
+//             height: 600px;
+//             max-height: 600px ;
+//             top: 80px;
+//             padding: 0px clamp(40px, 8vw, 100px);
+//             gap: 40px;
+//         }
+
+//         @include bp.sm {
+//             top: 40px;
+//             height: 100%;
+//             padding: 0px clamp(20px, 6vw, 40px);
+//         }
+//     }
+
+//     &__design-images-left {
+//         @include bp.flex-center;
+//         height: 100%;
+//         width: 48%;
+//         justify-content: space-between;
+//         flex-direction: column;
+//         padding: 10px 0px;
+//     }
+
+//     &__design-images-left-travel {
+//         height: 45%;
+//         width: 95%;
+//         background-color: aqua;
+//         object-fit: cover;
+//         object-position: center;
+//         border-radius: 20px;
+//     }
+
+//     &__design-images-left-send {
+//         @include bp.flex-center;
+//         position: absolute;
+//         background-color: map.get(color.$theme-colors, 'text-secondary');
+//         border-radius: 50%;
+//         justify-content: center;
+//         box-shadow: 0px 9.75px 9.75px 0px #00000017;
+
+//         @include bp.md {
+//             height: 60px;
+//             width: 60px;
+//             font-size: 30px;
+//             top: 200px;
+//             left: 20px;
+//         }
+
+//         @include bp.sm {
+//             height: 40px;
+//             width: 40px;
+//             top: 130px;
+//             left: 10px;
+//             font-size: 20px
+//         }
+//     }
+
+//     &__design-images-right {
+//         @include bp.flex-center;
+//         height: 100%;
+//         width: 48%;
+//         justify-content: center;
+//     }
+
+//     &__design-images-right-travel {
+//         height: 60%;
+//         width: 98%;
+//         object-fit: cover;
+//         object-position: center;
+//         border-radius: 20px;
+//     }
+
+//     &__design-images-right-person {
+//         object-fit: cover;
+//         object-position: center;
+//         border-radius: 20px;
+
+//         @include bp.flex-center;
+//         position: absolute;
+//         background-color: map.get(color.$theme-colors, 'text-orange');
+//         border-radius: 50%;
+//         justify-content: center;
+//         box-shadow: 0px 9.75px 9.75px 5px #00000017;
+
+//         @include bp.md {
+//             bottom: 0px;
+//             right: 110px;
+//             height: 60px;
+//             width: 60px;
+//             font-size: 30px;
+//         }
+
+//         @include bp.sm {
+//             height: 40px;
+//             width: 40px;
+//             bottom: 0px;
+//             right: 90px;
+//             font-size: 20px
+//         }
+//     }
+
+//     &__design-images-right-location {
+//         @include bp.flex-center;
+//         position: absolute;
+//         background-color: map.get(color.$theme-colors, 'color-bg');
+//         justify-content: center;
+//         gap: 10px;
+//         box-shadow: 0px 22.07px 13.35px 0px #0000000d;
+//         right: 0px;
+
+//         @include bp.md {
+//             border-radius: 30px;
+//             font-size: 30px;
+//             bottom: 120px;
+//             height: 50px;
+//             width: 130px;
+//         }
+
+//         @include bp.sm {
+//             border-radius: 20px;
+//             height: 40px;
+//             width: 110px;
+//             bottom: 90px;
+//         }
+
+//         &-detail {
+//             font-family: font.$font-circularStd-bold;
+//             font-size: 0.7rem;
+//         }
+//     }
+
+//     &__info {
+//         @include bp.flex-center;
+//         justify-content: space-between;
+//         padding: 10px 0px;
+//         width: 100%;
+//         position: relative;
+//         flex-direction: column;
+//         text-align: center;
+
+//         @include bp.md {
+//             top: 500px;
+//             height: 600px;
+//             width: 90%;
+//         }
+
+//         @include bp.sm {
+//             height: 450px;
+//             top: 280px;
+//         }
+
+//         &-heading {
+//             font-family: font.$font-circularStd-bold;
+
+//              @include bp.md {
+//                 font-size: 60px;
+//             }
+
+//             @include bp.sm {
+//                 font-size: 40px;
+//             }
+//         }
+
+//         &-highlight-heading {
+//             color: map.get(color.$theme-colors, 'text-secondary');
+//         }
+
+//         &-detail {
+//             font-family: font.$font-inter;
+//             font-size: 16px;
+//             color: map.get(color.$theme-colors, 'font-hero-detail');
+//             padding: 0px 0px;
+//             line-height: 160%;
+//         }
+//     }
+
+//     &__info-badge {
+//         height: 50px;
+//         width: 200px;
+//         border-radius: 30px;
+//         @include bp.flex-center;
+//         justify-content: space-evenly;
+//         box-shadow: 0px 34px 75px 0px #00000012;
+
+//         &-tagline {
+//             font-family: font.$font-circularStd-bold;
+//             font-size: 0.8rem;
+//             color: map.get(color.$theme-colors, 'text-secondary');
+//         }
+//     }
+
+//     &__info-getStarted {
+//         @include bp.button-primary {
+//             width: 100%;
+//             background-color: map.get(color.$theme-colors, 'btn-primary');
+//             font-size: 14px;
+//             box-shadow: 0px 15px 20px 10px #00000013;
+//             color: map.get(color.$theme-colors, 'text-white');
+//         }
+//     }
+
+//     &__info-watchDemo {
+//         @include bp.button-primary {
+//             width: 100%;
+//             background-color: map.get(color.$theme-colors, 'color-bg');
+//             color: map.get(color.$theme-colors, 'text-primary');
+//             border: 1px solid #eeeeee;
+//         }
+//         @include bp.flex-center;
+//         justify-content: center;
+//         gap: 10px;
+//     }
+
+//     @include bp.md {
+//         width: 90%;
+//     }
+
+//     @include bp.sm {
+//         height: 350px;
+//         width: 100%;
+//     }
+// }
+
+.hero {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include bp.md {
+        gap: clamp(40px, 6vw, 60px);
+    }
+
+    &__design {
+        top: 30px;
+        position: relative;
+        margin: 0 auto;
+
+        @include bp.md {
+            width: 80%;
+            height: 80vh;
+        }
+
+        @include bp.sm {
+            width: 100%;
+            height: 50vh;
+        }
+    }
+
+    &__design-earth {
+        height: fit-content;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    &__design-earth-image {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        object-position: top;
+    }
+
+    &__design-images {
+        @include bp.flex-center;
+        position: absolute;
+        inset: 5px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
+        z-index: 1;
+
+        @include bp.md {
+            height: 70vh;
+            gap: clamp(20px, 4vw, 36px);
+            padding: 0px 5vw;
+            top: 5vh;
+        }
+
+        @include bp.sm {
+            height: 70%;
+            top: 1vh;
+            padding: 0px 20px;
+        }
+    }
+
+    &__design-images-left {
+        @include bp.flex-center;
+        height: 100%;
+        width: 48%;
+        justify-content: space-evenly;
+        flex-direction: column;
+        padding: 8px 0;
+        position: relative;
+    }
+
+    &__design-images-left-wrapper {
+        @include bp.flex-center;
+        height: 40%;
+        width: 100%;
+
+        &-travel {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 16px;
+
+            @include bp.md {
+                border-radius: clamp(20px, 2.5vw, 32px);
+            }
+        }
+    }
+
+    &__design-images-left-wrapper-send {
+        @include bp.flex-center;
+        position: absolute;
+        background-color: map.get(color.$theme-colors, 'text-secondary');
+        border-radius: 50%;
+        justify-content: center;
+        box-shadow: 0px 8px 16px 0px #00000046;
+        color: #ffffff;
+        top: 42%;
+
+        @include bp.md {
+            height: 60px;
+            width: 60px;
+            font-size: 30px;
+            left: -28px;
+        }
+
+        @include bp.sm {
+            height: 36px;
+            width: 36px;
+            font-size: 15px;
+            left: -8px;
+        }
+    }
+
+    &__design-images-right {
+        @include bp.flex-center;
+        height: 100%;
+        width: 48%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 8px 0;
+
+        // @include bp.md {
+        //     height: 300px;
+        // }
+
+        @include bp.sm {
+            height: 300px;
+        }
+    }
+
+    &__design-images-right-wrapper {
+        @include bp.flex-center;
+        height: 100%;
+        width: 100%;
+        // background-color: red;
+
+        &-travel {
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 16px;
+
+            @include bp.md {
+                height: 60%;
+                border-radius: clamp(20px, 2.5vw, 32px);
+            }
+
+            @include bp.sm {
+                height: 70%;
+            }
+        }
+    }
+
+    &__design-images-right-wrapper-location {
+        @include bp.flex-center;
+        position: absolute;
+        background-color: map.get(color.$theme-colors, 'color-bg');
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        gap: 6px;
+        box-shadow: 0px 12px 20px 0px #0000005d;
+
+        @include bp.md {
+            left: clamp(160px, 1vw, 100px);
+            bottom: 190px;
+            height: clamp(40px, 5vw, 52px);
+            width: clamp(140px, 15vw, 170px);
+            border-radius: 30px;
+            gap: 8px;
+            font-size: 1.5rem;
+        }
+
+        @include bp.sm {
+            left: 60px;
+            bottom: 70px;
+            height: 32px;
+            width: 100px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        &-detail {
+            font-family: font.$font-circularStd-bold;
+            font-size: 0.55rem;
+            color: #1a1a1a;
+
+            @include bp.md {
+                font-size: 1rem;
+            }
+
+            @include bp.sm {
+                font-size: 0.7rem;
+            }
+        }
+    }
+
+    &__design-images-right-person {
+        @include bp.flex-center;
+        position: absolute;
+        background-color: map.get(color.$theme-colors, 'text-orange');
+        border-radius: 50%;
+        justify-content: center;
+        box-shadow: 0px 8px 16px 0px #00000041;
+        color: #ffffff;
+
+        @include bp.md {
+            height: clamp(48px, 6vw, 64px);
+            width: clamp(48px, 6vw, 64px);
+            font-size: clamp(22px, 2.5vw, 28px);
+            bottom: 30px;
+            left: 90px;
+        }
+
+        @include bp.sm {
+            height: 36px;
+            width: 36px;
+            font-size: 16px;
+            bottom: 0px;
+            left: 40px;
+        }
+    }
+
+    &__info {
+        @include bp.flex-center;
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        text-align: center;
+
+        &-heading {
+            font-family: font.$font-circularStd-bold;
+            font-size: 32px;
+            line-height: 1.25;
+            color: #1a1a1a;
+
+            @include bp.md {
+                font-size: clamp(42px, 5.5vw, 58px);
+            }
+        }
+
+        &-highlight-heading {
+            color: map.get(color.$theme-colors, 'text-secondary');
+        }
+
+        &-detail {
+            font-family: font.$font-inter;
+            font-size: 14px;
+            color: map.get(color.$theme-colors, 'font-hero-detail');
+            line-height: 1.6;
+
+            @include bp.md {
+                font-size: clamp(14px, 1.2vw, 16px);
+            }
+        }
+
+        @include bp.md {
+            max-width: 650px;
+            margin: 0 auto;
+            gap: clamp(16px, 3vw, 24px);
+            // top: 300px;
+        }
+
+        @include bp.sm {
+            bottom: 120px;
+        }
+    }
+
+    &__info-badge {
+        height: 36px;
+        width: 160px;
+        border-radius: 30px;
+        @include bp.flex-center;
+        justify-content: space-evenly;
+        box-shadow: 0px 10px 25px 0px #0000002a;
+        background-color: map.get(color.$theme-colors, 'color-bg');
+
+        &-tagline {
+            font-family: font.$font-circularStd-bold;
+            font-size: 0.75rem;
+            color: map.get(color.$theme-colors, 'text-secondary');
+        }
+    }
+
+    &__info-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        margin-top: 10px;
+
+        @include bp.md {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+
+    &__info-button-wrapper {
+        @include bp.flex-center;
+        height: fit-content;
+        width: 100%;
+        justify-content: center;
+
+        @include bp.md {
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        @include bp.sm {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    &__info-getStarted {
+        @include bp.button-primary {
+            // width: 100%;
+            background-color: map.get(color.$theme-colors, 'btn-primary');
+            font-size: 15px;
+            box-shadow: 0px 12px 24px 0px
+                rgba(map.get(color.$theme-colors, 'btn-primary'), 0.3);
+            color: map.get(color.$theme-colors, 'text-white');
+
+            @include bp.md {
+                width: 260px;
+            }
+
+            @include bp.sm {
+                width: 100%;
+            }
+        }
+    }
+
+    &__info-watchDemo {
+        @include bp.button-primary {
+            // width: 100%;
+            background-color: map.get(color.$theme-colors, 'color-bg');
+            color: map.get(color.$theme-colors, 'text-primary');
+            box-shadow: 0px 10px 25px 0px #00000008;
+            font-size: 15px;
+            border: 1px solid rgba(238, 238, 238, 1);
+
+            @include bp.md {
+                box-shadow: none;
+                width: 260px;
+            }
+
+            @include bp.sm {
+                width: 100%;
+            }
+        }
+        @include bp.flex-center;
+        justify-content: center;
+        gap: 10px;
     }
 }

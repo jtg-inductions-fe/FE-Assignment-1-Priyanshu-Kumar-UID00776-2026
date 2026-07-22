@@ -33,16 +33,28 @@
 }
 
 @mixin button-primary {
-    @content;
     border: none;
     border-radius: 30px;
     font-family: font.$font-circularStd-bold;
     outline: none;
-    font-size: map.get(var.$font-sizes, 'text-primary-size');
+    font-size: 16px;
     height: 49px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    @content;
+}
 
-    &:hover {
-        transition: all 0.2s ease-in-out;
+@mixin button-size($padding-y, $padding-x, $width: null, $max-width: null) {
+    padding: $padding-y $padding-x;
+    @if $width {
+        width: $width;
+    }
+    @if $max-width {
+        max-width: $max-width;
     }
 }
