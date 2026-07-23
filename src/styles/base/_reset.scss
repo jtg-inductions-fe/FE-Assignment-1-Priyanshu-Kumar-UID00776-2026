@@ -13,26 +13,9 @@ ol {
     list-style-type: none;
 }
 
-a {
-    color: map.get(color.$theme-colors, 'font-links-notFocused');
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-
-    &:hover {
-        color: map.get(color.$theme-colors, 'text-primary');
-    }
-
-    &:active {
-        pointer-events: none;
-    }
-
-    &:focus {
-        color: map.get(color.$theme-colors, 'text-primary');
-    }
-}
-
 button {
     background: none;
     border: none;
+    outline: none;
     cursor: pointer;
 }

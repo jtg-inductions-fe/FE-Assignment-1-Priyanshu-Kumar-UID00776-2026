@@ -1,18 +1,19 @@
 @use 'sass:map';
 @use 'variables' as var;
 
-$breakpoint-configs: (
-    'sm': 'max-width',
-    'md': 'max-width',
-    'lg': 'min-width',
-);
+@mixin media-query($name) {
+    @media (min-width: #{map.get(var.$breakpoints, $name)}) {
+        @content;
+    }
+}
 
-@each $name, $direction in $breakpoint-configs {
-    @mixin #{$name} {
-        $size: map.get(var.$breakpoints, $name);
+@mixin typography($font-map) {
+    @each $breakpoint in ('sm', 'md', 'lg') {
+        $size: map.get(var.$breakpoints, $breakpoint);
 
-        @media (#{$direction}: #{$size}) {
-            @content;
+        @media (min-width: #{$size}) {
+            font-size: map.get($font-map, $breakpoint, 'size');
+            line-height: map.get($font-map, $breakpoint, 'line-height');
         }
     }
 }
