@@ -3,18 +3,19 @@
 @use 'colors' as color;
 @use '../base/typography' as font;
 
-$breakpoint-configs: (
-    'sm': 'max-width',
-    'md': 'max-width',
-    'lg': 'min-width',
-);
+@mixin media-query($name) {
+    @media (min-width: #{map.get(var.$breakpoints, $name)}) {
+        @content;
+    }
+}
 
-@each $name, $direction in $breakpoint-configs {
-    @mixin #{$name} {
-        $size: map.get(var.$breakpoints, $name);
+@mixin typography($font-map) {
+    @each $breakpoint in ('sm', 'md', 'lg') {
+        $size: map.get(var.$breakpoints, $breakpoint);
 
-        @media (#{$direction}: #{$size}) {
-            @content;
+        @media (min-width: #{$size}) {
+            font-size: map.get($font-map, $breakpoint, 'size');
+            line-height: map.get($font-map, $breakpoint, 'line-height');
         }
     }
 }
@@ -22,19 +23,4 @@ $breakpoint-configs: (
 @mixin flex-center {
     display: flex;
     align-items: center;
-}
-
-@mixin button-primary {
-    @content;
-    border: none;
-    border-radius: 30px;
-    font-family: font.$font-circularStd-bold;
-    outline: none;
-    font-size: map.get(var.$font-sizes, 'text-primary-size');
-    height: 49px;
-    cursor: pointer;
-
-    &:hover {
-        transition: all 0.2s ease-in-out;
-    }
 }

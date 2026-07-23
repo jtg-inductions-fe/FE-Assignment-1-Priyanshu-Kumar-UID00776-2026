@@ -1,9 +1,88 @@
 $font-inter: 'Inter', Arial, sans-serif;
-$font-circular-light: 'Circular-Std-Light', sans-serif, arial;
-$font-circular-bold: 'Circular-Std-Bold', sans-serif, arial;
+$font-circularStd-light: 'Circular-Std-Light', arial, sans-serif;
+$font-circularStd-bold: 'Circular-Std-Bold', arial, sans-serif;
+$font-icons: 'Untitled';
 
-$font-primary-size: 1rem;
-$font-size-secondary: 0.8rem;
+$font-size-sm: 14px;
+$font-size-md: 18px;
+$font-size-lg: 23px;
+$font-size-xl: 28px;
+$font-icon-size: 40px;
+
+$hero-heading-font: (
+    'sm': (
+        'size': 40px,
+        'line-height': 120%,
+    ),
+    'md': (
+        'size': 56px,
+        'line-height': 120%,
+    ),
+    'lg': (
+        'size': 69px,
+        'line-height': 120%,
+    ),
+);
+
+$description-font: (
+    'sm': (
+        'size': 16px,
+        'line-height': 160%,
+    ),
+    'md': (
+        'size': 18px,
+        'line-height': 160%,
+    ),
+    'lg': (
+        'size': 18px,
+        'line-height': 120%,
+    ),
+);
+
+$section-tagline-font: (
+    'sm': (
+        'size': 16px,
+        'line-height': 120%,
+    ),
+    'md': (
+        'size': 23px,
+        'line-height': 120%,
+    ),
+    'lg': (
+        'size': 23px,
+        'line-height': 120%,
+    ),
+);
+
+$section-heading-font: (
+    'sm': (
+        'size': 32px,
+        'line-height': 120%,
+    ),
+    'md': (
+        'size': 40px,
+        'line-height': 120%,
+    ),
+    'lg': (
+        'size': 44px,
+        'line-height': 120%,
+    ),
+);
+
+$testimonial-description-font: (
+    'sm': (
+        'size': 18px,
+        'line-height': 160%,
+    ),
+    'md': (
+        'size': 23px,
+        'line-height': 160%,
+    ),
+    'lg': (
+        'size': 23px,
+        'line-height': 160%,
+    ),
+);
 
 @font-face {
     font-family: 'Circular-Std-Light';
@@ -26,4 +105,20 @@ $font-size-secondary: 0.8rem;
     src: url('/fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Untitled';
+    src:
+        url('/fonts/icons/Untitled.woff2') format('woff2'),
+        url('/fonts/icons/Untitled.ttf') format('truetype'),
+        url('/fonts/icons/Untitled.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-palette-values --palette0 {
+    font-family: 'Untitled';
+    base-palette: 0;
 }

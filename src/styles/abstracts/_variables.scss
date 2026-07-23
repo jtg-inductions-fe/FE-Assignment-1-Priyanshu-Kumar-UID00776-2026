@@ -1,12 +1,9 @@
 @use '../base/typography' as *;
 
-$breakpoints: (
-    'sm': 430px,
-    'md': 1024px,
-    'lg': 1025px,
-);
+$btn-radius: 30px;
 
-$font-sizes: (
-    'text-primary-size': 1rem,
-    'text-secondary-size': 1.2rem,
+$breakpoints: (
+    'sm': 300px,
+    'md': 431px,
+    'lg': 1025px,
 );
