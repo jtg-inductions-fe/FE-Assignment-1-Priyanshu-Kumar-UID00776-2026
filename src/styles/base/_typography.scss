@@ -1,85 +1,75 @@
+@use '/abstracts/functions' as func;
+
 $font-inter: 'Inter', Arial, sans-serif;
 $font-circular-light: 'Circular-Std-Light', arial, sans-serif;
 $font-circular-bold: 'Circular-Std-Bold', arial, sans-serif;
 $font-icons: 'Untitled';
 
-$font-size-sm: 14px;
-$font-size-md: 18px;
-$font-size-lg: 23px;
-$font-size-xl: 28px;
+$font-size-sm: func.pixelToRemConvertor(14px);
+$font-size-md: func.pixelToRemConvertor(18px);
+$font-size-lg: func.pixelToRemConvertor(23px);
+$font-size-xl: func.pixelToRemConvertor(28px);
 
 $hero-heading-font: (
     'sm': (
-        'size': 40px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(40px),
+        'font-line-height': 1.2,
     ),
     'md': (
-        'size': 56px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(56px),
+        'font-line-height': 1.2,
     ),
     'lg': (
-        'size': 69px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(69px),
+        'font-line-height': 1.2,
     ),
 );
 
 $description-font: (
     'sm': (
-        'size': 16px,
-        'line-height': 160%,
+        'font-size': func.pixelToRemConvertor(16px),
+        'font-line-height': 1.6,
     ),
     'md': (
-        'size': 18px,
-        'line-height': 160%,
-    ),
-    'lg': (
-        'size': 18px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(18px),
+        'font-line-height': 1.6,
     ),
 );
 
 $section-tagline-font: (
     'sm': (
-        'size': 16px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(16px),
+        'font-line-height': 1.2,
     ),
     'md': (
-        'size': 23px,
-        'line-height': 120%,
-    ),
-    'lg': (
-        'size': 23px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(23px),
+        'font-line-height': 1.2,
     ),
 );
 
 $section-heading-font: (
     'sm': (
-        'size': 32px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(32px),
+        'font-line-height': 1.2,
     ),
     'md': (
-        'size': 40px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(40px),
+        'font-line-height': 1.2,
     ),
     'lg': (
-        'size': 44px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(44px),
+        'font-line-height': 1.2,
     ),
 );
 
 $testimonial-description-font: (
     'sm': (
-        'size': 18px,
-        'line-height': 160%,
+        'font-size': func.pixelToRemConvertor(18px),
+        'font-line-height': 1.6,
     ),
     'md': (
-        'size': 23px,
-        'line-height': 160%,
-    ),
-    'lg': (
-        'size': 23px,
-        'line-height': 160%,
+        'font-size': func.pixelToRemConvertor(23px),
+        'font-line-height': 1.6,
     ),
 );
 
@@ -104,20 +94,4 @@ $testimonial-description-font: (
     src: url('/fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'Untitled';
-    src:
-        url('/fonts/icons/Untitled.woff2') format('woff2'),
-        url('/fonts/icons/Untitled.ttf') format('truetype'),
-        url('/fonts/icons/Untitled.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-@font-palette-values --palette0 {
-    font-family: 'Untitled';
-    base-palette: 0;
 }
