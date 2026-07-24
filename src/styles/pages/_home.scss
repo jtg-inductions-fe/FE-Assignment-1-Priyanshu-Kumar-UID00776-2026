@@ -1,5 +1,4 @@
-@use 'sass:map';
-@use '../abstracts/mixins' as bp;
+@use '../abstracts/mixins' as mixin;
 @use '../abstracts/colors' as color;
 @use '../base/typography' as font;
 
@@ -7,10 +6,10 @@
     overflow: hidden;
 }
 
-// Header section styling
+/* ------- Header Section -------- */
 
 .header {
-    @include bp.flex-center;
+    @include mixin.flex-center;
     position: relative;
     box-sizing: border-box;
     justify-content: space-between;
@@ -19,59 +18,59 @@
     justify-content: space-between;
 
     &__background {
-        position: fixed;
+        position: absolute;
         opacity: 0.35;
         transition: all 0.3s ease-in-out;
         z-index: -1;
         pointer-events: none;
 
-        @include bp.lg {
-            top: 8px;
-            left: 0px;
+        @include mixin.media-query('lg') {
+            top: 0px;
+            right: 66vw;
             width: 503px;
             height: 494px;
-            background-color: map.get(color.$theme-colors, 'text-orange');
+            background-color: color.$color-orange;
             filter: blur(130px);
         }
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             top: 0px;
             left: 0px;
-            width: 500px;
-            height: 500px;
-            background-color: map.get(color.$theme-colors, 'text-orange');
+            width: 400px;
+            height: 400px;
+            background-color: color.$color-orange;
             filter: blur(130px);
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             bottom: 0px;
             right: 0px;
             width: 272px;
             height: 348px;
-            background-color: map.get(color.$theme-colors, 'text-orange');
+            background-color: color.$color-orange;
             filter: blur(100px);
         }
     }
 
     &__logo {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         display: flex;
         height: 40px;
         width: 40px;
         z-index: 2;
         flex-shrink: 0;
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             display: none;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             display: block;
         }
     }
 
     &__toggle {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         display: flex;
         justify-content: center;
         background-color: transparent;
@@ -80,25 +79,42 @@
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         z-index: 3;
+        font-size: 40px;
 
-        @include bp.lg {
+        @include mixin.media-query('lg') {
             display: none;
+        }
+
+        @include mixin.media-query('md') {
+            display: block;
+        }
+
+        @include mixin.media-query('sm') {
+            display: block;
         }
     }
 
     &__nav {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         display: none;
         min-width: 50%;
         font-family: font.$font-circularStd-bold;
 
-        @include bp.lg {
+        @include mixin.media-query('lg') {
             display: flex;
+        }
+
+        @include mixin.media-query('md') {
+            display: none;
+        }
+
+        @include mixin.media-query('sm') {
+            display: none;
         }
     }
 
     &__nav-list {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         list-style-type: none;
         flex-direction: row;
         justify-content: space-evenly;
@@ -113,7 +129,7 @@
         justify-content: flex-start;
         gap: 30px;
         padding: 20px 40px;
-        background-color: map.get(color.$theme-colors, 'color-bg');
+        background-color: color.$color-white;
         transition: all 0.3s ease-in-out;
 
         &--is-open {
@@ -122,18 +138,11 @@
             visibility: visible;
         }
 
-        @include bp.sm {
-            position: absolute;
-            width: 100%;
-            max-width: 100%;
-            min-height: 100%;
-            overflow-y: auto;
-            overflow-x: hidden;
-            bottom: 0;
-            left: 0;
-        }
+        // @include mixin.media-query('lg') {
+        //     display: none;
+        // }
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             position: fixed;
             inset: 0;
             width: 100%;
@@ -143,8 +152,16 @@
             z-index: 2;
         }
 
-        @include bp.lg {
-            display: none;
+        @include mixin.media-query('sm') {
+            position: fixed;
+            width: 100%;
+            min-height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-top: 150px;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
         }
     }
 
@@ -154,7 +171,7 @@
         gap: 12px;
         align-self: flex-start;
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             display: flex;
             position: absolute;
             top: 40px;
@@ -167,11 +184,11 @@
         width: 40px;
         flex-shrink: 0;
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             display: block;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             display: none;
         }
     }
@@ -179,13 +196,13 @@
     &__dropdown-name {
         font-family: font.$font-circularStd-bold;
         font-size: 1.25rem;
-        color: map.get(color.$theme-colors, 'text-primary');
+        color: color.$color-dark;
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             display: block;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             display: none;
         }
     }
@@ -200,13 +217,13 @@
         font-family: font.$font-circularStd-light;
         font-size: 1.2rem;
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             padding-bottom: 16px;
         }
     }
 
     &__dropdown-item {
-        @include bp.md {
+        @include mixin.media-query('md') {
             width: 100%;
             text-align: center;
             border-bottom: 1px solid rgba(25, 24, 37, 0.08);
@@ -221,11 +238,11 @@
         display: block;
         width: 100%;
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             padding: 18px 0px;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             padding: 16px 0px;
         }
     }
@@ -238,109 +255,101 @@
             flex-direction: column;
             width: 100%;
 
-            @include bp.sm {
+            @include mixin.media-query('sm') {
                 visibility: hidden;
-                pointer-events: none;
+                // pointer-events: none;
             }
 
-            @include bp.md {
+            @include mixin.media-query('md') {
                 visibility: visible;
-                pointer-events: auto;
+                // pointer-events: auto;
             }
         }
 
         &--tablet {
-            @include bp.flex-center;
+            @include mixin.flex-center;
             flex-direction: row;
             width: fit-content;
 
-            @include bp.sm {
+            @include mixin.media-query('sm') {
                 display: none;
             }
         }
     }
 
-    &__button {
-        &--signup,
-        &--login {
-            @include bp.button-primary {
-                background-color: map.get(color.$theme-colors, 'btn-primary');
-                color: map.get(color.$theme-colors, 'text-white');
-                width: 100%;
-            }
+    // &__button {
+    //     &--signup,
+    //     &--login {
+    //         @include mixin.button-primary {
+    //             background-color: color.$color-btn;
+    //             color: color.$color-white;
+    //             width: 100%;
+    //         }
 
-            @include bp.md {
-                display: none;
-            }
+    //         @include mixin.media-query('md') {
+    //             display: none;
+    //         }
 
-            @include bp.sm {
-                display: block;
-            }
-        }
+    //         @include mixin.media-query('sm') {
+    //             display: block;
+    //         }
+    //     }
 
-        &--signup-tablet {
-            @include bp.button-primary {
-                background-color: map.get(color.$theme-colors, 'btn-primary');
-                color: map.get(color.$theme-colors, 'text-white');
-                width: 100%;
-                max-width: 150px;
-            }
+    //     &--signup-tablet {
+    //         @include mixin.button-primary {
+    //             background-color: color.$color-btn;
+    //             color: color.$color-white;
+    //             width: 100%;
+    //             max-width: 150px;
+    //         }
 
-            @include bp.md {
-                padding: 10px 15px;
-                width: 90px;
-            }
+    //         @include mixin.media-query('md') {
+    //             padding: 10px 15px;
+    //             width: 90px;
+    //         }
 
-            @include bp.lg {
-                padding: 16px 20px;
-                width: 120px;
-            }
+    //         @include mixin.media-query('lg') {
+    //             padding: 16px 20px;
+    //             width: 120px;
+    //         }
 
-            &:hover {
-                background-color: #4c3ebc;
-            }
-        }
+    //         &:hover {
+    //             background-color: #4c3ebc;
+    //         }
+    //     }
 
-        &--login-tablet {
-            @include bp.button-primary {
-                background-color: transparent;
-                color: map.get(color.$theme-colors, 'text-primary');
-                width: 100%;
-                max-width: 150px;
-            }
+    //     &--login-tablet {
+    //         @include mixin.button-primary {
+    //             background-color: transparent;
+    //             color: color.$color-dark;
+    //             width: 100%;
+    //             max-width: 150px;
+    //         }
 
-            @include bp.md {
-                padding: 10px 15px;
-                width: 90px;
-                color: map.get(color.$theme-colors, 'text-primary');
-            }
+    //         @include mixin.media-query('md') {
+    //             padding: 10px 15px;
+    //             width: 90px;
+    //             color: color.$color-dark;
+    //         }
 
-            @include bp.lg {
-                padding: 16px 32px;
-                width: 120px;
-                color: map.get(color.$theme-colors, 'text-primary');
-            }
+    //         @include mixin.media-query('lg') {
+    //             padding: 16px 32px;
+    //             width: 120px;
+    //             color: color.$color-dark;
+    //         }
 
-            &:hover {
-                background-color: rgb(227, 242, 255);
-            }
-        }
+    //         &:hover {
+    //             background-color: rgb(227, 242, 255);
+    //         }
+    //     }
+    // }
+    @include mixin.media-query('lg') {
+        max-width: 95%;
+        padding: 20px 40px;
     }
 
-    @include bp.sm {
-        align-items: center;
-        max-width: 100%;
-
-        .header__toggle {
-            order: 2;
-        }
-
-        .header__logo {
-            order: 1;
-        }
-    }
-
-    @include bp.md {
+    @include mixin.media-query('md') {
+        padding: 20px 10px;
         align-items: center;
 
         .header__toggle {
@@ -352,280 +361,56 @@
         }
     }
 
-    @include bp.lg {
-        max-width: 95%;
-        padding: 20px 40px;
+    @include mixin.media-query('sm') {
+        padding: 20px 10px;
+        align-items: center;
+        max-width: 100%;
+
+        .header__toggle {
+            order: 2;
+        }
+
+        .header__logo {
+            order: 1;
+        }
     }
 }
 
-// Hero section styling
-
-// .hero {
-//     width: calc(100% - 5px);
-//     padding-top: 20px;
-//     height: 50vh;
-//     position: relative;
-//     top: 20px;
-
-//     &__design {
-//         height: fit-content;
-//         width: 100%;
-//     }
-
-//     &__design-earth {
-//         height: 50%;
-//         width: 100%;
-//     }
-
-//     &__design-earth-image {
-//         height: 100%;
-//         width: 100%;
-//         object-fit: cover;
-//         object-position: center;
-//     }
-
-//     &__design-images {
-//         @include bp.flex-center;
-//         position: absolute;
-//         width: 100%;
-//         flex-direction: row;
-//         justify-content: space-between;
-
-//         @include bp.md {
-//             height: 600px;
-//             max-height: 600px ;
-//             top: 80px;
-//             padding: 0px clamp(40px, 8vw, 100px);
-//             gap: 40px;
-//         }
-
-//         @include bp.sm {
-//             top: 40px;
-//             height: 100%;
-//             padding: 0px clamp(20px, 6vw, 40px);
-//         }
-//     }
-
-//     &__design-images-left {
-//         @include bp.flex-center;
-//         height: 100%;
-//         width: 48%;
-//         justify-content: space-between;
-//         flex-direction: column;
-//         padding: 10px 0px;
-//     }
-
-//     &__design-images-left-travel {
-//         height: 45%;
-//         width: 95%;
-//         background-color: aqua;
-//         object-fit: cover;
-//         object-position: center;
-//         border-radius: 20px;
-//     }
-
-//     &__design-images-left-send {
-//         @include bp.flex-center;
-//         position: absolute;
-//         background-color: map.get(color.$theme-colors, 'text-secondary');
-//         border-radius: 50%;
-//         justify-content: center;
-//         box-shadow: 0px 9.75px 9.75px 0px #00000017;
-
-//         @include bp.md {
-//             height: 60px;
-//             width: 60px;
-//             font-size: 30px;
-//             top: 200px;
-//             left: 20px;
-//         }
-
-//         @include bp.sm {
-//             height: 40px;
-//             width: 40px;
-//             top: 130px;
-//             left: 10px;
-//             font-size: 20px
-//         }
-//     }
-
-//     &__design-images-right {
-//         @include bp.flex-center;
-//         height: 100%;
-//         width: 48%;
-//         justify-content: center;
-//     }
-
-//     &__design-images-right-travel {
-//         height: 60%;
-//         width: 98%;
-//         object-fit: cover;
-//         object-position: center;
-//         border-radius: 20px;
-//     }
-
-//     &__design-images-right-person {
-//         object-fit: cover;
-//         object-position: center;
-//         border-radius: 20px;
-
-//         @include bp.flex-center;
-//         position: absolute;
-//         background-color: map.get(color.$theme-colors, 'text-orange');
-//         border-radius: 50%;
-//         justify-content: center;
-//         box-shadow: 0px 9.75px 9.75px 5px #00000017;
-
-//         @include bp.md {
-//             bottom: 0px;
-//             right: 110px;
-//             height: 60px;
-//             width: 60px;
-//             font-size: 30px;
-//         }
-
-//         @include bp.sm {
-//             height: 40px;
-//             width: 40px;
-//             bottom: 0px;
-//             right: 90px;
-//             font-size: 20px
-//         }
-//     }
-
-//     &__design-images-right-location {
-//         @include bp.flex-center;
-//         position: absolute;
-//         background-color: map.get(color.$theme-colors, 'color-bg');
-//         justify-content: center;
-//         gap: 10px;
-//         box-shadow: 0px 22.07px 13.35px 0px #0000000d;
-//         right: 0px;
-
-//         @include bp.md {
-//             border-radius: 30px;
-//             font-size: 30px;
-//             bottom: 120px;
-//             height: 50px;
-//             width: 130px;
-//         }
-
-//         @include bp.sm {
-//             border-radius: 20px;
-//             height: 40px;
-//             width: 110px;
-//             bottom: 90px;
-//         }
-
-//         &-detail {
-//             font-family: font.$font-circularStd-bold;
-//             font-size: 0.7rem;
-//         }
-//     }
-
-//     &__info {
-//         @include bp.flex-center;
-//         justify-content: space-between;
-//         padding: 10px 0px;
-//         width: 100%;
-//         position: relative;
-//         flex-direction: column;
-//         text-align: center;
-
-//         @include bp.md {
-//             top: 500px;
-//             height: 600px;
-//             width: 90%;
-//         }
-
-//         @include bp.sm {
-//             height: 450px;
-//             top: 280px;
-//         }
-
-//         &-heading {
-//             font-family: font.$font-circularStd-bold;
-
-//              @include bp.md {
-//                 font-size: 60px;
-//             }
-
-//             @include bp.sm {
-//                 font-size: 40px;
-//             }
-//         }
-
-//         &-highlight-heading {
-//             color: map.get(color.$theme-colors, 'text-secondary');
-//         }
-
-//         &-detail {
-//             font-family: font.$font-inter;
-//             font-size: 16px;
-//             color: map.get(color.$theme-colors, 'font-hero-detail');
-//             padding: 0px 0px;
-//             line-height: 160%;
-//         }
-//     }
-
-//     &__info-badge {
-//         height: 50px;
-//         width: 200px;
-//         border-radius: 30px;
-//         @include bp.flex-center;
-//         justify-content: space-evenly;
-//         box-shadow: 0px 34px 75px 0px #00000012;
-
-//         &-tagline {
-//             font-family: font.$font-circularStd-bold;
-//             font-size: 0.8rem;
-//             color: map.get(color.$theme-colors, 'text-secondary');
-//         }
-//     }
-
-//     &__info-getStarted {
-//         @include bp.button-primary {
-//             width: 100%;
-//             background-color: map.get(color.$theme-colors, 'btn-primary');
-//             font-size: 14px;
-//             box-shadow: 0px 15px 20px 10px #00000013;
-//             color: map.get(color.$theme-colors, 'text-white');
-//         }
-//     }
-
-//     &__info-watchDemo {
-//         @include bp.button-primary {
-//             width: 100%;
-//             background-color: map.get(color.$theme-colors, 'color-bg');
-//             color: map.get(color.$theme-colors, 'text-primary');
-//             border: 1px solid #eeeeee;
-//         }
-//         @include bp.flex-center;
-//         justify-content: center;
-//         gap: 10px;
-//     }
-
-//     @include bp.md {
-//         width: 90%;
-//     }
-
-//     @include bp.sm {
-//         height: 350px;
-//         width: 100%;
-//     }
-// }
+/* ------- Hero Section -------- */
 
 .hero {
+    @include mixin.flex-center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    display: flex;
     flex-direction: column;
     gap: 30px;
 
-    @include bp.md {
+    @include mixin.media-query('md') {
         gap: clamp(40px, 6vw, 60px);
+    }
+
+    &__design-info-wrapper {
+        @include mixin.flex-center;
+        justify-content: center;
+        height: fit-content;
+        width: 100%;
+
+        @include mixin.media-query('lg') {
+            height: 80vh;
+            width: 80vw;
+            flex-direction: row-reverse;
+        }
+
+        @include mixin.media-query('md') {
+            flex-direction: column;
+            height: fit-content;
+        }
+
+        @include mixin.media-query('sm') {
+            flex-direction: column;
+            height: 50%;
+        }
     }
 
     &__design {
@@ -633,14 +418,19 @@
         position: relative;
         margin: 0 auto;
 
-        @include bp.md {
-            width: 80%;
-            height: 80vh;
+        @include mixin.media-query('lg') {
+            width: 60%;
+            height: 70vh;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('md') {
+            width: 80%;
+            height: 70vh;
+        }
+
+        @include mixin.media-query('sm') {
             width: 100%;
-            height: 50vh;
+            height: 40vh;
         }
     }
 
@@ -659,195 +449,262 @@
     }
 
     &__design-images {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         position: absolute;
         inset: 5px;
         width: 100%;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         gap: 16px;
         z-index: 1;
 
-        @include bp.md {
-            height: 70vh;
-            gap: clamp(20px, 4vw, 36px);
+        @include mixin.media-query('lg') {
+            height: 66vh;
+            gap: 10px;
+            width: 100%;
             padding: 0px 5vw;
-            top: 5vh;
+            top: 2vw;
         }
 
-        @include bp.sm {
-            height: 70%;
+        @include mixin.media-query('md') {
+            height: 66vh;
+            gap: clamp(20px, 4vw, 36px);
+            padding: 0px 5vw;
+            top: 5vw;
+        }
+
+        @include mixin.media-query('sm') {
+            height: 100%;
             top: 1vh;
             padding: 0px 20px;
         }
     }
 
     &__design-images-left {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         height: 100%;
-        width: 48%;
         justify-content: space-evenly;
         flex-direction: column;
         padding: 8px 0;
         position: relative;
+
+        @include mixin.media-query('lg') {
+            width: 30vw;
+        }
+
+        @include mixin.media-query('md') {
+            width: 30vw;
+        }
+
+        @include mixin.media-query('sm') {
+            width: 250px;
+        }
     }
 
     &__design-images-left-wrapper {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         height: 40%;
         width: 100%;
 
         &-travel {
             height: 100%;
-            width: 100%;
             object-fit: cover;
             object-position: center;
-            border-radius: 16px;
+            border-radius: 25px;
 
-            @include bp.md {
-                border-radius: clamp(20px, 2.5vw, 32px);
+            @include mixin.media-query('lg') {
+                width: 80%;
             }
+
+            @include mixin.media-query('md') {
+                width: 30vw;
+            }
+
+            @include mixin.media-query('sm') {
+                width: 30vw;
+            }
+        }
+
+        @include mixin.media-query('lg') {
+            justify-content: center;
+        }
+
+        @include mixin.media-query('md') {
+            justify-content: center;
+        }
+
+        @include mixin.media-query('sm') {
+            justify-content: flex-end;
         }
     }
 
     &__design-images-left-wrapper-send {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         position: absolute;
-        background-color: map.get(color.$theme-colors, 'text-secondary');
+        background-color: color.$color-pink;
         border-radius: 50%;
         justify-content: center;
         box-shadow: 0px 8px 16px 0px #00000046;
         color: #ffffff;
         top: 42%;
 
-        @include bp.md {
+        @include mixin.media-query('lg') {
+            height: 60px;
+            width: 60px;
+            font-size: 30px;
+            left: 0px;
+        }
+
+        @include mixin.media-query('md') {
             height: 60px;
             width: 60px;
             font-size: 30px;
             left: -28px;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             height: 36px;
             width: 36px;
             font-size: 15px;
-            left: -8px;
+            left: 0px;
         }
     }
 
     &__design-images-right {
-        @include bp.flex-center;
-        height: 100%;
-        width: 48%;
+        @include mixin.flex-center;
+        height: 90%;
+        width: 300px;
         justify-content: center;
         align-items: center;
         position: relative;
-        padding: 8px 0;
+        padding: 8px 0px;
 
-        // @include bp.md {
-        //     height: 300px;
-        // }
-
-        @include bp.sm {
-            height: 300px;
+        @include mixin.media-query('sm') {
+            height: 310px;
+            width: 250px;
         }
     }
 
     &__design-images-right-wrapper {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         height: 100%;
-        width: 100%;
-        // background-color: red;
 
         &-travel {
-            width: 100%;
             object-fit: cover;
             object-position: center;
-            border-radius: 16px;
+            border-radius: 25px;
 
-            @include bp.md {
-                height: 60%;
-                border-radius: clamp(20px, 2.5vw, 32px);
+            @include mixin.media-query('lg') {
+                height: 70%;
+                width: 17vw;
             }
 
-            @include bp.sm {
+            @include mixin.media-query('md') {
+                height: 60%;
+                width: 30vw;
+            }
+
+            @include mixin.media-query('sm') {
+                width: 100%;
                 height: 70%;
             }
         }
     }
 
     &__design-images-right-wrapper-location {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         position: absolute;
-        background-color: map.get(color.$theme-colors, 'color-bg');
+        background-color: color.$color-white;
         align-items: center;
         justify-content: center;
         padding: 0 10px;
-        gap: 6px;
         box-shadow: 0px 12px 20px 0px #0000005d;
 
-        @include bp.md {
-            left: clamp(160px, 1vw, 100px);
-            bottom: 190px;
-            height: clamp(40px, 5vw, 52px);
+        @include mixin.media-query('lg') {
+            left: 13vw;
+            bottom: 130px;
+            height: clamp(50px, 5vw, 55px);
+            width: clamp(140px, 15vw, 170px);
+            border-radius: 30px;
+            gap: 8px;
+            font-size: 2rem;
+        }
+
+        @include mixin.media-query('md') {
+            left: 20vw;
+            bottom: 150px;
+            height: clamp(50px, 5vw, 55px);
             width: clamp(140px, 15vw, 170px);
             border-radius: 30px;
             gap: 8px;
             font-size: 1.5rem;
         }
 
-        @include bp.sm {
-            left: 60px;
+        @include mixin.media-query('sm') {
+            gap: 3px;
+            left: 18vw;
             bottom: 70px;
-            height: 32px;
-            width: 100px;
+            height: 7vw;
+            width: 22vw;
+            // max-width: 90px;
             border-radius: 15px;
             font-size: 0.9rem;
         }
 
         &-detail {
             font-family: font.$font-circularStd-bold;
-            font-size: 0.55rem;
             color: #1a1a1a;
 
-            @include bp.md {
+            @include mixin.media-query('lg') {
                 font-size: 1rem;
             }
 
-            @include bp.sm {
-                font-size: 0.7rem;
+            @include mixin.media-query('md') {
+                font-size: 1rem;
+            }
+
+            @include mixin.media-query('sm') {
+                font-size: 0.5rem;
             }
         }
     }
 
     &__design-images-right-person {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         position: absolute;
-        background-color: map.get(color.$theme-colors, 'text-orange');
+        background-color: color.$color-orange;
         border-radius: 50%;
         justify-content: center;
         box-shadow: 0px 8px 16px 0px #00000041;
         color: #ffffff;
 
-        @include bp.md {
-            height: clamp(48px, 6vw, 64px);
-            width: clamp(48px, 6vw, 64px);
-            font-size: clamp(22px, 2.5vw, 28px);
+        @include mixin.media-query('lg') {
+            height: clamp(58px, 6vw, 64px);
+            width: clamp(58px, 6vw, 64px);
+            font-size: clamp(27px, 2.5vw, 28px);
+            bottom: 0px;
+            left: 90px;
+        }
+
+        @include mixin.media-query('md') {
+            height: clamp(58px, 6vw, 64px);
+            width: clamp(58px, 6vw, 64px);
+            font-size: clamp(27px, 2.5vw, 28px);
             bottom: 30px;
             left: 90px;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
             height: 36px;
             width: 36px;
             font-size: 16px;
-            bottom: 0px;
-            left: 40px;
+            top: 28vh;
+            left: 50px;
         }
     }
 
     &__info {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         flex-direction: column;
         position: relative;
         justify-content: center;
@@ -861,51 +718,104 @@
             line-height: 1.25;
             color: #1a1a1a;
 
-            @include bp.md {
+            @include mixin.media-query('lg') {
+                font-size: 68px;
+                text-align: left;
+                width: 400px;
+            }
+
+            @include mixin.media-query('md') {
                 font-size: clamp(42px, 5.5vw, 58px);
+                text-align: center;
+            }
+
+            @include mixin.media-query('sm') {
+                text-align: center;
+                font-size: 40px;
+                width: 100%;
             }
         }
 
         &-highlight-heading {
-            color: map.get(color.$theme-colors, 'text-secondary');
+            color: color.$color-pink;
         }
 
         &-detail {
             font-family: font.$font-inter;
             font-size: 14px;
-            color: map.get(color.$theme-colors, 'font-hero-detail');
+            color: color.$color-primary;
             line-height: 1.6;
 
-            @include bp.md {
+            @include mixin.media-query('lg') {
+                text-align: left;
+                font-size: 18px;
+                width: 300px;
+            }
+
+            @include mixin.media-query('md') {
                 font-size: clamp(14px, 1.2vw, 16px);
+                width: 320px;
+                text-align: center;
+            }
+
+            @include mixin.media-query('sm') {
+                text-align: center;
             }
         }
 
-        @include bp.md {
-            max-width: 650px;
-            margin: 0 auto;
-            gap: clamp(16px, 3vw, 24px);
-            // top: 300px;
+        @include mixin.media-query('lg') {
+            width: 40%;
+            align-items: flex-start;
+            gap: 40px;
         }
 
-        @include bp.sm {
-            bottom: 120px;
+        @include mixin.media-query('md') {
+            width: 80vw;
+            margin: 0 auto;
+            gap: clamp(20px, 3vw, 24px);
+            align-items: center;
+            gap: 40px;
+            top: 50px;
+        }
+
+        @include mixin.media-query('sm') {
+            // bottom: 30vw;
+            top: 20vw;
+            align-items: center;
+            width: 100%;
         }
     }
 
     &__info-badge {
-        height: 36px;
-        width: 160px;
         border-radius: 30px;
-        @include bp.flex-center;
+        @include mixin.flex-center;
         justify-content: space-evenly;
-        box-shadow: 0px 10px 25px 0px #0000002a;
-        background-color: map.get(color.$theme-colors, 'color-bg');
+        background-color: transparent;
 
         &-tagline {
             font-family: font.$font-circularStd-bold;
             font-size: 0.75rem;
-            color: map.get(color.$theme-colors, 'text-secondary');
+            color: color.$color-pink;
+        }
+
+        @include mixin.media-query('lg') {
+            box-shadow: 0px 10px 25px 0px #0000000e;
+            height: 50px;
+            width: 190px;
+        }
+
+        @include mixin.media-query('md') {
+            box-shadow: 0px 10px 25px 0px #0000002a;
+            height: 36px;
+            width: 170px;
+            padding: 10px 10px;
+        }
+
+        @include mixin.media-query('sm') {
+            box-shadow: 0px 10px 25px 0px #0000002a;
+            height: 36px;
+            width: 170px;
+            padding: 10px 10px;
         }
     }
 
@@ -916,7 +826,7 @@
         width: 100%;
         margin-top: 10px;
 
-        @include bp.md {
+        @include mixin.media-query('md') {
             flex-direction: row;
             justify-content: center;
             align-items: center;
@@ -925,61 +835,146 @@
     }
 
     &__info-button-wrapper {
-        @include bp.flex-center;
+        @include mixin.flex-center;
         height: fit-content;
         width: 100%;
-        justify-content: center;
 
-        @include bp.md {
+        @include mixin.media-query('lg') {
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        @include mixin.media-query('md') {
+            justify-content: center;
             flex-direction: row;
             gap: 15px;
         }
 
-        @include bp.sm {
+        @include mixin.media-query('sm') {
+            justify-content: center;
             flex-direction: column;
             gap: 15px;
         }
     }
 
-    &__info-getStarted {
-        @include bp.button-primary {
-            // width: 100%;
-            background-color: map.get(color.$theme-colors, 'btn-primary');
-            font-size: 15px;
-            box-shadow: 0px 12px 24px 0px
-                rgba(map.get(color.$theme-colors, 'btn-primary'), 0.3);
-            color: map.get(color.$theme-colors, 'text-white');
+    // &__info-getStarted {
+    //     @include mixin.button-primary {
+    //         background-color: color.$color-btn;
+    //         font-size: 15px;
+    //         box-shadow: 0px 12px 24px 0px
+    //             rgba(color.$color-btn, 0.3);
+    //         color: color.$color-white;
+    //         // z-index: 2;
 
-            @include bp.md {
-                width: 260px;
-            }
+    //         @include mixin.media-query('lg') {
+    //             height: 60px;
+    //             width: 180px;
+    //         }
 
-            @include bp.sm {
-                width: 100%;
-            }
+    //         @include mixin.media-query('md') {
+    //             width: 200px;
+    //         }
+
+    //         @include mixin.media-query('sm') {
+    //             width: 100%;
+    //         }
+    //     }
+    // }
+
+    // &__info-watchDemo {
+    //     @include mixin.button-primary {
+    //         background-color: color.$color-white;
+    //         color: color.$color-dark;
+    //         box-shadow: 0px 10px 25px 0px #00000008;
+    //         font-size: 15px;
+    //         border: 1px solid rgba(238, 238, 238, 1);
+
+    //         @include mixin.media-query('lg') {
+    //             height: 60px;
+    //             width: 180px;
+    //         }
+
+    //         @include mixin.media-query('md') {
+    //             box-shadow: none;
+    //             width: 200px;
+    //         }
+
+    //         @include mixin.media-query('sm') {
+    //             width: 100%;
+    //         }
+    //     }
+    //     @include mixin.flex-center;
+    //     justify-content: center;
+    //     gap: 10px;
+    // }
+
+    &__triangular-design {
+        position: absolute;
+        height: 170px;
+        width: 65px;
+        // z-index: 1;
+
+        @include mixin.media-query('lg') {
+            display: block;
+            top: 85vh;
+            left: 40px;
+        }
+
+        @include mixin.media-query('md') {
+            display: block;
+            top: 105vh;
+            width: 5vw;
+            height: 15vw;
+            left: 40px;
+        }
+
+        @include mixin.media-query('sm') {
+            display: none;
         }
     }
 
-    &__info-watchDemo {
-        @include bp.button-primary {
-            // width: 100%;
-            background-color: map.get(color.$theme-colors, 'color-bg');
-            color: map.get(color.$theme-colors, 'text-primary');
-            box-shadow: 0px 10px 25px 0px #00000008;
-            font-size: 15px;
-            border: 1px solid rgba(238, 238, 238, 1);
+    &__brand-images-wrapper {
+        @include mixin.flex-center;
+        padding: 0px 0px;
+        justify-content: center;
+        position: relative;
+        flex-wrap: wrap;
+        gap: 20px;
+        min-height: 14vw;
+        max-height: 20vw;
 
-            @include bp.md {
-                box-shadow: none;
-                width: 260px;
-            }
+        @include mixin.media-query('lg') {
+            margin-top: 0px;
+            width: 80vw;
+            justify-content: space-between;
+        }
 
-            @include bp.sm {
-                width: 100%;
+        @include mixin.media-query('md') {
+            margin-top: 100px;
+            width: 80%;
+            justify-content: center;
+        }
+
+        @include mixin.media-query('sm') {
+            margin-top: 100px;
+            justify-content: center;
+            width: 90%;
+        }
+    }
+
+    &__brand-images {
+        height: auto;
+
+        @include mixin.media-query('lg') {
+            width: 15%;
+
+            &:nth-child(4) {
+                width: 10%;
             }
         }
-        @include bp.flex-center;
-        justify-content: center;
-        gap: 10px;
+
+        @include mixin.media-query('md') {
+            width: 25%;
+        }
     }
 }

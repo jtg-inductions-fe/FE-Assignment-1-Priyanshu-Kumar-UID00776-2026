@@ -1,0 +1,19 @@
+@use '../abstracts/colors' as color;
+
+a {
+    color: color.$color-primary;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: color.$color-dark;
+    }
+
+    &:focus {
+        color: color.$color-primary;
+    }
+
+    &--active {
+        color: color.$color-dark;
+    }
+}

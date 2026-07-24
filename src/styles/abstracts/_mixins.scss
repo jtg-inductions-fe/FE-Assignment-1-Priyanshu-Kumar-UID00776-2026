@@ -3,27 +3,20 @@
 @use 'colors' as color;
 @use '../base/typography' as font;
 
-@mixin sm {
-    $size: map.get(var.$breakpoints, 'sm');
-
-    @media (max-width: #{$size}) {
+@mixin media-query($name) {
+    @media (max-width: #{map.get(var.$breakpoints, $name)}) {
         @content;
     }
 }
 
-@mixin md {
-    $size: map.get(var.$breakpoints, 'md');
+@mixin typography($font-map) {
+    @each $breakpoint in ('sm', 'md', 'lg') {
+        $size: map.get(var.$breakpoints, $breakpoint);
 
-    @media (max-width: #{$size}) {
-        @content;
-    }
-}
-
-@mixin lg {
-    $size: map.get(var.$breakpoints, 'lg');
-
-    @media (min-width: #{$size}) {
-        @content;
+        @media (min-width: #{$size}) {
+            font-size: map.get($font-map, $breakpoint, 'size');
+            line-height: map.get($font-map, $breakpoint, 'line-height');
+        }
     }
 }
 
@@ -32,29 +25,29 @@
     align-items: center;
 }
 
-@mixin button-primary {
-    border: none;
-    border-radius: 30px;
-    font-family: font.$font-circularStd-bold;
-    outline: none;
-    font-size: 16px;
-    height: 49px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-    box-sizing: border-box;
-    @content;
-}
+// @mixin button-primary {
+//     border: none;
+//     border-radius: 30px;
+//     font-family: font.$font-circularStd-bold;
+//     outline: none;
+//     font-size: 16px;
+//     height: 49px;
+//     cursor: pointer;
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-decoration: none;
+//     transition: all 0.2s ease-in-out;
+//     box-sizing: border-box;
+//     @content;
+// }
 
-@mixin button-size($padding-y, $padding-x, $width: null, $max-width: null) {
-    padding: $padding-y $padding-x;
-    @if $width {
-        width: $width;
-    }
-    @if $max-width {
-        max-width: $max-width;
-    }
-}
+// @mixin button-size($padding-y, $padding-x, $width: null, $max-width: null) {
+//     padding: $padding-y $padding-x;
+//     @if $width {
+//         width: $width;
+//     }
+//     @if $max-width {
+//         max-width: $max-width;
+//     }
+// }
