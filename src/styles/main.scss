@@ -2,13 +2,12 @@
 @use 'abstracts/colors';
 @use 'abstracts/mixins';
 
-@use 'component/icons';
 @use 'component/anchor';
 @use 'component/button';
+
+@use 'vendors/icons';
 
 @use 'base/reset';
 @use 'base/typography';
 
 @use 'pages/home';
-
-@use 'utiles/pixelToRem';

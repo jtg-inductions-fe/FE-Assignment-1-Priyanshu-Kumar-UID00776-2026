@@ -7,6 +7,13 @@
     overflow: hidden;
 }
 
+.home-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+}
+
 .header {
     @include mixin.flex-center;
     position: relative;
@@ -53,10 +60,10 @@
     &__logo {
         @include mixin.flex-center;
         display: flex;
-        height: 40px;
-        width: 40px;
         z-index: 2;
         flex-shrink: 0;
+        justify-content: center;
+        cursor: pointer;
 
         @include mixin.media-query('sm') {
             margin-left: auto;
@@ -73,6 +80,13 @@
         }
     }
 
+    &__logo-image {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+        object-position: center;
+    }
+
     &__toggle {
         @include mixin.flex-center;
         display: flex;
@@ -83,6 +97,7 @@
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         z-index: 3;
+        font-size: font.$font-size-md;
 
         @include mixin.media-query('lg') {
             display: none;
@@ -102,7 +117,6 @@
 
     &__nav-list {
         @include mixin.flex-center;
-        list-style-type: none;
         flex-direction: row;
         justify-content: space-evenly;
         width: 100%;
@@ -151,6 +165,14 @@
         @include mixin.media-query('lg') {
             display: none;
         }
+    }
+
+    &__dropdown-list-wrapper {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__dropdown-brand {
@@ -236,13 +258,11 @@
             width: 100%;
 
             @include mixin.media-query('md') {
-                visibility: hidden;
-                pointer-events: none;
+                display: none;
             }
 
             @include mixin.media-query('sm') {
-                visibility: visible;
-                pointer-events: auto;
+                display: flex;
             }
         }
 
@@ -267,7 +287,7 @@
 
         .header__toggle {
             order: 1;
-            font-size: font.$font-icon-size;
+            font-size: font.$font-size-icon;
         }
 
         .header__logo {
@@ -280,7 +300,7 @@
 
         .header__toggle {
             order: 1;
-            font-size: font.$font-icon-size;
+            font-size: font.$font-size-icon;
         }
 
         .header__actions--tablet {
@@ -294,7 +314,7 @@
 
         .header__toggle {
             order: 0;
-            font-size: font.$font-icon-size;
+            font-size: font.$font-size-icon;
         }
 
         .header__logo {

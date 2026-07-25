@@ -9,13 +9,11 @@
     }
 }
 
-@mixin typography($font-map) {
-    @each $breakpoint in ('sm', 'md', 'lg') {
-        $size: map.get(var.$breakpoints, $breakpoint);
-
-        @media (min-width: #{$size}) {
-            font-size: map.get($font-map, $breakpoint, 'size');
-            line-height: map.get($font-map, $breakpoint, 'line-height');
+@mixin responsiveFontApply($font-map) {
+    @each $name, $width in var.$breakpoints {
+        @media (min-width: #{$width}) {
+            font-size: map.get($font-map, $name, 'font-size');
+            line-height: map.get($font-map, $name, 'font-line-height');
         }
     }
 }

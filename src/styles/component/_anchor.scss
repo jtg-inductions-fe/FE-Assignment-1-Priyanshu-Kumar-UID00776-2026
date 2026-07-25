@@ -1,16 +1,18 @@
 @use '../abstracts/colors' as color;
 
-a {
+.nav-link {
     color: color.$color-primary;
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 
-    &:hover {
-        color: color.$color-dark;
-    }
+    &--primary {
+        &:hover {
+            color: color.$color-dark;
+        }
 
-    &:focus {
-        color: color.$color-primary;
+        &:focus {
+            color: color.$color-primary;
+        }
     }
 
     &--active {

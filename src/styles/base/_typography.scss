@@ -1,86 +1,77 @@
+@use '../abstracts/functions' as func;
+
+/*------------Font Family-------------*/
 $font-inter: 'Inter', Arial, sans-serif;
 $font-circularStd-light: 'Circular-Std-Light', arial, sans-serif;
 $font-circularStd-bold: 'Circular-Std-Bold', arial, sans-serif;
 $font-icons: 'Untitled';
 
-$font-size-sm: 14px;
-$font-size-md: 18px;
-$font-size-lg: 23px;
-$font-size-xl: 28px;
-$font-icon-size: 40px;
+$font-size-sm: func.pixelToRemConvertor(14);
+$font-size-md: func.pixelToRemConvertor(18);
+$font-size-lg: func.pixelToRemConvertor(23);
+$font-size-xl: func.pixelToRemConvertor(28);
+$font-size-icon: func.pixelToRemConvertor(40);
 
 $hero-heading-font: (
     'sm': (
-        'size': 40px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(40),
+        'font-line-height': 1.2,
     ),
     'md': (
-        'size': 56px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(56),
+        'font-line-height': 1.2,
     ),
     'lg': (
-        'size': 69px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(69),
+        'font-line-height': 1.2,
     ),
 );
 
 $description-font: (
     'sm': (
-        'size': 16px,
-        'line-height': 160%,
+        'font-size': func.pixelToRemConvertor(16),
+        'font-line-height': 1.6,
     ),
     'md': (
-        'size': 18px,
-        'line-height': 160%,
-    ),
-    'lg': (
-        'size': 18px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(18),
+        'font-line-height': 1.6,
     ),
 );
 
 $section-tagline-font: (
     'sm': (
-        'size': 16px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(16),
+        'font-line-height': 1.2,
     ),
     'md': (
-        'size': 23px,
-        'line-height': 120%,
-    ),
-    'lg': (
-        'size': 23px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(23),
+        'font-line-height': 1.2,
     ),
 );
 
 $section-heading-font: (
     'sm': (
-        'size': 32px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(32),
+        'font-line-height': 1.2,
     ),
     'md': (
-        'size': 40px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(40),
+        'font-line-height': 1.2,
     ),
     'lg': (
-        'size': 44px,
-        'line-height': 120%,
+        'font-size': func.pixelToRemConvertor(44),
+        'font-line-height': 1.2,
     ),
 );
 
 $testimonial-description-font: (
     'sm': (
-        'size': 18px,
-        'line-height': 160%,
+        'font-size': func.pixelToRemConvertor(18),
+        'font-line-height': 1.6,
     ),
     'md': (
-        'size': 23px,
-        'line-height': 160%,
-    ),
-    'lg': (
-        'size': 23px,
-        'line-height': 160%,
+        'font-size': func.pixelToRemConvertor(23),
+        'font-line-height': 1.6,
     ),
 );
 
@@ -105,20 +96,4 @@ $testimonial-description-font: (
     src: url('/fonts/inter/Inter_18pt-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'Untitled';
-    src:
-        url('/fonts/icons/Untitled.woff2') format('woff2'),
-        url('/fonts/icons/Untitled.ttf') format('truetype'),
-        url('/fonts/icons/Untitled.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-@font-palette-values --palette0 {
-    font-family: 'Untitled';
-    base-palette: 0;
 }

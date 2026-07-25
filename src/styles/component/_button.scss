@@ -5,74 +5,67 @@
 @use '../base/typography' as font;
 
 .btn {
+    height: 49px;
     border: none;
     border-radius: var.$btn-radius;
     font-family: font.$font-circularStd-bold;
-    outline: none;
     font-size: font.$font-size-sm;
-    height: 49px;
+    outline: none;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
-    &:hover {
-        transition: all 0.2s ease-in-out;
+    &:focus-visible {
+        outline: 2px solid color.$color-btn;
+        outline-offset: 2px;
     }
 
-    &--signup,
-    &--login {
+    &--primary {
         background-color: color.$color-btn;
         color: color.$color-white;
-        width: 100%;
-
-        @include mixin.media-query('sm') {
-            display: block;
-        }
-
-        @include mixin.media-query('md') {
-            display: none;
-        }
-
-        @include mixin.media-query('lg') {
-            display: block;
-        }
-    }
-
-    &--signup-tablet {
-        background-color: color.$color-btn;
-        color: color.$color-white;
-        max-width: 130px;
-
-        @include mixin.media-query('md') {
-            padding: 10px 15px;
-            width: 90px;
-        }
-
-        @include mixin.media-query('lg') {
-            padding: 16px 12px;
-        }
 
         &:hover {
             background-color: #4c3ebc;
         }
     }
 
-    &--login-tablet {
+    &--dropdown-button {
+        width: 100%;
+
+        @include mixin.media-query('sm') {
+            display: block;
+        }
+        @include mixin.media-query('md') {
+            display: none;
+        }
+    }
+
+    &--transparent {
         background-color: transparent;
         color: color.$color-primary;
-        max-width: 130px;
-
-        @include mixin.media-query('md') {
-            padding: 10px 15px;
-            width: 90px;
-            color: color.$color-primary;
-        }
-
-        @include mixin.media-query('lg') {
-            padding: 16px 12px;
-            color: color.$color-primary;
-        }
 
         &:hover {
             background-color: color.$color-hover;
+        }
+    }
+
+    &--responsive-nav {
+        width: 100%;
+        max-width: 130px;
+        padding: 16px 12px;
+
+        @include mixin.media-query('sm') {
+            display: none;
+        }
+
+        @include mixin.media-query('md') {
+            display: block;
+            padding: 10px 15px;
+            width: 110px;
+        }
+
+        @include mixin.media-query('lg') {
+            display: block;
+            padding: 16px 12px;
         }
     }
 }
