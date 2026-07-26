@@ -15,333 +15,358 @@
         />
     </head>
     <body>
-        <div class="home-layout">
-            <header class="header">
-                <div class="header__background"></div>
+        <header class="header">
+            <div class="header__background"></div>
 
-                <a href="/" class="header__logo" aria-label="Travel Point Logo">
-                    <img
-                        src="/assets/images/logo.png"
-                        alt="Travel Point Logo"
-                        class="header__logo-image"
-                    />
-                </a>
+            <a href="/" class="header__logo" aria-label="Travel Point Logo">
+                <img
+                    src="/assets/images/logo.png"
+                    alt="Travel Point Logo"
+                    class="header__logo-image"
+                />
+            </a>
 
-                <button
-                    class="header__toggle"
-                    type="button"
-                    id="header-toggle"
-                    aria-label="Toggle Menu"
-                    aria-expanded="false"
-                    aria-controls="header-dropdown"
-                >
-                    <span class="icon toggle-icon-open" aria-hidden="true"
-                        ></span
+            <button
+                class="header__toggle"
+                type="button"
+                id="header-toggle"
+                aria-label="Toggle Menu"
+                aria-expanded="false"
+                aria-controls="header-dropdown"
+            >
+                <span class="icon toggle-icon-open" aria-hidden="true"></span>
+
+                <span class="icon toggle-icon-close" hidden aria-hidden="true">
+                    <svg
+                        width="40"
+                        height="40"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        stroke="#ffffff"
                     >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g
+                            id="SVGRepo_tracerCarrier"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        ></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M6 6L18 18"
+                                stroke="#000000"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            ></path>
+                            <path
+                                d="M18 6L6 18"
+                                stroke="#000000"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            ></path>
+                        </g>
+                    </svg>
+                </span>
+            </button>
 
-                    <span
-                        class="icon toggle-icon-close"
-                        hidden
-                        aria-hidden="true"
-                    >
+            <nav class="header__nav" aria-label="Navigation Links">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a
+                            href="/"
+                            class="header__nav-link nav-link nav-link--primary"
+                            >Home</a
+                        >
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                            href="/"
+                            class="header__nav-link nav-link nav-link--primary"
+                            >Discover</a
+                        >
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                            href="/"
+                            class="header__nav-link nav-link nav-link--primary"
+                            >Special Deals</a
+                        >
+                    </li>
+                    <li class="header__nav-item">
+                        <a
+                            href="/"
+                            class="header__nav-link nav-link nav-link--primary"
+                            >Contact</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+
+            <div
+                class="header__dropdown"
+                aria-label="Mobile Dropdown Menu"
+                id="header-dropdown"
+            >
+                <div class="header__dropdown-brand">
+                    <div class="header__dropdown-logo" aria-hidden="true">
                         <svg
                             width="40"
                             height="40"
-                            viewBox="0 0 24 24"
+                            viewBox="0 0 40 40"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            stroke="#ffffff"
                         >
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g
-                                id="SVGRepo_tracerCarrier"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            ></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M6 6L18 18"
-                                    stroke="#000000"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                ></path>
-                                <path
-                                    d="M18 6L6 18"
-                                    stroke="#000000"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                ></path>
-                            </g>
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M8.55273 3.59787C7.12207 4.59823 5.82837 5.78098 4.70532 7.1124C9.29462 6.68633 15.1252 7.38204 21.8944 10.7667C29.123 14.3809 34.9438 14.5031 38.9948 13.7217C38.6272 12.6088 38.1644 11.5392 37.6163 10.5224C32.979 11.0115 27.034 10.3641 20.1056 6.89998C15.706 4.70018 11.8278 3.79401 8.55273 3.59787ZM34.9074 6.66665C31.2453 2.575 25.9234 0 20 0C18.2605 0 16.5727 0.222107 14.9637 0.63948C17.1429 1.23409 19.4579 2.10399 21.8944 3.32227C26.967 5.85853 31.3464 6.67516 34.9074 6.66665ZM39.8609 17.6281C34.9669 18.5945 28.2088 18.396 20.1056 14.3444C12.53 10.5566 6.50043 10.6043 2.4339 11.508C2.224 11.5546 2.01904 11.6036 1.81903 11.6546C1.28662 12.8125 0.861634 14.0301 0.556702 15.2945C0.882386 15.2075 1.21893 15.1248 1.56616 15.0476C6.49957 13.9513 13.4701 13.9989 21.8944 18.2111C29.4701 21.9989 35.4996 21.9512 39.5662 21.0475C39.7055 21.0166 39.8428 20.9846 39.9778 20.9516C39.9926 20.6363 40 20.319 40 20C40 19.1975 39.9528 18.406 39.8609 17.6281ZM39.3248 25.1723C34.4783 26.0196 27.917 25.6944 20.1056 21.7888C12.53 18.001 6.50043 18.0487 2.4339 18.9524C1.53125 19.1529 0.719239 19.3972 0.00293 19.6551C0.000977 19.7698 0 19.8848 0 20C0 31.0457 8.95429 40 20 40C29.2571 40 37.0453 33.7109 39.3248 25.1723Z"
+                                fill="url(#header-dropdown-logo-gradient)"
+                            />
+                            <defs>
+                                <linearGradient
+                                    id="header-dropdown-logo-gradient"
+                                    x1="36"
+                                    y1="43.2"
+                                    x2="-3.73321"
+                                    y2="35.5931"
+                                    gradientUnits="userSpaceOnUse"
+                                >
+                                    <stop stop-color="#5D50C6" />
+                                    <stop offset="1" stop-color="#F85E9F" />
+                                </linearGradient>
+                            </defs>
                         </svg>
-                    </span>
-                </button>
-
-                <nav class="header__nav" aria-label="Navigation Links">
-                    <ul class="header__nav-list">
-                        <li class="header__nav-item">
+                    </div>
+                    <span class="header__dropdown-name">Travel Point</span>
+                </div>
+                <nav class="header__dropdown-list-wrapper">
+                    <ul class="header__dropdown-list">
+                        <li class="header__dropdown-item">
                             <a
                                 href="/"
-                                class="header__nav-link nav-link nav-link--primary"
+                                class="header__dropdown-link nav-link nav-link--primary"
                                 >Home</a
                             >
                         </li>
-                        <li class="header__nav-item">
+                        <li class="header__dropdown-item">
                             <a
                                 href="/"
-                                class="header__nav-link nav-link nav-link--primary"
+                                class="header__dropdown-link nav-link nav-link--primary"
                                 >Discover</a
                             >
                         </li>
-                        <li class="header__nav-item">
+                        <li class="header__dropdown-item">
                             <a
                                 href="/"
-                                class="header__nav-link nav-link nav-link--primary"
+                                class="header__dropdown-link nav-link nav-link--primary"
                                 >Special Deals</a
                             >
                         </li>
-                        <li class="header__nav-item">
+                        <li class="header__dropdown-item">
                             <a
                                 href="/"
-                                class="header__nav-link nav-link nav-link--primary"
+                                class="header__dropdown-link nav-link nav-link--primary"
                                 >Contact</a
                             >
                         </li>
                     </ul>
                 </nav>
 
-                <div
-                    class="header__dropdown"
-                    aria-label="Mobile Dropdown Menu"
-                    id="header-dropdown"
-                >
-                    <div class="header__dropdown-brand">
-                        <div class="header__dropdown-logo" aria-hidden="true">
-                            <svg
-                                width="40"
-                                height="40"
-                                viewBox="0 0 40 40"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    d="M8.55273 3.59787C7.12207 4.59823 5.82837 5.78098 4.70532 7.1124C9.29462 6.68633 15.1252 7.38204 21.8944 10.7667C29.123 14.3809 34.9438 14.5031 38.9948 13.7217C38.6272 12.6088 38.1644 11.5392 37.6163 10.5224C32.979 11.0115 27.034 10.3641 20.1056 6.89998C15.706 4.70018 11.8278 3.79401 8.55273 3.59787ZM34.9074 6.66665C31.2453 2.575 25.9234 0 20 0C18.2605 0 16.5727 0.222107 14.9637 0.63948C17.1429 1.23409 19.4579 2.10399 21.8944 3.32227C26.967 5.85853 31.3464 6.67516 34.9074 6.66665ZM39.8609 17.6281C34.9669 18.5945 28.2088 18.396 20.1056 14.3444C12.53 10.5566 6.50043 10.6043 2.4339 11.508C2.224 11.5546 2.01904 11.6036 1.81903 11.6546C1.28662 12.8125 0.861634 14.0301 0.556702 15.2945C0.882386 15.2075 1.21893 15.1248 1.56616 15.0476C6.49957 13.9513 13.4701 13.9989 21.8944 18.2111C29.4701 21.9989 35.4996 21.9512 39.5662 21.0475C39.7055 21.0166 39.8428 20.9846 39.9778 20.9516C39.9926 20.6363 40 20.319 40 20C40 19.1975 39.9528 18.406 39.8609 17.6281ZM39.3248 25.1723C34.4783 26.0196 27.917 25.6944 20.1056 21.7888C12.53 18.001 6.50043 18.0487 2.4339 18.9524C1.53125 19.1529 0.719239 19.3972 0.00293 19.6551C0.000977 19.7698 0 19.8848 0 20C0 31.0457 8.95429 40 20 40C29.2571 40 37.0453 33.7109 39.3248 25.1723Z"
-                                    fill="url(#header-dropdown-logo-gradient)"
-                                />
-                                <defs>
-                                    <linearGradient
-                                        id="header-dropdown-logo-gradient"
-                                        x1="36"
-                                        y1="43.2"
-                                        x2="-3.73321"
-                                        y2="35.5931"
-                                        gradientUnits="userSpaceOnUse"
-                                    >
-                                        <stop stop-color="#5D50C6" />
-                                        <stop offset="1" stop-color="#F85E9F" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
-                        <span class="header__dropdown-name">Travel Point</span>
-                    </div>
-                    <nav class="header__dropdown-list-wrapper">
-                        <ul class="header__dropdown-list">
-                            <li class="header__dropdown-item">
-                                <a
-                                    href="/"
-                                    class="header__dropdown-link nav-link nav-link--primary"
-                                    >Home</a
-                                >
-                            </li>
-                            <li class="header__dropdown-item">
-                                <a
-                                    href="/"
-                                    class="header__dropdown-link nav-link nav-link--primary"
-                                    >Discover</a
-                                >
-                            </li>
-                            <li class="header__dropdown-item">
-                                <a
-                                    href="/"
-                                    class="header__dropdown-link nav-link nav-link--primary"
-                                    >Special Deals</a
-                                >
-                            </li>
-                            <li class="header__dropdown-item">
-                                <a
-                                    href="/"
-                                    class="header__dropdown-link nav-link nav-link--primary"
-                                    >Contact</a
-                                >
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <div class="header__actions header__actions--dropdown">
-                        <button
-                            type="button"
-                            class="btn btn--primary btn--dropdown-button"
-                            aria-label="Login"
-                        >
-                            Login
-                        </button>
-                        <button
-                            type="button"
-                            class="btn btn--primary btn--dropdown-button"
-                            aria-label="Sign Up"
-                        >
-                            Sign Up
-                        </button>
-                    </div>
-                </div>
-
-                <div class="header__actions header__actions--tablet">
+                <div class="header__actions header__actions--dropdown">
                     <button
                         type="button"
-                        class="btn btn--transparent btn--responsive-nav"
+                        class="btn btn--primary btn--dropdown-button"
                         aria-label="Login"
                     >
                         Login
                     </button>
                     <button
                         type="button"
-                        class="btn btn--primary btn--responsive-nav"
+                        class="btn btn--primary btn--dropdown-button"
                         aria-label="Sign Up"
                     >
                         Sign Up
                     </button>
                 </div>
-            </header>
+            </div>
 
-            <main class="hero">
-                <div class="hero__design-info-wrapper">
-                    <div class="hero__design">
-                        <div class="hero__design-earth">
-                            <img
-                                src="/assets/images/earth.png"
-                                alt="Earth Image"
-                                class="hero__design-earth-image"
-                            />
-                        </div>
-                        <div class="hero__design-images">
-                            <div class="hero__design-images-left">
-                                <div class="hero__design-images-left-wrapper">
-                                    <img
-                                        src="/assets/images/image1.jpg"
-                                        alt="Travel Image"
-                                        class="hero__design-images-left-wrapper-travel"
-                                    />
-                                    <div
-                                        class="hero__design-images-left-wrapper-send"
-                                    >
-                                        <span class="icon"></span>
-                                    </div>
-                                </div>
-                                <div class="hero__design-images-left-wrapper">
-                                    <img
-                                        src="/assets/images/image2.jpg"
-                                        alt="Travel Image"
-                                        class="hero__design-images-left-wrapper-travel"
-                                    />
-                                </div>
+            <div class="header__actions header__actions--tablet">
+                <button
+                    type="button"
+                    class="btn btn--transparent btn--responsive-nav"
+                    aria-label="Login"
+                >
+                    Login
+                </button>
+                <button
+                    type="button"
+                    class="btn btn--primary btn--responsive-nav"
+                    aria-label="Sign Up"
+                >
+                    Sign Up
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="home-layout">
+                <div class="hero">
+                    <div class="hero__design-info-wrapper">
+                        <div class="hero__design">
+                            <div class="hero__design-earth">
+                                <img
+                                    src="/assets/images/earth.png"
+                                    alt="Earth Image"
+                                    class="hero__design-earth-image"
+                                />
                             </div>
-                            <div class="hero__design-images-right">
-                                <div class="hero__design-images-right-wrapper">
-                                    <img
-                                        src="/assets/images/image3.jpg"
-                                        alt="Travel Image"
-                                        class="hero__design-images-right-wrapper-travel"
-                                    />
+                            <div class="hero__design-images">
+                                <div class="hero__design-images-left">
                                     <div
-                                        class="hero__design-images-right-wrapper-location"
+                                        class="hero__design-images-left-wrapper"
                                     >
-                                        <span class="icon"></span>
-                                        <span
-                                            class="hero__design-images-right-wrapper-location-detail"
-                                            >Top Places</span
+                                        <img
+                                            src="/assets/images/image1.jpg"
+                                            alt="Travel Image"
+                                            class="hero__design-images-left-wrapper-travel"
+                                        />
+                                        <div
+                                            class="hero__design-images-left-wrapper-send"
                                         >
+                                            <span class="icon"></span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="hero__design-images-left-wrapper"
+                                    >
+                                        <img
+                                            src="/assets/images/image2.jpg"
+                                            alt="Travel Image"
+                                            class="hero__design-images-left-wrapper-travel"
+                                        />
                                     </div>
                                 </div>
-                                <div class="hero__design-images-right-person">
-                                    <span class="icon"></span>
+                                <div class="hero__design-images-right">
+                                    <div
+                                        class="hero__design-images-right-wrapper"
+                                    >
+                                        <img
+                                            src="/assets/images/image3.jpg"
+                                            alt="Travel Image"
+                                            class="hero__design-images-right-wrapper-travel"
+                                        />
+                                        <div
+                                            class="hero__design-images-right-wrapper-location"
+                                        >
+                                            <span class="icon"></span>
+                                            <span
+                                                class="hero__design-images-right-wrapper-location-detail"
+                                                >Top Places</span
+                                            >
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="hero__design-images-right-person"
+                                    >
+                                        <span class="icon"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="hero__info">
-                        <div class="hero__info-badge">
-                            <span class="hero__info-badge-tagline"
-                                >Explore the world!</span
-                            >
-                            <span class="icon"></span>
-                        </div>
-                        <h1 class="hero__info-heading">
-                            Travel
-                            <span class="hero__info-highlight-heading"
-                                >top destination</span
-                            >
-                            of the world
-                        </h1>
-                        <p class="hero__info-detail">
-                            We always make our customer happy by providing as
-                            many choices as possible
-                        </p>
-                        <div class="hero__info-button-wrapper">
-                            <button
-                                class="btn btn--primary btn--primary-hero-section-button"
-                                type="button"
-                                aria-label="Get Started Button"
-                            >
-                                Get Started
-                            </button>
-                            <button
-                                class="btn btn--transparent btn--transparent-hero-section-button"
-                                type="button"
-                                aria-label="Get Watch Demo Button"
-                            >
-                                <span class="icon"></span>
+                        <div class="hero__info">
+                            <div class="hero__info-badge">
+                                <span class="hero__info-badge-tagline"
+                                    >Explore the world!</span
+                                >
+                                <span class="icon"></span>
+                            </div>
+                            <h1 class="hero__info-heading">
+                                Travel
+                                <span class="hero__info-highlight-heading"
+                                    >top destination</span
+                                >
+                                of the world
+                            </h1>
+                            <p class="hero__info-detail">
+                                We always make our customer happy by providing
+                                as many choices as possible
+                            </p>
+                            <div class="hero__info-button-wrapper">
+                                <button
+                                    class="btn btn--primary btn--primary-hero-section-button"
+                                    type="button"
+                                    aria-label="Get Started Button"
+                                >
+                                    Get Started
+                                </button>
+                                <button
+                                    class="btn btn--transparent btn--transparent-hero-section-button"
+                                    type="button"
+                                    aria-label="Get Watch Demo Button"
+                                >
+                                    <span class="icon"></span>
 
-                                Watch Demo
-                            </button>
+                                    Watch Demo
+                                </button>
+                            </div>
                         </div>
                     </div>
+                    <img
+                        src="/assets/images/triangular-dotted-design.png"
+                        alt="Try it now"
+                        class="hero__triangular-design"
+                    />
+                    <div class="hero__brand-images-wrapper">
+                        <img
+                            src="/assets/images/trip-advisor.png"
+                            alt=" Trip Advisor"
+                            class="hero__brand-images"
+                        />
+                        <img
+                            src="/assets/images/expedia.png"
+                            alt=" Expedia"
+                            class="hero__brand-images"
+                        />
+                        <img
+                            src="/assets/images/booking-com.png"
+                            alt="Booking.com"
+                            class="hero__brand-images"
+                        />
+                        <img
+                            src="/assets/images/air-bnb.png"
+                            alt="Airbnb"
+                            class="hero__brand-images"
+                        />
+                        <img
+                            src="/assets/images/orbitz.png"
+                            alt="Orbitz"
+                            class="hero__brand-images"
+                        />
+                    </div>
                 </div>
+            </section>
+
+            <section class="travel-point">
+                <div class="travel-point__gradient-background"></div>
                 <img
-                    src="/assets/images/triangular-dotted-design.png"
-                    alt="Try it now"
-                    class="hero__triangular-design"
+                    src="/assets/images/travelPoint.webp"
+                    alt="Travel Point"
+                    class="travel-point__main-image"
                 />
-                <div class="hero__brand-images-wrapper">
-                    <img
-                        src="/assets/images/trip-advisor.png"
-                        alt=" Trip Advisor"
-                        class="hero__brand-images"
-                    />
-                    <img
-                        src="/assets/images/expedia.png"
-                        alt=" Expedia"
-                        class="hero__brand-images"
-                    />
-                    <img
-                        src="/assets/images/booking-com.png"
-                        alt="Booking.com"
-                        class="hero__brand-images"
-                    />
-                    <img
-                        src="/assets/images/air-bnb.png"
-                        alt="Airbnb"
-                        class="hero__brand-images"
-                    />
-                    <img
-                        src="/assets/images/orbitz.png"
-                        alt="Orbitz"
-                        class="hero__brand-images"
-                    />
+                <div class="travel-point__info">
+                    <p class="travel-point__tagline">TRAVEL POINT</p>
+                    <h2 class="travel-point__heading">
+                        We helping you find your dream location
+                    </h2>
+                    <p class="travel-point__description">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC.
+                    </p>
+                    <div class="travel-point__cards-wrapper"></div>
                 </div>
-            </main>
-        </div>
+            </section>
+        </main>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

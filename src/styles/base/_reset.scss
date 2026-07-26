@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
 
 * {
     box-sizing: border-box;
@@ -8,7 +9,9 @@
 }
 
 body {
+    @include mixin.flex-center;
     background-color: color.$color-white;
+    flex-direction: column;
 }
 
 ul,
