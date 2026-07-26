@@ -5,119 +5,101 @@
 @use '../base/typography' as font;
 
 .btn {
+    height: 50px;
     border: none;
     border-radius: var.$btn-radius;
     font-family: font.$font-circularStd-bold;
     font-size: font.$font-size-sm;
-    height: 49px;
+    justify-content: center;
+    outline: none;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 
     &:hover {
         transform: scale(105%);
         transition: all 0.2s ease-in-out;
     }
 
-    &--signup,
-    &--login {
+    &:focus-visible {
+        outline: 2px solid color.$color-btn;
+        outline-offset: 2px;
+    }
+
+    &--primary {
         background-color: color.$color-btn;
         color: color.$color-white;
+        box-shadow: 0px 12px 24px 0px rgba(color.$color-dark, 0.3);
+
+        &:hover {
+            background-color: #4c3ebc;
+        }
+
+        &-hero-section-button {
+            @include mixin.media-query('md') {
+                max-width: 200px;
+                width: 170px;
+            }
+
+            @include mixin.media-query('sm') {
+                width: 100%;
+            }
+        }
+    }
+
+    &--dropdown-button {
         width: 100%;
 
         @include mixin.media-query('sm') {
             display: block;
         }
-
         @include mixin.media-query('md') {
             display: none;
         }
-
-        @include mixin.media-query('lg') {
-            display: block;
-        }
     }
 
-    &--signup-tablet {
-        background-color: color.$color-btn;
-        color: color.$color-white;
-
-        @include mixin.media-query('lg') {
-            padding: 16px 12px;
-            width: 130px;
-        }
-
-        @include mixin.media-query('md') {
-            padding: 10px 15px;
-            width: 90px;
-        }
-
-        &:hover {
-            background-color: #4c3ebc;
-        }
-    }
-
-    &--login-tablet {
+    &--transparent {
+        @include mixin.flex-center;
+        justify-content: center;
         background-color: transparent;
         color: color.$color-dark;
-        max-width: 130px;
-
-        @include mixin.media-query('lg') {
-            padding: 16px 12px;
-            width: 130px;
-        }
-
-        @include mixin.media-query('md') {
-            padding: 10px 15px;
-            width: 90px;
-        }
 
         &:hover {
             background-color: color.$color-hover;
         }
-    }
 
-    &--getStarted {
-        background-color: color.$color-btn;
-        font-size: 15px;
-        box-shadow: 0px 12px 24px 0px rgba(color.$color-btn, 0.3);
-        color: color.$color-white;
+        &-hero-section-button {
+            @include mixin.media-query('md') {
+                max-width: 200px;
+                outline: 1px solid color.$color-button-border;
+                width: 170px;
+            }
 
-        @include mixin.media-query('lg') {
-            height: 60px;
-            width: 180px;
-        }
-
-        @include mixin.media-query('md') {
-            width: 200px;
-        }
-
-        @include mixin.media-query('sm') {
-            width: 100%;
+            @include mixin.media-query('sm') {
+                outline: 1px solid color.$color-button-border;
+                width: 100%;
+                gap: 10px;
+            }
         }
     }
 
-    &--watchDemo {
-        background-color: color.$color-white;
-        color: color.$color-dark;
-        box-shadow: 0px 10px 25px 0px #00000008;
-        font-size: 15px;
-        border: 1px solid rgba(238, 238, 238, 1);
+    &--responsive-nav {
+        width: 100%;
+        max-width: 130px;
+        padding: 16px 12px;
 
-        @include mixin.media-query('lg') {
-            height: 60px;
-            width: 180px;
+        @include mixin.media-query('sm') {
+            display: none;
         }
 
         @include mixin.media-query('md') {
-            box-shadow: none;
-            width: 200px;
+            display: block;
+            padding: 10px 15px;
+            width: 110px;
         }
 
-        @include mixin.media-query('sm') {
-            width: 100%;
+        @include mixin.media-query('lg') {
+            display: block;
+            padding: 16px 12px;
         }
-
-        @include mixin.flex-center;
-        justify-content: center;
-        gap: 10px;
     }
 }

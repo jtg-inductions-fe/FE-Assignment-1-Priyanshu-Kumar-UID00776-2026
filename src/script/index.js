@@ -1,47 +1,34 @@
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
 
-let isOpen = false;
+const openIcon = toggleButton.querySelector('.toggle-icon-open');
+const closeIcon = toggleButton.querySelector('.toggle-icon-close');
 
-const closeIcon = `
-    <svg
-        width="40"
-        height="40"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="#ffffff"
-    >
-        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-        <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        ></g>
-        <g id="SVGRepo_iconCarrier">
-            <path
-                d="M6 6L18 18"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-            ></path>
-            <path
-                d="M18 6L6 18"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-            ></path>
-        </g>
-    </svg>
-`;
+function setMenuState(shouldOpen) {
+    toggleButton.setAttribute('aria-expanded', shouldOpen);
+    dropdown.hidden = !shouldOpen;
 
-const openIcon = `
-   <span class="icon"></span>
-`;
+    dropdown.classList.toggle('header__dropdown--is-open', shouldOpen);
+    document.body.classList.toggle('no-scroll', shouldOpen);
+
+    openIcon.hidden = shouldOpen;
+    closeIcon.hidden = !shouldOpen;
+}
 
 toggleButton.addEventListener('click', () => {
-    isOpen = !isOpen;
-    dropdown.classList.toggle('header__dropdown--is-open', isOpen);
-    document.body.classList.toggle('no-scroll', isOpen);
-    toggleButton.innerHTML = isOpen ? closeIcon : openIcon;
+    const isCurrentlyOpen =
+        toggleButton.getAttribute('aria-expanded') === 'true';
+    setMenuState(!isCurrentlyOpen);
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        const isMenuOpen =
+            toggleButton.getAttribute('aria-expanded') === 'true';
+
+        if (isMenuOpen) {
+            setMenuState(false);
+            toggleButton.focus();
+        }
+    }
 });

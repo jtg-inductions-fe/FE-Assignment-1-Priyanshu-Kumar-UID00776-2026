@@ -4,18 +4,16 @@
 @use '../base/typography' as font;
 
 @mixin media-query($name) {
-    @media (max-width: #{map.get(var.$breakpoints, $name)}) {
+    @media (min-width: #{map.get(var.$breakpoints, $name)}) {
         @content;
     }
 }
 
-@mixin typography($font-map) {
-    @each $breakpoint in ('sm', 'md', 'lg') {
-        $size: map.get(var.$breakpoints, $breakpoint);
-
-        @media (min-width: #{$size}) {
-            font-size: map.get($font-map, $breakpoint, 'size');
-            line-height: map.get($font-map, $breakpoint, 'line-height');
+@mixin responsiveFontApply($font-map) {
+    @each $name, $width in var.$breakpoints {
+        @media (min-width: #{$width}) {
+            font-size: map.get($font-map, $name, 'font-size');
+            line-height: map.get($font-map, $name, 'font-line-height');
         }
     }
 }
@@ -24,30 +22,3 @@
     display: flex;
     align-items: center;
 }
-
-// @mixin button-primary {
-//     border: none;
-//     border-radius: 30px;
-//     font-family: font.$font-circularStd-bold;
-//     outline: none;
-//     font-size: 16px;
-//     height: 49px;
-//     cursor: pointer;
-//     display: inline-flex;
-//     align-items: center;
-//     justify-content: center;
-//     text-decoration: none;
-//     transition: all 0.2s ease-in-out;
-//     box-sizing: border-box;
-//     @content;
-// }
-
-// @mixin button-size($padding-y, $padding-x, $width: null, $max-width: null) {
-//     padding: $padding-y $padding-x;
-//     @if $width {
-//         width: $width;
-//     }
-//     @if $max-width {
-//         max-width: $max-width;
-//     }
-// }

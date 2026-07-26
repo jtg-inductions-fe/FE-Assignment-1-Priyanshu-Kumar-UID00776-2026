@@ -1,12 +1,20 @@
 @use '../abstracts/mixins' as mixin;
 @use '../abstracts/colors' as color;
 @use '../base/typography' as font;
+@use 'sass:map';
 
 .no-scroll {
     overflow: hidden;
 }
 
-/* ------- Header Section -------- */
+.home-layout {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+}
 
 .header {
     @include mixin.flex-center;
@@ -24,13 +32,13 @@
         z-index: -1;
         pointer-events: none;
 
-        @include mixin.media-query('lg') {
+        @include mixin.media-query('sm') {
             top: 0px;
-            right: 66vw;
-            width: 503px;
-            height: 494px;
+            right: 130px;
+            width: 272px;
+            height: 348px;
             background-color: color.$color-orange;
-            filter: blur(130px);
+            filter: blur(110px);
         }
 
         @include mixin.media-query('md') {
@@ -42,31 +50,42 @@
             filter: blur(130px);
         }
 
-        @include mixin.media-query('sm') {
-            bottom: 0px;
-            right: 0px;
-            width: 272px;
-            height: 348px;
+        @include mixin.media-query('lg') {
+            top: 0px;
+            right: 66vw;
+            width: 503px;
+            height: 494px;
             background-color: color.$color-orange;
-            filter: blur(100px);
+            filter: blur(130px);
         }
     }
 
     &__logo {
         @include mixin.flex-center;
         display: flex;
-        height: 40px;
-        width: 40px;
         z-index: 2;
         flex-shrink: 0;
+        justify-content: center;
+        cursor: pointer;
+
+        @include mixin.media-query('sm') {
+            display: block;
+        }
 
         @include mixin.media-query('md') {
             display: none;
         }
 
-        @include mixin.media-query('sm') {
-            display: block;
+        @include mixin.media-query('lg') {
+            display: flex;
         }
+    }
+
+    &__logo-image {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+        object-position: center;
     }
 
     &__toggle {
@@ -79,46 +98,45 @@
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         z-index: 3;
-        font-size: 40px;
+        font-size: font.$font-size-md;
 
-        @include mixin.media-query('lg') {
-            display: none;
+        @include mixin.media-query('sm') {
+            display: block;
         }
 
         @include mixin.media-query('md') {
             display: block;
         }
 
-        @include mixin.media-query('sm') {
-            display: block;
+        @include mixin.media-query('lg') {
+            display: none;
         }
     }
 
     &__nav {
         @include mixin.flex-center;
         display: none;
-        min-width: 50%;
+        min-width: 70%;
         font-family: font.$font-circularStd-bold;
 
-        @include mixin.media-query('lg') {
-            display: flex;
+        @include mixin.media-query('sm') {
+            display: none;
         }
 
         @include mixin.media-query('md') {
             display: none;
         }
 
-        @include mixin.media-query('sm') {
-            display: none;
+        @include mixin.media-query('lg') {
+            display: flex;
         }
     }
 
     &__nav-list {
         @include mixin.flex-center;
-        list-style-type: none;
         flex-direction: row;
         justify-content: space-evenly;
-        width: 100%;
+        width: 40vw;
     }
 
     &__dropdown {
@@ -138,9 +156,17 @@
             visibility: visible;
         }
 
-        // @include mixin.media-query('lg') {
-        //     display: none;
-        // }
+        @include mixin.media-query('sm') {
+            position: fixed;
+            width: 100%;
+            min-height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-top: 80px;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+        }
 
         @include mixin.media-query('md') {
             position: fixed;
@@ -151,18 +177,14 @@
             overflow-y: auto;
             z-index: 2;
         }
+    }
 
-        @include mixin.media-query('sm') {
-            position: fixed;
-            width: 100%;
-            min-height: 100%;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-top: 150px;
-            bottom: 0;
-            left: 0;
-            z-index: 2;
-        }
+    &__dropdown-list-wrapper {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__dropdown-brand {
@@ -184,26 +206,26 @@
         width: 40px;
         flex-shrink: 0;
 
-        @include mixin.media-query('md') {
-            display: block;
-        }
-
         @include mixin.media-query('sm') {
             display: none;
+        }
+
+        @include mixin.media-query('md') {
+            display: block;
         }
     }
 
     &__dropdown-name {
         font-family: font.$font-circularStd-bold;
-        font-size: 1.25rem;
+        font-size: font.$font-size-md;
         color: color.$color-dark;
-
-        @include mixin.media-query('md') {
-            display: block;
-        }
 
         @include mixin.media-query('sm') {
             display: none;
+        }
+
+        @include mixin.media-query('md') {
+            display: block;
         }
     }
 
@@ -215,7 +237,7 @@
         align-items: center;
         width: 100%;
         font-family: font.$font-circularStd-light;
-        font-size: 1.2rem;
+        font-size: font.$font-size-md;
 
         @include mixin.media-query('sm') {
             padding-bottom: 16px;
@@ -223,14 +245,12 @@
     }
 
     &__dropdown-item {
-        @include mixin.media-query('md') {
-            width: 100%;
-            text-align: center;
-            border-bottom: 1px solid rgba(25, 24, 37, 0.08);
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(25, 24, 37, 0.08);
 
-            &:first-child {
-                border-top: 1px solid rgba(25, 24, 37, 0.08);
-            }
+        &:first-child {
+            border-top: 1px solid rgba(25, 24, 37, 0.08);
         }
     }
 
@@ -238,12 +258,12 @@
         display: block;
         width: 100%;
 
-        @include mixin.media-query('md') {
-            padding: 18px 0px;
-        }
-
         @include mixin.media-query('sm') {
             padding: 16px 0px;
+        }
+
+        @include mixin.media-query('md') {
+            padding: 18px 0px;
         }
     }
 
@@ -256,13 +276,11 @@
             width: 100%;
 
             @include mixin.media-query('sm') {
-                visibility: hidden;
-                // pointer-events: none;
+                display: flex;
             }
 
             @include mixin.media-query('md') {
-                visibility: visible;
-                // pointer-events: auto;
+                display: none;
             }
         }
 
@@ -270,82 +288,38 @@
             @include mixin.flex-center;
             flex-direction: row;
             width: fit-content;
+            display: none;
 
             @include mixin.media-query('sm') {
                 display: none;
             }
+
+            @include mixin.media-query('md') {
+                display: flex;
+                margin-left: auto;
+            }
+
+            @include mixin.media-query('lg') {
+                display: flex;
+                margin-left: 0;
+                justify-self: end;
+            }
         }
     }
 
-    // &__button {
-    //     &--signup,
-    //     &--login {
-    //         @include mixin.button-primary {
-    //             background-color: color.$color-btn;
-    //             color: color.$color-white;
-    //             width: 100%;
-    //         }
+    @include mixin.media-query('sm') {
+        padding: 20px 0px;
+        align-items: center;
+        max-width: 100%;
 
-    //         @include mixin.media-query('md') {
-    //             display: none;
-    //         }
+        .header__toggle {
+            order: 2;
+            font-size: font.$font-size-icon;
+        }
 
-    //         @include mixin.media-query('sm') {
-    //             display: block;
-    //         }
-    //     }
-
-    //     &--signup-tablet {
-    //         @include mixin.button-primary {
-    //             background-color: color.$color-btn;
-    //             color: color.$color-white;
-    //             width: 100%;
-    //             max-width: 150px;
-    //         }
-
-    //         @include mixin.media-query('md') {
-    //             padding: 10px 15px;
-    //             width: 90px;
-    //         }
-
-    //         @include mixin.media-query('lg') {
-    //             padding: 16px 20px;
-    //             width: 120px;
-    //         }
-
-    //         &:hover {
-    //             background-color: #4c3ebc;
-    //         }
-    //     }
-
-    //     &--login-tablet {
-    //         @include mixin.button-primary {
-    //             background-color: transparent;
-    //             color: color.$color-dark;
-    //             width: 100%;
-    //             max-width: 150px;
-    //         }
-
-    //         @include mixin.media-query('md') {
-    //             padding: 10px 15px;
-    //             width: 90px;
-    //             color: color.$color-dark;
-    //         }
-
-    //         @include mixin.media-query('lg') {
-    //             padding: 16px 32px;
-    //             width: 120px;
-    //             color: color.$color-dark;
-    //         }
-
-    //         &:hover {
-    //             background-color: rgb(227, 242, 255);
-    //         }
-    //     }
-    // }
-    @include mixin.media-query('lg') {
-        max-width: 95%;
-        padding: 20px 40px;
+        .header__logo {
+            order: 1;
+        }
     }
 
     @include mixin.media-query('md') {
@@ -354,6 +328,7 @@
 
         .header__toggle {
             order: 1;
+            font-size: font.$font-size-icon;
         }
 
         .header__actions--tablet {
@@ -361,17 +336,23 @@
         }
     }
 
-    @include mixin.media-query('sm') {
-        padding: 20px 10px;
-        align-items: center;
+    @include mixin.media-query('lg') {
+        @include mixin.flex-center;
         max-width: 100%;
-
-        .header__toggle {
-            order: 2;
-        }
+        padding: 20px 40px;
+        justify-content: space-between;
 
         .header__logo {
             order: 1;
+        }
+
+        .header__nav {
+            order: 2;
+            justify-content: center;
+        }
+
+        .header__actions--tablet {
+            order: 3;
         }
     }
 }
@@ -382,7 +363,8 @@
     @include mixin.flex-center;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    height: fit-content;
+    margin: 0px;
     flex-direction: column;
     gap: 30px;
 
@@ -393,23 +375,19 @@
     &__design-info-wrapper {
         @include mixin.flex-center;
         justify-content: center;
-        height: fit-content;
         width: 100%;
 
-        @include mixin.media-query('lg') {
-            height: 80vh;
-            width: 80vw;
-            flex-direction: row-reverse;
+        @include mixin.media-query('sm') {
+            flex-direction: column;
         }
 
         @include mixin.media-query('md') {
             flex-direction: column;
-            height: fit-content;
         }
-
-        @include mixin.media-query('sm') {
-            flex-direction: column;
-            height: 50%;
+        @include mixin.media-query('lg') {
+            height: 800px;
+            width: 80vw;
+            flex-direction: row-reverse;
         }
     }
 
@@ -418,9 +396,9 @@
         position: relative;
         margin: 0 auto;
 
-        @include mixin.media-query('lg') {
-            width: 60%;
-            height: 70vh;
+        @include mixin.media-query('sm') {
+            width: 100%;
+            height: 40vh;
         }
 
         @include mixin.media-query('md') {
@@ -428,9 +406,10 @@
             height: 70vh;
         }
 
-        @include mixin.media-query('sm') {
-            width: 100%;
-            height: 40vh;
+        @include mixin.media-query('lg') {
+            width: 58%;
+            right: 50px;
+            height: 70vh;
         }
     }
 
@@ -458,25 +437,25 @@
         gap: 16px;
         z-index: 1;
 
-        @include mixin.media-query('lg') {
-            height: 66vh;
-            gap: 10px;
-            width: 100%;
-            padding: 0px 5vw;
-            top: 2vw;
-        }
-
-        @include mixin.media-query('md') {
-            height: 66vh;
-            gap: clamp(20px, 4vw, 36px);
-            padding: 0px 5vw;
-            top: 5vw;
-        }
-
         @include mixin.media-query('sm') {
             height: 100%;
             top: 1vh;
             padding: 0px 20px;
+        }
+
+        @include mixin.media-query('md') {
+            height: 62vh;
+            gap: clamp(20px, 4vw, 36px);
+            padding: 0px 5vw;
+            top: 5vw;
+        }
+        @include mixin.media-query('lg') {
+            height: 69vh;
+            gap: 30px;
+            width: 100%;
+            padding: 0px 5vw;
+            right: 120px;
+            top: 4vw;
         }
     }
 
@@ -488,22 +467,21 @@
         padding: 8px 0;
         position: relative;
 
-        @include mixin.media-query('lg') {
-            width: 30vw;
+        @include mixin.media-query('sm') {
+            width: 250px;
         }
 
         @include mixin.media-query('md') {
             width: 30vw;
         }
 
-        @include mixin.media-query('sm') {
-            width: 250px;
+        @include mixin.media-query('lg') {
+            width: 15vw;
         }
     }
 
     &__design-images-left-wrapper {
         @include mixin.flex-center;
-        height: 40%;
         width: 100%;
 
         &-travel {
@@ -512,28 +490,31 @@
             object-position: center;
             border-radius: 25px;
 
-            @include mixin.media-query('lg') {
-                width: 80%;
+            @include mixin.media-query('sm') {
+                height: 90%;
+                width: 35vw;
             }
 
             @include mixin.media-query('md') {
                 width: 30vw;
+                height: 90%;
             }
-
-            @include mixin.media-query('sm') {
-                width: 30vw;
+            @include mixin.media-query('lg') {
+                height: 300px;
+                width: 100%;
             }
         }
 
-        @include mixin.media-query('lg') {
-            justify-content: center;
+        @include mixin.media-query('sm') {
+            justify-content: flex-end;
         }
 
         @include mixin.media-query('md') {
             justify-content: center;
+            height: 50%;
         }
 
-        @include mixin.media-query('sm') {
+        @include mixin.media-query('lg') {
             justify-content: flex-end;
         }
     }
@@ -548,25 +529,24 @@
         color: #ffffff;
         top: 42%;
 
-        @include mixin.media-query('lg') {
-            height: 60px;
-            width: 60px;
-            font-size: 30px;
-            left: 0px;
+        @include mixin.media-query('sm') {
+            height: 36px;
+            width: 36px;
+            right: 30vw;
         }
 
         @include mixin.media-query('md') {
             height: 60px;
             width: 60px;
-            font-size: 30px;
-            left: -28px;
+            right: 27vw;
+            font-size: font.$font-size-md;
         }
 
-        @include mixin.media-query('sm') {
-            height: 36px;
-            width: 36px;
-            font-size: 15px;
-            left: 0px;
+        @include mixin.media-query('lg') {
+            height: 60px;
+            width: 60px;
+            right: 13vw;
+            font-size: font.$font-size-xl;
         }
     }
 
@@ -583,30 +563,36 @@
             height: 310px;
             width: 250px;
         }
+
+        @include mixin.media-query('lg') {
+            height: 24vw;
+            width: fit-content;
+        }
     }
 
     &__design-images-right-wrapper {
         @include mixin.flex-center;
         height: 100%;
+        position: relative;
 
         &-travel {
             object-fit: cover;
             object-position: center;
             border-radius: 25px;
 
-            @include mixin.media-query('lg') {
-                height: 70%;
-                width: 17vw;
-            }
-
-            @include mixin.media-query('md') {
-                height: 60%;
-                width: 30vw;
-            }
-
             @include mixin.media-query('sm') {
                 width: 100%;
                 height: 70%;
+            }
+
+            @include mixin.media-query('md') {
+                height: 100%;
+                width: 30vw;
+            }
+            @include mixin.media-query('lg') {
+                height: 100%;
+                width: 100%;
+                right: 120px;
             }
         }
     }
@@ -620,51 +606,48 @@
         padding: 0 10px;
         box-shadow: 0px 12px 20px 0px #0000005d;
 
-        @include mixin.media-query('lg') {
-            left: 13vw;
-            bottom: 130px;
-            height: clamp(50px, 5vw, 55px);
-            width: clamp(140px, 15vw, 170px);
-            border-radius: 30px;
-            gap: 8px;
-            font-size: 2rem;
+        @include mixin.media-query('sm') {
+            gap: 0px;
+            left: 21vw;
+            bottom: 70px;
+            height: 7vw;
+            width: 24vw;
+            border-radius: 15px;
+            font-size: font.$font-size-xs;
         }
 
         @include mixin.media-query('md') {
             left: 20vw;
-            bottom: 150px;
+            bottom: 30px;
             height: clamp(50px, 5vw, 55px);
             width: clamp(140px, 15vw, 170px);
             border-radius: 30px;
             gap: 8px;
-            font-size: 1.5rem;
+            font-size: font.$font-size-md;
         }
-
-        @include mixin.media-query('sm') {
-            gap: 3px;
-            left: 18vw;
-            bottom: 70px;
-            height: 7vw;
-            width: 22vw;
-            // max-width: 90px;
-            border-radius: 15px;
-            font-size: 0.9rem;
+        @include mixin.media-query('lg') {
+            left: 11vw;
+            bottom: 40px;
+            height: clamp(50px, 5vw, 55px);
+            width: clamp(140px, 15vw, 180px);
+            border-radius: 30px;
+            gap: 10px;
+            font-size: font.$font-size-xl;
         }
 
         &-detail {
             font-family: font.$font-circularStd-bold;
             color: #1a1a1a;
 
-            @include mixin.media-query('lg') {
-                font-size: 1rem;
+            @include mixin.media-query('sm') {
+                font-size: font.$font-size-xs;
             }
 
             @include mixin.media-query('md') {
-                font-size: 1rem;
+                font-size: font.$font-size-sm;
             }
-
-            @include mixin.media-query('sm') {
-                font-size: 0.5rem;
+            @include mixin.media-query('lg') {
+                font-size: font.$font-size-sm;
             }
         }
     }
@@ -678,28 +661,27 @@
         box-shadow: 0px 8px 16px 0px #00000041;
         color: #ffffff;
 
-        @include mixin.media-query('lg') {
-            height: clamp(58px, 6vw, 64px);
-            width: clamp(58px, 6vw, 64px);
-            font-size: clamp(27px, 2.5vw, 28px);
-            bottom: 0px;
-            left: 90px;
+        @include mixin.media-query('sm') {
+            height: 36px;
+            width: 36px;
+            font-size: font.$font-size-sm;
+            top: 31vh;
+            left: 50px;
         }
 
         @include mixin.media-query('md') {
             height: clamp(58px, 6vw, 64px);
             width: clamp(58px, 6vw, 64px);
-            font-size: clamp(27px, 2.5vw, 28px);
-            bottom: 30px;
+            font-size: font.$font-size-md;
+            top: 36vh;
             left: 90px;
         }
-
-        @include mixin.media-query('sm') {
-            height: 36px;
-            width: 36px;
-            font-size: 16px;
-            top: 28vh;
-            left: 50px;
+        @include mixin.media-query('lg') {
+            height: clamp(58px, 6vw, 60px);
+            width: clamp(58px, 6vw, 60px);
+            font-size: font.$font-size-xl;
+            top: 45vh;
+            left: 90px;
         }
     }
 
@@ -714,25 +696,28 @@
 
         &-heading {
             font-family: font.$font-circularStd-bold;
-            font-size: 32px;
-            line-height: 1.25;
+            line-height: map.get(
+                font.$description-font,
+                'lg',
+                'font-line-height'
+            );
             color: #1a1a1a;
-
-            @include mixin.media-query('lg') {
-                font-size: 68px;
-                text-align: left;
-                width: 400px;
-            }
-
-            @include mixin.media-query('md') {
-                font-size: clamp(42px, 5.5vw, 58px);
-                text-align: center;
-            }
 
             @include mixin.media-query('sm') {
                 text-align: center;
-                font-size: 40px;
+                font-size: map.get(font.$hero-heading-font, 'sm', 'font-size');
                 width: 100%;
+            }
+
+            @include mixin.media-query('md') {
+                font-size: map.get(font.$hero-heading-font, 'md', 'font-size');
+                text-align: center;
+            }
+
+            @include mixin.media-query('lg') {
+                font-size: map.get(font.$hero-heading-font, 'lg', 'font-size');
+                text-align: left;
+                width: 400px;
             }
         }
 
@@ -742,31 +727,36 @@
 
         &-detail {
             font-family: font.$font-inter;
-            font-size: 14px;
             color: color.$color-primary;
-            line-height: 1.6;
+            line-height: map.get(
+                font.$description-font,
+                'md',
+                'font-line-height'
+            );
 
+            @include mixin.media-query('sm') {
+                text-align: center;
+                font-size: map.get(font.$description-font, 'sm', 'font-size');
+            }
+
+            @include mixin.media-query('md') {
+                font-size: map.get(font.$description-font, 'md', 'font-size');
+                width: 320px;
+                text-align: center;
+            }
             @include mixin.media-query('lg') {
                 text-align: left;
                 font-size: 18px;
                 width: 300px;
-            }
-
-            @include mixin.media-query('md') {
-                font-size: clamp(14px, 1.2vw, 16px);
-                width: 320px;
-                text-align: center;
-            }
-
-            @include mixin.media-query('sm') {
-                text-align: center;
+                font-size: map.get(font.$description-font, 'md', 'font-size');
             }
         }
 
-        @include mixin.media-query('lg') {
-            width: 40%;
-            align-items: flex-start;
-            gap: 40px;
+        @include mixin.media-query('sm') {
+            top: 20vw;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
         }
 
         @include mixin.media-query('md') {
@@ -777,45 +767,44 @@
             gap: 40px;
             top: 50px;
         }
-
-        @include mixin.media-query('sm') {
-            // bottom: 30vw;
-            top: 20vw;
-            align-items: center;
-            width: 100%;
+        @include mixin.media-query('lg') {
+            height: 100%;
+            justify-content: center;
+            width: 40%;
+            align-items: flex-start;
+            gap: 40px;
         }
     }
 
     &__info-badge {
-        border-radius: 30px;
         @include mixin.flex-center;
+        border-radius: 30px;
         justify-content: space-evenly;
         background-color: transparent;
 
         &-tagline {
             font-family: font.$font-circularStd-bold;
-            font-size: 0.75rem;
+            font-size: font.$font-size-sm;
             color: color.$color-pink;
-        }
-
-        @include mixin.media-query('lg') {
-            box-shadow: 0px 10px 25px 0px #0000000e;
-            height: 50px;
-            width: 190px;
-        }
-
-        @include mixin.media-query('md') {
-            box-shadow: 0px 10px 25px 0px #0000002a;
-            height: 36px;
-            width: 170px;
-            padding: 10px 10px;
         }
 
         @include mixin.media-query('sm') {
             box-shadow: 0px 10px 25px 0px #0000002a;
-            height: 36px;
-            width: 170px;
+            height: 40px;
+            width: 190px;
             padding: 10px 10px;
+        }
+
+        @include mixin.media-query('md') {
+            box-shadow: 0px 10px 25px 0px #0000002a;
+            height: 40px;
+            width: 190px;
+            padding: 10px 10px;
+        }
+        @include mixin.media-query('lg') {
+            box-shadow: 0px 10px 25px 0px #0000000e;
+            height: 50px;
+            width: 190px;
         }
     }
 
@@ -839,8 +828,9 @@
         height: fit-content;
         width: 100%;
 
-        @include mixin.media-query('lg') {
-            justify-content: flex-start;
+        @include mixin.media-query('sm') {
+            justify-content: center;
+            flex-direction: column;
             gap: 15px;
         }
 
@@ -849,87 +839,32 @@
             flex-direction: row;
             gap: 15px;
         }
-
-        @include mixin.media-query('sm') {
-            justify-content: center;
-            flex-direction: column;
+        @include mixin.media-query('lg') {
+            justify-content: flex-start;
             gap: 15px;
         }
     }
 
-    // &__info-getStarted {
-    //     @include mixin.button-primary {
-    //         background-color: color.$color-btn;
-    //         font-size: 15px;
-    //         box-shadow: 0px 12px 24px 0px
-    //             rgba(color.$color-btn, 0.3);
-    //         color: color.$color-white;
-    //         // z-index: 2;
-
-    //         @include mixin.media-query('lg') {
-    //             height: 60px;
-    //             width: 180px;
-    //         }
-
-    //         @include mixin.media-query('md') {
-    //             width: 200px;
-    //         }
-
-    //         @include mixin.media-query('sm') {
-    //             width: 100%;
-    //         }
-    //     }
-    // }
-
-    // &__info-watchDemo {
-    //     @include mixin.button-primary {
-    //         background-color: color.$color-white;
-    //         color: color.$color-dark;
-    //         box-shadow: 0px 10px 25px 0px #00000008;
-    //         font-size: 15px;
-    //         border: 1px solid rgba(238, 238, 238, 1);
-
-    //         @include mixin.media-query('lg') {
-    //             height: 60px;
-    //             width: 180px;
-    //         }
-
-    //         @include mixin.media-query('md') {
-    //             box-shadow: none;
-    //             width: 200px;
-    //         }
-
-    //         @include mixin.media-query('sm') {
-    //             width: 100%;
-    //         }
-    //     }
-    //     @include mixin.flex-center;
-    //     justify-content: center;
-    //     gap: 10px;
-    // }
-
     &__triangular-design {
         position: absolute;
-        height: 170px;
-        width: 65px;
-        // z-index: 1;
 
-        @include mixin.media-query('lg') {
-            display: block;
-            top: 85vh;
-            left: 40px;
+        @include mixin.media-query('sm') {
+            display: none;
         }
 
         @include mixin.media-query('md') {
             display: block;
             top: 105vh;
-            width: 5vw;
+            width: 6vw;
             height: 15vw;
             left: 40px;
         }
-
-        @include mixin.media-query('sm') {
-            display: none;
+        @include mixin.media-query('lg') {
+            display: block;
+            height: 10vw;
+            width: 4vw;
+            top: 88vh;
+            left: 40px;
         }
     }
 
@@ -940,41 +875,43 @@
         position: relative;
         flex-wrap: wrap;
         gap: 20px;
-        min-height: 14vw;
-        max-height: 20vw;
 
-        @include mixin.media-query('lg') {
-            margin-top: 0px;
-            width: 80vw;
-            justify-content: space-between;
+        @include mixin.media-query('sm') {
+            margin-top: 100px;
+            width: 100%;
         }
 
         @include mixin.media-query('md') {
             margin-top: 100px;
             width: 80%;
             justify-content: center;
+            gap: 50px;
         }
-
-        @include mixin.media-query('sm') {
-            margin-top: 100px;
-            justify-content: center;
-            width: 90%;
+        @include mixin.media-query('lg') {
+            margin-top: 15vh;
+            width: 78vw;
+            justify-content: space-between;
         }
     }
 
     &__brand-images {
         height: auto;
 
-        @include mixin.media-query('lg') {
-            width: 15%;
-
-            &:nth-child(4) {
-                width: 10%;
-            }
+        @include mixin.media-query('sm') {
+            width: 25%;
+            font-size: font.$font-size-icon;
         }
 
         @include mixin.media-query('md') {
             width: 25%;
+            font-size: font.$font-size-icon;
+        }
+        @include mixin.media-query('lg') {
+            width: 14%;
+
+            &:nth-child(4) {
+                width: 10%;
+            }
         }
     }
 }
