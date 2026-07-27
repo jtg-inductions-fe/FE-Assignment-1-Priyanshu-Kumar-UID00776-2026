@@ -1,10 +1,7 @@
 @use '../abstracts/functions' as func;
 
 $font-inter: 'Inter', 'arial', sans-serif;
-$font-circular-std-light: 'Circular-Std-Light', 'arial', sans-serif;
-$font-circular-std-bold: 'Circular-Std-Bold', 'arial', sans-serif;
-
-$font-size-icon: func.pixel-to-rem-convertor(40);
+$font-circular-std: 'Circular-Std', 'arial', sans-serif;
 
 $hero-heading-font: (
     'sm': (
@@ -70,18 +67,10 @@ $testimonial-description-font: (
 );
 
 @font-face {
-    font-family: 'Circular-Std-Light';
-    src: url('/assets/fonts/circular-std-font-family/CircularStd-Book.woff2')
-        format('woff2');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Circular-Std-Bold';
+    font-family: 'Circular-Std';
     src: url('/assets/fonts/circular-std-font-family/CircularStd-Bold.woff2')
         format('woff2');
-    font-weight: 700;
+    // font-weight: 700;
     font-style: normal;
 }
 
