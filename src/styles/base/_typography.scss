@@ -1,9 +1,8 @@
 @use '/abstracts/functions' as func;
 
-$font-inter: 'Inter', Arial, sans-serif;
-$font-circular-light: 'Circular-Std-Light', arial, sans-serif;
-$font-circular-bold: 'Circular-Std-Bold', arial, sans-serif;
-$font-icons: 'Untitled';
+$font-inter: 'Inter', 'arial', 'sans-serif';
+$font-circular-light: 'Circular-Std-Light', 'arial', 'sans-serif';
+$font-circular-bold: 'Circular-Std-Bold', 'arial', 'sans-serif';
 
 $font-size-sm: func.pixelToRemConvertor(14px);
 $font-size-md: func.pixelToRemConvertor(18px);
