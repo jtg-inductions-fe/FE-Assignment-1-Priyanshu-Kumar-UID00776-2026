@@ -108,7 +108,6 @@
         @include mixin.flex-center;
         display: none;
         min-width: 50%;
-        font-family: font.$font-circularStd-bold;
 
         @include mixin.media-query('lg') {
             display: flex;
@@ -202,9 +201,10 @@
 
     &__dropdown-name {
         font-family: font.$font-circularStd-bold;
-        font-size: 1.25rem;
+        font-size: font.$font-size-md;
         color: color.$color-dark;
         display: none;
+        font-weight: 700;
 
         @include mixin.media-query('md') {
             display: block;
@@ -218,8 +218,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        font-family: font.$font-circularStd-light;
-        font-size: 1.2rem;
+        font-size: font.$font-size-md;
 
         @include mixin.media-query('sm') {
             padding-bottom: 16px;
@@ -230,6 +229,7 @@
         width: 100%;
         text-align: center;
         border-bottom: 1px solid rgba(25, 24, 37, 0.08);
+        font-weight: 400;
 
         &:first-child {
             border-top: 1px solid rgba(25, 24, 37, 0.08);
@@ -238,6 +238,7 @@
 
     &__dropdown-link {
         display: block;
+        font-family: font.$font-circularStd-light;
         width: 100%;
 
         @include mixin.media-query('md') {

@@ -11,16 +11,17 @@
     font-family: font.$font-circularStd-bold;
     font-size: font.$font-size-sm;
     outline: none;
+    // font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 
     &:focus-visible {
-        outline: 2px solid color.$color-btn;
+        outline: 2px solid color.$color-primary;
         outline-offset: 2px;
     }
 
     &--primary {
-        background-color: color.$color-btn;
+        background-color: color.$color-primary;
         color: color.$color-white;
 
         &:hover {
@@ -41,10 +42,10 @@
 
     &--transparent {
         background-color: transparent;
-        color: color.$color-primary;
+        color: color.$color-dark;
 
         &:hover {
-            background-color: color.$color-hover;
+            background-color: color.$color-btn-hover;
         }
     }
 
