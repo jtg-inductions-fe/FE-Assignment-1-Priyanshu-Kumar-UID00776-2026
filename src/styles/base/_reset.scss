@@ -11,6 +11,10 @@ body {
     background-color: color.$color-white;
 }
 
+dialog {
+    border: none;
+}
+
 ul,
 ol {
     list-style-type: none;
