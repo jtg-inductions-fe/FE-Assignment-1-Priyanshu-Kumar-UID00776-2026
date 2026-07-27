@@ -227,10 +227,8 @@
             }
         }
     }
-}
 
-@include mixin.media-query('lg') {
-    .header {
+    @include mixin.media-query('lg') {
         max-width: 87%;
         padding: func.pixel-to-rem-convertor(70) func.pixel-to-rem-convertor(35);
 
