@@ -1,74 +1,70 @@
 @use '../abstracts/functions' as func;
 
-$font-inter: 'Inter', 'arial', 'sans-serif';
-$font-circularStd-light: 'Circular-Std-Light', 'arial', 'sans-serif';
-$font-circularStd-bold: 'Circular-Std-Bold', 'arial', 'sans-serif';
+$font-inter: 'Inter', 'arial', sans-serif;
+$font-circular-std-light: 'Circular-Std-Light', 'arial', sans-serif;
+$font-circular-std-bold: 'Circular-Std-Bold', 'arial', sans-serif;
 
-$font-size-sm: func.pixelToRemConvertor(14);
-$font-size-md: func.pixelToRemConvertor(18);
-$font-size-lg: func.pixelToRemConvertor(23);
-$font-size-xl: func.pixelToRemConvertor(28);
-$font-size-icon: func.pixelToRemConvertor(40);
+$font-size-icon: func.pixel-to-rem-convertor(40);
 
 $hero-heading-font: (
     'sm': (
-        'font-size': func.pixelToRemConvertor(40),
+        'font-size': func.pixel-to-rem-convertor(40),
         'font-line-height': 1.2,
     ),
     'md': (
-        'font-size': func.pixelToRemConvertor(56),
+        'font-size': func.pixel-to-rem-convertor(56),
         'font-line-height': 1.2,
     ),
     'lg': (
-        'font-size': func.pixelToRemConvertor(69),
+        'font-size': func.pixel-to-rem-convertor(69),
         'font-line-height': 1.2,
     ),
 );
 
 $description-font: (
     'sm': (
-        'font-size': func.pixelToRemConvertor(16),
+        'font-size': func.pixel-to-rem-convertor(16),
         'font-line-height': 1.6,
     ),
     'md': (
-        'font-size': func.pixelToRemConvertor(18),
+        'font-size': func.pixel-to-rem-convertor(18),
         'font-line-height': 1.6,
     ),
 );
 
 $section-tagline-font: (
     'sm': (
-        'font-size': func.pixelToRemConvertor(16),
+        'font-size': func.pixel-to-rem-convertor(16),
         'font-line-height': 1.2,
     ),
     'md': (
-        'font-size': func.pixelToRemConvertor(23),
+        'font-size': func.pixel-to-rem-convertor(23),
         'font-line-height': 1.2,
     ),
 );
 
 $section-heading-font: (
     'sm': (
-        'font-size': func.pixelToRemConvertor(32),
+        'font-size': func.pixel-to-rem-convertor(32),
         'font-line-height': 1.2,
     ),
     'md': (
-        'font-size': func.pixelToRemConvertor(40),
+        'font-size': func.pixel-to-rem-convertor(40),
         'font-line-height': 1.2,
     ),
     'lg': (
-        'font-size': func.pixelToRemConvertor(44),
+        'font-size': func.pixel-to-rem-convertor(44),
         'font-line-height': 1.2,
     ),
 );
 
 $testimonial-description-font: (
     'sm': (
-        'font-size': func.pixelToRemConvertor(18),
+        'font-size': func.pixel-to-rem-convertor(18),
         'font-line-height': 1.6,
     ),
     'md': (
-        'font-size': func.pixelToRemConvertor(23),
+        'font-size': func.pixel-to-rem-convertor(23),
         'font-line-height': 1.6,
     ),
 );

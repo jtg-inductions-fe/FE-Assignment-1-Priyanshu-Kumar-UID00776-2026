@@ -1,0 +1,315 @@
+@use 'sass:map';
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../abstracts/colors' as color;
+@use '../base/typography' as font;
+
+.header {
+    @include mixin.flex-center;
+    position: relative;
+    box-sizing: border-box;
+    justify-content: space-between;
+    height: fit-content;
+    padding: 10px 0px;
+    width: 100%;
+    align-items: center;
+    max-width: 100%;
+
+    &__background {
+        position: fixed;
+        opacity: 0.35;
+        transition: all 0.3s ease-in-out;
+        z-index: -1;
+        pointer-events: none;
+
+        top: 0;
+        right: 130px;
+        width: 302px;
+        height: 408px;
+        background-color: color.$color-orange;
+        filter: blur(90px);
+    }
+
+    &__logo {
+        @include mixin.flex-center;
+        z-index: 2;
+        flex-shrink: 0;
+        justify-content: center;
+        display: block;
+        order: 1;
+    }
+
+    &__logo-image {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    &__toggle {
+        @include mixin.flex-center;
+        justify-content: center;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        transition: all 0.2s ease-in-out;
+        z-index: 3;
+        font-size: func.pixel-to-rem-convertor(18);
+        order: 2;
+        font-size: font.$font-size-icon;
+
+        &:focus-visible {
+            outline: 2px solid color.$color-primary;
+            outline-offset: 2px;
+        }
+    }
+
+    &__nav {
+        @include mixin.flex-center;
+        display: none;
+        min-width: 50%;
+    }
+
+    &__nav-list {
+        @include mixin.flex-center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    &__dropdown {
+        display: none;
+        font-size: func.pixel-to-rem-convertor(18);
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 30px;
+        padding: 20px 40px;
+        background-color: color.$color-white;
+        transition: all 0.3s ease-in-out;
+
+        &--is-open {
+            display: flex;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        padding-top: 100px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 2;
+    }
+
+    &__dropdown-list-wrapper {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__dropdown-brand {
+        display: none;
+        align-items: center;
+        gap: 12px;
+        align-self: flex-start;
+    }
+
+    &__dropdown-logo {
+        height: 40px;
+        width: 40px;
+        flex-shrink: 0;
+        display: none;
+    }
+
+    &__dropdown-name {
+        font-family: font.$font-circular-std-bold;
+        color: color.$color-dark;
+        display: none;
+        font-weight: 700;
+    }
+
+    &__dropdown-list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        padding-bottom: 16px;
+    }
+
+    &__dropdown-item {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(25, 24, 37, 0.08);
+        font-weight: 400;
+
+        &:first-child {
+            border-top: 1px solid rgba(25, 24, 37, 0.08);
+        }
+    }
+
+    &__dropdown-link {
+        display: block;
+        font-family: font.$font-circular-std-light;
+        width: 100%;
+        padding: 16px 0px;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 10px;
+
+        &--dropdown {
+            flex-direction: column;
+            width: 100%;
+            display: flex;
+        }
+
+        &--tablet-display {
+            @include mixin.flex-center;
+            flex-direction: row;
+            width: fit-content;
+            display: none;
+        }
+    }
+}
+
+@include mixin.media-query('md') {
+    .header {
+        align-items: center;
+
+        &__background {
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
+            background-color: color.$color-orange;
+            filter: blur(130px);
+        }
+
+        &__logo {
+            display: none;
+        }
+
+        &__toggle {
+            order: 1;
+            font-size: font.$font-size-icon;
+        }
+
+        &__dropdown {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            padding: 110px 40px 40px;
+            overflow-y: auto;
+            z-index: 2;
+        }
+
+        &__dropdown-brand {
+            display: flex;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+
+        &__dropdown-logo {
+            display: block;
+        }
+
+        &__dropdown-name {
+            display: block;
+        }
+
+        &__dropdown-link {
+            padding: 18px 0px;
+        }
+
+        &__actions {
+            &--dropdown {
+                display: none;
+            }
+
+            &--tablet-display {
+                display: flex;
+                order: 2;
+            }
+        }
+    }
+}
+
+@include mixin.media-query('lg') {
+    .header {
+        max-width: 95%;
+        padding: 20px 40px;
+
+        &__background {
+            top: 8px;
+            left: 0;
+            width: 503px;
+            height: 494px;
+            background-color: color.$color-orange;
+            filter: blur(130px);
+        }
+
+        &__logo {
+            display: block;
+            margin-left: 0;
+            order: 0;
+        }
+
+        &__toggle {
+            display: none;
+            order: 0;
+            font-size: font.$font-size-icon;
+        }
+
+        &__nav {
+            display: flex;
+        }
+
+        &__dropdown {
+            display: none;
+        }
+
+        &__dropdown-brand {
+            display: flex;
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+
+        &__dropdown-logo {
+            display: block;
+        }
+
+        &__dropdown-name {
+            display: block;
+        }
+
+        &__dropdown-link {
+            padding: 18px 0px;
+        }
+
+        &__actions {
+            &--dropdown {
+                display: none;
+            }
+
+            &--tablet-display {
+                display: flex;
+                order: 0;
+            }
+        }
+    }
+}

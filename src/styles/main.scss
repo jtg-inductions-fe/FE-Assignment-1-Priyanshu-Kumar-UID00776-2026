@@ -4,10 +4,11 @@
 
 @use 'component/anchor';
 @use 'component/button';
+@use 'component/display';
 
 @use 'vendors/icons';
 
 @use 'base/reset';
 @use 'base/typography';
 
-@use 'pages/home';
+@use 'layout/header';
