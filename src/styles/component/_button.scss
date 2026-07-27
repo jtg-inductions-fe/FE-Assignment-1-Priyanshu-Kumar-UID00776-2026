@@ -2,19 +2,17 @@
 @use '../abstracts/variables' as var;
 @use '../abstracts/colors' as color;
 @use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
 @use '../base/typography' as font;
 
 .btn {
-    height: 50px;
     border: none;
     border-radius: var.$btn-radius;
-    font-family: font.$font-circularStd-bold;
-    font-size: font.$font-size-sm;
-    justify-content: center;
-    outline: none;
-    // box-sizing: border-box;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    font-family: font.$font-circular-std;
+    font-weight: 700;
+    font-size: func.pixel-to-rem-convertor(14);
+    transition: background-color 0.2s ease-in-out;
+    padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(15);
 
     &:hover {
         transform: scale(105%);
@@ -22,39 +20,17 @@
     }
 
     &:focus-visible {
-        outline: 2px solid color.$color-btn;
+        outline: 2px solid color.$color-primary;
         outline-offset: 2px;
     }
 
     &--primary {
-        background-color: color.$color-btn;
+        background-color: color.$color-primary;
         color: color.$color-white;
         box-shadow: 0px 12px 24px 0px rgba(color.$color-dark, 0.3);
 
         &:hover {
-            background-color: #4c3ebc;
-        }
-
-        &-hero-section-button {
-            @include mixin.media-query('md') {
-                max-width: 200px;
-                width: 170px;
-            }
-
-            @include mixin.media-query('sm') {
-                width: 100%;
-            }
-        }
-    }
-
-    &--dropdown-button {
-        width: 100%;
-
-        @include mixin.media-query('sm') {
-            display: block;
-        }
-        @include mixin.media-query('md') {
-            display: none;
+            background-color: color.$color-primary-dark;
         }
     }
 
@@ -65,7 +41,7 @@
         color: color.$color-dark;
 
         &:hover {
-            background-color: color.$color-hover;
+            background-color: color.$color-primary-light;
         }
 
         &-hero-section-button {
@@ -83,24 +59,19 @@
         }
     }
 
-    &--responsive-nav {
+    &--full-width {
         width: 100%;
-        max-width: 130px;
-        padding: 16px 12px;
+    }
 
-        @include mixin.media-query('sm') {
-            display: none;
-        }
-
-        @include mixin.media-query('md') {
-            display: block;
-            padding: 10px 15px;
-            width: 110px;
-        }
+    &--compact {
+        width: auto;
+        min-width: func.pixel-to-rem-convertor(111);
+        padding: func.pixel-to-rem-convertor(17) func.pixel-to-rem-convertor(15);
 
         @include mixin.media-query('lg') {
-            display: block;
-            padding: 16px 12px;
+            min-width: func.pixel-to-rem-convertor(140);
+            padding: func.pixel-to-rem-convertor(19)
+                func.pixel-to-rem-convertor(20);
         }
     }
 }

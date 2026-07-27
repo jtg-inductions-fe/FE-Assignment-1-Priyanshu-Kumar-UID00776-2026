@@ -1,17 +1,19 @@
 @use '../abstracts/colors' as color;
+@use '../base/typography' as font;
 
-.nav-link {
-    color: color.$color-primary;
-    text-decoration: none;
+.link {
+    color: color.$color-description;
     transition: color 0.2s ease-in-out;
+    font-family: font.$font-circular-std;
+    font-weight: 400;
 
     &--primary {
         &:hover {
             color: color.$color-dark;
         }
 
-        &:focus {
-            color: color.$color-primary;
+        &:focus-visible {
+            color: color.$color-description;
         }
     }
 

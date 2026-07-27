@@ -1,7 +1,5 @@
 @use 'sass:map';
 @use 'variables' as var;
-@use 'colors' as color;
-@use '../base/typography' as font;
 
 @mixin media-query($name) {
     @media (min-width: #{map.get(var.$breakpoints, $name)}) {
@@ -9,7 +7,7 @@
     }
 }
 
-@mixin responsiveFontApply($font-map) {
+@mixin responsive-font-apply($font-map) {
     @each $name, $width in var.$breakpoints {
         @media (min-width: #{$width}) {
             font-size: map.get($font-map, $name, 'font-size');
@@ -18,7 +16,8 @@
     }
 }
 
-@mixin flex-center {
+@mixin flex-center($align-items-value: center, $justify-content-value: center) {
     display: flex;
-    align-items: center;
+    align-items: $align-items-value;
+    justify-content: $justify-content-value;
 }
