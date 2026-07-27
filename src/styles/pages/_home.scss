@@ -375,18 +375,21 @@
     &__design-info-wrapper {
         @include mixin.flex-center;
         justify-content: center;
-        width: 100%;
+        max-width: 1500px;
 
         @include mixin.media-query('sm') {
             flex-direction: column;
+            width: 100%;
         }
 
         @include mixin.media-query('md') {
             flex-direction: column;
+            width: 100%;
         }
         @include mixin.media-query('lg') {
             height: 800px;
-            width: 80vw;
+            width: 95vw;
+            // gap: 20vw;
             flex-direction: row-reverse;
         }
     }
@@ -770,7 +773,7 @@
         @include mixin.media-query('lg') {
             height: 100%;
             justify-content: center;
-            width: 40%;
+            width: 30%;
             align-items: flex-start;
             gap: 40px;
         }
