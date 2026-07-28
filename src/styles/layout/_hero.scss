@@ -742,12 +742,12 @@
         );
 
         &-heading {
-            font-family: font.$font-circular-std;
-            font-weight: 700;
-            @include mixin.responsive-font-apply(font.$description-font);
             color: #1a1a1a;
             text-align: center;
             width: 100%;
+            font-family: font.$font-circular-std;
+            font-weight: 700;
+            @include mixin.responsive-font-apply(font.$hero-heading-font);
         }
 
         &-highlight-heading {
@@ -755,10 +755,10 @@
         }
 
         &-detail {
+            text-align: center;
             font-family: font.$font-inter;
             color: color.$color-description;
             @include mixin.responsive-font-apply(font.$description-font);
-            text-align: center;
         }
     }
 
