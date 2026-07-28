@@ -1,0 +1,286 @@
+@use 'sass:map';
+@use '../abstracts' as mixin;
+@use '../abstracts/functions' as func;
+@use '../abstracts/colors' as color;
+@use '../base/typography' as font;
+
+.header {
+    @include mixin.flex-center(center, space-between);
+    position: relative;
+    box-sizing: border-box;
+    height: fit-content;
+    padding: func.pixel-to-rem-convertor(17) 0;
+    width: 100%;
+    align-items: center;
+
+    &__background {
+        position: fixed;
+        opacity: 0.35;
+        transition: all 0.3s ease-in-out;
+        z-index: -1;
+        pointer-events: none;
+        top: 0;
+        right: func.pixel-to-rem-convertor(130);
+        width: 302px;
+        height: 408px;
+        background-color: color.$color-orange;
+        filter: blur(func.pixel-to-rem-convertor(90));
+    }
+
+    &__logo {
+        @include mixin.flex-center;
+        z-index: 2;
+        flex-shrink: 0;
+        display: block;
+        right: func.pixel-to-rem-convertor(4);
+        order: 1;
+    }
+
+    &__logo-image {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    &__toggle {
+        @include mixin.flex-center;
+        background-color: transparent;
+        z-index: 3;
+        font-size: func.pixel-to-rem-convertor(47);
+        order: 2;
+
+        &:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 1px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+    }
+
+    &__nav {
+        display: none;
+        min-width: 50%;
+    }
+
+    &__nav-list {
+        @include mixin.flex-center(center, space-evenly);
+        width: 100%;
+    }
+
+    &__dropdown {
+        display: none;
+        flex-direction: column;
+        gap: func.pixel-to-rem-convertor(30);
+        padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(40);
+        padding-top: func.pixel-to-rem-convertor(100);
+        background-color: color.$color-white;
+        position: fixed;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden auto;
+        z-index: 2;
+    }
+
+    &__dropdown-list-wrapper {
+        @include mixin.flex-center;
+        margin-top: func.pixel-to-rem-convertor(30);
+        width: 100%;
+    }
+
+    &__dropdown-brand {
+        display: none;
+        align-items: center;
+        gap: func.pixel-to-rem-convertor(12);
+        align-self: flex-start;
+    }
+
+    &__dropdown-logo {
+        height: 40px;
+        width: 40px;
+        flex-shrink: 0;
+        display: none;
+    }
+
+    &__dropdown-name {
+        display: none;
+    }
+
+    &__dropdown-list {
+        @include mixin.flex-center;
+        flex-direction: column;
+        width: 100%;
+        padding-bottom: func.pixel-to-rem-convertor(16);
+    }
+
+    &__dropdown-item {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid color.$color-grey-light;
+
+        &:first-child {
+            border-top: 1px solid color.$color-grey-light;
+        }
+    }
+
+    &__dropdown-link {
+        display: block;
+        width: 100%;
+        padding: func.pixel-to-rem-convertor(16) 0;
+    }
+
+    &__actions {
+        display: flex;
+        gap: func.pixel-to-rem-convertor(10);
+
+        &--dropdown {
+            flex-direction: column;
+            width: 100%;
+            display: flex;
+        }
+
+        &--tablet-display {
+            @include mixin.flex-center;
+            width: fit-content;
+            display: none;
+        }
+    }
+
+    @include mixin.media-query('md') {
+        align-items: center;
+        padding: func.pixel-to-rem-convertor(11) func.pixel-to-rem-convertor(44);
+
+        &__background {
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
+            background-color: color.$color-orange;
+            filter: blur(func.pixel-to-rem-convertor(130));
+        }
+
+        &__logo {
+            display: none;
+        }
+
+        &__logo-image {
+            height: 40px;
+            width: 40px;
+        }
+
+        &__toggle {
+            order: 1;
+            font-size: func.pixel-to-rem-convertor(47);
+        }
+
+        &__dropdown {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            padding: func.pixel-to-rem-convertor(110)
+                func.pixel-to-rem-convertor(40) func.pixel-to-rem-convertor(40);
+            overflow-y: auto;
+            z-index: 2;
+        }
+
+        &__dropdown-brand {
+            display: flex;
+            position: absolute;
+            top: func.pixel-to-rem-convertor(40);
+            right: func.pixel-to-rem-convertor(40);
+        }
+
+        &__dropdown-logo {
+            display: block;
+        }
+
+        &__dropdown-name {
+            display: block;
+        }
+
+        &__dropdown-link {
+            padding: func.pixel-to-rem-convertor(18) 0;
+        }
+
+        &__actions {
+            &--dropdown {
+                display: none;
+            }
+
+            &--tablet-display {
+                display: flex;
+                order: 2;
+            }
+        }
+    }
+
+    @include mixin.media-query('lg') {
+        max-width: 87%;
+        padding: func.pixel-to-rem-convertor(70) func.pixel-to-rem-convertor(35);
+
+        &__background {
+            top: func.pixel-to-rem-convertor(8);
+            left: 0;
+            width: 503px;
+            height: 494px;
+            background-color: color.$color-orange;
+            filter: blur(func.pixel-to-rem-convertor(130));
+        }
+
+        &__logo {
+            display: block;
+            order: 0;
+        }
+
+        &__logo-image {
+            height: 50px;
+            width: 50px;
+        }
+
+        &__toggle {
+            display: none;
+        }
+
+        &__nav {
+            display: flex;
+        }
+
+        &__dropdown {
+            display: none;
+        }
+
+        &__dropdown-brand {
+            display: flex;
+            position: absolute;
+            top: func.pixel-to-rem-convertor(40);
+            right: func.pixel-to-rem-convertor(40);
+        }
+
+        &__dropdown-logo {
+            display: block;
+        }
+
+        &__dropdown-name {
+            display: block;
+        }
+
+        &__dropdown-link {
+            padding: func.pixel-to-rem-convertor(18) 0;
+        }
+
+        &__actions {
+            &--dropdown {
+                display: none;
+            }
+
+            &--tablet-display {
+                display: flex;
+                order: 0;
+            }
+        }
+    }
+}

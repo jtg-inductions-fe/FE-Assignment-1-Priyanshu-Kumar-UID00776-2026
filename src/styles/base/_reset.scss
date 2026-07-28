@@ -1,9 +1,25 @@
 @use 'sass:map';
+@use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
+@use '../base/typography' as font;
+@use '../abstracts/functions' as func;
 
 * {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+}
+
+body {
+    @include mixin.flex-center;
+    background-color: color.$color-white;
+    flex-direction: column;
+    padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(20);
+    font-family: font.$font-circular-std;
+}
+
+dialog {
+    border: none;
 }
 
 ul,

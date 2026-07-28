@@ -1,0 +1,21 @@
+@use '../abstracts/colors' as color;
+@use '../base/typography' as font;
+
+.link {
+    color: color.$color-description;
+    transition: color 0.2s ease-in-out;
+
+    &--primary {
+        &:hover {
+            color: color.$color-dark;
+        }
+
+        &:focus-visible {
+            color: color.$color-description;
+        }
+    }
+
+    &--active {
+        color: color.$color-dark;
+    }
+}

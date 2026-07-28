@@ -1,5 +1,6 @@
-@use 'abstracts/variables';
-@use 'vendors/icons';
-
-@use 'base/reset';
-@use 'base/typography';
+@use 'abstracts';
+@use 'vendors';
+@use 'base';
+@use 'component';
+@use 'layout';
+@use 'utils';

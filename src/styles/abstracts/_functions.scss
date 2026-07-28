@@ -1,3 +1,5 @@
-@function pixelToRemConvertor($px) {
-    @return ($px / 16);
+@use 'sass:math';
+
+@function pixel-to-rem-convertor($px) {
+    @return math.div($px, 16) * 1rem;
 }
