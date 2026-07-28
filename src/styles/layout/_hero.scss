@@ -1003,8 +1003,8 @@
 
         &__design-images-left-wrapper {
             &-travel {
-                height: 320px;
-                width: 100%;
+                height: 350px;
+                width: 95%;
             }
         }
 
@@ -1023,13 +1023,13 @@
         &__design-images-right-wrapper {
             &-travel {
                 height: 80%;
-                width: 80%;
+                width: 98%;
                 right: 120px;
             }
         }
 
         &__design-images-right-wrapper-location {
-            left: 14vw;
+            left: 10vw;
             bottom: func.pixel-to-rem-convertor(30);
             height: clamp(50px, 5vw, 55px);
             width: clamp(140px, 15vw, 180px);
@@ -1042,8 +1042,8 @@
             height: clamp(58px, 6vw, 60px);
             width: clamp(58px, 6vw, 60px);
             font-size: func.pixel-to-rem-convertor(28);
-            top: 45vh;
-            left: 15vh;
+            top: 50vh;
+            left: 12vh;
         }
 
         &__info {
@@ -1060,8 +1060,12 @@
 
             &-detail {
                 text-align: left;
-                width: 300px;
-                font-size: map.get(font.$description-font, 'md', 'font-size');
+                max-width: 350px;
+                // font-size: map.get(font.$description-font, 'md', 'font-size');
+                @include mixin.responsive-font-apply(
+                    font.$description-font,
+                    font.$font-inter
+                );
             }
         }
 
@@ -1072,6 +1076,7 @@
 
         &__info-button-wrapper {
             gap: func.pixel-to-rem-convertor(15);
+            justify-content: flex-start;
         }
 
         &__triangular-design {
@@ -1079,7 +1084,7 @@
             height: 13vw;
             width: 4vw;
             top: 90vh;
-            left: 100px;
+            left: 0px;
         }
 
         &__brand-images-wrapper {
