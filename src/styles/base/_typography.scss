@@ -2,7 +2,6 @@
 
 $font-inter: 'Inter', 'arial', sans-serif;
 $font-circular-std: 'Circular-Std', 'arial', sans-serif;
-$font-bold: 700;
 
 $hero-heading-font: (
     'sm': (
@@ -21,10 +20,12 @@ $hero-heading-font: (
 
 $description-font: (
     'sm': (
+        'font-family': $font-inter,
         'font-size': func.pixel-to-rem-convertor(16),
         'font-line-height': 1.6,
     ),
     'md': (
+        'font-family': $font-inter,
         'font-size': func.pixel-to-rem-convertor(18),
         'font-line-height': 1.6,
     ),
@@ -71,6 +72,7 @@ $testimonial-description-font: (
     font-family: 'Circular-Std';
     src: url('/assets/fonts/circular-std-font-family/CircularStd-Bold.woff2')
         format('woff2');
+    font-weight: 700;
     font-style: normal;
 }
 
