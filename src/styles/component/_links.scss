@@ -4,7 +4,6 @@
 .link {
     color: color.$color-description;
     transition: color 0.2s ease-in-out;
-    font-family: font.$font-circular-std;
 
     &--primary {
         &:hover {
