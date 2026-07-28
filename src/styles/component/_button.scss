@@ -6,10 +6,8 @@
 @use '../base/typography' as font;
 
 .btn {
-    border: none;
     border-radius: var.$btn-radius;
     font-family: font.$font-circular-std;
-    font-weight: font.$font-bold;
     font-size: func.pixel-to-rem-convertor(14);
     transition: background-color 0.2s ease-in-out;
     padding: func.pixel-to-rem-convertor(15);
@@ -30,7 +28,6 @@
 
     &--transparent {
         background-color: transparent;
-        color: color.$color-dark;
 
         &:hover {
             background-color: color.$color-primary-light;

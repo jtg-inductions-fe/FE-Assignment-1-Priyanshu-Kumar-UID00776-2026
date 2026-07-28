@@ -99,8 +99,6 @@
     &__dropdown-name {
         display: none;
         font-family: font.$font-circular-std;
-        font-weight: font.$font-bold;
-        color: color.$color-dark;
     }
 
     &__dropdown-list {
@@ -113,17 +111,16 @@
     &__dropdown-item {
         width: 100%;
         text-align: center;
-        border-bottom: 1px solid color.$color-light;
+        border-bottom: 1px solid color.$color-grey-light;
 
         &:first-child {
-            border-top: 1px solid color.$color-light;
+            border-top: 1px solid color.$color-grey-light;
         }
     }
 
     &__dropdown-link {
         display: block;
         font-family: font.$font-circular-std;
-        font-weight: font.$font-bold;
         width: 100%;
         padding: func.pixel-to-rem-convertor(16) 0;
     }
