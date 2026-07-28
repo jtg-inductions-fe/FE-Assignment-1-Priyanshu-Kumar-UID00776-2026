@@ -107,7 +107,6 @@
 
     &__dropdown-name {
         display: none;
-        font-family: font.$font-circular-std;
     }
 
     &__dropdown-list {
@@ -129,7 +128,6 @@
 
     &__dropdown-link {
         display: block;
-        font-family: font.$font-circular-std;
         width: 100%;
         padding: func.pixel-to-rem-convertor(16) 0;
     }

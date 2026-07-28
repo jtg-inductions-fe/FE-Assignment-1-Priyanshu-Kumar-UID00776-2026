@@ -7,7 +7,6 @@
 
 .btn {
     border-radius: var.$btn-radius;
-    font-family: font.$font-circular-std;
     font-size: func.pixel-to-rem-convertor(14);
     transition: background-color 0.2s ease-in-out;
     padding: func.pixel-to-rem-convertor(15);
