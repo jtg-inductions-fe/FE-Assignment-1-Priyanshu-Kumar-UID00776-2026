@@ -32,7 +32,6 @@
 
     &--transparent {
         @include mixin.flex-center;
-        justify-content: center;
         background-color: transparent;
 
         &:hover {
@@ -45,8 +44,30 @@
     }
 
     &--compact {
-        // Min width needed to make the button of fixed size for the md and lg mode and padding for pixel perfect
         min-width: func.pixel-to-rem-convertor(111);
         padding: func.pixel-to-rem-convertor(17) func.pixel-to-rem-convertor(15);
+    }
+
+    &--no-outline-button {
+        width: 100%;
+        gap: func.pixel-to-rem-convertor(10);
+
+        @include mixin.media-query('md') {
+            max-width: 200px;
+            padding: func.pixel-to-rem-convertor(18)
+                func.pixel-to-rem-convertor(15);
+        }
+    }
+
+    &--outline-button {
+        outline: 1px solid #eeeeee;
+        width: 100%;
+        gap: func.pixel-to-rem-convertor(10);
+
+        @include mixin.media-query('md') {
+            max-width: 200px;
+            padding: func.pixel-to-rem-convertor(18)
+                func.pixel-to-rem-convertor(15);
+        }
     }
 }
