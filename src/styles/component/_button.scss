@@ -87,7 +87,7 @@
     border: none;
     border-radius: var.$btn-radius;
     font-family: font.$font-circular-std;
-    font-weight: 700;
+    font-weight: font.$font-bold;
     font-size: func.pixel-to-rem-convertor(14);
     transition: background-color 0.2s ease-in-out;
     padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(15);
@@ -127,7 +127,7 @@
     }
 
     &--compact {
-        width: auto;
+        // Min width needed to make the button of fixed size for the md and lg mode and pixel perfect
         min-width: func.pixel-to-rem-convertor(111);
         padding: func.pixel-to-rem-convertor(17) func.pixel-to-rem-convertor(15);
     }

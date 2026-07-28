@@ -63,8 +63,8 @@ To set up the project on your local environment, follow these steps:
 
 6. **Lint the Code**
    `bash
-    npm run lint
-    `
+npm run lint
+`
    <<<<<<< HEAD
 
 ### Design View
