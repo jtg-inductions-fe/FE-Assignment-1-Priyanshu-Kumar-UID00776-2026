@@ -1,22 +1,4 @@
-const statsData = [
-    {
-        value: '500+',
-        label: 'Holiday Package',
-    },
-    {
-        value: '100',
-        label: 'Luxury Hotel',
-        badge: true,
-    },
-    {
-        value: '7',
-        label: 'Premium Airlines',
-    },
-    {
-        value: '2k+',
-        label: 'Happy Customer',
-    },
-];
+import cardMockData from '../data/cards-mock.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
@@ -53,7 +35,8 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-function createStatCard(stat) {
+// Creation of cards using the mock data
+const createStatCard = (stat) => {
     const card = document.createElement('div');
     card.className = 'travel-point__card';
 
@@ -71,15 +54,16 @@ function createStatCard(stat) {
 
     card.append(tagline, description);
     return card;
-}
+};
 
-function renderStats() {
+// Render the cards
+const renderStats = () => {
     const container = document.querySelector('.travel-point__cards-wrapper');
     if (!container) return;
 
-    statsData.forEach((stat) => {
+    cardMockData.forEach((stat) => {
         container.appendChild(createStatCard(stat));
     });
-}
+};
 
 renderStats();
