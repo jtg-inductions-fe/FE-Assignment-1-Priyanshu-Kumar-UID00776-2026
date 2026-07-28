@@ -582,7 +582,7 @@
 .hero {
     @include mixin.flex-center;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1750px;
     position: relative;
     height: fit-content;
     flex-direction: column;
@@ -998,7 +998,7 @@
         }
 
         &__design-images-left {
-            width: 25vw;
+            width: 390px;
         }
 
         &__design-images-left-wrapper {
@@ -1083,12 +1083,12 @@
             display: block;
             height: 13vw;
             width: 4vw;
-            top: 90vh;
+            top: 83vh;
             left: 0px;
         }
 
         &__brand-images-wrapper {
-            margin-top: 15vh;
+            margin-top: 20vh;
             width: 78vw;
             justify-content: space-between;
         }
