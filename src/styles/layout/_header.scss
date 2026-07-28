@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../abstracts/mixins' as mixin;
+@use '../abstracts' as mixin;
 @use '../abstracts/functions' as func;
 @use '../abstracts/colors' as color;
 @use '../base/typography' as font;
@@ -58,7 +58,6 @@
 
     &__nav-list {
         @include mixin.flex-center(center, space-evenly);
-        flex-direction: row;
         width: 100%;
     }
 
@@ -147,7 +146,6 @@
 
         &--tablet-display {
             @include mixin.flex-center;
-            flex-direction: row;
             width: fit-content;
             display: none;
         }

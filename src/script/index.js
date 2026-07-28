@@ -3,21 +3,23 @@ const dropdown = document.getElementById('header-dropdown');
 
 const openIcon = document.getElementById('toggle-icon-open');
 const closeIcon = document.getElementById('toggle-icon-close');
-const desktopMinWidth = 1024;
+const DESKTOP_MIN_WIDTH = 1025;
 
 // Handling the dropdown menu state
 function setMenuState(shouldOpen) {
     toggleButton.setAttribute('aria-expanded', shouldOpen);
 
     if (shouldOpen) {
+        // Open menu: reveal dropdown layout, lock page scroll, and swap to close icon
         dropdown.classList.remove('hidden');
-        dropdown.classList.add('header__is-open');
+        dropdown.classList.add('is-open');
         document.body.classList.add('no-scroll');
         openIcon.classList.add('hidden');
         closeIcon.classList.remove('hidden');
     } else {
+        // Close menu: hide dropdown layout, restore page scroll, and swap back to open icon
         dropdown.classList.add('hidden');
-        dropdown.classList.remove('header__is-open');
+        dropdown.classList.remove('is-open');
         document.body.classList.remove('no-scroll');
         openIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
@@ -25,7 +27,7 @@ function setMenuState(shouldOpen) {
 }
 
 // Removing the menu state when goes into the lg mode
-const desktopQuery = window.matchMedia(`(min-width: ${desktopMinWidth}px)`);
+const desktopQuery = window.matchMedia(`(min-width: ${DESKTOP_MIN_WIDTH}px)`);
 desktopQuery.addEventListener('change', (event) => {
     if (event.matches) {
         setMenuState(false);
@@ -33,13 +35,10 @@ desktopQuery.addEventListener('change', (event) => {
 });
 
 toggleButton.addEventListener('click', () => {
+    // Check if the dropdown menu is currently open
     const isCurrentlyOpen =
         toggleButton.getAttribute('aria-expanded') === 'true';
     setMenuState(!isCurrentlyOpen);
-
-    if (!isCurrentlyOpen) {
-        dropdown.querySelector('a, button')?.focus();
-    }
 });
 
 // Escape button close the dropdown menu when the user press it while it is open
