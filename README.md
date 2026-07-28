@@ -62,10 +62,10 @@ To set up the project on your local environment, follow these steps:
     This command will generate the optimized files in the dist directory.
 
 6. **Lint the Code**
-    ```bash
+   `bash
     npm run lint
-    ```
-<<<<<<< HEAD
+    `
+   <<<<<<< HEAD
 
 ### Design View
 
