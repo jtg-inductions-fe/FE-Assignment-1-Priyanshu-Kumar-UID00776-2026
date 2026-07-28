@@ -1,5 +1,7 @@
 @use 'sass:map';
 @use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
 
 * {
     box-sizing: border-box;
@@ -8,7 +10,10 @@
 }
 
 body {
+    @include mixin.flex-center;
     background-color: color.$color-white;
+    flex-direction: column;
+    padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(20);
 }
 
 dialog {

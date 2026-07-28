@@ -2,6 +2,7 @@
 
 $font-inter: 'Inter', 'arial', sans-serif;
 $font-circular-std: 'Circular-Std', 'arial', sans-serif;
+$font-bold: 700;
 
 $hero-heading-font: (
     'sm': (
@@ -70,7 +71,6 @@ $testimonial-description-font: (
     font-family: 'Circular-Std';
     src: url('/assets/fonts/circular-std-font-family/CircularStd-Bold.woff2')
         format('woff2');
-    // font-weight: 700;
     font-style: normal;
 }
 
