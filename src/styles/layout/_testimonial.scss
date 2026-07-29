@@ -1,0 +1,148 @@
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../abstracts/colors' as color;
+@use '../base/typography' as font;
+
+/*----------Testimonial section------------*/
+
+.testimonial {
+    @include mixin.flex-center;
+    flex-direction: column;
+    width: 100%;
+    padding: func.pixel-to-rem-convertor(60) func.pixel-to-rem-convertor(20);
+    background: none;
+
+    &__info {
+        text-align: center;
+        margin-bottom: func.pixel-to-rem-convertor(40);
+    }
+
+    &__tagline {
+        @include mixin.responsive-font-apply(font.$section-tagline-font);
+        color: color.$color-pink;
+        letter-spacing: 3px;
+        display: block;
+        margin-bottom: func.pixel-to-rem-convertor(10);
+    }
+
+    &__heading {
+        @include mixin.responsive-font-apply(font.$section-heading-font);
+        color: color.$color-dark;
+    }
+
+    &__carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: func.pixel-to-rem-convertor(900);
+        margin: 0 auto;
+        padding: 0 func.pixel-to-rem-convertor(80);
+    }
+
+    &__swiper {
+        width: 100%;
+        padding-bottom: func.pixel-to-rem-convertor(50);
+    }
+
+    &__card {
+        @include mixin.flex-center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &__avatar {
+        width: func.pixel-to-rem-convertor(100);
+        height: func.pixel-to-rem-convertor(100);
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: func.pixel-to-rem-convertor(24);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    &__user-info {
+        font-size: func.pixel-to-rem-convertor(20);
+        margin-bottom: func.pixel-to-rem-convertor(16);
+
+        &-name {
+            font-weight: 700;
+            color: color.$color-orange;
+        }
+
+        &-role {
+            font-weight: 400;
+            color: rgba(25, 24, 37, 0.75);
+        }
+    }
+
+    &__stars {
+        display: flex;
+        gap: func.pixel-to-rem-convertor(6);
+        margin-bottom: func.pixel-to-rem-convertor(30);
+
+        .star {
+            color: #facd49;
+            font-size: func.pixel-to-rem-convertor(20);
+        }
+    }
+
+    &__text {
+        @include mixin.responsive-font-apply(
+            font.$testimonial-description-font,
+            font.$font-inter
+        );
+        color: rgba(25, 24, 37, 0.75);
+        max-width: func.pixel-to-rem-convertor(700);
+        margin: 0 auto;
+    }
+
+    &__nav-btn {
+        @include mixin.flex-center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: func.pixel-to-rem-convertor(64);
+        height: func.pixel-to-rem-convertor(64);
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+
+        &--prev {
+            left: 0;
+            background-color: color.$color-white;
+            color: color.$color-dark;
+            box-shadow: 0 func.pixel-to-rem-convertor(10)
+                func.pixel-to-rem-convertor(30) rgba(0, 0, 0, 0.08);
+        }
+
+        &--next {
+            right: 0;
+            background-color: #5d50c6;
+            color: color.$color-white;
+            box-shadow: 0 func.pixel-to-rem-convertor(10)
+                func.pixel-to-rem-convertor(30) rgba(93, 80, 198, 0.3);
+        }
+    }
+
+    &__pagination {
+        bottom: 0 !important;
+
+        .swiper-pagination-bullet {
+            width: func.pixel-to-rem-convertor(14);
+            height: func.pixel-to-rem-convertor(14);
+            background-color: rgba(25, 24, 37, 0.1);
+            opacity: 1;
+            margin: 0 func.pixel-to-rem-convertor(6) !important;
+            transition: all 0.3s ease;
+
+            &-active {
+                background-color: color.$color-pink;
+            }
+        }
+    }
+
+    @include mixin.media-query('md') {
+        background: url('/assets/images/testimonial-background.png') no-repeat
+            center center / cover;
+    }
+}
