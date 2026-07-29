@@ -20,65 +20,64 @@
         max-width: 1500px;
         flex-direction: column;
         width: 100%;
-        gap: func.pixel-to-rem-convertor(10);
+        gap: func.pixel-to-rem-convertor(50);
     }
 
     &__design {
-        top: func.pixel-to-rem-convertor(30);
+        top: func.pixel-to-rem-convertor(50);
         position: relative;
         margin: 0 auto;
         width: 100%;
-        height: 40vh;
+        background: url('/assets/images/earth.png') no-repeat top / contain;
     }
 
     &__design-earth {
-        height: fit-content;
-        width: 100%;
         position: absolute;
         z-index: 1;
         top: 0;
+        width: 100%;
         left: 0;
     }
 
     &__design-earth-image {
-        height: 100%;
         width: 100%;
         object-fit: contain;
         object-position: top;
-        z-index: 0;
+        z-index: -1;
     }
 
     &__design-images {
         @include mixin.flex-center;
-        position: absolute;
-        inset: func.pixel-to-rem-convertor(5) 0;
         width: 100%;
-        height: 100%;
+        min-height: 400px;
         flex-direction: row;
         gap: func.pixel-to-rem-convertor(16);
         top: func.pixel-to-rem-convertor(10);
         padding: 0 func.pixel-to-rem-convertor(32);
-        padding-top: func.pixel-to-rem-convertor(32);
+        padding-top: func.pixel-to-rem-convertor(8);
     }
 
     &__design-images-left {
         @include mixin.flex-center(center, space-evenly);
         height: 100%;
-        width: 250px;
-        z-index: 2;
+        width: 43%;
+        z-index: 1;
+        gap: 20px;
         flex-direction: column;
-        padding: func.pixel-to-rem-convertor(8) 0;
+        padding: func.pixel-to-rem-convertor(7) 0;
         position: relative;
     }
 
     &__design-images-left-wrapper {
         @include mixin.flex-center(center, flex-end);
-        width: 100%;
+        max-width: 8.7rem;
+        aspect-ratio: 0.9/1;
     }
 
     &__design-images-left-travel {
-        height: 90%;
-        width: 35vw;
+        height: 100%;
+        width: 100%;
+        min-width: 135px;
         object-fit: cover;
         object-position: center;
         border-radius: func.pixel-to-rem-convertor(25);
@@ -92,30 +91,29 @@
         box-shadow: 0px func.pixel-to-rem-convertor(8)
             func.pixel-to-rem-convertor(16) 0px color.$color-shadow;
         color: color.$color-white;
-        top: 43%;
-        height: 36px;
-        width: 36px;
-        left: 8%;
-        transform: translateX(-50%);
+        top: func.pixel-to-rem-convertor(140);
+        padding: func.pixel-to-rem-convertor(9);
+        left: 0;
+        transform: translateX(-60%);
     }
 
     &__design-images-right {
         @include mixin.flex-center;
-        height: 310px;
-        width: 250px;
-        z-index: 2;
+        z-index: 1;
         position: relative;
         padding: func.pixel-to-rem-convertor(8) 0;
     }
 
     &__design-images-right-wrapper {
         @include mixin.flex-center(center, flex-start);
-        position: relative;
+        max-width: 8.7rem;
+        min-width: 8.7rem;
+        aspect-ratio: 1/1.5;
     }
 
     &__design-images-right-travel {
         width: 100%;
-        height: 70%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
         border-radius: 25px;
@@ -125,14 +123,13 @@
         @include mixin.flex-center;
         position: absolute;
         background-color: color.$color-white;
-        padding: 0 func.pixel-to-rem-convertor(10);
+        padding: func.pixel-to-rem-convertor(8) func.pixel-to-rem-convertor(10);
         box-shadow: 0px func.pixel-to-rem-convertor(12)
             func.pixel-to-rem-convertor(20) 0px color.$color-shadow;
         gap: func.pixel-to-rem-convertor(5);
-        left: 50%;
-        bottom: func.pixel-to-rem-convertor(20);
-        height: func.pixel-to-rem-convertor(30);
-        width: func.pixel-to-rem-convertor(100);
+        left: 70%;
+        bottom: func.pixel-to-rem-convertor(40);
+        min-width: func.pixel-to-rem-convertor(90);
         border-radius: 15px;
         font-size: func.pixel-to-rem-convertor(14);
     }
@@ -150,10 +147,9 @@
         box-shadow: 0px func.pixel-to-rem-convertor(8)
             func.pixel-to-rem-convertor(16) 0px color.$color-shadow;
         color: color.$color-white;
-        height: 36px;
-        width: 36px;
+        padding: func.pixel-to-rem-convertor(10);
         font-size: func.pixel-to-rem-convertor(14);
-        top: 98%;
+        top: func.pixel-to-rem-convertor(237);
         left: 25%;
     }
 
@@ -163,7 +159,6 @@
         position: relative;
         width: 100%;
         text-align: center;
-        top: 20vw;
         gap: clamp(
             func.pixel-to-rem-convertor(20),
             4vw,
@@ -172,11 +167,10 @@
     }
 
     &__info-heading {
-        @include mixin.responsive-font-apply(font.$hero-heading-font);
-
         color: color.$color-dark;
         text-align: center;
         width: 100%;
+        @include mixin.responsive-font-apply(font.$hero-heading-font);
     }
 
     &__info-highlight-heading {
@@ -184,27 +178,26 @@
     }
 
     &__info-detail {
+        text-align: center;
+        color: color.$color-description;
         @include mixin.responsive-font-apply(
             font.$description-font,
             font.$font-inter
         );
-
-        text-align: center;
-        color: color.$color-description;
     }
 
     &__info-badge {
         @include mixin.flex-center(center, space-evenly);
         border-radius: 30px;
+        gap: func.pixel-to-rem-convertor(18);
         background-color: transparent;
-        height: 40px;
-        width: 190px;
-        padding: func.pixel-to-rem-convertor(10);
+        box-shadow: 0 func.pixel-to-rem-convertor(8)
+            func.pixel-to-rem-convertor(16) 0px color.$color-shadow;
+        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(20);
+        font-size: func.pixel-to-rem-convertor(20);
     }
 
     &__info-badge-tagline {
-        top: func.pixel-to-rem-convertor(14);
-        font-family: font.$font-circular-std;
         font-size: func.pixel-to-rem-convertor(14);
         color: color.$color-pink;
     }
@@ -219,10 +212,11 @@
 
     &__info-button-wrapper {
         @include mixin.flex-center;
+        margin-top: func.pixel-to-rem-convertor(13);
         height: fit-content;
         width: 100%;
         flex-direction: column;
-        gap: func.pixel-to-rem-convertor(15);
+        gap: func.pixel-to-rem-convertor(25);
     }
 
     &__triangular-design {
@@ -239,38 +233,31 @@
             3vw,
             func.pixel-to-rem-convertor(24)
         );
-        margin-top: 100px;
-        width: 100%;
+        margin-top: func.pixel-to-rem-convertor(27);
     }
 
     &__brand-list {
         @include mixin.flex-center;
-        width: 100%;
         flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-        margin: 0;
         gap: clamp(
             func.pixel-to-rem-convertor(16),
-            3vw,
+            9vw,
             func.pixel-to-rem-convertor(24)
         );
     }
 
     &__brand-item {
         @include mixin.flex-center;
-        width: 25%;
+        width: 29%;
+
+        &:nth-child(4) {
+            width: 20%;
+        }
     }
 
     &__brand-images {
         width: 100%;
         height: auto;
-    }
-
-    &__button {
-        outline: 1px solid color.$color-primary-light;
-        width: 100%;
-        gap: func.pixel-to-rem-convertor(10);
     }
 
     /* ------- Medium Breakpoint (md) ------- */
@@ -283,64 +270,69 @@
         );
 
         &__design {
-            width: 80%;
-            height: 70vh;
+            margin-top: func.pixel-to-rem-convertor(35);
+            background-size: 80vw;
         }
 
         &__design-info-wrapper {
-            gap: func.pixel-to-rem-convertor(10);
+            gap: func.pixel-to-rem-convertor(100);
         }
 
         &__design-images {
-            height: 75vh;
+            height: 100%;
             gap: clamp(
                 func.pixel-to-rem-convertor(20),
                 4vw,
                 func.pixel-to-rem-convertor(36)
             );
-            padding: 0 func.pixel-to-rem-convertor(54);
-            padding-top: func.pixel-to-rem-convertor(82);
+            padding-top: func.pixel-to-rem-convertor(70);
             top: func.pixel-to-rem-convertor(54);
         }
 
         &__design-images-left {
-            width: 30vw;
-            z-index: 2;
+            width: fit-content;
+            z-index: 1;
+            gap: func.pixel-to-rem-convertor(30);
         }
 
         &__design-images-left-wrapper {
-            height: 50%;
-        }
-
-        &__design-images-left-travel {
-            width: 30vw;
-            height: 90%;
+            max-width: 17rem;
+            aspect-ratio: 0.9;
         }
 
         &__design-images-left-send {
-            height: 60px;
-            width: 60px;
-            right: 29vw;
-            font-size: func.pixel-to-rem-convertor(18);
+            padding: func.pixel-to-rem-convertor(15)
+                func.pixel-to-rem-convertor(15);
+            left: 0;
+            top: func.pixel-to-rem-convertor(275);
+            transform: translateX(-63%);
+            font-size: func.pixel-to-rem-convertor(36);
         }
 
         &__design-images-right {
-            height: 90%;
-            width: 300px;
-            z-index: 2;
+            height: 100%;
+            z-index: 1;
         }
 
         &__design-images-right-travel {
-            height: 30vh;
-            width: 30vw;
+            width: 100%;
+        }
+
+        &__design-images-right-wrapper {
+            max-width: 17rem;
         }
 
         &__design-images-right-location {
-            left: 20vw;
-            bottom: func.pixel-to-rem-convertor(30);
-            height: clamp(50px, 5vw, 55px);
-            width: clamp(140px, 15vw, 170px);
+            left: 18vw;
+            bottom: func.pixel-to-rem-convertor(60);
+            width: clamp(
+                func.pixel-to-rem-convertor(140),
+                16vw,
+                func.pixel-to-rem-convertor(170)
+            );
             border-radius: 30px;
+            padding: func.pixel-to-rem-convertor(16)
+                func.pixel-to-rem-convertor(10);
             gap: func.pixel-to-rem-convertor(8);
             font-size: func.pixel-to-rem-convertor(21);
         }
@@ -350,32 +342,28 @@
         }
 
         &__design-images-right-person {
-            height: clamp(58px, 6vw, 64px);
-            width: clamp(58px, 6vw, 64px);
-            font-size: func.pixel-to-rem-convertor(18);
-            top: func.pixel-to-rem-convertor(524);
-            left: func.pixel-to-rem-convertor(90);
+            padding: func.pixel-to-rem-convertor(15)
+                func.pixel-to-rem-convertor(15);
+            font-size: func.pixel-to-rem-convertor(36);
+            top: func.pixel-to-rem-convertor(470);
+            left: func.pixel-to-rem-convertor(70);
         }
 
         &__info {
             width: 80vw;
             margin: 0 auto;
-            top: func.pixel-to-rem-convertor(150);
-            gap: clamp(
-                func.pixel-to-rem-convertor(20),
-                3vw,
-                func.pixel-to-rem-convertor(40)
-            );
+            top: func.pixel-to-rem-convertor(10);
         }
 
         &__info-heading {
-            font-size: map.get(font.$hero-heading-font, 'md', 'font-size');
+            padding-top: func.pixel-to-rem-convertor(23);
+            padding-right: func.pixel-to-rem-convertor(10);
             text-align: center;
+            max-width: 600px;
         }
 
         &__info-detail {
-            font-size: map.get(font.$description-font, 'md', 'font-size');
-            width: 320px;
+            max-width: 460px;
             text-align: center;
         }
 
@@ -391,14 +379,14 @@
 
         &__triangular-design {
             display: block;
-            top: func.pixel-to-rem-convertor(1032);
-            width: 6vw;
-            height: 15vw;
+            top: func.pixel-to-rem-convertor(1092);
+            width: 6%;
+            height: 10%;
             left: 0;
         }
 
         &__brand-images-wrapper {
-            margin-top: func.pixel-to-rem-convertor(170);
+            margin-top: func.pixel-to-rem-convertor(210);
             width: 80%;
             gap: clamp(
                 func.pixel-to-rem-convertor(20),
@@ -436,79 +424,104 @@
         &__design-info-wrapper {
             min-height: 500px;
             height: func.pixel-to-rem-convertor(600);
-            width: 95vw;
-            gap: func.pixel-to-rem-convertor(150);
+            max-width: 80vw;
+            gap: func.pixel-to-rem-convertor(0);
             flex-direction: row-reverse;
+            margin-top: func.pixel-to-rem-convertor(70);
         }
 
         &__design {
-            width: 58%;
-            right: func.pixel-to-rem-convertor(50);
-            height: 70vh;
+            width: 100%;
+            left: 2.6vw;
+            height: 71vh;
+            background-size: 61rem;
         }
 
         &__design-images {
-            height: 84vh;
+            margin-left: func.pixel-to-rem-convertor(28);
+            height: 100%;
             gap: func.pixel-to-rem-convertor(30);
-            width: 100%;
+            width: 92%;
             padding: 0 func.pixel-to-rem-convertor(54);
             padding-top: func.pixel-to-rem-convertor(85);
             right: func.pixel-to-rem-convertor(120);
-            top: func.pixel-to-rem-convertor(74);
+            top: func.pixel-to-rem-convertor(94);
         }
 
         &__design-images-left {
-            width: 390px;
+            width: 40%;
             z-index: 2;
+            align-items: flex-end;
+            gap: func.pixel-to-rem-convertor(40);
+        }
+
+        &__design-images-left-wrapper {
+            width: 345px;
+            max-width: 400px;
+            aspect-ratio: 0.9 / 0.86;
         }
 
         &__design-images-left-travel {
-            height: 350px;
-            width: 95%;
+            height: 100%;
+            width: 100%;
         }
 
         &__design-images-left-send {
-            height: 60px;
-            width: 60px;
-            right: 15vw;
-            font-size: func.pixel-to-rem-convertor(28);
+            padding: func.pixel-to-rem-convertor(25)
+                func.pixel-to-rem-convertor(25);
+            font-size: func.pixel-to-rem-convertor(30);
+            left: 7%;
+            top: 51%;
         }
 
         &__design-images-right {
-            height: 24vw;
-            z-index: 2;
-            width: fit-content;
+            height: 100%;
+            z-index: 1;
+        }
+
+        &__design-images-right-wrapper {
+            width: 380px;
+            max-width: 400px;
+            padding-left: func.pixel-to-rem-convertor(32);
+            margin-top: func.pixel-to-rem-convertor(135);
+            height: 76%;
         }
 
         &__design-images-right-travel {
-            height: 80%;
-            width: 98%;
+            height: 100%;
+            width: 100%;
             right: func.pixel-to-rem-convertor(120);
         }
 
         &__design-images-right-location {
-            left: 10vw;
-            bottom: func.pixel-to-rem-convertor(30);
-            height: clamp(50px, 5vw, 55px);
-            width: clamp(140px, 15vw, 180px);
+            bottom: 8vh;
+            width: clamp(
+                func.pixel-to-rem-convertor(140),
+                15vw,
+                func.pixel-to-rem-convertor(180)
+            );
             border-radius: 30px;
+            padding: func.pixel-to-rem-convertor(15)
+                func.pixel-to-rem-convertor(10);
             gap: func.pixel-to-rem-convertor(10);
-            font-size: func.pixel-to-rem-convertor(28);
+            font-size: func.pixel-to-rem-convertor(30);
+            left: 15.5vw;
         }
 
         &__design-images-right-person {
-            height: clamp(58px, 6vw, 60px);
-            width: clamp(58px, 6vw, 60px);
-            font-size: func.pixel-to-rem-convertor(28);
-            top: 50vh;
-            left: 12vh;
+            font-size: func.pixel-to-rem-convertor(30);
+            padding: func.pixel-to-rem-convertor(25)
+                func.pixel-to-rem-convertor(25);
+            left: 7vw;
+            top: 69vh;
         }
 
         &__info {
             height: 100%;
             width: 30%;
             align-items: flex-start;
-            gap: func.pixel-to-rem-convertor(40);
+            margin-top: func.pixel-to-rem-convertor(160);
+            gap: func.pixel-to-rem-convertor(50);
         }
 
         &__info-heading {
@@ -528,8 +541,9 @@
         }
 
         &__info-badge {
-            height: 50px;
-            width: 190px;
+            padding: func.pixel-to-rem-convertor(15)
+                func.pixel-to-rem-convertor(40);
+            font-size: func.pixel-to-rem-convertor(22);
         }
 
         &__info-button-wrapper {
@@ -539,10 +553,9 @@
 
         &__triangular-design {
             display: block;
-            height: 13vw;
-            width: 4vw;
-            top: func.pixel-to-rem-convertor(800);
-            left: 0px;
+            height: 17%;
+            width: 4%;
+            top: func.pixel-to-rem-convertor(870);
         }
 
         &__brand-images-wrapper {

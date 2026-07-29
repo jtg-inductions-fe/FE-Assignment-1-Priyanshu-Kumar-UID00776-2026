@@ -51,23 +51,31 @@
     &--no-outline-button {
         width: 100%;
         gap: func.pixel-to-rem-convertor(10);
+        // max-width: func.pixel-to-rem-convertor(10);
+        padding: func.pixel-to-rem-convertor(24) func.pixel-to-rem-convertor(10);
 
         @include mixin.media-query('md') {
-            max-width: 200px;
+            max-width: 150px;
             padding: func.pixel-to-rem-convertor(18)
                 func.pixel-to-rem-convertor(15);
         }
     }
 
+    &__play-icon {
+        font-size: func.pixel-to-rem-convertor(22);
+    }
+
     &--outline-button {
         outline: 1px solid #eeeeee;
         width: 100%;
+        padding: func.pixel-to-rem-convertor(25) func.pixel-to-rem-convertor(10);
         gap: func.pixel-to-rem-convertor(10);
 
         @include mixin.media-query('md') {
-            max-width: 200px;
-            padding: func.pixel-to-rem-convertor(18)
-                func.pixel-to-rem-convertor(15);
+            margin-top: 10px;
+            max-width: 180px;
+            padding: func.pixel-to-rem-convertor(15)
+                func.pixel-to-rem-convertor(0);
         }
     }
 }
