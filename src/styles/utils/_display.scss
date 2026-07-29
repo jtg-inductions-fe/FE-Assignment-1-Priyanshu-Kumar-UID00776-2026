@@ -1,0 +1,13 @@
+@use '../abstracts/functions' as func;
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}

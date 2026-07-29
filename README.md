@@ -62,9 +62,10 @@ To set up the project on your local environment, follow these steps:
     This command will generate the optimized files in the dist directory.
 
 6. **Lint the Code**
-    ```bash
-    npm run lint
-    ```
+   `bash
+npm run lint
+`
+   <<<<<<< HEAD
 
 ### Design View
 
@@ -86,3 +87,5 @@ To set up the project on your local environment, follow these steps:
 
 <img src="./public/assets/images/hero-section-desktop-view.png.png" alt="Desktop View Design" width="100%">
 <img src="./public/assets/images/hero-section-scrolled-desktop-view.png.png" alt="Desktop View Design" width="100%">
+=======
+>>>>>>> d943d1c4aaf4edf33957c2482e322df0075856c4

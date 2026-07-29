@@ -2,104 +2,72 @@
 @use '../abstracts/variables' as var;
 @use '../abstracts/colors' as color;
 @use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
 @use '../base/typography' as font;
 
 .btn {
-    height: 50px;
-    border: none;
     border-radius: var.$btn-radius;
-    font-family: font.$font-circularStd-bold;
-    font-size: font.$font-size-sm;
-    justify-content: center;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    font-size: func.pixel-to-rem-convertor(14);
+    transition: background-color 0.2s ease-in-out;
+    padding: func.pixel-to-rem-convertor(15);
 
     &:hover {
-        transform: scale(105%);
-        transition: all 0.2s ease-in-out;
+        transform: scale(1.05);
     }
 
     &:focus-visible {
-        outline: 2px solid color.$color-btn;
+        outline: 2px solid color.$color-primary;
         outline-offset: 2px;
     }
 
     &--primary {
-        background-color: color.$color-btn;
+        background-color: color.$color-primary;
         color: color.$color-white;
         box-shadow: 0px 12px 24px 0px rgba(color.$color-dark, 0.3);
 
         &:hover {
-            background-color: #4c3ebc;
-        }
-
-        &-hero-section-button {
-            @include mixin.media-query('md') {
-                max-width: 200px;
-                width: 170px;
-            }
-
-            @include mixin.media-query('sm') {
-                width: 100%;
-            }
-        }
-    }
-
-    &--dropdown-button {
-        width: 100%;
-
-        @include mixin.media-query('sm') {
-            display: block;
-        }
-        @include mixin.media-query('md') {
-            display: none;
+            background-color: color.$color-primary-dark;
         }
     }
 
     &--transparent {
         @include mixin.flex-center;
-        justify-content: center;
         background-color: transparent;
-        color: color.$color-dark;
 
         &:hover {
-            background-color: color.$color-hover;
-        }
-
-        &-hero-section-button {
-            @include mixin.media-query('md') {
-                max-width: 200px;
-                outline: 1px solid color.$color-button-border;
-                width: 170px;
-            }
-
-            @include mixin.media-query('sm') {
-                outline: 1px solid color.$color-button-border;
-                width: 100%;
-                gap: 10px;
-            }
+            background-color: color.$color-primary-light;
         }
     }
 
-    &--responsive-nav {
+    &--full-width {
         width: 100%;
-        max-width: 130px;
-        padding: 16px 12px;
+    }
 
-        @include mixin.media-query('sm') {
-            display: none;
-        }
+    &--compact {
+        min-width: func.pixel-to-rem-convertor(111);
+        padding: func.pixel-to-rem-convertor(17) func.pixel-to-rem-convertor(15);
+    }
+
+    &--no-outline-button {
+        width: 100%;
+        gap: func.pixel-to-rem-convertor(10);
 
         @include mixin.media-query('md') {
-            display: block;
-            padding: 10px 15px;
-            width: 110px;
+            max-width: 200px;
+            padding: func.pixel-to-rem-convertor(18)
+                func.pixel-to-rem-convertor(15);
         }
+    }
 
-        @include mixin.media-query('lg') {
-            display: block;
-            padding: 16px 12px;
+    &--outline-button {
+        outline: 1px solid #eeeeee;
+        width: 100%;
+        gap: func.pixel-to-rem-convertor(10);
+
+        @include mixin.media-query('md') {
+            max-width: 200px;
+            padding: func.pixel-to-rem-convertor(18)
+                func.pixel-to-rem-convertor(15);
         }
     }
 }

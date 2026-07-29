@@ -1,6 +1,8 @@
 @use 'sass:map';
 @use '../abstracts/colors' as color;
 @use '../abstracts/mixins' as mixin;
+@use '../base/typography' as font;
+@use '../abstracts/functions' as func;
 
 * {
     box-sizing: border-box;
@@ -12,6 +14,11 @@ body {
     @include mixin.flex-center;
     background-color: color.$color-white;
     flex-direction: column;
+    font-family: font.$font-circular-std;
+}
+
+dialog {
+    border: none;
 }
 
 ul,
@@ -19,9 +26,14 @@ ol {
     list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 button {
     background: none;
     border: none;
     outline: none;
     cursor: pointer;
+    font-family: font.$font-circular-std;
 }

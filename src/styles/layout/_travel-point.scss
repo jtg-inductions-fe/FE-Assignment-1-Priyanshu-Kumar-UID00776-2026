@@ -1,68 +1,23 @@
 @use '../abstracts/mixins' as mixin;
 @use '../abstracts/colors' as color;
 @use '../base/typography' as font;
+@use '../abstracts/functions' as func;
 @use 'sass:map';
 
 /* ------- Travel Point Section -------- */
 
 .travel-point {
     @include mixin.flex-center;
+    flex-direction: column;
     height: fit-content;
     position: relative;
     width: 100%;
     justify-content: space-evenly;
-    padding: 60px 0px;
-
-    &__gradient-background {
-        position: absolute;
-        background-color: #facd49;
-        z-index: -1;
-        pointer-events: none;
-
-        @include mixin.media-query('sm') {
-            display: none;
-        }
-
-        @include mixin.media-query('md') {
-            display: flex;
-            width: 300px;
-            height: 300px;
-            left: 800px;
-            top: -100px;
-            border-radius: 50%;
-            filter: blur(120px);
-        }
-
-        @include mixin.media-query('lg') {
-            display: flex;
-            width: 500px;
-            height: 400px;
-            left: 100vw;
-            top: 0;
-            border-radius: 50%;
-            filter: blur(200px);
-        }
-    }
+    padding: func.pixel-to-rem-convertor(60) 0;
 
     &__main-image {
         z-index: 1;
-        @include mixin.media-query('sm') {
-            height: 80vw;
-            width: 100%;
-        }
-
-        @include mixin.media-query('md') {
-            margin-top: 80px;
-            height: 80vw;
-            width: 100%;
-        }
-
-        @include mixin.media-query('lg') {
-            padding-right: 60px;
-            margin-top: 80px;
-            height: 45vw;
-            width: 60vw;
-        }
+        width: 100%;
     }
 
     &__info {
@@ -71,110 +26,32 @@
         flex-direction: column;
         height: fit-content;
         width: 100%;
-        padding: 50px 20px;
-        gap: 30px;
-
-        @include mixin.media-query('lg') {
-            align-items: flex-start;
-            gap: 40px;
-        }
+        padding: func.pixel-to-rem-convertor(50) func.pixel-to-rem-convertor(20);
+        gap: func.pixel-to-rem-convertor(30);
     }
 
     &__tagline {
-        font-family: font.$font-circularStd-bold;
         color: color.$color-pink;
-        letter-spacing: 3px;
+        letter-spacing: func.pixel-to-rem-convertor(3);
         width: 100%;
-
-        @include mixin.media-query('sm') {
-            text-align: center;
-            font-size: map.get(font.$section-tagline-font, 'sm', 'font-size');
-            line-height: map.get(
-                font.$section-tagline-font,
-                'sm',
-                'line-height'
-            );
-        }
-
-        @include mixin.media-query('md') {
-            text-align: center;
-            font-size: map.get(font.$section-tagline-font, 'md', 'font-size');
-            line-height: map.get(
-                font.$section-tagline-font,
-                'md',
-                'line-height'
-            );
-        }
-
-        @include mixin.media-query('lg') {
-            text-align: left;
-            font-size: map.get(font.$section-tagline-font, 'md', 'font-size');
-            line-height: map.get(
-                font.$section-tagline-font,
-                'md',
-                'line-height'
-            );
-        }
+        text-align: center;
+        @include mixin.responsive-font-apply(font.$section-tagline-font);
     }
 
     &__heading {
-        font-family: font.$font-circularStd-bold;
         color: color.$color-dark;
-
-        @include mixin.media-query('sm') {
-            text-align: center;
-            font-size: map.get(font.$section-heading-font, 'sm', 'font-size');
-            line-height: map.get(
-                font.$section-heading-font,
-                'sm',
-                'line-height'
-            );
-        }
-
-        @include mixin.media-query('md') {
-            text-align: center;
-            font-size: map.get(font.$section-heading-font, 'md', 'font-size');
-            line-height: map.get(
-                font.$section-heading-font,
-                'md',
-                'line-height'
-            );
-        }
-
-        @include mixin.media-query('lg') {
-            text-align: left;
-            width: 90%;
-            font-size: map.get(font.$section-heading-font, 'lg', 'font-size');
-            line-height: map.get(
-                font.$section-heading-font,
-                'lg',
-                'line-height'
-            );
-        }
+        text-align: center;
+        @include mixin.responsive-font-apply(font.$section-heading-font);
     }
 
     &__description {
-        font-family: font.$font-inter;
-        color: #19182580;
-        line-height: map.get(font.$description-font, 'sm', 'font-line-height');
-
-        @include mixin.media-query('sm') {
-            text-align: center;
-            width: 95%;
-            font-size: map.get(font.$description-font, 'sm', 'font-size');
-        }
-
-        @include mixin.media-query('md') {
-            text-align: center;
-            width: 95%;
-            font-size: map.get(font.$description-font, 'md', 'font-size');
-        }
-
-        @include mixin.media-query('lg') {
-            text-align: left;
-            width: 450px;
-            font-size: map.get(font.$description-font, 'md', 'font-size');
-        }
+        color: color.$color-description;
+        text-align: center;
+        width: 95%;
+        @include mixin.responsive-font-apply(
+            font.$description-font,
+            font.$font-inter
+        );
     }
 
     &__cards-wrapper {
@@ -183,27 +60,16 @@
         gap: 2rem;
         width: 100%;
         place-items: center;
-
-        @include mixin.media-query('md') {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        @include mixin.media-query('lg') {
-            max-width: 550px;
-            gap: 2rem;
-            place-items: flex-start;
-        }
     }
 
     &__card {
         @include mixin.flex-center;
         justify-content: center;
         position: relative;
-        gap: 20px;
-        height: 150px;
+        gap: func.pixel-to-rem-convertor(20);
+        height: func.pixel-to-rem-convertor(150);
         width: 90%;
-        padding: 20px 20px;
+        padding: func.pixel-to-rem-convertor(20);
         border: 1px solid #1918251a;
         border-radius: 32px;
         flex-direction: column;
@@ -212,46 +78,87 @@
             content: '';
             display: none;
             position: absolute;
-            top: -50px;
-            left: 100px;
+            left: func.pixel-to-rem-convertor(100);
             width: 300px;
             height: 300px;
             background: url('/assets/images/travelPoint-badge.png') no-repeat
                 center / contain;
             z-index: 2;
-
-            @include mixin.media-query('lg') {
-                display: flex;
-            }
-        }
-
-        @include mixin.media-query('lg') {
-            height: 170px;
-            width: 100%;
         }
     }
 
     &__card-tagline {
-        font-size: map.get(font.$section-heading-font, 'sm', 'font-size');
-        font-family: font.$font-circularStd-bold;
         color: color.$color-orange;
+        @include mixin.responsive-font-apply(font.$section-heading-font);
     }
 
     &__card-description {
-        font-size: font.$font-size-md;
+        font-size: func.pixel-to-rem-convertor(18);
         font-family: font.$font-inter;
         color: color.$color-dark;
     }
 
-    @include mixin.media-query('sm') {
-        flex-direction: column;
-    }
+    /* ------- Medium Breakpoint (md) ------- */
 
     @include mixin.media-query('md') {
         flex-direction: column;
+
+        &__main-image {
+            margin-top: func.pixel-to-rem-convertor(80);
+            height: 80vw;
+            width: 100%;
+        }
+
+        &__cards-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
     }
+
+    /* ------- Large Breakpoint (lg) ------- */
 
     @include mixin.media-query('lg') {
         flex-direction: row;
+
+        &__main-image {
+            padding-right: func.pixel-to-rem-convertor(60);
+            margin-top: func.pixel-to-rem-convertor(80);
+            height: 45vw;
+            width: 60vw;
+        }
+
+        &__info {
+            align-items: flex-start;
+            gap: func.pixel-to-rem-convertor(40);
+        }
+
+        &__tagline {
+            text-align: left;
+        }
+
+        &__heading {
+            text-align: left;
+            width: 90%;
+        }
+
+        &__description {
+            text-align: left;
+            width: 450px;
+        }
+
+        &__cards-wrapper {
+            max-width: 550px;
+            gap: 2rem;
+            place-items: flex-start;
+        }
+
+        &__card {
+            height: 170px;
+            width: 100%;
+
+            &--badge::after {
+                display: flex;
+            }
+        }
     }
 }
