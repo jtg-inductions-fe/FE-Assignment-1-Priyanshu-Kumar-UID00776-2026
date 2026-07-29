@@ -1,4 +1,5 @@
-import cardMockData from '../data/cards-mock.js';
+import cardMockData from '../data/cardsMock.js';
+import { initTestimonialSwiper } from './swiper.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
@@ -88,3 +89,4 @@ const renderStats = () => {
 };
 
 renderStats();
+initTestimonialSwiper();

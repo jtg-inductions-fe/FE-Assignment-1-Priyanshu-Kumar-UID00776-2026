@@ -9,7 +9,8 @@
     @include mixin.flex-center;
     flex-direction: column;
     width: 100%;
-    padding: func.pixel-to-rem-convertor(60) func.pixel-to-rem-convertor(20);
+
+    padding: func.pixel-to-rem-convertor(20);
     background: none;
 
     &__info {
@@ -18,24 +19,23 @@
     }
 
     &__tagline {
-        @include mixin.responsive-font-apply(font.$section-tagline-font);
         color: color.$color-pink;
+        margin-bottom: func.pixel-to-rem-convertor(10);
         letter-spacing: 3px;
         display: block;
-        margin-bottom: func.pixel-to-rem-convertor(10);
+        @include mixin.responsive-font-apply(font.$section-tagline-font);
     }
 
     &__heading {
-        @include mixin.responsive-font-apply(font.$section-heading-font);
         color: color.$color-dark;
+        @include mixin.responsive-font-apply(font.$section-heading-font);
     }
 
     &__carousel-container {
         position: relative;
         width: 100%;
-        max-width: func.pixel-to-rem-convertor(900);
+        max-width: func.pixel-to-rem-convertor(1500);
         margin: 0 auto;
-        padding: 0 func.pixel-to-rem-convertor(80);
     }
 
     &__swiper {
@@ -45,13 +45,15 @@
 
     &__card {
         @include mixin.flex-center;
+        padding-top: func.pixel-to-rem-convertor(40);
         flex-direction: column;
         text-align: center;
+        gap: func.pixel-to-rem-convertor(40);
     }
 
     &__avatar {
-        width: func.pixel-to-rem-convertor(100);
-        height: func.pixel-to-rem-convertor(100);
+        width: func.pixel-to-rem-convertor(128);
+        height: func.pixel-to-rem-convertor(128);
         border-radius: 50%;
         object-fit: cover;
         margin-bottom: func.pixel-to-rem-convertor(24);
@@ -59,84 +61,73 @@
     }
 
     &__user-info {
-        font-size: func.pixel-to-rem-convertor(20);
-        margin-bottom: func.pixel-to-rem-convertor(16);
+        font-size: func.pixel-to-rem-convertor(25);
+        padding-top: func.pixel-to-rem-convertor(20);
 
         &-name {
-            font-weight: 700;
             color: color.$color-orange;
         }
 
         &-role {
-            font-weight: 400;
             color: rgba(25, 24, 37, 0.75);
         }
     }
 
     &__stars {
         display: flex;
-        gap: func.pixel-to-rem-convertor(6);
+        gap: func.pixel-to-rem-convertor(10);
         margin-bottom: func.pixel-to-rem-convertor(30);
+        font-size: func.pixel-to-rem-convertor(30);
 
         .star {
             color: #facd49;
-            font-size: func.pixel-to-rem-convertor(20);
         }
     }
 
     &__text {
+        color: rgba(25, 24, 37, 0.75);
+        max-width: func.pixel-to-rem-convertor(350);
+        margin: 0 auto;
         @include mixin.responsive-font-apply(
             font.$testimonial-description-font,
             font.$font-inter
         );
-        color: rgba(25, 24, 37, 0.75);
-        max-width: func.pixel-to-rem-convertor(700);
-        margin: 0 auto;
     }
 
     &__nav-btn {
-        @include mixin.flex-center;
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: func.pixel-to-rem-convertor(64);
-        height: func.pixel-to-rem-convertor(64);
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        z-index: 10;
-        transition: all 0.3s ease;
+        top: 10%;
+        z-index: 1;
 
         &--prev {
             left: 0;
-            background-color: color.$color-white;
-            color: color.$color-dark;
-            box-shadow: 0 func.pixel-to-rem-convertor(10)
-                func.pixel-to-rem-convertor(30) rgba(0, 0, 0, 0.08);
+            outline: 1px solid color.$color-grey-light;
         }
 
         &--next {
             right: 0;
-            background-color: #5d50c6;
-            color: color.$color-white;
-            box-shadow: 0 func.pixel-to-rem-convertor(10)
-                func.pixel-to-rem-convertor(30) rgba(93, 80, 198, 0.3);
+        }
+
+        &:active {
+            transform: scale(0.95);
         }
     }
 
     &__pagination {
-        bottom: 0 !important;
+        margin-top: func.pixel-to-rem-convertor(60);
 
         .swiper-pagination-bullet {
-            width: func.pixel-to-rem-convertor(14);
-            height: func.pixel-to-rem-convertor(14);
-            background-color: rgba(25, 24, 37, 0.1);
+            width: func.pixel-to-rem-convertor(20);
+            height: func.pixel-to-rem-convertor(20);
+            background-color: rgba(25, 24, 37, 0.15);
             opacity: 1;
-            margin: 0 func.pixel-to-rem-convertor(6) !important;
+            margin: 0 func.pixel-to-rem-convertor(8);
             transition: all 0.3s ease;
+            cursor: pointer;
 
             &-active {
                 background-color: color.$color-pink;
+                transform: scale(1.1);
             }
         }
     }
@@ -144,5 +135,44 @@
     @include mixin.media-query('md') {
         background: url('/assets/images/testimonial-background.png') no-repeat
             center center / cover;
+        background-size: 100% auto;
+        background-position: 35% 40%;
+        padding: func.pixel-to-rem-convertor(40);
+
+        &__text {
+            max-width: func.pixel-to-rem-convertor(550);
+        }
+
+        &__nav-btn {
+            top: 35%;
+        }
+
+        &__carousel-container {
+            padding: 0 func.pixel-to-rem-convertor(80);
+        }
+
+        &__user-info {
+            font-size: func.pixel-to-rem-convertor(28);
+        }
+
+        &__stars {
+            font-size: func.pixel-to-rem-convertor(40);
+            gap: func.pixel-to-rem-convertor(15);
+        }
+
+        &__text {
+            max-width: func.pixel-to-rem-convertor(900);
+        }
+    }
+
+    @include mixin.media-query('lg') {
+        background: url('/assets/images/testimonial-bg-lg-mode.png') no-repeat
+            center center / cover;
+        background-size: 100% auto;
+        background-position: 45% 30%;
+
+        &__nav-btn {
+            top: 35%;
+        }
     }
 }

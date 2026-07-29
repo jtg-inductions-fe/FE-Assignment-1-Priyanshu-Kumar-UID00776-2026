@@ -328,27 +328,28 @@
             </div>
 
             <div class="testimonial__carousel-container">
+                <button
+                    class="btn btn--circle btn--white btn testimonial__nav-btn testimonial__nav-btn--prev"
+                    aria-label="Previous slide"
+                >
+                    <span class="icon-arrow-left"></span>
+                </button>
                 <div class="swiper testimonial__swiper">
                     <div
                         class="swiper-wrapper"
                         id="testimonial-slider-wrapper"
                     ></div>
                 </div>
-
                 <button
-                    class="testimonial__nav-btn testimonial__nav-btn--prev"
-                    aria-label="Previous slide"
-                >
-                    <span class="icon-arrow-left"></span>
-                </button>
-                <button
-                    class="testimonial__nav-btn testimonial__nav-btn--next"
+                    class="btn btn--circle btn--primary testimonial__nav-btn testimonial__nav-btn--next"
                     aria-label="Next slide"
                 >
                     <span class="icon-arrow-right"></span>
                 </button>
 
-                <div class="swiper-pagination testimonial__pagination"></div>
+                <div class="testimonial__pagination">
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
         </section>
         <script type="module" src="./src/script/index.js"></script>
