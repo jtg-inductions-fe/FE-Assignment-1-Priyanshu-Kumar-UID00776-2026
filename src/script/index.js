@@ -1,4 +1,4 @@
-import cardMockData from '../data/cards-mock.js';
+import cardMockData from '../data/cardsMock.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');

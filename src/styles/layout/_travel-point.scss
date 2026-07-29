@@ -11,6 +11,7 @@
     height: fit-content;
     position: relative;
     width: 100%;
+    overflow: hidden;
     justify-content: space-evenly;
     padding: func.pixel-to-rem-convertor(60) 0;
 
