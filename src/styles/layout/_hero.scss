@@ -62,7 +62,7 @@
         height: 100%;
         width: 43%;
         z-index: 1;
-        gap: 20px;
+        gap: func.pixel-to-rem-convertor(20);
         flex-direction: column;
         padding: func.pixel-to-rem-convertor(7) 0;
         position: relative;
@@ -434,7 +434,7 @@
             width: 100%;
             left: 2.6vw;
             height: 71vh;
-            background-size: 61rem;
+            background-size: 80vw;
         }
 
         &__design-images {
