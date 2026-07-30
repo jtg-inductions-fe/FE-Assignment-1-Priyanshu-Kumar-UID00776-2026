@@ -65,27 +65,3 @@ To set up the project on your local environment, follow these steps:
    `bash
 npm run lint
 `
-   <<<<<<< HEAD
-
-### Design View
-
-#### 1. Mobile View
-
-<p align="left">
-  <img src="./public/assets/images/hero-section-mobile-view.png" alt="Mobile View - Menu Closed" width="280">
-  <img src="./public/assets/images/hero-section-scrolled-mobile-view.png" alt="Mobile View - Menu Open" width="280">
-</p>
-
-#### 2. Tablet View
-
-<p align="left">
-  <img src="./public/assets/images/hero-section-tablet-view.png" alt="Tablet View - Navigation" width="450">
-  <img src="./public/assets/images/hero-section-scrolled-tablet-view.png" alt="Tablet View - Dropdown Open" width="450">
-</p>
-
-#### 3. Desktop View
-
-<img src="./public/assets/images/hero-section-desktop-view.png.png" alt="Desktop View Design" width="100%">
-<img src="./public/assets/images/hero-section-scrolled-desktop-view.png.png" alt="Desktop View Design" width="100%">
-=======
->>>>>>> d943d1c4aaf4edf33957c2482e322df0075856c4
