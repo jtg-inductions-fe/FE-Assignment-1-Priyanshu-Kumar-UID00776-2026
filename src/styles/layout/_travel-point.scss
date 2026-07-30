@@ -62,42 +62,6 @@
         place-items: center;
     }
 
-    &__card {
-        @include mixin.flex-center;
-        justify-content: center;
-        position: relative;
-        gap: func.pixel-to-rem-convertor(20);
-        height: func.pixel-to-rem-convertor(150);
-        width: 90%;
-        padding: func.pixel-to-rem-convertor(20);
-        border: 1px solid #1918251a;
-        border-radius: 32px;
-        flex-direction: column;
-
-        &--badge::after {
-            content: '';
-            display: none;
-            position: absolute;
-            left: func.pixel-to-rem-convertor(100);
-            width: 300px;
-            height: 300px;
-            background: url('/assets/images/travelPoint-badge.png') no-repeat
-                center / contain;
-            z-index: 2;
-        }
-    }
-
-    &__card-tagline {
-        color: color.$color-orange;
-        @include mixin.responsive-font-apply(font.$section-heading-font);
-    }
-
-    &__card-description {
-        font-size: func.pixel-to-rem-convertor(18);
-        font-family: font.$font-inter;
-        color: color.$color-dark;
-    }
-
     /* ------- Medium Breakpoint (md) ------- */
 
     @include mixin.media-query('md') {
@@ -143,22 +107,13 @@
 
         &__description {
             text-align: left;
-            width: 450px;
+            width: func.pixel-to-rem-convertor(450);
         }
 
         &__cards-wrapper {
-            max-width: 550px;
+            max-width: func.pixel-to-rem-convertor(550);
             gap: 2rem;
             place-items: flex-start;
-        }
-
-        &__card {
-            height: 170px;
-            width: 100%;
-
-            &--badge::after {
-                display: flex;
-            }
         }
     }
 }

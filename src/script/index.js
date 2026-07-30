@@ -59,18 +59,18 @@ document.addEventListener('keydown', function (event) {
 // Creation of cards using the mock data
 const createStatCard = (stat) => {
     const card = document.createElement('div');
-    card.className = 'travel-point__card';
+    card.className = 'cards';
 
     if (stat.badge) {
-        card.classList.add('travel-point__card--badge');
+        card.classList.add('cards--badge');
     }
 
     const tagline = document.createElement('h3');
-    tagline.className = 'travel-point__card-tagline';
+    tagline.className = 'cards__tagline';
     tagline.textContent = stat.value;
 
     const description = document.createElement('p');
-    description.className = 'travel-point__card-description';
+    description.className = 'cards__description';
     description.textContent = stat.label;
 
     card.append(tagline, description);
