@@ -44,6 +44,8 @@
     &__text {
         color: color.$color-description;
         max-width: func.pixel-to-rem-convertor(350);
+        height: func.pixel-to-rem-convertor(250);
+        overflow-y: auto;
         @include mixin.responsive-font-apply(
             font.$testimonial-description-font,
             font.$font-inter
@@ -62,6 +64,7 @@
 
         &__text {
             max-width: func.pixel-to-rem-convertor(900);
+            max-height: fit-content;
         }
     }
 }

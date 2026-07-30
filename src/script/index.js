@@ -88,5 +88,11 @@ const renderStats = () => {
     });
 };
 
+document.querySelectorAll('.footer__heading').forEach((button) => {
+    button.addEventListener('click', () =>
+        button.parentElement.classList.toggle('is-open'),
+    );
+});
+
 renderStats();
 initTestimonialSwiper();

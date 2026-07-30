@@ -103,5 +103,9 @@
         &__nav-btn {
             top: 35%;
         }
+
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(60);
+        }
     }
 }

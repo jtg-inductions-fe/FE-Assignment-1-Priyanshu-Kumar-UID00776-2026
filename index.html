@@ -295,59 +295,236 @@
                     </li>
                 </ul>
             </div>
+            <section class="travel-point">
+                <img
+                    src="/assets/images/travel-point.webp"
+                    alt="Travel Point"
+                    class="travel-point__main-image"
+                />
+                <div class="travel-point__info">
+                    <p class="travel-point__tagline">TRAVEL POINT</p>
+                    <h2 class="travel-point__heading">
+                        We helping you find your dream location
+                    </h2>
+                    <p class="travel-point__description">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC.
+                    </p>
+                    <div class="travel-point__cards-wrapper"></div>
+                </div>
+            </section>
+            <section class="testimonial">
+                <div class="testimonial__info">
+                    <span class="testimonial__tagline">TESTIMONIALS</span>
+                    <h2 class="testimonial__heading">Trust our clients</h2>
+                </div>
+
+                <div class="testimonial__carousel-container">
+                    <button
+                        type="button"
+                        class="btn--circle btn--circle-responsive btn--transparent btn--border testimonial__nav testimonial__nav--prev"
+                        aria-label="Previous slide"
+                    >
+                        <span class="icon-arrow-left"></span>
+                    </button>
+                    <div class="swiper testimonial__swiper">
+                        <div
+                            class="swiper-wrapper"
+                            id="testimonial-slider-wrapper"
+                        ></div>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn--circle btn--circle-responsive btn--primary testimonial__nav testimonial__nav--next"
+                        aria-label="Next slide"
+                    >
+                        <span class="icon-arrow-right"></span>
+                    </button>
+
+                    <div class="testimonial__pagination">
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </section>
         </main>
-        <section class="travel-point">
-            <img
-                src="/assets/images/travel-point.webp"
-                alt="Travel Point"
-                class="travel-point__main-image"
-            />
-            <div class="travel-point__info">
-                <p class="travel-point__tagline">TRAVEL POINT</p>
-                <h2 class="travel-point__heading">
-                    We helping you find your dream location
-                </h2>
-                <p class="travel-point__description">
-                    Contrary to popular belief, Lorem Ipsum is not simply random
-                    text. It has roots in a piece of classical Latin literature
-                    from 45 BC.
-                </p>
-                <div class="travel-point__cards-wrapper"></div>
-            </div>
-        </section>
-        <section class="testimonial">
-            <div class="testimonial__info">
-                <span class="testimonial__tagline">TESTIMONIALS</span>
-                <h2 class="testimonial__heading">Trust our clients</h2>
-            </div>
 
-            <div class="testimonial__carousel-container">
-                <button
-                    type="button"
-                    class="btn--circle btn--circle-responsive btn--transparent btn--border testimonial__nav testimonial__nav--prev"
-                    aria-label="Previous slide"
-                >
-                    <span class="icon-arrow-left"></span>
-                </button>
-                <div class="swiper testimonial__swiper">
-                    <div
-                        class="swiper-wrapper"
-                        id="testimonial-slider-wrapper"
-                    ></div>
+        <footer class="footer">
+            <div class="footer__image-wrapper">
+                <img
+                    src="/assets/images/footer-design.png"
+                    alt=""
+                    class="footer__image"
+                />
+            </div>
+            <div class="footer__container">
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo" aria-label="Travlog Home">
+                        <img
+                            src="/assets/images/logo.png"
+                            alt=""
+                            class="footer__logo-img"
+                        />
+                        <span class="footer__logo-title">Travlog</span>
+                    </a>
+                    <p class="footer__brand-desc">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC.
+                    </p>
+                    <div class="footer__socials">
+                        <a
+                            href="#"
+                            class="footer__social-link"
+                            aria-label="Facebook"
+                        >
+                            <span class="icon-facebook"></span>
+                        </a>
+                        <a
+                            href="#"
+                            class="footer__social-link"
+                            aria-label="Twitter"
+                        >
+                            <span class="icon-twitter"
+                                ><span class="path1"></span
+                                ><span class="path2"></span
+                            ></span>
+                        </a>
+                        <a
+                            href="#"
+                            class="footer__social-link"
+                            aria-label="Instagram"
+                        >
+                            <span class="icon-instagram"
+                                ><span class="path1"></span
+                                ><span class="path2"></span
+                            ></span>
+                        </a>
+                    </div>
                 </div>
-                <button
-                    type="button"
-                    class="btn--circle btn--circle-responsive btn--primary testimonial__nav testimonial__nav--next"
-                    aria-label="Next slide"
-                >
-                    <span class="icon-arrow-right"></span>
-                </button>
 
-                <div class="testimonial__pagination">
-                    <div class="swiper-pagination"></div>
+                <div class="footer__nav">
+                    <div class="footer__group">
+                        <button
+                            type="button"
+                            class="footer__heading"
+                            id="heading-btn"
+                            aria-expanded="false"
+                            aria-controls="footer-company-list"
+                        >
+                            <span>Company</span>
+                            <span
+                                class="icon-arrow-circle-down9-11 footer__chevron"
+                            ></span>
+                        </button>
+                        <ul class="footer__list" id="footer-company-list">
+                            <li class="footer__item">
+                                <a
+                                    href="#"
+                                    class="footer__link link--primary link"
+                                    >About</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="#"
+                                    class="footer__link link--primary link"
+                                    >Career</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="#"
+                                    class="footer__link link--primary link"
+                                    >Mobile</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__group">
+                        <button
+                            type="button"
+                            class="footer__heading"
+                            id="heading-btn"
+                            aria-expanded="false"
+                            aria-controls="footer-contact-list"
+                        >
+                            <span>Contact</span>
+                            <span
+                                class="icon-arrow-circle-down9-11 footer__chevron"
+                            ></span>
+                        </button>
+                        <ul class="footer__list" id="footer-contact-list">
+                            <li class="footer__item">
+                                <a
+                                    href="#"
+                                    class="footer__link link--primary link"
+                                    >Why Travlog?</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="#"
+                                    class="footer__link link--primary link"
+                                    >Partner with us</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="#"
+                                    class="footer__link link--primary link"
+                                    >FAQ’s</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="#"
+                                    class="footer__link link--primary link"
+                                    >Blog</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__group">
+                        <button
+                            type="button"
+                            class="footer__heading"
+                            id="heading-btn"
+                            aria-expanded="false"
+                            aria-controls="footer-meet-list"
+                        >
+                            <span>Meet Us</span>
+                            <span
+                                class="icon-arrow-circle-down9-11 footer__chevron"
+                            ></span>
+                        </button>
+                        <ul
+                            class="footer__list"
+                            id="footer-meet-list"
+                            autofocus="true"
+                        >
+                            <li class="footer__item">
+                                <a class="footer__link link--primary link"
+                                    >+00 92 1234 56789</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link link--primary link"
+                                    >info@travlog.com</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a class="footer__link link--primary link"
+                                    >205. R Street, New York BD23200</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </section>
+        </footer>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
