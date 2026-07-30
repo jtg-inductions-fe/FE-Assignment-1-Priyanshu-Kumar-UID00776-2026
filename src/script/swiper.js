@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import testimonialMockData from '../data/testimonialMock.js';
+import testimonialMockData from '../MOCK_DATA/testimonialMock.js';
 
 // Import styles bundles
 import 'swiper/css';

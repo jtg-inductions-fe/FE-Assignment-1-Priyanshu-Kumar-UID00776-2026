@@ -6,10 +6,13 @@
 @use '../base/typography' as font;
 
 .btn {
+    @include mixin.flex-center;
     border-radius: var.$btn-radius;
-    font-size: func.pixel-to-rem-convertor(14);
-    transition: background-color 0.2s ease-in-out;
-    padding: func.pixel-to-rem-convertor(15);
+    font-size: func.pixel-to-rem-convertor(12);
+    transition: all 0.2s ease-in-out;
+    padding: func.pixel-to-rem-convertor(20);
+    width: 100%;
+    gap: func.pixel-to-rem-convertor(10);
 
     &:hover {
         transform: scale(1.05);
@@ -31,7 +34,6 @@
     }
 
     &--transparent {
-        @include mixin.flex-center;
         background-color: transparent;
 
         &:hover {
@@ -39,12 +41,16 @@
         }
     }
 
-    &--full-width {
-        width: 100%;
+    &__icon {
+        font-size: func.pixel-to-rem-convertor(22);
     }
 
-    &--compact {
-        min-width: func.pixel-to-rem-convertor(111);
+    &--border {
+        border: 1px solid color.$color-outline;
+    }
+
+    @include mixin.media-query('md') {
+        width: func.pixel-to-rem-convertor(151);
         padding: func.pixel-to-rem-convertor(17) func.pixel-to-rem-convertor(15);
     }
 
