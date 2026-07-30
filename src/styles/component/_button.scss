@@ -48,26 +48,16 @@
         padding: func.pixel-to-rem-convertor(17) func.pixel-to-rem-convertor(15);
     }
 
-    &--no-outline-button {
+    &--medium {
         width: 100%;
-        gap: func.pixel-to-rem-convertor(10);
-
-        @include mixin.media-query('md') {
-            max-width: 200px;
-            padding: func.pixel-to-rem-convertor(18)
-                func.pixel-to-rem-convertor(15);
-        }
+        max-width: 150px;
     }
 
-    &--outline-button {
-        outline: 1px solid #eeeeee;
-        width: 100%;
-        gap: func.pixel-to-rem-convertor(10);
+    &__icon {
+        font-size: func.pixel-to-rem-convertor(22);
+    }
 
-        @include mixin.media-query('md') {
-            max-width: 200px;
-            padding: func.pixel-to-rem-convertor(18)
-                func.pixel-to-rem-convertor(15);
-        }
+    &--outline {
+        outline: 1px solid color.$color-outline;
     }
 }
