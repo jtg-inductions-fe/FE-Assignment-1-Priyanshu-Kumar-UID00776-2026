@@ -1,12 +1,16 @@
-import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import testimonialMockData from '../MOCK_DATA/testimonialMock.js';
-
 // Import styles bundles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
+
+import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay, A11y } from 'swiper/modules';
+import { testimonialMockData } from '../MOCK_DATA/testimonialMock.js';
+
+const SLIDES_PER_VIEW = 1;
+const DELAY = 5000;
+const SPACE_BETWEEN = 3;
 
 // Card renderer function defined locally
 const renderTestimonials = (data) => {
@@ -52,18 +56,18 @@ export const initTestimonialSwiper = () => {
 
     // Initialize Swiper
     new Swiper('.testimonial__swiper', {
-        modules: [Navigation, Pagination, Autoplay],
-        slidesPerView: 1,
-        spaceBetween: 30,
+        modules: [Navigation, Pagination, Autoplay, A11y],
+        slidesPerView: SLIDES_PER_VIEW,
+        spaceBetween: SPACE_BETWEEN,
         loop: true,
         autoplay: {
-            delay: 5000,
+            delay: DELAY,
             pauseOnMouseEnter: true,
             disableOnInteraction: false,
         },
         navigation: {
-            prevEl: '.testimonial__nav-btn--prev',
-            nextEl: '.testimonial__nav-btn--next',
+            prevEl: '.testimonial__nav--prev',
+            nextEl: '.testimonial__nav--next',
         },
         pagination: {
             el: '.swiper-pagination',

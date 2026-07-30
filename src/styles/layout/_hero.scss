@@ -92,7 +92,7 @@
         background-color: color.$color-pink;
         border-radius: 50%;
         box-shadow: 0px func.pixel-to-rem-convertor(8)
-            func.pixel-to-rem-convertor(16) 0px color.$color-shadow;
+            func.pixel-to-rem-convertor(16) 0px color.$color-grey-light;
         color: color.$color-white;
         top: 38%;
         height: func.pixel-to-rem-convertor(36);
@@ -129,7 +129,7 @@
         background-color: color.$color-white;
         padding: 0 func.pixel-to-rem-convertor(10);
         box-shadow: 0px func.pixel-to-rem-convertor(12)
-            func.pixel-to-rem-convertor(20) 0px color.$color-shadow;
+            func.pixel-to-rem-convertor(20) 0px color.$color-grey-light;
         gap: func.pixel-to-rem-convertor(5);
         left: 50%;
         bottom: func.pixel-to-rem-convertor(20);
@@ -150,7 +150,7 @@
         background-color: color.$color-orange;
         border-radius: 50%;
         box-shadow: 0px func.pixel-to-rem-convertor(8)
-            func.pixel-to-rem-convertor(16) 0px color.$color-shadow;
+            func.pixel-to-rem-convertor(16) 0px color.$color-grey-light;
         color: color.$color-white;
         height: func.pixel-to-rem-convertor(36);
         width: func.pixel-to-rem-convertor(36);

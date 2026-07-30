@@ -20,7 +20,7 @@
     &__tagline {
         color: color.$color-pink;
         margin-bottom: func.pixel-to-rem-convertor(10);
-        letter-spacing: 3px;
+        letter-spacing: func.pixel-to-rem-convertor(3);
         display: block;
         @include mixin.responsive-font-apply(font.$section-tagline-font);
     }
@@ -41,64 +41,15 @@
         padding-bottom: func.pixel-to-rem-convertor(50);
     }
 
-    &__card {
-        @include mixin.flex-center;
-        padding-top: func.pixel-to-rem-convertor(40);
-        flex-direction: column;
-        text-align: center;
-        gap: func.pixel-to-rem-convertor(40);
-    }
-
-    &__avatar {
-        width: func.pixel-to-rem-convertor(128);
-        height: func.pixel-to-rem-convertor(128);
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: func.pixel-to-rem-convertor(24);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    &__user-info {
-        font-size: func.pixel-to-rem-convertor(25);
-        padding-top: func.pixel-to-rem-convertor(20);
-
-        &-name {
-            color: color.$color-orange;
-        }
-
-        &-role {
-            color: color.$color-shadow;
-        }
-    }
-
-    &__stars {
-        display: flex;
-        gap: func.pixel-to-rem-convertor(10);
-        margin-bottom: func.pixel-to-rem-convertor(30);
-        font-size: func.pixel-to-rem-convertor(30);
-
-        .star {
-            color: color.$color-yellow;
-        }
-    }
-
-    &__text {
-        color: color.$color-description;
-        max-width: func.pixel-to-rem-convertor(350);
-        @include mixin.responsive-font-apply(
-            font.$testimonial-description-font,
-            font.$font-inter
-        );
-    }
-
-    &__nav-btn {
+    &__nav {
         position: absolute;
         top: 10%;
-        z-index: 1;
+        z-index: 2;
+        font-size: func.pixel-to-rem-convertor(15);
 
         &--prev {
+            background-color: color.$color-white;
             left: 0;
-            outline: 1px solid color.$color-border-light;
         }
 
         &--next {
@@ -111,7 +62,7 @@
     }
 
     &__pagination {
-        margin-top: func.pixel-to-rem-convertor(60);
+        margin-top: func.pixel-to-rem-convertor(10);
 
         .swiper-pagination-bullet {
             width: func.pixel-to-rem-convertor(20);
@@ -128,41 +79,24 @@
     }
 
     @include mixin.media-query('md') {
-        background: url('/assets/images/testimonial-background.png') no-repeat
-            center center / cover;
+        background: url('/assets/images/testimonial-tablet-background.png')
+            no-repeat center center / cover;
         background-size: 100% auto;
         background-position: 35% 40%;
         padding: func.pixel-to-rem-convertor(40);
-
-        &__text {
-            max-width: func.pixel-to-rem-convertor(550);
-        }
 
         &__nav-btn {
             top: 35%;
         }
 
         &__carousel-container {
-            padding: 0 func.pixel-to-rem-convertor(80);
-        }
-
-        &__user-info {
-            font-size: func.pixel-to-rem-convertor(28);
-        }
-
-        &__stars {
-            font-size: func.pixel-to-rem-convertor(40);
-            gap: func.pixel-to-rem-convertor(15);
-        }
-
-        &__text {
-            max-width: func.pixel-to-rem-convertor(900);
+            padding: 0 func.pixel-to-rem-convertor(30);
         }
     }
 
     @include mixin.media-query('lg') {
-        background: url('/assets/images/testimonial-bg-lg-mode.png') no-repeat
-            center center / cover;
+        background: url('/assets/images/testimonial-desktop-background.png')
+            no-repeat center center / cover;
         background-size: 100% auto;
         background-position: 45% 30%;
 
