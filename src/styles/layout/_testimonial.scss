@@ -9,7 +9,6 @@
     @include mixin.flex-center;
     flex-direction: column;
     width: 100%;
-
     padding: func.pixel-to-rem-convertor(20);
     background: none;
 
@@ -35,7 +34,6 @@
         position: relative;
         width: 100%;
         max-width: func.pixel-to-rem-convertor(1500);
-        margin: 0 auto;
     }
 
     &__swiper {
@@ -69,7 +67,7 @@
         }
 
         &-role {
-            color: rgba(25, 24, 37, 0.75);
+            color: color.$color-shadow;
         }
     }
 
@@ -80,14 +78,13 @@
         font-size: func.pixel-to-rem-convertor(30);
 
         .star {
-            color: #facd49;
+            color: color.$color-yellow;
         }
     }
 
     &__text {
-        color: rgba(25, 24, 37, 0.75);
+        color: color.$color-description;
         max-width: func.pixel-to-rem-convertor(350);
-        margin: 0 auto;
         @include mixin.responsive-font-apply(
             font.$testimonial-description-font,
             font.$font-inter
@@ -101,7 +98,7 @@
 
         &--prev {
             left: 0;
-            outline: 1px solid color.$color-grey-light;
+            outline: 1px solid color.$color-border-light;
         }
 
         &--next {
@@ -119,11 +116,9 @@
         .swiper-pagination-bullet {
             width: func.pixel-to-rem-convertor(20);
             height: func.pixel-to-rem-convertor(20);
-            background-color: rgba(25, 24, 37, 0.15);
-            opacity: 1;
+            background-color: color.$color-dark;
             margin: 0 func.pixel-to-rem-convertor(8);
             transition: all 0.3s ease;
-            cursor: pointer;
 
             &-active {
                 background-color: color.$color-pink;

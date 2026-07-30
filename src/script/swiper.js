@@ -6,6 +6,7 @@ import testimonialMockData from '../data/testimonialMock.js';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/a11y';
 
 // Card renderer function defined locally
 const renderTestimonials = (data) => {
@@ -29,7 +30,7 @@ const renderTestimonials = (data) => {
             return `
       <div class="swiper-slide">
         <div class="testimonial__card">
-          <img class="testimonial__avatar" src="${item.avatar}" alt="${item.name}" />
+          <img class="testimonial__avatar" src="${item.avatar}" alt="" />
           <div class="testimonial__user-info">
             <span class="testimonial__user-info-name">${item.name}</span>
             <span class="testimonial__user-info-role"> / ${item.role}</span>
@@ -57,6 +58,7 @@ export const initTestimonialSwiper = () => {
         loop: true,
         autoplay: {
             delay: 5000,
+            pauseOnMouseEnter: true,
             disableOnInteraction: false,
         },
         navigation: {
@@ -67,6 +69,10 @@ export const initTestimonialSwiper = () => {
             el: '.swiper-pagination',
             clickable: true,
             dynamicBullets: true,
+        },
+        a11y: {
+            enabled: true,
+            paginationBulletMessage: 'Go to testimonial {{index}}',
         },
     });
 };

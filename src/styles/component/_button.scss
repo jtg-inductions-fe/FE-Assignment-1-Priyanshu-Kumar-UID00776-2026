@@ -60,7 +60,7 @@
     }
 
     &--outline-button {
-        outline: 1px solid color.$color-grey-light;
+        outline: 1px solid color.$color-border-light;
         width: 100%;
         gap: func.pixel-to-rem-convertor(10);
 
