@@ -259,12 +259,6 @@
         height: auto;
     }
 
-    &__button {
-        outline: 1px solid color.$color-primary-light;
-        width: 100%;
-        gap: func.pixel-to-rem-convertor(10);
-    }
-
     /* ------- Medium Breakpoint (md) ------- */
 
     @include mixin.media-query('md') {
