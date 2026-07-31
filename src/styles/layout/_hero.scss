@@ -423,12 +423,6 @@
         &__brand-item {
             width: 25%;
         }
-
-        &__button {
-            max-width: func.pixel-to-rem-convertor(200);
-            padding: func.pixel-to-rem-convertor(18)
-                func.pixel-to-rem-convertor(15);
-        }
     }
 
     /* ------- Large Breakpoint (lg) ------- */
