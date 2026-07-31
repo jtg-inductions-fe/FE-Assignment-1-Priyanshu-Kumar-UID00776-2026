@@ -184,9 +184,9 @@
     }
 
     &__info-detail {
-        @include mixin.responsive-font-apply(font.$description-font);
         text-align: center;
         color: color.$color-description;
+        @include mixin.responsive-font-apply(font.$description-font);
     }
 
     &__info-badge {
