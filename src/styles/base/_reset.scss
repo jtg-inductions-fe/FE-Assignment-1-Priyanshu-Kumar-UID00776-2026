@@ -10,11 +10,16 @@
     padding: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     @include mixin.flex-center;
     background-color: color.$color-white;
     flex-direction: column;
     font-family: font.$font-circular-std;
+    max-width: func.pixel-to-rem-convertor(2500);
 }
 
 dialog {

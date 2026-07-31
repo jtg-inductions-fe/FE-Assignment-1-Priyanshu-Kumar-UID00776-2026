@@ -44,7 +44,7 @@
 
     &__nav {
         position: absolute;
-        top: 10%;
+        top: 12%;
         z-index: 2;
         font-size: func.pixel-to-rem-convertor(15);
 
@@ -63,6 +63,8 @@
     }
 
     &__pagination {
+        margin-top: func.pixel-to-rem-convertor(20);
+
         .swiper-pagination-bullet {
             width: func.pixel-to-rem-convertor(20);
             height: func.pixel-to-rem-convertor(20);
@@ -85,6 +87,10 @@
         background-position: 35% 40%;
         padding: func.pixel-to-rem-convertor(40);
 
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(140);
+        }
+
         &__nav-btn {
             top: 35%;
         }
@@ -100,6 +106,10 @@
             no-repeat center center / cover;
         background-size: 100% auto;
         background-position: 45% 30%;
+
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(240);
+        }
 
         &__nav {
             top: 40%;

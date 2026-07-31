@@ -50,22 +50,28 @@
             <nav class="header__nav" aria-label="Navigation Links">
                 <ul class="header__nav-list">
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a href="#" class="header__link link link--primary"
                             >Home</a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a
+                            href="#travel"
+                            class="header__link link link--primary"
                             >Discover</a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a
+                            href="#testimonial"
+                            class="header__link link link--primary"
                             >Special Deals</a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a
+                            href="#footer"
+                            class="header__link link link--primary"
                             >Contact</a
                         >
                     </li>
@@ -91,28 +97,28 @@
                     <ul class="header__dropdown-list">
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#"
                                 class="header__dropdown-link link link--primary"
                                 >Home</a
                             >
                         </li>
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#travel"
                                 class="header__dropdown-link link link--primary"
                                 >Discover</a
                             >
                         </li>
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#testimonial"
                                 class="header__dropdown-link link link--primary"
                                 >Special Deals</a
                             >
                         </li>
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#footer"
                                 class="header__dropdown-link link link--primary"
                                 >Contact</a
                             >
@@ -146,8 +152,8 @@
             </div>
         </header>
 
-        <main>
-            <section class="hero">
+        <main class="main-wrapper">
+            <section class="hero" id="home">
                 <div class="hero__design-info-wrapper">
                     <div class="hero__design">
                         <div class="hero__design-images">
@@ -299,7 +305,7 @@
                     </ul>
                 </div>
             </section>
-            <section class="travel-point">
+            <section class="travel-point" id="travel">
                 <div>
                     <img
                         src="/assets/images/travel-point.webp"
@@ -321,46 +327,46 @@
                     <div class="travel-point__cards-wrapper"></div>
                 </div>
             </section>
+            <section class="testimonial" id="testimonial">
+                <div class="testimonial__info">
+                    <span class="testimonial__tagline">TESTIMONIALS</span>
+                    <h2 class="testimonial__heading">Trust our clients</h2>
+                </div>
+
+                <div class="testimonial__carousel-container">
+                    <button
+                        type="button"
+                        class="btn--circle btn--transparent btn--outline testimonial__nav testimonial__nav--prev"
+                        aria-label="Previous slide"
+                    >
+                        <span class="icon-arrow-left"></span>
+                    </button>
+                    <div class="swiper testimonial__swiper">
+                        <div
+                            class="swiper-wrapper"
+                            id="testimonial-slider-wrapper"
+                        ></div>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn--circle btn--primary testimonial__nav testimonial__nav--next"
+                        aria-label="Next slide"
+                    >
+                        <span class="icon-arrow-right"></span>
+                    </button>
+
+                    <div class="testimonial__pagination">
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </section>
         </main>
-        <section class="testimonial">
-            <div class="testimonial__info">
-                <span class="testimonial__tagline">TESTIMONIALS</span>
-                <h2 class="testimonial__heading">Trust our clients</h2>
-            </div>
 
-            <div class="testimonial__carousel-container">
-                <button
-                    type="button"
-                    class="btn--circle btn--circle-responsive btn--transparent btn--border testimonial__nav testimonial__nav--prev"
-                    aria-label="Previous slide"
-                >
-                    <span class="icon-arrow-left"></span>
-                </button>
-                <div class="swiper testimonial__swiper">
-                    <div
-                        class="swiper-wrapper"
-                        id="testimonial-slider-wrapper"
-                    ></div>
-                </div>
-                <button
-                    type="button"
-                    class="btn--circle btn--circle-responsive btn--primary testimonial__nav testimonial__nav--next"
-                    aria-label="Next slide"
-                >
-                    <span class="icon-arrow-right"></span>
-                </button>
-
-                <div class="testimonial__pagination">
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer">
+        <footer class="footer" id="footer">
             <div class="footer__image-wrapper">
                 <img
                     src="/assets/images/footer-design.png"
-                    alt=""
+                    alt="Footer decorative image"
                     class="footer__image"
                 />
             </div>
@@ -369,7 +375,7 @@
                     <a href="/" class="footer__logo" aria-label="Travlog Home">
                         <img
                             src="/assets/images/logo.png"
-                            alt=""
+                            alt="Travel point logo"
                             class="footer__logo-img"
                         />
                         <span class="footer__logo-title">Travlog</span>
@@ -514,7 +520,7 @@
                         >
                             <li class="footer__item">
                                 <a
-                                    href="#"
+                                    href="tel: +00 92 1234 56789"
                                     class="footer__link link--primary link"
                                 >
                                     +00 92 1234 56789
@@ -522,7 +528,7 @@
                             </li>
                             <li class="footer__item">
                                 <a
-                                    href="#"
+                                    href="mailto:info@travlog.com"
                                     class="footer__link link--primary link"
                                 >
                                     info@travlog.com

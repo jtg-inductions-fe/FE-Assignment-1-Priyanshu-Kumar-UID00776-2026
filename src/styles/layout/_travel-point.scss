@@ -13,7 +13,7 @@
     width: 100%;
     overflow: hidden;
     padding: func.pixel-to-rem-convertor(20) 0;
-    margin-top: func.pixel-to-rem-convertor(75);
+    margin-top: func.pixel-to-rem-convertor(100);
 
     &__main-image {
         z-index: 1;
@@ -96,7 +96,7 @@
     @include mixin.media-query('lg') {
         flex-direction: row;
         padding: func.pixel-to-rem-convertor(60) 0;
-        margin-top: 20px;
+        margin-top: func.pixel-to-rem-convertor(20);
 
         &__main-image {
             margin-top: func.pixel-to-rem-convertor(80);

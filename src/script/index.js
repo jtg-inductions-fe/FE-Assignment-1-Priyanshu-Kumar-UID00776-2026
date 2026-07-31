@@ -37,8 +37,26 @@ desktopQuery.addEventListener('change', function (event) {
     }
 });
 
+// Close menu & smooth scroll when clicking any dropdown link
+document.querySelectorAll('.header__dropdown-link').forEach((link) => {
+    link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href');
+
+        if (targetId && targetId.startsWith('#')) {
+            event.preventDefault();
+            setMenuState(false);
+
+            const targetElement =
+                targetId === '#'
+                    ? document.body
+                    : document.querySelector(targetId);
+            targetElement?.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// Check if the dropdown menu is currently open
 toggleButton.addEventListener('click', function () {
-    // Check if the dropdown menu is currently open
     const isCurrentlyOpen =
         toggleButton.getAttribute('aria-expanded') === 'true';
     setMenuState(!isCurrentlyOpen);
@@ -88,11 +106,15 @@ const renderStats = () => {
     });
 };
 
-// Footer accordian button click to open dropdown
+// // Footer accordian button click to open dropdown
 document.querySelectorAll('.footer__heading').forEach((button) => {
     button.addEventListener('click', () => {
-        const isOpen = button.parentElement.classList.toggle('is-open');
-        button.setAttribute('aria-expanded', String(isOpen));
+        const list = button.parentElement.querySelector('.footer__list');
+
+        if (list) {
+            const isOpen = list.classList.toggle('footer__list--is-open');
+            button.setAttribute('aria-expanded', String(isOpen));
+        }
     });
 });
 
