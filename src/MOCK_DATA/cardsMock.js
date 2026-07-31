@@ -8,7 +8,6 @@ export const cardMockData = [
         value: '100',
         label: 'Luxury Hotel',
         badge: true,
-        badgeUrl: '',
     },
     {
         value: '7',
