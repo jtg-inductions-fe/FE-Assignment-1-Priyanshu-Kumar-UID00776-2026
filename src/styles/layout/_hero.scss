@@ -221,7 +221,7 @@
         gap: func.pixel-to-rem-convertor(15);
     }
 
-    &__triangular-design {
+    &__triangular {
         position: absolute;
         display: none;
     }
@@ -391,7 +391,7 @@
             gap: func.pixel-to-rem-convertor(15);
         }
 
-        &__triangular-design {
+        &__triangular {
             display: block;
             top: func.pixel-to-rem-convertor(1180);
             width: 6vw;
@@ -544,7 +544,7 @@
             justify-content: flex-start;
         }
 
-        &__triangular-design {
+        &__triangular {
             display: block;
             height: 13vw;
             width: 4vw;
