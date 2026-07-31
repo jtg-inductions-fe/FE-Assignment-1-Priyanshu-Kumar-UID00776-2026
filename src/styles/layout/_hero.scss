@@ -400,7 +400,7 @@
         }
 
         &__brand-wrapper {
-            margin-top: func.pixel-to-rem-convertor(130);
+            margin-top: func.pixel-to-rem-convertor(185);
             width: 100%;
             gap: clamp(
                 func.pixel-to-rem-convertor(20),
@@ -410,14 +410,14 @@
         }
 
         &__brand-images {
-            width: 90%;
+            width: 70%;
         }
 
         &__brand-list {
             gap: clamp(
-                func.pixel-to-rem-convertor(20),
+                func.pixel-to-rem-convertor(10),
                 1vw,
-                func.pixel-to-rem-convertor(30)
+                func.pixel-to-rem-convertor(20)
             );
         }
 
