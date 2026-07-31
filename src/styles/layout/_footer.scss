@@ -3,12 +3,13 @@
 @use '../abstracts/colors' as color;
 @use '../base/typography' as font;
 
-/*---------- Footer Section ------------*/
+/* Footer Section */
 
 .footer {
     width: 100%;
-    padding: func.pixel-to-rem-convertor(20);
+    padding: func.pixel-to-rem-convertor(30);
     background-color: color.$color-white;
+    margin-top: 100px;
     position: relative;
 
     &__image-wrapper {
@@ -27,40 +28,40 @@
         max-width: func.pixel-to-rem-convertor(1500);
         margin: 0 auto;
         flex-direction: column;
-        gap: func.pixel-to-rem-convertor(40);
+        gap: func.pixel-to-rem-convertor(60);
     }
 
     &__brand {
         display: flex;
         flex-direction: column;
-        gap: func.pixel-to-rem-convertor(40);
+        gap: func.pixel-to-rem-convertor(45);
+    }
 
-        &-desc {
-            max-width: func.pixel-to-rem-convertor(400);
-            font-family: font.$font-inter;
-            color: color.$color-description;
-            line-height: 1.6;
-            font-size: func.pixel-to-rem-convertor(16);
-        }
+    &__brand-desc {
+        max-width: func.pixel-to-rem-convertor(400);
+        font-family: font.$font-inter;
+        color: color.$color-description;
+        line-height: 1.6;
+        font-size: func.pixel-to-rem-convertor(16);
     }
 
     &__logo {
         gap: func.pixel-to-rem-convertor(12);
         @include mixin.flex-center(center, flex-start);
+    }
 
-        &-img {
-            width: func.pixel-to-rem-convertor(30);
-        }
+    &__logo-img {
+        width: func.pixel-to-rem-convertor(30);
+    }
 
-        &-title {
-            font-size: func.pixel-to-rem-convertor(24);
-            font-weight: 700;
-            color: color.$color-dark;
-        }
+    &__logo-title {
+        font-size: func.pixel-to-rem-convertor(24);
+        font-weight: 700;
+        color: color.$color-dark;
     }
 
     &__socials {
-        gap: func.pixel-to-rem-convertor(25);
+        gap: func.pixel-to-rem-convertor(38);
         @include mixin.flex-center(center, flex-start);
     }
 
@@ -77,8 +78,8 @@
 
     &__nav {
         flex-direction: column;
-        gap: func.pixel-to-rem-convertor(16);
-        @include mixin.flex-center();
+        gap: func.pixel-to-rem-convertor(40);
+        @include mixin.flex-center;
     }
 
     &__group {
@@ -91,6 +92,7 @@
         padding: func.pixel-to-rem-convertor(12) 0;
         font-size: func.pixel-to-rem-convertor(20);
         color: color.$color-dark;
+        font-family: inherit;
         cursor: pointer;
         text-align: left;
         @include mixin.flex-center(center, space-between);
@@ -121,23 +123,34 @@
     }
 
     @include mixin.media-query('md') {
-        padding: func.pixel-to-rem-convertor(60);
-        margin-top: func.pixel-to-rem-convertor(80);
+        padding: func.pixel-to-rem-convertor(70);
+        margin-top: func.pixel-to-rem-convertor(100);
 
         &__image-wrapper {
             display: flex;
             bottom: func.pixel-to-rem-convertor(80);
         }
 
+        &__brand-desc {
+            max-width: 100%;
+            font-family: font.$font-inter;
+            color: color.$color-description;
+            line-height: 1.6;
+            font-size: func.pixel-to-rem-convertor(20);
+        }
+
         &__nav {
             flex-direction: row;
-            gap: func.pixel-to-rem-convertor(0);
+            gap: func.pixel-to-rem-convertor(50);
             @include mixin.flex-center(flex-start, space-between);
         }
 
         &__group {
             border-bottom: none;
             padding-bottom: 0;
+        }
+
+        &__socials {
         }
 
         &__heading {

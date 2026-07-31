@@ -88,10 +88,12 @@ const renderStats = () => {
     });
 };
 
+// Footer accordian button click to open dropdown
 document.querySelectorAll('.footer__heading').forEach((button) => {
-    button.addEventListener('click', () =>
-        button.parentElement.classList.toggle('is-open'),
-    );
+    button.addEventListener('click', () => {
+        const isOpen = button.parentElement.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', String(isOpen));
+    });
 });
 
 renderStats();

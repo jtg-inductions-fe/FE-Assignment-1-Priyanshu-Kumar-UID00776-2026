@@ -9,6 +9,7 @@
     @include mixin.flex-center;
     flex-direction: column;
     width: 100%;
+    margin-top: func.pixel-to-rem-convertor(70);
     padding: func.pixel-to-rem-convertor(20);
     background: none;
 
@@ -62,8 +63,6 @@
     }
 
     &__pagination {
-        margin-top: func.pixel-to-rem-convertor(40);
-
         .swiper-pagination-bullet {
             width: func.pixel-to-rem-convertor(20);
             height: func.pixel-to-rem-convertor(20);
@@ -79,6 +78,7 @@
     }
 
     @include mixin.media-query('md') {
+        margin-top: 0;
         background: url('/assets/images/testimonial-tablet-background.png')
             no-repeat center center / cover;
         background-size: 100% auto;
@@ -95,6 +95,7 @@
     }
 
     @include mixin.media-query('lg') {
+        margin-top: 0;
         background: url('/assets/images/testimonial-desktop-background.png')
             no-repeat center center / cover;
         background-size: 100% auto;
@@ -106,10 +107,6 @@
 
         &__nav-btn {
             top: 35%;
-        }
-
-        &__pagination {
-            margin-top: func.pixel-to-rem-convertor(60);
         }
     }
 }

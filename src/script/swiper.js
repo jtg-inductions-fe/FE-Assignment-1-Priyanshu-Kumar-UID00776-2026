@@ -23,6 +23,7 @@ const renderTestimonials = (data) => {
             let starIcons = '';
             const totalStars = 5;
 
+            // Looping all over the
             for (let i = 0; i < totalStars; i++) {
                 if (i < item.stars) {
                     starIcons += `<span class="icon-star6"></span>`;

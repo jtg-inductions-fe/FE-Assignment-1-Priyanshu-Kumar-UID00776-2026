@@ -6,10 +6,10 @@
 
 .header {
     @include mixin.flex-center(center, space-between);
-
     position: relative;
     box-sizing: border-box;
     height: fit-content;
+    margin-top: func.pixel-to-rem-convertor(20);
     padding: func.pixel-to-rem-convertor(20);
     width: 100%;
 
@@ -154,9 +154,8 @@
     }
 
     @include mixin.media-query('md') {
-        padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(10);
         align-items: center;
-        padding: func.pixel-to-rem-convertor(11) func.pixel-to-rem-convertor(44);
+        padding: func.pixel-to-rem-convertor(11) func.pixel-to-rem-convertor(64);
 
         &__background {
             top: 0;
