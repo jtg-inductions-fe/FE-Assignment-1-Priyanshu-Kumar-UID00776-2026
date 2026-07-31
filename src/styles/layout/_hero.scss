@@ -10,7 +10,6 @@
     @include mixin.flex-center;
     width: 100%;
     max-width: func.pixel-to-rem-convertor(1850);
-    position: relative;
     height: fit-content;
     flex-direction: column;
     gap: func.pixel-to-rem-convertor(30);
@@ -19,6 +18,7 @@
         @include mixin.flex-center;
         max-width: func.pixel-to-rem-convertor(1500);
         flex-direction: column;
+        position: relative;
         width: 100%;
         gap: func.pixel-to-rem-convertor(10);
     }
@@ -546,13 +546,13 @@
             display: block;
             height: 13vw;
             width: 4vw;
-            top: func.pixel-to-rem-convertor(1000);
+            top: func.pixel-to-rem-convertor(1040);
             left: func.pixel-to-rem-convertor(20);
         }
 
         &__brand-images-wrapper {
             width: 100%;
-            margin-top: func.pixel-to-rem-convertor(450);
+            margin-top: func.pixel-to-rem-convertor(350);
         }
 
         &__brand-list {
@@ -562,7 +562,7 @@
         }
 
         &__brand-images {
-            max-width: func.pixel-to-rem-convertor(160);
+            max-width: func.pixel-to-rem-convertor(190);
         }
     }
 }
