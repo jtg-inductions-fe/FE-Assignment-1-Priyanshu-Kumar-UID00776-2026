@@ -38,7 +38,7 @@ export const testimonialMockData = [
         role: 'Reviewer',
         avatar: '/assets/images/testimonial-vr-girl.webp',
         stars: 0,
-        text: 'Testing how the UI handles a zero-star or unrated review calculation.',
+        text: 'Keep everyone informed so the group works as one unit',
     },
     {
         id: 6,
@@ -46,7 +46,7 @@ export const testimonialMockData = [
         role: 'VIP Client',
         avatar: '/assets/images/testimonial-vr-girl.webp',
         stars: 6,
-        text: 'Testing component resilience against ratings exceeding the expected 5-star max.',
+        text: ' Listen to team members and make them feel safe to share ideas.',
     },
     {
         id: 7,
@@ -54,7 +54,7 @@ export const testimonialMockData = [
         role: 'Chief Executive Officer & Principal',
         avatar: '/assets/images/testimonial-vr-girl.webp',
         stars: 4,
-        text: 'Testing component resilience against ratings exceeding the expected 5-star max',
+        text: 'Help people talk through problems and find fair solutions.',
     },
     {
         id: 8,

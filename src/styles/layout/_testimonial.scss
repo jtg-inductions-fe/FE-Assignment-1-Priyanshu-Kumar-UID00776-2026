@@ -46,6 +46,8 @@
         position: absolute;
         top: 12%;
         z-index: 2;
+        border-radius: 50%;
+        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(18);
         font-size: func.pixel-to-rem-convertor(15);
 
         &--prev {
@@ -98,6 +100,10 @@
         &__carousel-container {
             padding: 0 func.pixel-to-rem-convertor(30);
         }
+
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(120);
+        }
     }
 
     @include mixin.media-query('lg') {
@@ -112,11 +118,16 @@
         }
 
         &__nav {
+            padding: func.pixel-to-rem-convertor(35)
+                func.pixel-to-rem-convertor(38);
+        }
+
+        &__nav {
             top: 40%;
         }
 
-        &__nav-btn {
-            top: 35%;
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(120);
         }
     }
 }
