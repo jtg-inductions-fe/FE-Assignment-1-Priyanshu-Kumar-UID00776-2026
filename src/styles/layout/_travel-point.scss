@@ -12,7 +12,8 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding: func.pixel-to-rem-convertor(60) 0;
+    padding: func.pixel-to-rem-convertor(20) 0;
+    margin-top: func.pixel-to-rem-convertor(75);
 
     &__main-image {
         z-index: 1;
@@ -24,8 +25,8 @@
         flex-direction: column;
         height: fit-content;
         width: 100%;
-        padding: func.pixel-to-rem-convertor(50) func.pixel-to-rem-convertor(20);
-        gap: func.pixel-to-rem-convertor(30);
+        padding: func.pixel-to-rem-convertor(25) func.pixel-to-rem-convertor(20);
+        gap: func.pixel-to-rem-convertor(20);
     }
 
     &__tagline {
@@ -46,16 +47,15 @@
         color: color.$color-description;
         text-align: center;
         width: 95%;
-        @include mixin.responsive-font-apply(
-            font.$description-font,
-            font.$font-inter
-        );
+        padding-top: func.pixel-to-rem-convertor(10);
+        @include mixin.responsive-font-apply(font.$description-font);
     }
 
     &__cards-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1rem;
+        padding-top: func.pixel-to-rem-convertor(10);
         width: 100%;
         place-items: center;
     }
@@ -64,7 +64,14 @@
 
     @include mixin.media-query('md') {
         flex-direction: column;
-        margin-top: func.pixel-to-rem-convertor(50);
+        padding: func.pixel-to-rem-convertor(20) 0;
+        margin-top: 0;
+
+        &__info {
+            padding: func.pixel-to-rem-convertor(60)
+                func.pixel-to-rem-convertor(20);
+            gap: func.pixel-to-rem-convertor(23);
+        }
 
         &__main-image {
             margin-top: func.pixel-to-rem-convertor(80);
@@ -74,7 +81,13 @@
 
         &__cards-wrapper {
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            padding: 0 func.pixel-to-rem-convertor(40);
+            margin-top: func.pixel-to-rem-convertor(50);
+            gap: 2rem;
+        }
+
+        &__description {
+            padding-top: 0;
         }
     }
 
@@ -82,11 +95,13 @@
 
     @include mixin.media-query('lg') {
         flex-direction: row;
+        padding: func.pixel-to-rem-convertor(60) 0;
+        margin-top: 20px;
 
         &__main-image {
             margin-top: func.pixel-to-rem-convertor(80);
-            height: 45vw;
-            width: 60vw;
+            height: 48vw;
+            width: 63vw;
         }
 
         &__info {
@@ -113,6 +128,7 @@
             max-width: func.pixel-to-rem-convertor(550);
             gap: 2rem;
             place-items: flex-start;
+            padding: 0;
         }
     }
 }

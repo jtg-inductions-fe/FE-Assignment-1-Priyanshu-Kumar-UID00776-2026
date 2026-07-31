@@ -98,7 +98,11 @@
         background: url('/assets/images/testimonial-desktop-background.png')
             no-repeat center center / cover;
         background-size: 100% auto;
-        background-position: 45%;
+        background-position: 45% 30%;
+
+        &__nav {
+            top: 40%;
+        }
 
         &__nav-btn {
             top: 35%;

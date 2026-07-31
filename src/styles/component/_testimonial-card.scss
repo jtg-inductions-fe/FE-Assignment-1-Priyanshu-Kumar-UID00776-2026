@@ -47,7 +47,7 @@
         max-width: func.pixel-to-rem-convertor(350);
         @include mixin.responsive-font-apply(
             font.$testimonial-description-font,
-            font.$font-inter
+            // font.$font-inter
         );
     }
 
