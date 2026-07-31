@@ -1,34 +1,34 @@
-@use 'sass:map';
-@use '../abstracts' as mixin;
+@use '../abstracts/mixins' as mixin;
 @use '../abstracts/functions' as func;
 @use '../abstracts/colors' as color;
 @use '../base/typography' as font;
+@use 'sass:map';
 
 .header {
     @include mixin.flex-center(center, space-between);
+
     position: relative;
     box-sizing: border-box;
     height: fit-content;
     padding: func.pixel-to-rem-convertor(17) 0;
     width: 100%;
-    align-items: center;
 
     &__background {
-        position: fixed;
+        position: absolute;
         opacity: 0.35;
-        transition: all 0.3s ease-in-out;
         z-index: -1;
         pointer-events: none;
         top: 0;
         right: func.pixel-to-rem-convertor(130);
-        width: 302px;
-        height: 408px;
+        width: func.pixel-to-rem-convertor(302);
+        height: func.pixel-to-rem-convertor(408);
         background-color: color.$color-orange;
         filter: blur(func.pixel-to-rem-convertor(90));
     }
 
     &__logo {
         @include mixin.flex-center;
+
         z-index: 2;
         flex-shrink: 0;
         display: block;
@@ -37,14 +37,15 @@
     }
 
     &__logo-image {
-        height: 40px;
-        width: 40px;
+        height: func.pixel-to-rem-convertor(40);
+        width: func.pixel-to-rem-convertor(40);
         object-fit: contain;
         object-position: center;
     }
 
     &__toggle {
         @include mixin.flex-center;
+
         background-color: transparent;
         z-index: 3;
         font-size: func.pixel-to-rem-convertor(47);
@@ -67,6 +68,7 @@
 
     &__nav-list {
         @include mixin.flex-center(center, space-evenly);
+
         width: 100%;
     }
 
@@ -74,15 +76,15 @@
         display: none;
         flex-direction: column;
         gap: func.pixel-to-rem-convertor(30);
-        padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(40);
-        padding-top: func.pixel-to-rem-convertor(100);
-        background-color: color.$color-white;
+        padding: func.pixel-to-rem-convertor(100)
+            func.pixel-to-rem-convertor(40) func.pixel-to-rem-convertor(20);
         position: fixed;
         inset: 0;
         height: 100%;
         width: 100%;
         overflow: hidden auto;
         z-index: 2;
+        height: 100%;
     }
 
     &__dropdown-list-wrapper {
@@ -99,8 +101,8 @@
     }
 
     &__dropdown-logo {
-        height: 40px;
-        width: 40px;
+        height: func.pixel-to-rem-convertor(40);
+        width: func.pixel-to-rem-convertor(40);
         flex-shrink: 0;
         display: none;
     }
@@ -111,6 +113,7 @@
 
     &__dropdown-list {
         @include mixin.flex-center;
+
         flex-direction: column;
         width: 100%;
         padding-bottom: func.pixel-to-rem-convertor(16);
@@ -144,20 +147,22 @@
 
         &--tablet-display {
             @include mixin.flex-center;
+
             width: fit-content;
             display: none;
         }
     }
 
     @include mixin.media-query('md') {
+        padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(10);
         align-items: center;
         padding: func.pixel-to-rem-convertor(11) func.pixel-to-rem-convertor(44);
 
         &__background {
             top: 0;
             left: 0;
-            width: 500px;
-            height: 500px;
+            width: func.pixel-to-rem-convertor(500);
+            height: func.pixel-to-rem-convertor(500);
             background-color: color.$color-orange;
             filter: blur(func.pixel-to-rem-convertor(130));
         }
@@ -167,12 +172,12 @@
         }
 
         &__logo-image {
-            height: 40px;
-            width: 40px;
+            height: func.pixel-to-rem-convertor(40);
+            width: func.pixel-to-rem-convertor(40);
         }
 
         &__toggle {
-            order: 1;
+            order: 0;
             font-size: func.pixel-to-rem-convertor(47);
         }
 
@@ -225,8 +230,8 @@
         &__background {
             top: func.pixel-to-rem-convertor(8);
             left: 0;
-            width: 503px;
-            height: 494px;
+            width: func.pixel-to-rem-convertor(503);
+            height: func.pixel-to-rem-convertor(494);
             background-color: color.$color-orange;
             filter: blur(func.pixel-to-rem-convertor(130));
         }
@@ -237,8 +242,8 @@
         }
 
         &__logo-image {
-            height: 50px;
-            width: 50px;
+            height: func.pixel-to-rem-convertor(50);
+            width: func.pixel-to-rem-convertor(50);
         }
 
         &__toggle {

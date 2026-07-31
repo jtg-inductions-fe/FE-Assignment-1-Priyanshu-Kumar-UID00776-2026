@@ -13,7 +13,7 @@ $hero-heading-font: (
         'font-line-height': 1.2,
     ),
     'lg': (
-        'font-size': func.pixel-to-rem-convertor(69),
+        'font-size': func.pixel-to-rem-convertor(78),
         'font-line-height': 1.2,
     ),
 );
@@ -25,7 +25,6 @@ $description-font: (
         'font-line-height': 1.6,
     ),
     'md': (
-        'font-family': $font-inter,
         'font-size': func.pixel-to-rem-convertor(18),
         'font-line-height': 1.6,
     ),
