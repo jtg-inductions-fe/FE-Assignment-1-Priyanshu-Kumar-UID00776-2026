@@ -1,0 +1,53 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../base/typography' as font;
+
+.cards {
+    @include mixin.flex-center;
+    justify-content: center;
+    position: relative;
+    gap: func.pixel-to-rem-convertor(20);
+    height: func.pixel-to-rem-convertor(150);
+    width: 90%;
+    padding: func.pixel-to-rem-convertor(20);
+    border: 1px solid color.$color-grey-light;
+    border-radius: 32px;
+    flex-direction: column;
+
+    &--badge::after {
+        content: '';
+        display: none;
+        position: absolute;
+        left: func.pixel-to-rem-convertor(100);
+        width: func.pixel-to-rem-convertor(300);
+        height: func.pixel-to-rem-convertor(300);
+        background: url('/assets/images/travelPoint-badge.png') no-repeat center /
+            contain;
+        z-index: 2;
+    }
+
+    &__tagline {
+        color: color.$color-orange;
+        @include mixin.responsive-font-apply(font.$section-heading-font);
+    }
+
+    &__description {
+        font-size: func.pixel-to-rem-convertor(18);
+        font-family: font.$font-inter;
+        color: color.$color-dark;
+    }
+
+    @include mixin.media-query('md') {
+        width: 97%;
+    }
+
+    @include mixin.media-query('lg') {
+        height: func.pixel-to-rem-convertor(170);
+        width: 100%;
+
+        &--badge::after {
+            display: flex;
+        }
+    }
+}

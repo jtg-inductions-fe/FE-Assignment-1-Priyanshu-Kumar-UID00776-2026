@@ -1,3 +1,5 @@
+import { cardMockData } from '../MOCK_DATA/cardsMock.js';
+
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
 
@@ -53,3 +55,36 @@ document.addEventListener('keydown', function (event) {
         }
     }
 });
+
+// Creation of cards using the mock data
+const createStatCard = (stat) => {
+    const card = document.createElement('div');
+    card.className = 'cards';
+
+    if (stat.badge) {
+        card.classList.add('cards--badge');
+    }
+
+    const tagline = document.createElement('h3');
+    tagline.className = 'cards__tagline';
+    tagline.textContent = stat.value;
+
+    const description = document.createElement('p');
+    description.className = 'cards__description';
+    description.textContent = stat.label;
+
+    card.append(tagline, description);
+    return card;
+};
+
+// Render the cards
+const renderStats = () => {
+    const container = document.querySelector('.travel-point__cards-wrapper');
+    if (!container) return;
+
+    cardMockData.forEach((stat) => {
+        container.appendChild(createStatCard(stat));
+    });
+};
+
+renderStats();

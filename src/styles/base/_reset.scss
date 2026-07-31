@@ -14,7 +14,6 @@ body {
     @include mixin.flex-center;
     background-color: color.$color-white;
     flex-direction: column;
-    padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(20);
     font-family: font.$font-circular-std;
 }
 

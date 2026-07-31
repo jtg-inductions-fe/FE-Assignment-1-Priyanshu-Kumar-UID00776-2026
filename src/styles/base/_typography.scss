@@ -19,8 +19,8 @@ $hero-heading-font: (
 );
 
 $description-font: (
+    'font-family': $font-inter,
     'sm': (
-        'font-family': $font-inter,
         'font-size': func.pixel-to-rem-convertor(16),
         'font-line-height': 1.6,
     ),
