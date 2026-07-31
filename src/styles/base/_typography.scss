@@ -57,6 +57,7 @@ $section-heading-font: (
 );
 
 $testimonial-description-font: (
+    'font-family': $font-inter,
     'sm': (
         'font-size': func.pixel-to-rem-convertor(18),
         'font-line-height': 1.6,

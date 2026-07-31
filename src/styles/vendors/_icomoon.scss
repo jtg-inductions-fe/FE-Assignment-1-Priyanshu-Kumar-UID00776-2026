@@ -1,20 +1,23 @@
+@use '../abstracts/functions' as func;
+
 @font-face {
     font-family: 'icomoon';
-    src: url('/assets/fonts/icons/icomoon.eot?lsby8w');
+    src: url('/assets/fonts/icons/icomoon.eot?50z4kb');
     src:
-        url('/assets/fonts/icons/icomoon.eot?lsby8w#iefix')
+        url('/assets/fonts/icons/icomoon.eot?50z4kb#iefix')
             format('embedded-opentype'),
-        url('/assets/fonts/icons/icomoon.ttf?lsby8w') format('truetype'),
-        url('/assets/fonts/icons/icomoon.woff?lsby8w') format('woff'),
-        url('/assets/fonts/icons/icomoon.svg?lsby8w#icomoon') format('svg');
+        url('/assets/fonts/icons/icomoon.ttf?50z4kb') format('truetype'),
+        url('/assets/fonts/icons/icomoon.woff?50z4kb') format('woff'),
+        url('/assets/fonts/icons/icomoon.svg?50z4kb#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }
+
 [class^='icon-'],
 [class*=' icon-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
+    font-family: 'icomoon';
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -27,15 +30,15 @@
 }
 
 .icon-close:before {
-    content: '\e90e';
-    font-size: 40px;
+    content: '\e90f';
+    font-size: func.pixel-to-rem-convertor(35);
 }
 .icon-instagram .path1:before {
-    content: '\e900';
+    content: '\e901';
     color: rgb(93, 80, 198);
 }
 .icon-instagram .path2:before {
-    content: '\e901';
+    content: '\e90e';
     margin-left: -1em;
     color: rgb(255, 255, 255);
 }
@@ -52,16 +55,22 @@
     content: '\e904';
     color: #5d50c6;
 }
-.icon-star:before {
+.icon-star-dull:before {
     content: '\e905';
+    color: #dadada;
+}
+.icon-star6:before {
+    content: '\e900';
     color: #facd49;
 }
 .icon-arrow-left:before {
     content: '\e906';
+    font-size: func.pixel-to-rem-convertor(25);
 }
 .icon-arrow-right:before {
     content: '\e907';
     color: #fff;
+    font-size: func.pixel-to-rem-convertor(25);
 }
 .icon-play-circle:before {
     content: '\e908';

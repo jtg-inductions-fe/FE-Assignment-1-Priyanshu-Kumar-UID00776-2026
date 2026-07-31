@@ -1,0 +1,67 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../base/typography' as font;
+
+.testimonial {
+    &__card {
+        @include mixin.flex-center;
+        padding-top: func.pixel-to-rem-convertor(40);
+        flex-direction: column;
+        text-align: center;
+        gap: func.pixel-to-rem-convertor(40);
+    }
+
+    &__avatar {
+        width: func.pixel-to-rem-convertor(128);
+        height: func.pixel-to-rem-convertor(128);
+        border-radius: 50%;
+        background-color: color.$color-white;
+        object-fit: cover;
+        margin-bottom: func.pixel-to-rem-convertor(24);
+        box-shadow: 0 10px 20px color.$color-shadow;
+    }
+
+    &__user-info {
+        font-size: func.pixel-to-rem-convertor(25);
+        padding-top: func.pixel-to-rem-convertor(20);
+    }
+
+    &__user-info-name {
+        color: color.$color-orange;
+    }
+
+    &__user-info-role {
+        color: color.$color-shadow;
+    }
+
+    &__stars {
+        display: flex;
+        gap: func.pixel-to-rem-convertor(10);
+        margin-bottom: func.pixel-to-rem-convertor(30);
+        font-size: func.pixel-to-rem-convertor(30);
+    }
+
+    &__text {
+        color: color.$color-description;
+        max-width: func.pixel-to-rem-convertor(350);
+        @include mixin.responsive-font-apply(
+            font.$testimonial-description-font
+        );
+    }
+
+    @include mixin.media-query('md') {
+        &__user-info {
+            font-size: func.pixel-to-rem-convertor(28);
+        }
+
+        &__stars {
+            font-size: func.pixel-to-rem-convertor(40);
+            gap: func.pixel-to-rem-convertor(15);
+        }
+
+        &__text {
+            max-width: func.pixel-to-rem-convertor(900);
+        }
+    }
+}

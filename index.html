@@ -21,7 +21,7 @@
             <a href="/" class="header__logo" aria-label="Travel Point Home">
                 <img
                     src="/assets/images/logo.png"
-                    alt="Travel point Logo"
+                    alt="Travel Point Logo"
                     class="header__logo-image"
                 />
             </a>
@@ -81,7 +81,7 @@
                     <div class="header__dropdown-logo" aria-hidden="true">
                         <img
                             src="/assets/images/logo.png"
-                            alt="Travel Point logo"
+                            alt="Travel Point Logo"
                             class="header__logo-image"
                         />
                     </div>
@@ -146,8 +146,8 @@
             </div>
         </header>
 
-        <main>
-            <section class="hero">
+        <main class="hero">
+            <section>
                 <div class="hero__design-info-wrapper">
                     <div class="hero__design">
                         <div class="hero__design-images">
@@ -319,6 +319,39 @@
                         literature from 45 BC.
                     </p>
                     <div class="travel-point__cards-wrapper"></div>
+                </div>
+            </section>
+            <section class="testimonial">
+                <div class="testimonial__info">
+                    <span class="testimonial__tagline">TESTIMONIALS</span>
+                    <h2 class="testimonial__heading">Trust our clients</h2>
+                </div>
+
+                <div class="testimonial__carousel-container">
+                    <button
+                        type="button"
+                        class="btn--transparent btn--border testimonial__nav testimonial__nav--prev"
+                        aria-label="Previous slide"
+                    >
+                        <span class="icon-arrow-left"></span>
+                    </button>
+                    <div class="swiper testimonial__swiper">
+                        <div
+                            class="swiper-wrapper"
+                            id="testimonial-slider-wrapper"
+                        ></div>
+                    </div>
+                    <button
+                        type="button"
+                        class="btn--primary testimonial__nav testimonial__nav--next"
+                        aria-label="Next slide"
+                    >
+                        <span class="icon-arrow-right"></span>
+                    </button>
+
+                    <div class="testimonial__pagination">
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
             </section>
         </main>

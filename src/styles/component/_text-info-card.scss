@@ -19,11 +19,12 @@
         content: '';
         display: none;
         position: absolute;
-        left: func.pixel-to-rem-convertor(100);
-        width: func.pixel-to-rem-convertor(300);
-        height: func.pixel-to-rem-convertor(300);
-        background: url('/assets/images/travelPoint-badge.png') no-repeat center /
-            contain;
+        left: 11vw;
+        bottom: func.pixel-to-rem-convertor(100);
+        width: func.pixel-to-rem-convertor(100);
+        height: func.pixel-to-rem-convertor(100);
+        background: url('/assets/images/travel-point-badge.png') no-repeat
+            center / contain;
         z-index: 2;
     }
 

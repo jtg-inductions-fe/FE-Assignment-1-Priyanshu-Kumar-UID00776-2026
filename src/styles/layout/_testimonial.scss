@@ -1,0 +1,123 @@
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../abstracts/colors' as color;
+@use '../base/typography' as font;
+
+/*----------Testimonial section------------*/
+
+.testimonial {
+    @include mixin.flex-center;
+    flex-direction: column;
+    width: 100%;
+    padding: func.pixel-to-rem-convertor(20);
+    background: none;
+
+    &__info {
+        text-align: center;
+        margin-bottom: func.pixel-to-rem-convertor(40);
+    }
+
+    &__tagline {
+        color: color.$color-pink;
+        margin-bottom: func.pixel-to-rem-convertor(10);
+        letter-spacing: func.pixel-to-rem-convertor(3);
+        display: block;
+        @include mixin.responsive-font-apply(font.$section-tagline-font);
+    }
+
+    &__heading {
+        color: color.$color-dark;
+        @include mixin.responsive-font-apply(font.$section-heading-font);
+    }
+
+    &__carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: func.pixel-to-rem-convertor(1500);
+    }
+
+    &__swiper {
+        width: 100%;
+        padding-bottom: func.pixel-to-rem-convertor(50);
+    }
+
+    &__nav {
+        position: absolute;
+        top: 10%;
+        z-index: 2;
+        border-radius: 50%;
+        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(18);
+        font-size: func.pixel-to-rem-convertor(15);
+
+        &--prev {
+            background-color: color.$color-white;
+            left: 0;
+        }
+
+        &--next {
+            right: 0;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    &__pagination {
+        margin-top: func.pixel-to-rem-convertor(40);
+
+        .swiper-pagination-bullet {
+            width: func.pixel-to-rem-convertor(20);
+            height: func.pixel-to-rem-convertor(20);
+            background-color: color.$color-dark;
+            margin: 0 func.pixel-to-rem-convertor(8);
+            transition: all 0.3s ease;
+
+            &-active {
+                background-color: color.$color-pink;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    @include mixin.media-query('md') {
+        background: url('/assets/images/testimonial-tablet-background.png')
+            no-repeat center center / cover;
+        background-size: 100% auto;
+        background-position: 35% 40%;
+        padding: func.pixel-to-rem-convertor(40);
+
+        &__nav {
+            padding: func.pixel-to-rem-convertor(35)
+                func.pixel-to-rem-convertor(38);
+        }
+
+        &__carousel-container {
+            padding: 0 func.pixel-to-rem-convertor(30);
+        }
+
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(120);
+        }
+    }
+
+    @include mixin.media-query('lg') {
+        background: url('/assets/images/testimonial-desktop-background.png')
+            no-repeat center center / cover;
+        background-size: 100% auto;
+        background-position: 45% 30%;
+
+        &__nav {
+            padding: func.pixel-to-rem-convertor(35)
+                func.pixel-to-rem-convertor(38);
+        }
+
+        &__nav {
+            top: 40%;
+        }
+
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(120);
+        }
+    }
+}
