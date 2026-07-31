@@ -45,6 +45,8 @@
         position: absolute;
         top: 10%;
         z-index: 2;
+        border-radius: 50%;
+        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(18);
         font-size: func.pixel-to-rem-convertor(15);
 
         &--prev {
@@ -85,12 +87,17 @@
         background-position: 35% 40%;
         padding: func.pixel-to-rem-convertor(40);
 
-        &__nav-btn {
-            top: 35%;
+        &__nav {
+            padding: func.pixel-to-rem-convertor(35)
+                func.pixel-to-rem-convertor(38);
         }
 
         &__carousel-container {
             padding: 0 func.pixel-to-rem-convertor(30);
+        }
+
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(120);
         }
     }
 
@@ -101,11 +108,16 @@
         background-position: 45% 30%;
 
         &__nav {
+            padding: func.pixel-to-rem-convertor(35)
+                func.pixel-to-rem-convertor(38);
+        }
+
+        &__nav {
             top: 40%;
         }
 
-        &__nav-btn {
-            top: 35%;
+        &__pagination {
+            margin-top: func.pixel-to-rem-convertor(120);
         }
     }
 }

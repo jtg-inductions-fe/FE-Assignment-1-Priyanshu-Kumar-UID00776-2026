@@ -50,18 +50,6 @@
         outline: 1px solid color.$color-outline;
     }
 
-    &--circle {
-        border-radius: 50%;
-        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(18);
-    }
-
-    &--circle-responsive {
-        @include mixin.media-query('md') {
-            padding: func.pixel-to-rem-convertor(35)
-                func.pixel-to-rem-convertor(38);
-        }
-    }
-
     @include mixin.media-query('md') {
         width: func.pixel-to-rem-convertor(151);
         padding: func.pixel-to-rem-convertor(17) func.pixel-to-rem-convertor(15);
