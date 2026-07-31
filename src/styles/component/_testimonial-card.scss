@@ -16,6 +16,7 @@
         width: func.pixel-to-rem-convertor(128);
         height: func.pixel-to-rem-convertor(128);
         border-radius: 50%;
+        background-color: color.$color-white;
         object-fit: cover;
         margin-bottom: func.pixel-to-rem-convertor(24);
         box-shadow: 0 10px 20px color.$color-shadow;
@@ -48,7 +49,7 @@
         overflow-y: auto;
         @include mixin.responsive-font-apply(
             font.$testimonial-description-font,
-            font.$font-inter
+            // font.$font-inter
         );
     }
 

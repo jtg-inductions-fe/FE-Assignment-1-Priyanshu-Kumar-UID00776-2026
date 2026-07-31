@@ -596,7 +596,6 @@
     @include mixin.flex-center;
     width: 100%;
     max-width: func.pixel-to-rem-convertor(1850);
-    position: relative;
     height: fit-content;
     flex-direction: column;
     gap: func.pixel-to-rem-convertor(30);
@@ -605,6 +604,7 @@
         @include mixin.flex-center;
         max-width: func.pixel-to-rem-convertor(1500);
         flex-direction: column;
+        position: relative;
         width: 100%;
         padding: func.pixel-to-rem-convertor(20);
         gap: func.pixel-to-rem-convertor(10);
@@ -669,7 +669,7 @@
         width: 33vw;
         object-fit: cover;
         object-position: center;
-        border-radius: func.pixel-to-rem-convertor(25);
+        border-radius: 25px;
     }
 
     &__design-left-send {
@@ -678,7 +678,7 @@
         background-color: color.$color-pink;
         border-radius: 50%;
         box-shadow: 0px func.pixel-to-rem-convertor(8)
-            func.pixel-to-rem-convertor(16) 0px color.$color-grey-light;
+            func.pixel-to-rem-convertor(16) 0px color.$color-shadow;
         color: color.$color-white;
         top: 38%;
         height: func.pixel-to-rem-convertor(36);
@@ -715,7 +715,7 @@
         background-color: color.$color-white;
         padding: 0 func.pixel-to-rem-convertor(10);
         box-shadow: 0px func.pixel-to-rem-convertor(12)
-            func.pixel-to-rem-convertor(20) 0px color.$color-grey-light;
+            func.pixel-to-rem-convertor(20) 0px color.$color-shadow;
         gap: func.pixel-to-rem-convertor(5);
         left: 50%;
         bottom: func.pixel-to-rem-convertor(20);
@@ -736,7 +736,7 @@
         background-color: color.$color-orange;
         border-radius: 50%;
         box-shadow: 0px func.pixel-to-rem-convertor(8)
-            func.pixel-to-rem-convertor(16) 0px color.$color-grey-light;
+            func.pixel-to-rem-convertor(16) 0px color.$color-shadow;
         color: color.$color-white;
         height: func.pixel-to-rem-convertor(36);
         width: func.pixel-to-rem-convertor(36);
@@ -821,7 +821,7 @@
             3vw,
             func.pixel-to-rem-convertor(24)
         );
-        margin-top: func.pixel-to-rem-convertor(160);
+        margin-top: func.pixel-to-rem-convertor(100);
         width: 100%;
     }
 
@@ -829,9 +829,6 @@
         @include mixin.flex-center;
         width: 100%;
         flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-        margin: 0;
         gap: clamp(
             func.pixel-to-rem-convertor(16),
             3vw,
@@ -847,12 +844,6 @@
     &__brand-images {
         width: 100%;
         height: auto;
-    }
-
-    &__button {
-        outline: 1px solid color.$color-primary-light;
-        width: 100%;
-        gap: func.pixel-to-rem-convertor(10);
     }
 
     /* ------- Medium Breakpoint (md) ------- */
@@ -995,8 +986,8 @@
         }
 
         &__brand-wrapper {
-            margin-top: func.pixel-to-rem-convertor(200);
-            width: 80%;
+            margin-top: func.pixel-to-rem-convertor(185);
+            width: 100%;
             gap: clamp(
                 func.pixel-to-rem-convertor(20),
                 2vw,
@@ -1005,25 +996,19 @@
         }
 
         &__brand-images {
-            width: 90%;
+            width: 70%;
         }
 
         &__brand-list {
             gap: clamp(
-                func.pixel-to-rem-convertor(20),
+                func.pixel-to-rem-convertor(10),
                 1vw,
-                func.pixel-to-rem-convertor(30)
+                func.pixel-to-rem-convertor(20)
             );
         }
 
         &__brand-item {
             width: 25%;
-        }
-
-        &__button {
-            max-width: func.pixel-to-rem-convertor(200);
-            padding: func.pixel-to-rem-convertor(18)
-                func.pixel-to-rem-convertor(15);
         }
     }
 
@@ -1149,23 +1134,24 @@
             display: block;
             height: 13vw;
             width: 4vw;
-            top: func.pixel-to-rem-convertor(780);
+            top: func.pixel-to-rem-convertor(1000);
             left: func.pixel-to-rem-convertor(20);
         }
 
         &__brand-wrapper {
-            width: 90%;
-            margin-top: func.pixel-to-rem-convertor(374);
+            width: 100%;
+            margin-top: func.pixel-to-rem-convertor(100);
         }
 
         &__brand-list {
+            margin-top: func.pixel-to-rem-convertor(250);
             flex-wrap: nowrap;
             width: 100%;
-            gap: func.pixel-to-rem-convertor(10);
+            gap: func.pixel-to-rem-convertor(20);
         }
 
         &__brand-images {
-            max-width: func.pixel-to-rem-convertor(160);
+            max-width: func.pixel-to-rem-convertor(190);
         }
     }
 }
