@@ -95,12 +95,14 @@
 
     @include mixin.media-query('lg') {
         flex-direction: row;
+        padding: func.pixel-to-rem-convertor(60) 0;
+        margin-top: 20px;
 
         &__main-image {
             padding-right: func.pixel-to-rem-convertor(60);
             margin-top: func.pixel-to-rem-convertor(80);
-            height: 45vw;
-            width: 60vw;
+            height: 48vw;
+            width: 63vw;
         }
 
         &__info {
@@ -126,6 +128,7 @@
             max-width: func.pixel-to-rem-convertor(550);
             gap: 2rem;
             place-items: flex-start;
+            padding: 0;
         }
     }
 }
