@@ -64,6 +64,7 @@
 
     @include mixin.media-query('md') {
         flex-direction: column;
+        margin-top: func.pixel-to-rem-convertor(50);
 
         &__main-image {
             margin-top: func.pixel-to-rem-convertor(80);

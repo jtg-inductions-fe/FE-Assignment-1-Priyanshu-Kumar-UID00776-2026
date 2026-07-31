@@ -400,8 +400,8 @@
         }
 
         &__brand-wrapper {
-            margin-top: func.pixel-to-rem-convertor(200);
-            width: 80%;
+            margin-top: func.pixel-to-rem-convertor(230);
+            width: 100%;
             gap: clamp(
                 func.pixel-to-rem-convertor(20),
                 2vw,
@@ -554,17 +554,17 @@
 
         &__brand-images-wrapper {
             width: 100%;
-            margin-top: func.pixel-to-rem-convertor(450);
         }
 
         &__brand-list {
+            margin-top: func.pixel-to-rem-convertor(250);
             flex-wrap: nowrap;
             width: 100%;
-            gap: func.pixel-to-rem-convertor(10);
+            gap: func.pixel-to-rem-convertor(20);
         }
 
         &__brand-images {
-            max-width: func.pixel-to-rem-convertor(160);
+            max-width: func.pixel-to-rem-convertor(190);
         }
     }
 }
