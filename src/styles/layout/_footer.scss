@@ -131,7 +131,7 @@
 
         &__nav {
             flex-direction: row;
-            gap: func.pixel-to-rem-convertor(82);
+            gap: func.pixel-to-rem-convertor(0);
             @include mixin.flex-center(flex-start, space-between);
         }
 
@@ -150,7 +150,7 @@
         }
 
         &__list {
-            max-width: func.pixel-to-rem-convertor(200);
+            max-width: 9rem;
             gap: func.pixel-to-rem-convertor(30);
             display: flex;
             padding-top: 0;
