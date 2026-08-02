@@ -52,6 +52,11 @@
     }
 
     @include mixin.media-query('md') {
+        &__avatar {
+            width: func.pixel-to-rem-convertor(158);
+            height: func.pixel-to-rem-convertor(158);
+        }
+
         &__user-info {
             font-size: func.pixel-to-rem-convertor(28);
             padding-top: func.pixel-to-rem-convertor(20);
@@ -65,6 +70,17 @@
         &__text {
             max-width: func.pixel-to-rem-convertor(900);
             max-height: fit-content;
+        }
+    }
+
+    @include mixin.media-query('lg') {
+        &__card {
+            padding-top: func.pixel-to-rem-convertor(30);
+            padding-left: func.pixel-to-rem-convertor(40);
+        }
+
+        &__user-info {
+            font-size: func.pixel-to-rem-convertor(30);
         }
     }
 }

@@ -13,7 +13,7 @@ $hero-heading-font: (
         'font-line-height': 1.2,
     ),
     'lg': (
-        'font-size': func.pixel-to-rem-convertor(78),
+        'font-size': func.pixel-to-rem-convertor(85),
         'font-line-height': 1.2,
     ),
 );
@@ -36,7 +36,7 @@ $section-tagline-font: (
         'font-line-height': 1.2,
     ),
     'md': (
-        'font-size': func.pixel-to-rem-convertor(23),
+        'font-size': func.pixel-to-rem-convertor(26),
         'font-line-height': 1.2,
     ),
 );
@@ -51,7 +51,7 @@ $section-heading-font: (
         'font-line-height': 1.2,
     ),
     'lg': (
-        'font-size': func.pixel-to-rem-convertor(44),
+        'font-size': func.pixel-to-rem-convertor(57),
         'font-line-height': 1.2,
     ),
 );
@@ -64,6 +64,22 @@ $testimonial-description-font: (
     ),
     'md': (
         'font-size': func.pixel-to-rem-convertor(23),
+        'font-line-height': 1.6,
+    ),
+);
+
+$footer-description-font: (
+    'font-family': $font-inter,
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(16),
+        'font-line-height': 1.6,
+    ),
+    'md': (
+        'font-size': func.pixel-to-rem-convertor(20),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(28),
         'font-line-height': 1.6,
     ),
 );

@@ -34,7 +34,7 @@
     &__carousel-container {
         position: relative;
         width: 100%;
-        max-width: func.pixel-to-rem-convertor(1500);
+        max-width: func.pixel-to-rem-convertor(1550);
     }
 
     &__swiper {
@@ -43,11 +43,12 @@
     }
 
     &__nav {
+        @include mixin.flex-center;
         position: absolute;
         top: 12%;
         z-index: 2;
         border-radius: 50%;
-        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(18);
+        padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(20);
         font-size: func.pixel-to-rem-convertor(15);
 
         &--prev {
@@ -113,21 +114,28 @@
         background-size: 100% auto;
         background-position: 45% 30%;
 
+        &__info {
+            padding-left: func.pixel-to-rem-convertor(40);
+        }
+
+        &__tagline {
+            margin-bottom: func.pixel-to-rem-convertor(20);
+            padding-top: func.pixel-to-rem-convertor(35);
+        }
+
         &__pagination {
             margin-top: func.pixel-to-rem-convertor(240);
         }
 
         &__nav {
-            padding: func.pixel-to-rem-convertor(35)
-                func.pixel-to-rem-convertor(38);
-        }
-
-        &__nav {
-            top: 40%;
+            padding: func.pixel-to-rem-convertor(45)
+                func.pixel-to-rem-convertor(45);
+            font-size: func.pixel-to-rem-convertor(35);
+            top: 30%;
         }
 
         &__pagination {
-            margin-top: func.pixel-to-rem-convertor(120);
+            margin-top: func.pixel-to-rem-convertor(150);
         }
     }
 }

@@ -6,12 +6,13 @@
 
 .header {
     @include mixin.flex-center(center, space-between);
+    width: 100%;
+    max-width: func.pixel-to-rem-convertor(1200);
     position: relative;
     box-sizing: border-box;
     height: fit-content;
     margin-top: func.pixel-to-rem-convertor(20);
     padding: func.pixel-to-rem-convertor(20);
-    width: 100%;
 
     &__background {
         position: absolute;
@@ -112,11 +113,10 @@
     }
 
     &__dropdown-list {
-        @include mixin.flex-center;
-
         flex-direction: column;
         width: 100%;
         padding-bottom: func.pixel-to-rem-convertor(16);
+        @include mixin.flex-center;
     }
 
     &__dropdown-item {
@@ -146,10 +146,9 @@
         }
 
         &--tablet-display {
-            @include mixin.flex-center;
-
             width: fit-content;
             display: none;
+            @include mixin.flex-center;
         }
     }
 
@@ -223,8 +222,9 @@
     }
 
     @include mixin.media-query('lg') {
-        max-width: 87%;
-        padding: func.pixel-to-rem-convertor(70) func.pixel-to-rem-convertor(35);
+        width: 100%;
+        max-width: func.pixel-to-rem-convertor(1600);
+        padding: func.pixel-to-rem-convertor(70) func.pixel-to-rem-convertor(45);
 
         &__background {
             top: func.pixel-to-rem-convertor(8);

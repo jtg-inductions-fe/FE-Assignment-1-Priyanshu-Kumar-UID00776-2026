@@ -23,7 +23,7 @@ const renderTestimonials = (data) => {
             let starIcons = '';
             const totalStars = 5;
 
-            // Looping all over the
+            // Condition check for less then 5 stars
             for (let i = 0; i < totalStars; i++) {
                 if (i < item.stars) {
                     starIcons += `<span class="icon-star6"></span>`;

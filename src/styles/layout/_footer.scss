@@ -9,7 +9,7 @@
     width: 100%;
     padding: func.pixel-to-rem-convertor(35);
     background-color: color.$color-white;
-    margin-top: func.pixel-to-rem-convertor(85);
+    margin-top: func.pixel-to-rem-convertor(110);
     position: relative;
 
     &__image-wrapper {
@@ -39,10 +39,8 @@
 
     &__brand-desc {
         max-width: func.pixel-to-rem-convertor(500);
-        font-family: font.$font-inter;
         color: color.$color-description;
-        line-height: 1.6;
-        font-size: func.pixel-to-rem-convertor(16);
+        @include mixin.responsive-font-apply(font.$footer-description-font);
     }
 
     &__logo {
@@ -116,14 +114,6 @@
         font-size: func.pixel-to-rem-convertor(16);
     }
 
-    &__list {
-        display: none;
-
-        &--is-open {
-            display: flex;
-        }
-    }
-
     @include mixin.media-query('md') {
         padding: func.pixel-to-rem-convertor(70);
         margin-top: func.pixel-to-rem-convertor(100);
@@ -135,10 +125,6 @@
 
         &__brand-desc {
             max-width: 100%;
-            font-family: font.$font-inter;
-            color: color.$color-description;
-            line-height: 1.6;
-            font-size: func.pixel-to-rem-convertor(20);
         }
 
         &__nav {
@@ -170,11 +156,13 @@
     }
 
     @include mixin.media-query('lg') {
-        margin-top: func.pixel-to-rem-convertor(125);
+        margin-top: func.pixel-to-rem-convertor(215);
+        padding-right: func.pixel-to-rem-convertor(40);
 
         &__image-wrapper {
             display: flex;
-            bottom: func.pixel-to-rem-convertor(50);
+            bottom: func.pixel-to-rem-convertor(0);
+            height: func.pixel-to-rem-convertor(420);
         }
 
         &__container {
@@ -182,13 +170,29 @@
             @include mixin.flex-center(flex-start, space-between);
         }
 
+        &__logo-img {
+            width: func.pixel-to-rem-convertor(50);
+        }
+
+        &__logo-title {
+            font-size: func.pixel-to-rem-convertor(30);
+        }
+
+        &__socials {
+            padding-top: func.pixel-to-rem-convertor(40);
+            gap: func.pixel-to-rem-convertor(40);
+        }
+
+        &__social-link {
+            font-size: func.pixel-to-rem-convertor(40);
+        }
+
         &__brand {
-            gap: func.pixel-to-rem-convertor(60);
+            gap: func.pixel-to-rem-convertor(45);
         }
 
         &__brand-desc {
-            max-width: func.pixel-to-rem-convertor(700);
-            font-size: func.pixel-to-rem-convertor(20);
+            max-width: func.pixel-to-rem-convertor(750);
         }
 
         &__nav {
