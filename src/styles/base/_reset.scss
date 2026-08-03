@@ -10,6 +10,10 @@
     padding: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     @include mixin.flex-center;
     background-color: color.$color-white;

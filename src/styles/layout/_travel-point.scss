@@ -13,7 +13,7 @@
     width: 100%;
     overflow: hidden;
     padding: func.pixel-to-rem-convertor(20) 0;
-    margin-top: func.pixel-to-rem-convertor(75);
+    margin-top: func.pixel-to-rem-convertor(105);
 
     &__main-image {
         z-index: 1;
@@ -21,12 +21,12 @@
     }
 
     &__info {
-        @include mixin.flex-center(center, space-between);
         flex-direction: column;
         height: fit-content;
         width: 100%;
         padding: func.pixel-to-rem-convertor(25) func.pixel-to-rem-convertor(20);
-        gap: func.pixel-to-rem-convertor(20);
+        gap: func.pixel-to-rem-convertor(22);
+        @include mixin.flex-center(center, space-between);
     }
 
     &__tagline {
@@ -64,7 +64,7 @@
 
     @include mixin.media-query('md') {
         flex-direction: column;
-        padding: func.pixel-to-rem-convertor(20) 0;
+        padding: func.pixel-to-rem-convertor(10) 0;
         margin-top: 0;
 
         &__info {
@@ -74,7 +74,7 @@
         }
 
         &__main-image {
-            margin-top: func.pixel-to-rem-convertor(80);
+            margin-top: func.pixel-to-rem-convertor(120);
             height: 80vw;
             width: 100%;
         }
@@ -96,17 +96,19 @@
     @include mixin.media-query('lg') {
         flex-direction: row;
         padding: func.pixel-to-rem-convertor(60) 0;
-        margin-top: 20px;
+        margin-top: func.pixel-to-rem-convertor(20);
 
         &__main-image {
             margin-top: func.pixel-to-rem-convertor(80);
-            height: 48vw;
+            max-height: func.pixel-to-rem-convertor(900);
+            height: 49vw;
             width: 63vw;
+            max-width: func.pixel-to-rem-convertor(1100);
         }
 
         &__info {
             align-items: flex-start;
-            gap: func.pixel-to-rem-convertor(40);
+            gap: func.pixel-to-rem-convertor(35);
             padding: 0;
         }
 
@@ -116,12 +118,12 @@
 
         &__heading {
             text-align: left;
-            width: 90%;
+            width: 80%;
         }
 
         &__description {
             text-align: left;
-            width: func.pixel-to-rem-convertor(450);
+            width: func.pixel-to-rem-convertor(500);
         }
 
         &__cards-wrapper {

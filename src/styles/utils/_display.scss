@@ -11,3 +11,11 @@
 .hidden {
     display: none;
 }
+
+.section-container {
+    width: 100%;
+    max-width: func.pixel-to-rem-convertor(1850);
+    height: fit-content;
+    flex-direction: column;
+    gap: func.pixel-to-rem-convertor(30);
+}

@@ -19,10 +19,10 @@
         content: '';
         display: none;
         position: absolute;
-        left: 11vw;
+        left: 70%;
         bottom: func.pixel-to-rem-convertor(100);
-        width: func.pixel-to-rem-convertor(100);
-        height: func.pixel-to-rem-convertor(100);
+        width: func.pixel-to-rem-convertor(150);
+        height: func.pixel-to-rem-convertor(150);
         background: url('/assets/images/travel-point-badge.png') no-repeat
             center / contain;
         z-index: 2;

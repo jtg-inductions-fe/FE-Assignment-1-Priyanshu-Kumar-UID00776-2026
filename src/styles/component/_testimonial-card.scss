@@ -24,7 +24,6 @@
 
     &__user-info {
         font-size: func.pixel-to-rem-convertor(25);
-        padding-top: func.pixel-to-rem-convertor(20);
     }
 
     &__user-info-name {
@@ -37,22 +36,30 @@
 
     &__stars {
         display: flex;
-        gap: func.pixel-to-rem-convertor(10);
-        margin-bottom: func.pixel-to-rem-convertor(30);
+        gap: func.pixel-to-rem-convertor(18);
+        margin-bottom: func.pixel-to-rem-convertor(10);
         font-size: func.pixel-to-rem-convertor(30);
     }
 
     &__text {
         color: color.$color-description;
         max-width: func.pixel-to-rem-convertor(350);
+        height: fit-content;
+        overflow-y: auto;
         @include mixin.responsive-font-apply(
             font.$testimonial-description-font
         );
     }
 
     @include mixin.media-query('md') {
+        &__avatar {
+            width: func.pixel-to-rem-convertor(158);
+            height: func.pixel-to-rem-convertor(158);
+        }
+
         &__user-info {
             font-size: func.pixel-to-rem-convertor(28);
+            padding-top: func.pixel-to-rem-convertor(20);
         }
 
         &__stars {
@@ -62,6 +69,18 @@
 
         &__text {
             max-width: func.pixel-to-rem-convertor(900);
+            max-height: fit-content;
+        }
+    }
+
+    @include mixin.media-query('lg') {
+        &__card {
+            padding-top: func.pixel-to-rem-convertor(30);
+            padding-left: func.pixel-to-rem-convertor(40);
+        }
+
+        &__user-info {
+            font-size: func.pixel-to-rem-convertor(30);
         }
     }
 }

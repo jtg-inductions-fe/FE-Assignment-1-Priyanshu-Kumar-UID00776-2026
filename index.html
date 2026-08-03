@@ -50,22 +50,28 @@
             <nav class="header__nav" aria-label="Navigation Links">
                 <ul class="header__nav-list">
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a href="#" class="header__link link link--primary"
                             >Home</a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a
+                            href="#travel"
+                            class="header__link link link--primary"
                             >Discover</a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a
+                            href="#testimonial"
+                            class="header__link link link--primary"
                             >Special Deals</a
                         >
                     </li>
                     <li class="header__nav-item">
-                        <a href="/" class="header__link link link--primary"
+                        <a
+                            href="#footer"
+                            class="header__link link link--primary"
                             >Contact</a
                         >
                     </li>
@@ -91,28 +97,28 @@
                     <ul class="header__dropdown-list">
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#"
                                 class="header__dropdown-link link link--primary"
                                 >Home</a
                             >
                         </li>
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#travel"
                                 class="header__dropdown-link link link--primary"
                                 >Discover</a
                             >
                         </li>
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#testimonial"
                                 class="header__dropdown-link link link--primary"
                                 >Special Deals</a
                             >
                         </li>
                         <li class="header__dropdown-item">
                             <a
-                                href="/"
+                                href="#footer"
                                 class="header__dropdown-link link link--primary"
                                 >Contact</a
                             >
@@ -146,8 +152,8 @@
             </div>
         </header>
 
-        <main class="hero">
-            <section>
+        <main class="section-container">
+            <section class="hero" id="home">
                 <div class="hero__design-info-wrapper">
                     <div class="hero__design">
                         <div class="hero__design-images">
@@ -242,11 +248,11 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="hero__triangular-wrapper">
                     <img
                         src="/assets/images/triangular-dotted-design.png"
                         alt="Hero decorative image"
-                        class="hero__triangular-design"
+                        class="hero__triangular"
                     />
                 </div>
                 <div class="hero__brand-wrapper">
@@ -299,8 +305,8 @@
                     </ul>
                 </div>
             </section>
-            <section class="travel-point">
-                <div>
+            <section class="travel-point" id="travel">
+                <div class="travel-point__image-wrapper">
                     <img
                         src="/assets/images/travel-point.webp"
                         alt="Travel Point"
@@ -321,7 +327,7 @@
                     <div class="travel-point__cards-wrapper"></div>
                 </div>
             </section>
-            <section class="testimonial">
+            <section class="testimonial" id="testimonial">
                 <div class="testimonial__info">
                     <span class="testimonial__tagline">TESTIMONIALS</span>
                     <h2 class="testimonial__heading">Trust our clients</h2>
@@ -330,7 +336,7 @@
                 <div class="testimonial__carousel-container">
                     <button
                         type="button"
-                        class="btn--transparent btn--border testimonial__nav testimonial__nav--prev"
+                        class="btn--circle btn--transparent btn--outline testimonial__nav testimonial__nav--prev"
                         aria-label="Previous slide"
                     >
                         <span class="icon-arrow-left"></span>
@@ -343,7 +349,7 @@
                     </div>
                     <button
                         type="button"
-                        class="btn--primary testimonial__nav testimonial__nav--next"
+                        class="btn--circle btn--primary testimonial__nav testimonial__nav--next"
                         aria-label="Next slide"
                     >
                         <span class="icon-arrow-right"></span>
@@ -355,6 +361,188 @@
                 </div>
             </section>
         </main>
+
+        <footer class="footer" id="footer">
+            <div class="footer__image-wrapper">
+                <img
+                    src="/assets/images/footer-design.png"
+                    alt="Footer decorative image"
+                    class="footer__image"
+                />
+            </div>
+            <div class="footer__container">
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo" aria-label="Travlog Home">
+                        <img
+                            src="/assets/images/logo.png"
+                            alt="Travel point logo"
+                            class="footer__logo-img"
+                        />
+                        <span class="footer__logo-title">Travlog</span>
+                    </a>
+                    <p class="footer__brand-desc">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC.
+                    </p>
+                    <div class="footer__socials">
+                        <a
+                            href="/facebook"
+                            class="footer__social-link"
+                            aria-label="Facebook"
+                        >
+                            <span class="icon-facebook"></span>
+                        </a>
+                        <a
+                            href="/twitter"
+                            class="footer__social-link"
+                            aria-label="Twitter"
+                        >
+                            <span class="icon-twitter"
+                                ><span class="path1"></span
+                                ><span class="path2"></span
+                            ></span>
+                        </a>
+                        <a
+                            href="/instagram"
+                            class="footer__social-link"
+                            aria-label="Instagram"
+                        >
+                            <span class="icon-instagram"
+                                ><span class="path1"></span
+                                ><span class="path2"></span
+                            ></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__nav">
+                    <div class="footer__group">
+                        <button
+                            type="button"
+                            class="footer__heading"
+                            id="heading-btn-company"
+                            aria-expanded="false"
+                            aria-controls="footer-company-list"
+                        >
+                            <span>Company</span>
+                            <span
+                                class="icon-arrow-circle-down9-11 footer__chevron"
+                            ></span>
+                        </button>
+                        <ul class="footer__list" id="footer-company-list">
+                            <li class="footer__item">
+                                <a
+                                    href="/about"
+                                    class="footer__link link--primary link"
+                                    >About</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="/careers"
+                                    class="footer__link link--primary link"
+                                    >Career</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="/mobile"
+                                    class="footer__link link--primary link"
+                                    >Mobile</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__group">
+                        <button
+                            type="button"
+                            class="footer__heading"
+                            id="heading-btn-contact"
+                            aria-expanded="false"
+                            aria-controls="footer-contact-list"
+                        >
+                            <span>Contact</span>
+                            <span
+                                class="icon-arrow-circle-down9-11 footer__chevron"
+                            ></span>
+                        </button>
+                        <ul class="footer__list" id="footer-contact-list">
+                            <li class="footer__item">
+                                <a
+                                    href="/travlog"
+                                    class="footer__link link--primary link"
+                                    >Why Travlog?</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="/partner"
+                                    class="footer__link link--primary link"
+                                    >Partner with us</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="/faq"
+                                    class="footer__link link--primary link"
+                                    >FAQ’s</a
+                                >
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="/blog"
+                                    class="footer__link link--primary link"
+                                    >Blog</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__group">
+                        <button
+                            type="button"
+                            class="footer__heading"
+                            id="heading-btn-meet"
+                            aria-expanded="false"
+                            aria-controls="footer-meet-list"
+                        >
+                            <span>Meet Us</span>
+                            <span
+                                class="icon-arrow-circle-down9-11 footer__chevron"
+                            ></span>
+                        </button>
+                        <ul class="footer__list" id="footer-meet-list">
+                            <li class="footer__item">
+                                <a
+                                    href="tel: +00 92 1234 56789"
+                                    class="footer__link link--primary link"
+                                >
+                                    +00 92 1234 56789
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="mailto:info@travlog.com"
+                                    class="footer__link link--primary link"
+                                >
+                                    info@travlog.com
+                                </a>
+                            </li>
+                            <li class="footer__item">
+                                <a
+                                    href="/location"
+                                    class="footer__link link--primary link"
+                                >
+                                    205. R Street, New York BD23200
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
