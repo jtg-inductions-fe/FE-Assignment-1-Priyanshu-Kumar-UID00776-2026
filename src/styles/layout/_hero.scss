@@ -457,7 +457,7 @@
             min-height: func.pixel-to-rem-convertor(500);
             height: func.pixel-to-rem-convertor(600);
             width: 95vw;
-            gap: func.pixel-to-rem-convertor(150);
+            gap: func.pixel-to-rem-convertor(80);
             flex-direction: row-reverse;
         }
 
@@ -478,13 +478,15 @@
 
         &__design-earth-image {
             height: 100%;
-            width: func.pixel-to-rem-convertor(980);
+            width: 53vw;
+            max-width: func.pixel-to-rem-convertor(1000);
         }
 
         &__design-images {
             height: 100%;
             gap: func.pixel-to-rem-convertor(30);
-            width: func.pixel-to-rem-convertor(1050);
+            width: 56vw;
+            max-width: func.pixel-to-rem-convertor(1000);
             padding: 0 func.pixel-to-rem-convertor(54);
             padding-top: func.pixel-to-rem-convertor(85);
             right: func.pixel-to-rem-convertor(100);
@@ -562,7 +564,7 @@
         }
 
         &__info {
-            width: 33%;
+            width: fit-content;
             align-items: flex-start;
             gap: func.pixel-to-rem-convertor(70);
             top: func.pixel-to-rem-convertor(175);

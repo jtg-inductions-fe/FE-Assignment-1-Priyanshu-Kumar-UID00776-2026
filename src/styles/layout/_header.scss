@@ -146,9 +146,7 @@
         }
 
         &--tablet-display {
-            width: fit-content;
             display: none;
-            @include mixin.flex-center;
         }
     }
 
