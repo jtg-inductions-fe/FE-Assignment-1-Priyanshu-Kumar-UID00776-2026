@@ -60,7 +60,6 @@
         gap: func.pixel-to-rem-convertor(16);
         top: func.pixel-to-rem-convertor(50);
         padding: 0 func.pixel-to-rem-convertor(32);
-        padding-top: func.pixel-to-rem-convertor(0);
     }
 
     &__design-images-left {
@@ -168,7 +167,7 @@
         position: relative;
         width: 100%;
         text-align: center;
-        top: 4vw;
+        top: func.pixel-to-rem-convertor(20);
         gap: clamp(
             func.pixel-to-rem-convertor(20),
             4vw,
@@ -305,14 +304,14 @@
 
         &__design-images-left {
             margin-bottom: func.pixel-to-rem-convertor(160);
-            width: 28vw;
+            width: func.pixel-to-rem-convertor(280);
             gap: func.pixel-to-rem-convertor(35);
             z-index: 1;
         }
 
         &__design-left-wrapper {
             height: func.pixel-to-rem-convertor(304);
-            width: 16rem;
+            width: func.pixel-to-rem-convertor(256);
         }
 
         &__design-left-travel {
@@ -410,10 +409,10 @@
         }
 
         &__triangular-wrapper {
-            top: 73rem;
+            top: func.pixel-to-rem-convertor(1168);
             width: fit-content;
             height: fit-content;
-            left: 4vw;
+            left: func.pixel-to-rem-convertor(40);
             position: absolute;
         }
 
@@ -592,10 +591,10 @@
         }
 
         &__triangular-wrapper {
-            top: 55rem;
+            top: func.pixel-to-rem-convertor(880);
             width: fit-content;
             height: fit-content;
-            left: 3vw;
+            left: func.pixel-to-rem-convertor(30);
             position: absolute;
         }
 

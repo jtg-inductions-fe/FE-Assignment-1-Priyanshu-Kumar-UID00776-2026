@@ -106,7 +106,7 @@ const renderStats = () => {
     });
 };
 
-// // Footer accordian button click to open dropdown
+// Footer accordian button click to open dropdown
 document.querySelectorAll('.footer__heading').forEach((button) => {
     button.addEventListener('click', () => {
         const list = button.parentElement.querySelector('.footer__list');
