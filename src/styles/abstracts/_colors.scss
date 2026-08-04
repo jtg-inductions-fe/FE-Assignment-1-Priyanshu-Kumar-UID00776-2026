@@ -9,6 +9,18 @@ $color-primary-dark: rgb(76, 62, 188);
 $color-white: rgb(255, 255, 255);
 $color-shadow: rgba(25, 24, 37, 0.75);
 $color-yellow: rgb(250, 205, 73);
-$color-outline: rgb(238, 238, 238);
+$color-gray: rgb(238, 238, 238);
 $color-twitter: rgb(241, 242, 242);
 $color-dull-star: rgb(226, 226, 226);
+$color-pink-dark: rgba(244, 67, 108, 1);
+$color-purple: rgba(124, 58, 237, 1);
+$color-blue: rgba(6, 182, 212, 1);
+$color-yellow-dark: rgba(251, 191, 36, 1);
+$color-gradient: linear-gradient(
+    90deg,
+    rgba(244, 67, 108, 0.05) 0%,
+    rgba(124, 58, 237, 0.05) 100%
+);
+$color-gradient-border: rgba(244, 67, 108, 0.2);
+$color-gray-dark: rgba(153, 153, 153, 1);
+$color-black-transparent: rgba(0, 0, 0, 0.5);

@@ -1,4 +1,5 @@
 @use '../abstracts/functions' as func;
+@use '../abstracts/colors' as color;
 
 .no-scroll {
     overflow: hidden;
@@ -18,4 +19,23 @@
     height: fit-content;
     flex-direction: column;
     gap: func.pixel-to-rem-convertor(30);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: color.$color-black-transparent;
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    height: 100vh;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
 }

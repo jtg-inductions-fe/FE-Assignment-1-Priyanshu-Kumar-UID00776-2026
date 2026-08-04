@@ -3,24 +3,37 @@ import { initTestimonialSwiper } from './swiper.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
+const overlay = document.querySelector('.overlay');
+const dealsModal = document.querySelector('.deals');
+const dealsWheel = document.getElementById('deals-wheel-wrapper');
+const dealsCoupons = document.getElementById('deals-coupon-wrapper');
+const dealsToggleBtn = document.getElementById('deals-toggle-btn');
+const dealsBtnText = document.getElementById('deals-btn-text');
+const dealsBtnBadge = document.getElementById('deals-btn-badge');
+const dealsTitle = document.getElementById('deals-title');
+const dealsDesc = document.getElementById('deals-description');
+const dealsCloseBtn = document.getElementById('deals-close-btn');
 
 const openIcon = document.getElementById('toggle-icon-open');
 const closeIcon = document.getElementById('toggle-icon-close');
 const DESKTOP_MIN_WIDTH = 1025;
 
+let isMenuOpenState = false;
+
 // Handling the dropdown menu state
 const setMenuState = (shouldOpen) => {
+    isMenuOpenState = shouldOpen;
     toggleButton.setAttribute('aria-expanded', shouldOpen);
 
     if (shouldOpen) {
-        // Open menu: reveal dropdown layout, lock page scroll, and swap to close icon
+        // Open menu reveal dropdown layout, lock page scroll, and swap to close icon
         dropdown.classList.remove('hidden');
         dropdown.classList.add('display-flex');
         document.body.classList.add('no-scroll');
         openIcon.classList.add('hidden');
         closeIcon.classList.remove('hidden');
     } else {
-        // Close menu: hide dropdown layout, restore page scroll, and swap back to open icon
+        // Close menu hide dropdown layout, restore page scroll, and swap back to open icon
         dropdown.classList.add('hidden');
         dropdown.classList.remove('display-flex');
         document.body.classList.remove('no-scroll');
@@ -28,6 +41,73 @@ const setMenuState = (shouldOpen) => {
         closeIcon.classList.add('hidden');
     }
 };
+
+// Handles the Special deals modal state
+const setDealsModalState = (shouldOpen) => {
+    if (shouldOpen) {
+        if (isMenuOpenState) {
+            setMenuState(false);
+        }
+        overlay.classList.add('active');
+        dealsModal.classList.add('active');
+        document.body.classList.add('no-scroll');
+    } else {
+        overlay.classList.remove('active');
+        dealsModal.classList.remove('active');
+
+        if (!isMenuOpenState) {
+            document.body.classList.remove('no-scroll');
+        }
+    }
+};
+
+// Event listeners for Special deals links
+document.querySelectorAll('a[href="#testimonial"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        setDealsModalState(true);
+    });
+});
+
+// If user clicks on area other than modal closes the modal
+overlay.addEventListener('click', function () {
+    setDealsModalState(false);
+});
+
+// Handles the modal state by the close button
+if (dealsCloseBtn) {
+    dealsCloseBtn.addEventListener('click', function () {
+        setDealsModalState(false);
+    });
+}
+
+dealsToggleBtn.addEventListener('click', (e) => {
+    e.currentTarget.blur();
+    // Check if coupons are currently hidden
+    const isShowingWheel = dealsCoupons.classList.contains('hidden');
+
+    if (isShowingWheel) {
+        // Show Coupons hide Wheel
+        dealsWheel.classList.add('hidden');
+        dealsCoupons.classList.remove('hidden');
+
+        // Update Text
+        dealsTitle.textContent = 'Unlocked Deals';
+        dealsDesc.textContent = 'All the deals you’ve unlocked yet!';
+        dealsBtnText.textContent = 'Go Back';
+        dealsBtnBadge.classList.add('hidden');
+    } else {
+        // Show Wheel hide Coupons
+        dealsWheel.classList.remove('hidden');
+        dealsCoupons.classList.add('hidden');
+
+        // Restore Text
+        dealsTitle.textContent = 'Spin & Win!';
+        dealsDesc.textContent = 'Tap the center of the wheel to spin';
+        dealsBtnText.textContent = 'View All Unlocked Deals';
+        dealsBtnBadge.classList.remove('hidden');
+    }
+});
 
 // Removing the menu state when goes into the lg mode
 const desktopQuery = window.matchMedia(`(min-width: ${DESKTOP_MIN_WIDTH}px)`);

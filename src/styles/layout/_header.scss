@@ -122,10 +122,10 @@
     &__dropdown-item {
         width: 100%;
         text-align: center;
-        border-bottom: 1px solid color.$color-outline;
+        border-bottom: 1px solid color.$color-gray;
 
         &:first-child {
-            border-top: 1px solid color.$color-outline;
+            border-top: 1px solid color.$color-gray;
         }
     }
 
