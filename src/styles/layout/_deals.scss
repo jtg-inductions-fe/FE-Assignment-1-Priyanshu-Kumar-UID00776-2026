@@ -7,9 +7,9 @@
     @include mixin.flex-center;
     flex-direction: column;
     position: fixed;
-    background-color: rgba(255, 255, 255, 1);
-    width: 90vw;
-    max-width: func.pixel-to-rem-convertor(400);
+    background-color: color.$color-white;
+    max-width: calc(100vw - func.pixel-to-rem-convertor(32));
+    width: func.pixel-to-rem-convertor(400);
     padding: func.pixel-to-rem-convertor(20);
     border-top-left-radius: func.pixel-to-rem-convertor(20);
     border-top-right-radius: func.pixel-to-rem-convertor(20);
@@ -22,7 +22,7 @@
         transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         visibility 0.4s ease;
 
-    &.active {
+    &--active {
         transform: translate(-50%, 0);
         visibility: visible;
     }
@@ -38,6 +38,11 @@
         cursor: pointer;
         padding: func.pixel-to-rem-convertor(5);
         @include mixin.flex-center;
+
+        &:focus-visible {
+            outline: 2px solid color.$color-primary;
+            outline-offset: 2px;
+        }
     }
 
     &__tagline {
@@ -67,8 +72,9 @@
 
     &__wheel-wrapper {
         position: relative;
-        width: func.pixel-to-rem-convertor(300);
-        height: func.pixel-to-rem-convertor(300);
+        width: 100%;
+        max-width: func.pixel-to-rem-convertor(300);
+        height: auto;
         aspect-ratio: 1;
         margin-top: func.pixel-to-rem-convertor(40);
         @include mixin.flex-center;
@@ -111,6 +117,12 @@
         left: 50%;
         transform: translate(-50%, -50%);
         padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(15);
+        aspect-ratio: 1;
+
+        &:focus-visible {
+            outline: 2px solid color.$color-primary;
+            outline-offset: 2px;
+        }
     }
 
     &__wheel-content {
@@ -155,7 +167,7 @@
             order: 4;
 
             span {
-                transform: rotate(130deg);
+                transform: rotate(135deg);
             }
         }
 
@@ -167,7 +179,7 @@
             order: 3;
 
             span {
-                transform: rotate(-130deg);
+                transform: rotate(-135deg);
             }
         }
     }
@@ -183,55 +195,17 @@
     &__coupon-wrapper {
         gap: func.pixel-to-rem-convertor(10);
         flex-direction: column;
+        width: 100%;
         margin-top: func.pixel-to-rem-convertor(20);
-        max-height: 330px;
+        max-height: func.pixel-to-rem-convertor(330);
         overflow: auto;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
         overscroll-behavior: contain;
         @include mixin.flex-center(center, flex-start);
     }
 
-    &__coupon {
-        padding: func.pixel-to-rem-convertor(20);
-        border: 1px solid color.$color-gradient-border;
-        background: color.$color-gradient;
-        border-radius: 20px;
-        gap: 35px;
-        @include mixin.flex-center(flex-start, center);
-
-        &--blocked {
-            background: color.$color-gray;
-            border: 1px solid color.$color-gray-dark;
-        }
-    }
-
-    &__coupon-info {
-        @include mixin.flex-center(flex-start, center);
-        flex-direction: column;
-    }
-
-    &__coupon-time {
-        font-family: font.$font-inter;
-        font-size: func.pixel-to-rem-convertor(12);
-        color: color.$color-primary;
-
-        &--blocked {
-            color: color.$color-gray-dark;
-        }
-    }
-
     &__button {
         margin-top: func.pixel-to-rem-convertor(20);
-    }
-
-    &__coupon-code {
-        background-color: color.$color-white;
-        border: 1px solid color.$color-gray;
-        width: func.pixel-to-rem-convertor(100);
-        border-radius: 10px;
-        padding: func.pixel-to-rem-convertor(5) func.pixel-to-rem-convertor(10);
-        font-size: func.pixel-to-rem-convertor(12);
-        @include mixin.flex-center;
     }
 
     @include mixin.media-query('md') {
