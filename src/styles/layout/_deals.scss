@@ -8,7 +8,8 @@
     flex-direction: column;
     position: fixed;
     background-color: rgba(255, 255, 255, 1);
-    width: func.pixel-to-rem-convertor(400);
+    width: 90vw;
+    max-width: func.pixel-to-rem-convertor(400);
     padding: func.pixel-to-rem-convertor(20);
     border-top-left-radius: func.pixel-to-rem-convertor(20);
     border-top-right-radius: func.pixel-to-rem-convertor(20);
@@ -102,11 +103,14 @@
 
     &__spin-button {
         position: absolute;
+        background-color: color.$color-white;
+        font-family: inherit;
+        color: color.$color-pink-dark;
+        border: 5px solid color.$color-pink-dark;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 2;
-        aspect-ratio: 1;
+        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(15);
     }
 
     &__wheel-content {
@@ -166,18 +170,6 @@
                 transform: rotate(-130deg);
             }
         }
-    }
-
-    &__spin-button {
-        position: absolute;
-        background-color: color.$color-white;
-        font-family: inherit;
-        color: color.$color-pink-dark;
-        border: 5px solid color.$color-pink-dark;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(15);
     }
 
     &__button-notification {
