@@ -123,7 +123,6 @@
 
             span {
                 transform: rotate(-45deg);
-                // width: func.pixel-to-rem-convertor(100);
             }
         }
 
@@ -137,7 +136,6 @@
 
             span {
                 transform: rotate(45deg);
-                // width: func.pixel-to-rem-convertor(100);
             }
         }
 
@@ -150,7 +148,6 @@
 
             span {
                 transform: rotate(135deg);
-                // width: func.pixel-to-rem-convertor(100);
             }
         }
 
@@ -163,7 +160,6 @@
 
             span {
                 transform: rotate(-135deg);
-                // width: func.pixel-to-rem-convertor(100);
             }
         }
     }
@@ -182,7 +178,8 @@
     }
 
     &__button-notification {
-        padding: func.pixel-to-rem-convertor(5) func.pixel-to-rem-convertor(9);
+        width: func.pixel-to-rem-convertor(20);
+        height: func.pixel-to-rem-convertor(20);
         background-color: color.$color-primary;
         border-radius: 50%;
         color: color.$color-white;
@@ -233,6 +230,12 @@
 
     &__button {
         margin-top: func.pixel-to-rem-convertor(20);
+    }
+
+    &__empty-state {
+        @include mixin.flex-center;
+        flex-direction: column;
+        text-align: center;
     }
 
     &__coupon-code {
