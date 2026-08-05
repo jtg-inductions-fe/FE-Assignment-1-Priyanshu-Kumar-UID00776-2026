@@ -100,6 +100,10 @@
         transition: transform 4s cubic-bezier(0.15, 0.9, 0.2, 1);
     }
 
+    &__latest-win {
+        width: 100%;
+    }
+
     &__spin-button {
         position: absolute;
         top: 50%;
@@ -116,6 +120,7 @@
         color: color.$color-white;
         padding: func.pixel-to-rem-convertor(10);
         box-sizing: border-box;
+        font-size: 13px;
         @include mixin.flex-center;
 
         &:nth-child(1) {
@@ -127,6 +132,7 @@
 
             span {
                 transform: rotate(-45deg);
+                // width: func.pixel-to-rem-convertor(100);
             }
         }
 
@@ -140,6 +146,7 @@
 
             span {
                 transform: rotate(45deg);
+                // width: func.pixel-to-rem-convertor(100);
             }
         }
 
@@ -151,7 +158,8 @@
             order: 4;
 
             span {
-                transform: rotate(130deg);
+                transform: rotate(135deg);
+                // width: func.pixel-to-rem-convertor(100);
             }
         }
 
@@ -163,7 +171,8 @@
             order: 3;
 
             span {
-                transform: rotate(-130deg);
+                transform: rotate(-135deg);
+                // width: func.pixel-to-rem-convertor(100);
             }
         }
     }
@@ -192,8 +201,9 @@
         gap: func.pixel-to-rem-convertor(10);
         flex-direction: column;
         margin-top: func.pixel-to-rem-convertor(20);
-        max-height: 330px;
+        max-height: func.pixel-to-rem-convertor(330);
         overflow: auto;
+        width: 100%;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
         overscroll-behavior: contain;
         @include mixin.flex-center(center, flex-start);
@@ -204,8 +214,9 @@
         border: 1px solid color.$color-gradient-border;
         background: color.$color-gradient;
         border-radius: 20px;
-        gap: 35px;
-        @include mixin.flex-center(flex-start, center);
+        width: 100%;
+        margin-top: func.pixel-to-rem-convertor(10);
+        @include mixin.flex-center(flex-start, space-between);
 
         &--blocked {
             background: color.$color-gray;

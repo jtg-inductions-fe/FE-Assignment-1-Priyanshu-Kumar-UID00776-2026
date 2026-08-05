@@ -1,5 +1,6 @@
 import { cardMockData } from '../MOCK_DATA/cardsMock.js';
 import { initTestimonialSwiper } from './swiper.js';
+import { initSpinner } from './spinner.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
@@ -13,6 +14,7 @@ const dealsBtnBadge = document.getElementById('deals-btn-badge');
 const dealsTitle = document.getElementById('deals-title');
 const dealsDesc = document.getElementById('deals-description');
 const dealsCloseBtn = document.getElementById('deals-close-btn');
+const wonCouponContainer = document.getElementById('latest-win-banner');
 
 const openIcon = document.getElementById('toggle-icon-open');
 const closeIcon = document.getElementById('toggle-icon-close');
@@ -90,6 +92,7 @@ dealsToggleBtn.addEventListener('click', (e) => {
         // Show Coupons hide Wheel
         dealsWheel.classList.add('hidden');
         dealsCoupons.classList.remove('hidden');
+        wonCouponContainer.classList.add('hidden');
 
         // Update Text
         dealsTitle.textContent = 'Unlocked Deals';
@@ -100,6 +103,7 @@ dealsToggleBtn.addEventListener('click', (e) => {
         // Show Wheel hide Coupons
         dealsWheel.classList.remove('hidden');
         dealsCoupons.classList.add('hidden');
+        wonCouponContainer.classList.remove('hidden');
 
         // Restore Text
         dealsTitle.textContent = 'Spin & Win!';
@@ -200,3 +204,4 @@ document.querySelectorAll('.footer__heading').forEach((button) => {
 
 renderStats();
 initTestimonialSwiper();
+initSpinner();
