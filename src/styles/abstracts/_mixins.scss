@@ -22,8 +22,13 @@
     }
 }
 
-@mixin flex-center($align-items-value: center, $justify-content-value: center) {
+@mixin flex-center(
+    $align-items-value: center,
+    $justify-content-value: center,
+    $flex-direction-value: row
+) {
     display: flex;
     align-items: $align-items-value;
     justify-content: $justify-content-value;
+    flex-direction: $flex-direction-value;
 }

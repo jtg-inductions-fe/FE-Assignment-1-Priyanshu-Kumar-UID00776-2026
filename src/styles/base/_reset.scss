@@ -13,9 +13,8 @@ html {
 }
 
 body {
-    @include mixin.flex-center;
+    @include mixin.flex-center(center, center, column);
     background-color: color.$color-white;
-    flex-direction: column;
     font-family: font.$font-circular-std;
 }
 

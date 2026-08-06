@@ -7,18 +7,16 @@
 /* ------- Hero Section -------- */
 
 .hero {
-    @include mixin.flex-center;
+    @include mixin.flex-center(center, center, column);
     width: 100%;
     max-width: func.pixel-to-rem-convertor(1850);
     height: fit-content;
-    flex-direction: column;
     gap: func.pixel-to-rem-convertor(30);
     position: relative;
 
     &__design-info-wrapper {
-        @include mixin.flex-center;
+        @include mixin.flex-center(center, center, column);
         max-width: func.pixel-to-rem-convertor(1500);
-        flex-direction: column;
         padding: func.pixel-to-rem-convertor(20);
         position: relative;
         width: 100%;
@@ -56,18 +54,16 @@
         inset: func.pixel-to-rem-convertor(5) 0;
         width: 100%;
         height: 100%;
-        flex-direction: row;
         gap: func.pixel-to-rem-convertor(16);
         top: func.pixel-to-rem-convertor(50);
         padding: 0 func.pixel-to-rem-convertor(32);
     }
 
     &__design-images-left {
-        @include mixin.flex-center(center, center);
+        @include mixin.flex-center(center, center, column);
         gap: func.pixel-to-rem-convertor(14);
         width: func.pixel-to-rem-convertor(250);
         z-index: 1;
-        flex-direction: column;
         padding: func.pixel-to-rem-convertor(8) 0;
         margin-bottom: func.pixel-to-rem-convertor(50);
         position: relative;
@@ -162,8 +158,7 @@
     }
 
     &__info {
-        @include mixin.flex-center;
-        flex-direction: column;
+        @include mixin.flex-center(center, center, column);
         position: relative;
         width: 100%;
         text-align: center;
@@ -210,18 +205,16 @@
     }
 
     &__info-actions {
-        @include mixin.flex-center;
-        flex-direction: column;
+        @include mixin.flex-center(center, center, column);
         gap: func.pixel-to-rem-convertor(16);
         width: 100%;
         margin-top: func.pixel-to-rem-convertor(10);
     }
 
     &__info-button-wrapper {
-        @include mixin.flex-center;
+        @include mixin.flex-center(center, center, column);
         height: fit-content;
         width: 100%;
-        flex-direction: column;
         margin-top: func.pixel-to-rem-convertor(10);
         gap: func.pixel-to-rem-convertor(33);
     }
@@ -398,12 +391,12 @@
         }
 
         &__info-actions {
-            flex-direction: row;
+            @include mixin.flex-center(center, center, row);
             gap: func.pixel-to-rem-convertor(20);
         }
 
         &__info-button-wrapper {
-            flex-direction: row;
+            @include mixin.flex-center(center, center, row);
             margin-top: func.pixel-to-rem-convertor(0);
             gap: func.pixel-to-rem-convertor(15);
         }
@@ -457,7 +450,7 @@
             height: func.pixel-to-rem-convertor(600);
             width: 95vw;
             gap: func.pixel-to-rem-convertor(80);
-            flex-direction: row-reverse;
+            @include mixin.flex-center(center, center, row-reverse);
         }
 
         &__design {
