@@ -9,7 +9,7 @@
     background-color: color.$color-white;
     max-width: calc(100vw - func.pixel-to-rem-convertor(32));
     width: func.pixel-to-rem-convertor(400);
-    padding: func.pixel-to-rem-convertor(20);
+    padding: func.pixel-to-rem-convertor(17);
     border-top-left-radius: func.pixel-to-rem-convertor(20);
     border-top-right-radius: func.pixel-to-rem-convertor(20);
     bottom: 0;
@@ -22,7 +22,7 @@
         visibility 0.4s ease;
 
     &--active {
-        transform: translate(-50%, 76%);
+        transform: translate(-50%, 44%);
         visibility: visible;
     }
 
@@ -131,6 +131,7 @@
         color: color.$color-white;
         padding: func.pixel-to-rem-convertor(10);
         box-sizing: border-box;
+        font-size: func.pixel-to-rem-convertor(13);
         @include mixin.flex-center;
 
         &--top-left {
@@ -197,8 +198,8 @@
         gap: func.pixel-to-rem-convertor(10);
         width: 100%;
         margin-top: func.pixel-to-rem-convertor(20);
-        max-height: func.pixel-to-rem-convertor(330);
-        min-height: func.pixel-to-rem-convertor(330);
+        max-height: func.pixel-to-rem-convertor(460);
+        min-height: func.pixel-to-rem-convertor(460);
         overflow: auto;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
         overscroll-behavior: contain;
@@ -209,6 +210,11 @@
         margin-top: func.pixel-to-rem-convertor(20);
     }
 
+    &__latest-win {
+        @include mixin.flex-center(center, center, column);
+        width: 100%;
+    }
+
     @include mixin.media-query('md') {
         position: absolute;
         bottom: func.pixel-to-rem-convertor(200);
@@ -216,7 +222,7 @@
         border-radius: 20px;
 
         &--active {
-            transform: translate(-50%, 50%);
+            transform: translate(-50%, 30%);
             visibility: visible;
         }
 
@@ -232,7 +238,7 @@
         border-radius: 20px;
 
         &--active {
-            transform: translate(-50%, 50%);
+            transform: translate(-50%, 30%);
             visibility: visible;
         }
     }

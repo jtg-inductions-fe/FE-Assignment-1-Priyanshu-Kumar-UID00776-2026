@@ -8,7 +8,7 @@
     border: 1px solid color.$color-gradient-border;
     background: color.$color-gradient;
     border-radius: 20px;
-    width: 100%;
+    width: 98%;
     gap: func.pixel-to-rem-convertor(35);
     @include mixin.flex-center(flex-start, space-between);
 
