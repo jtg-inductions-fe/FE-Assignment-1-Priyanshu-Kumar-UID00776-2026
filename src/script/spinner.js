@@ -18,6 +18,23 @@ let dealsWrapperContent;
 let winningBannerContainer;
 let dealsCounterBadge;
 
+function isValidCouponArray(data) {
+    if (!Array.isArray(data)) return false;
+
+    for (const c of data) {
+        if (
+            !c ||
+            typeof c !== 'object' ||
+            !('label' in c) ||
+            !('promoCode' in c)
+        ) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 export function initSpinner() {
     wheelWrapper = document.getElementById('deals-wheel-wrapper');
     dealsWheelContent = document.getElementById('deals-wheel');
@@ -30,18 +47,20 @@ export function initSpinner() {
     const storedUnlocked = localStorage.getItem(STORAGE_KEY_UNLOCKED);
     const storedAngle = localStorage.getItem(STORAGE_KEY_ANGLE);
 
-    // If coupons from localstorage are available then parse them
+    // If coupons from localstorage are available then parse them also verify them using the function isValidCouponArray so that the array fetched is valid
     if (storedCoupons) {
         try {
-            coupons = JSON.parse(storedCoupons);
+            const parsed = JSON.parse(storedCoupons);
+            coupons = isValidCouponArray(parsed) ? parsed : [];
         } catch {
             coupons = [];
         }
     }
-    // If unlockedCoupons from localstorage are available then parse them
+    // If unlockedCoupons from localstorage are available then parse them also verify them using the function isValidCouponArray so that the array fetched is valid
     if (storedUnlocked) {
         try {
-            unlockedCoupons = JSON.parse(storedUnlocked);
+            const parsed = JSON.parse(storedUnlocked);
+            unlockedCoupons = isValidCouponArray(parsed) ? parsed : [];
         } catch {
             unlockedCoupons = [];
         }
@@ -77,8 +96,9 @@ export function initSpinner() {
 
 // Promocode copy function
 function setupCopyListener() {
-    document.addEventListener('click', (e) => {
+    document.addEventListener('click', function (e) {
         const btn = e.target.closest('.coupon__copy');
+        if (!btn) return;
 
         const code = btn
             .closest('.coupon')
@@ -122,12 +142,19 @@ function validTime(coupon) {
     };
 }
 
-function renderLoadingState(state) {
+function renderLoadingState(state, errorMessage = null) {
     // Check if loading state is true or shows loading
     if (state) {
         dealsWheelContent.innerHTML = `
             <div class="deals__wheel-content">
                 <span>Loading...</span>
+            </div>
+        `;
+    } else if (errorMessage) {
+        // Show error message if no coupons are found
+        dealsWheelContent.innerHTML = `
+            <div class="deals__wheel-content">
+                <span>${errorMessage}</span>
             </div>
         `;
     }
@@ -153,14 +180,19 @@ async function fetchCoupons() {
     try {
         renderLoadingState(true);
         const response = await fetch(COUPON_API_URL);
-        coupons = await response.json();
-        renderLoadingState(false);
+        const data = await response.json();
 
-        // Save fetched API coupons directly to localStorage
-        localStorage.setItem(STORAGE_KEY_COUPONS, JSON.stringify(coupons));
-        setSpinnerCoupons();
+        // Checks and sets the valid coupon array when fetched from the API
+        if (isValidCouponArray(data)) {
+            coupons = data;
+            renderLoadingState(false);
+            localStorage.setItem(STORAGE_KEY_COUPONS, JSON.stringify(coupons));
+            setSpinnerCoupons();
+        } else {
+            throw new Error('Invalid coupon schema returned from API');
+        }
     } catch {
-        renderLoadingState(false);
+        renderLoadingState(false, 'No coupons found');
     }
 }
 
@@ -239,7 +271,7 @@ function setUnlockedCoupons() {
                         <span class="coupon__time ${blockedTimeClass}">${coupon.formattedTime}</span> 
                     </div>
                     <div class="coupon__code">${coupon.promoCode}</div>
-                    <div class="coupon__copy">
+                    <button type="button" aria-label="Copy Promo code" class="coupon__copy">
                    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <g clip-path="url(#clip0_2456_791)">
                            <path d="M9.33337 16.0002H8.66671C8.31309 16.0002 7.97395 15.8597 7.7239 15.6096C7.47385 15.3596 7.33337 15.0205 7.33337 14.6668V8.66683C7.33337 8.31321 7.47385 7.97407 7.7239 7.72402C7.97395 7.47397 8.31309 7.3335 8.66671 7.3335H14.6667C15.0203 7.3335 15.3595 7.47397 15.6095 7.72402C15.8596 7.97407 16 8.31321 16 8.66683V9.3335M13.3334 12.0002H19.3334C20.0698 12.0002 20.6667 12.5971 20.6667 13.3335V19.3335C20.6667 20.0699 20.0698 20.6668 19.3334 20.6668H13.3334C12.597 20.6668 12 20.0699 12 19.3335V13.3335C12 12.5971 12.597 12.0002 13.3334 12.0002Z" stroke="#F4436C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -250,7 +282,7 @@ function setUnlockedCoupons() {
                            </clipPath>
                        </defs>
                    </svg>
-               </div>
+               </button>
                 </div>
             `;
         })
@@ -274,7 +306,7 @@ function renderLatestWinner(wonCoupon) {
                 <span class="coupon__time">${wonCoupon.formattedTime}</span> 
             </div>
             <div class="coupon__code">${wonCoupon.promoCode}</div>
-            <div class="coupon__copy">
+            <button type="button" aria-label="Copy Promo code" class="coupon__copy">
                 <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_2456_791)">
                         <path d="M9.33337 16.0002H8.66671C8.31309 16.0002 7.97395 15.8597 7.7239 15.6096C7.47385 15.3596 7.33337 15.0205 7.33337 14.6668V8.66683C7.33337 8.31321 7.47385 7.97407 7.7239 7.72402C7.97395 7.47397 8.31309 7.3335 8.66671 7.3335H14.6667C15.0203 7.3335 15.3595 7.47397 15.6095 7.72402C15.8596 7.97407 16 8.31321 16 8.66683V9.3335M13.3334 12.0002H19.3334C20.0698 12.0002 20.6667 12.5971 20.6667 13.3335V19.3335C20.6667 20.0699 20.0698 20.6668 19.3334 20.6668H13.3334C12.597 20.6668 12 20.0699 12 19.3335V13.3335C12 12.5971 12.597 12.0002 13.3334 12.0002Z" stroke="#F4436C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -285,7 +317,7 @@ function renderLatestWinner(wonCoupon) {
                         </clipPath>
                     </defs>
                 </svg>
-            </div>
+            </button>
         </div>
     `;
 }
@@ -384,6 +416,7 @@ function setupSpinListener() {
 
                 setUnlockedCoupons();
                 renderLatestWinner(wonCoupon);
+                setSpinnerCoupons();
             }
 
             isSpinning = false;
