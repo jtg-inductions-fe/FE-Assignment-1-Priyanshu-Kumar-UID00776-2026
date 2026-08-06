@@ -3,8 +3,8 @@ import { initTestimonialSwiper } from './swiper.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
-const overlay = document.querySelector('.overlay');
-const dealsModal = document.querySelector('.deals');
+const overlay = document.getElementById('overlay-area');
+const dealsModal = document.getElementById('deals-modal');
 const dealsWheel = document.getElementById('deals-wheel-wrapper');
 const dealsCoupons = document.getElementById('deals-coupon-wrapper');
 const dealsToggleBtn = document.getElementById('deals-toggle-btn');
