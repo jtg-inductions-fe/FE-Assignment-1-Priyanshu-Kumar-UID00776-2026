@@ -82,8 +82,9 @@ function setupCopyListener() {
 
         const code = btn
             .closest('.deals__coupon')
-            ?.querySelector('.deals__coupon-code')
-            ?.textContent?.trim();
+            .querySelector('.deals__coupon-code')
+            .textContent.trim();
+
         // If we get the code then it copies
         if (code) {
             navigator.clipboard
@@ -180,14 +181,17 @@ function setSpinnerCoupons() {
         return;
     }
 
+    const arr = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
+    let index = 0;
+
     // Check if at least 4 unclaimed coupons are available to populate full wheel
     if (validCoupons.length >= 4) {
         dealsWheelContent.innerHTML = validCoupons
             .slice(0, 4)
             .map(
                 (coupon) =>
-                    `<div class="deals__wheel-content">
-                <span>${coupon.label}</span>
+                    `<div class="deals__wheel-content deals__wheel-content--${arr[index]}">
+                <span class="deals__wheel-label--${arr[index++]}">${coupon.label}</span>
             </div>`,
             )
             .join('');
@@ -195,22 +199,21 @@ function setSpinnerCoupons() {
         const remainingCoupon = validCoupons
             .map(
                 (coupon) => `
-        <div class="deals__wheel-content">
-            <span>${coupon.label}</span>
+        <div class="deals__wheel-content deals__wheel-content--${arr[index]}">
+            <span class="deals__wheel-label--${arr[index++]}">${coupon.label}</span>
         </div>
     `,
             )
             .join('');
 
-        const noDealCoupon = Array(Math.max(0, 4 - validCoupons.length))
-            .fill(
-                `
-            <div class="deals__wheel-content">
-                <span>No deals Available</span>
-            </div>
-        `,
-            )
-            .join('');
+        let noDealCoupon = '';
+        while (index < 4) {
+            noDealCoupon += `
+                    <div class="deals__wheel-content deals__wheel-content--${arr[index]}">
+                        <span class="deals__wheel-label--${arr[index++]}">No deals Available</span>
+                    </div>
+                `;
+        }
 
         dealsWheelContent.innerHTML = remainingCoupon + noDealCoupon;
     }
@@ -336,7 +339,8 @@ function setupSpinListener() {
             const distanceToZero = remainder === 0 ? 0 : 360 - remainder;
             currentAngle += distanceToZero;
 
-            dealsWheelContent.style.transition = 'transform 1s ease-in-out';
+            dealsWheelContent.style.transition =
+                'transform 0.4s cubic-bezier(0.05, 0.7, 0.1, 1)';
             dealsWheelContent.style.transform = `rotate(${currentAngle}deg)`;
 
             setTimeout(() => {
@@ -349,7 +353,7 @@ function setupSpinListener() {
                         'transform 5s cubic-bezier(0.1, 0.7, 0.1, 1)';
                     dealsWheelContent.style.transform = `rotate(${totalRotation}deg)`;
                 }, 50);
-            }, 1000);
+            }, 50);
         } else {
             currentAngle = totalRotation;
             dealsWheelContent.style.transition =

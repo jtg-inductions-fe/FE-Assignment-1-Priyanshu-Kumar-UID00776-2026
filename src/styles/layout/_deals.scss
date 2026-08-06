@@ -98,6 +98,7 @@
         background-color: color.$color-gray;
         overflow: hidden;
         transition: transform 4s cubic-bezier(0.15, 0.9, 0.2, 1);
+        box-shadow: 0px 7px 34px 8px rgba(color.$color-dark, 0.3);
     }
 
     &__latest-win {
@@ -111,56 +112,58 @@
         color: color.$color-white;
         padding: func.pixel-to-rem-convertor(10);
         box-sizing: border-box;
-        font-size: 13px;
+        font-size: func.pixel-to-rem-convertor(13);
         @include mixin.flex-center;
 
-        &:nth-child(1) {
+        &--top-left {
             border-top-left-radius: 100%;
             background-color: color.$color-pink-dark;
             padding-left: func.pixel-to-rem-convertor(25);
             padding-top: func.pixel-to-rem-convertor(20);
             order: 1;
-
-            span {
-                transform: rotate(-45deg);
-            }
         }
 
-        &:nth-child(2) {
+        &--top-right {
             background-color: color.$color-purple;
             border-top-right-radius: 100%;
             padding-top: func.pixel-to-rem-convertor(25);
             padding-left: func.pixel-to-rem-convertor(5);
             padding-right: func.pixel-to-rem-convertor(20);
             order: 2;
-
-            span {
-                transform: rotate(45deg);
-            }
         }
 
-        &:nth-child(3) {
+        &--bottom-right {
             background-color: color.$color-blue;
             border-bottom-right-radius: 100%;
             padding-right: func.pixel-to-rem-convertor(25);
             padding-bottom: func.pixel-to-rem-convertor(20);
             order: 4;
-
-            span {
-                transform: rotate(135deg);
-            }
         }
 
-        &:nth-child(4) {
+        &--bottom-left {
             background-color: color.$color-yellow-dark;
             border-bottom-left-radius: 100%;
             padding-bottom: func.pixel-to-rem-convertor(25);
             padding-right: func.pixel-to-rem-convertor(5);
             order: 3;
+        }
+    }
 
-            span {
-                transform: rotate(-135deg);
-            }
+    &__wheel-label {
+        &--top-left {
+            transform: rotate(-45deg);
+        }
+
+        &--top-right {
+            transform: rotate(45deg);
+        }
+
+        &--bottom-right {
+            transform: rotate(135deg);
+        }
+
+        &--bottom-left {
+            transform: rotate(-135deg);
         }
     }
 
