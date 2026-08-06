@@ -78,11 +78,11 @@ export function initSpinner() {
 // Promocode copy function
 function setupCopyListener() {
     document.addEventListener('click', (e) => {
-        const btn = e.target.closest('.deals__coupon-copy');
+        const btn = e.target.closest('.coupon__copy');
 
         const code = btn
-            .closest('.deals__coupon')
-            .querySelector('.deals__coupon-code')
+            .closest('.coupon')
+            .querySelector('.coupon__code')
             .textContent.trim();
 
         // If we get the code then it copies
@@ -224,22 +224,22 @@ function setUnlockedCoupons() {
         .map((coupon) => {
             // Check if coupon is expired to apply blocked styling modifier
             const blockedCouponClass = coupon.isExpired
-                ? 'deals__coupon--blocked'
+                ? 'coupon--blocked'
                 : '';
 
             // Check if coupon is expired to apply blocked time text modifier
             const blockedTimeClass = coupon.isExpired
-                ? 'deals__coupon-time--blocked'
+                ? 'coupon__time--blocked'
                 : '';
 
             return `
-                <div class="deals__coupon ${blockedCouponClass}">
-                    <div class="deals__coupon-info">
-                        <span class="deals__coupon-title">${coupon.label}</span>
-                        <span class="deals__coupon-time ${blockedTimeClass}">${coupon.formattedTime}</span> 
+                <div class="coupon ${blockedCouponClass}">
+                    <div class="coupon__info">
+                        <span class="coupon__title">${coupon.label}</span>
+                        <span class="coupon__time ${blockedTimeClass}">${coupon.formattedTime}</span> 
                     </div>
-                    <div class="deals__coupon-code">${coupon.promoCode}</div>
-                    <div class="deals__coupon-copy">
+                    <div class="coupon__code">${coupon.promoCode}</div>
+                    <div class="coupon__copy">
                    <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <g clip-path="url(#clip0_2456_791)">
                            <path d="M9.33337 16.0002H8.66671C8.31309 16.0002 7.97395 15.8597 7.7239 15.6096C7.47385 15.3596 7.33337 15.0205 7.33337 14.6668V8.66683C7.33337 8.31321 7.47385 7.97407 7.7239 7.72402C7.97395 7.47397 8.31309 7.3335 8.66671 7.3335H14.6667C15.0203 7.3335 15.3595 7.47397 15.6095 7.72402C15.8596 7.97407 16 8.31321 16 8.66683V9.3335M13.3334 12.0002H19.3334C20.0698 12.0002 20.6667 12.5971 20.6667 13.3335V19.3335C20.6667 20.0699 20.0698 20.6668 19.3334 20.6668H13.3334C12.597 20.6668 12 20.0699 12 19.3335V13.3335C12 12.5971 12.597 12.0002 13.3334 12.0002Z" stroke="#F4436C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -268,13 +268,13 @@ function renderLatestWinner(wonCoupon) {
 
     winningBannerContainer.innerHTML = `
         <h4 class="deals__win-title" style="margin-top: 15px; text-align: center;">You Won!</h4>
-        <div class="deals__coupon">
-            <div class="deals__coupon-info">
-                <span class="deals__coupon-title">${wonCoupon.label}</span>
-                <span class="deals__coupon-time">${wonCoupon.formattedTime}</span> 
+        <div class="coupon">
+            <div class="coupon__info">
+                <span class="coupon__title">${wonCoupon.label}</span>
+                <span class="coupon__time">${wonCoupon.formattedTime}</span> 
             </div>
-            <div class="deals__coupon-code">${wonCoupon.promoCode}</div>
-            <div class="deals__coupon-copy">
+            <div class="coupon__code">${wonCoupon.promoCode}</div>
+            <div class="coupon__copy">
                 <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_2456_791)">
                         <path d="M9.33337 16.0002H8.66671C8.31309 16.0002 7.97395 15.8597 7.7239 15.6096C7.47385 15.3596 7.33337 15.0205 7.33337 14.6668V8.66683C7.33337 8.31321 7.47385 7.97407 7.7239 7.72402C7.97395 7.47397 8.31309 7.3335 8.66671 7.3335H14.6667C15.0203 7.3335 15.3595 7.47397 15.6095 7.72402C15.8596 7.97407 16 8.31321 16 8.66683V9.3335M13.3334 12.0002H19.3334C20.0698 12.0002 20.6667 12.5971 20.6667 13.3335V19.3335C20.6667 20.0699 20.0698 20.6668 19.3334 20.6668H13.3334C12.597 20.6668 12 20.0699 12 19.3335V13.3335C12 12.5971 12.597 12.0002 13.3334 12.0002Z" stroke="#F4436C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>

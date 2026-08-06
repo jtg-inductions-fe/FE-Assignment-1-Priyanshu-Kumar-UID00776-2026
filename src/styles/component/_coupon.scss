@@ -1,0 +1,45 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../base/typography' as font;
+
+.coupon {
+    padding: func.pixel-to-rem-convertor(20);
+    border: 1px solid color.$color-gradient-border;
+    background: color.$color-gradient;
+    border-radius: 20px;
+    width: 100%;
+    gap: func.pixel-to-rem-convertor(35);
+    @include mixin.flex-center(flex-start, space-between);
+
+    &--blocked {
+        background: color.$color-gray;
+        border: 1px solid color.$color-gray-dark;
+    }
+
+    &__info {
+        @include mixin.flex-center(flex-start, center);
+        width: func.pixel-to-rem-convertor(200);
+        flex-direction: column;
+    }
+
+    &__time {
+        font-family: font.$font-inter;
+        font-size: func.pixel-to-rem-convertor(12);
+        color: color.$color-primary;
+
+        &--blocked {
+            color: color.$color-gray-dark;
+        }
+    }
+
+    &__code {
+        background-color: color.$color-white;
+        border: 1px solid color.$color-gray;
+        width: func.pixel-to-rem-convertor(150);
+        border-radius: 10px;
+        padding: func.pixel-to-rem-convertor(5) func.pixel-to-rem-convertor(10);
+        font-size: func.pixel-to-rem-convertor(12);
+        @include mixin.flex-center;
+    }
+}

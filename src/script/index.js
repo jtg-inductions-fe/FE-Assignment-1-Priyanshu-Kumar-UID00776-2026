@@ -4,8 +4,8 @@ import { initSpinner } from './spinner.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
-const overlay = document.querySelector('.overlay');
-const dealsModal = document.querySelector('.deals');
+const overlay = document.getElementById('overlay-area');
+const dealsModal = document.getElementById('deals-modal');
 const dealsWheel = document.getElementById('deals-wheel-wrapper');
 const dealsCoupons = document.getElementById('deals-coupon-wrapper');
 const dealsToggleBtn = document.getElementById('deals-toggle-btn');
@@ -46,17 +46,21 @@ const setMenuState = (shouldOpen) => {
 
 // Handles the Special deals modal state
 const setDealsModalState = (shouldOpen) => {
+    // Checks the shoulOpen and applies the overlay and opens modal
     if (shouldOpen) {
         if (isMenuOpenState) {
             setMenuState(false);
         }
-        overlay.classList.add('active');
-        dealsModal.classList.add('active');
+        overlay.classList.add('overlay--active');
+        dealsModal.classList.add('deals--active');
         document.body.classList.add('no-scroll');
-    } else {
-        overlay.classList.remove('active');
-        dealsModal.classList.remove('active');
+    }
+    // Overlay is removed and modal is closed
+    else {
+        overlay.classList.remove('overlay--active');
+        dealsModal.classList.remove('deals--active');
 
+        // No scroll removed when modal is closed
         if (!isMenuOpenState) {
             document.body.classList.remove('no-scroll');
         }
@@ -151,10 +155,18 @@ document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         const isMenuOpen =
             toggleButton.getAttribute('aria-expanded') === 'true';
+        const isDealsModalOpen = dealsModal.classList.contains('deals--active');
 
+        // Closes the menu when Escape key is pressed
         if (isMenuOpen) {
             setMenuState(false);
             toggleButton.focus();
+        }
+
+        // Closes the deals modal when Escape key is pressed
+        if (isDealsModalOpen) {
+            setDealsModalState(false);
+            return;
         }
     }
 });
@@ -164,6 +176,7 @@ const createStatCard = (stat) => {
     const card = document.createElement('div');
     card.className = 'cards';
 
+    // If badge is found then applied the badge class
     if (stat.badge) {
         card.classList.add('cards--badge');
     }
@@ -195,6 +208,7 @@ document.querySelectorAll('.footer__heading').forEach((button) => {
     button.addEventListener('click', () => {
         const list = button.parentElement.querySelector('.footer__list');
 
+        // If list is found then only add the toggle class to open the accordian
         if (list) {
             const isOpen = list.classList.toggle('footer__list--is-open');
             button.setAttribute('aria-expanded', String(isOpen));

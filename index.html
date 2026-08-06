@@ -15,7 +15,7 @@
         />
     </head>
     <body>
-        <div class="overlay"></div>
+        <div class="overlay" id="overlay-area"></div>
         <header class="header">
             <div class="header__background"></div>
 
@@ -545,19 +545,16 @@
             </div>
         </footer>
 
-        <div class="deals">
+        <dialog class="deals" id="deals-modal" aria-labelledby="deals-title">
             <button
                 type="button"
                 class="deals__close-btn"
                 id="deals-close-btn"
                 aria-label="Close deals modal"
             >
-                <span
-                    class="icon-close"
-                    aria-hidden="true"
-                    id="toggle-icon-close"
-                ></span>
+                <span class="icon-close" aria-hidden="true"></span>
             </button>
+
             <div class="deals__tagline">
                 <svg
                     width="20"
@@ -565,6 +562,8 @@
                     viewBox="0 0 16 16"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    focusable="false"
                 >
                     <g clip-path="url(#clip0_2456_25)">
                         <path
@@ -614,7 +613,7 @@
                     id="deals-btn-badge"
                 ></span>
             </button>
-        </div>
+        </dialog>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
