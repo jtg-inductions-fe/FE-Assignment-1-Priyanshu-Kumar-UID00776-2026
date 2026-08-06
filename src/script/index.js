@@ -52,11 +52,13 @@ const setDealsModalState = (shouldOpen) => {
         overlay.classList.add('overlay--active');
         dealsModal.classList.add('deals--active');
         document.body.classList.add('no-scroll');
+        dealsModal.showModal();
     }
     // Overlay is removed and modal is closed
     else {
         overlay.classList.remove('overlay--active');
         dealsModal.classList.remove('deals--active');
+        dealsModal.close();
 
         // No scroll removed when modal is closed
         if (!isMenuOpenState) {
@@ -66,11 +68,12 @@ const setDealsModalState = (shouldOpen) => {
 };
 
 // Event listeners for Special deals links
-document.querySelectorAll('a[href="#testimonial"]').forEach((link) => {
-    link.addEventListener('click', (event) => {
+document.body.addEventListener('click', (event) => {
+    const trigger = event.target.closest('.deals-modal');
+    if (trigger) {
         event.preventDefault();
         setDealsModalState(true);
-    });
+    }
 });
 
 // If user clicks on area other than modal closes the modal
@@ -79,14 +82,11 @@ overlay.addEventListener('click', function () {
 });
 
 // Handles the modal state by the close button
-if (dealsCloseBtn) {
-    dealsCloseBtn.addEventListener('click', function () {
-        setDealsModalState(false);
-    });
-}
+dealsCloseBtn.addEventListener('click', function () {
+    setDealsModalState(false);
+});
 
-dealsToggleBtn.addEventListener('click', (e) => {
-    e.currentTarget.blur();
+dealsToggleBtn.addEventListener('click', function () {
     // Check if coupons are currently hidden
     const isShowingWheel = dealsCoupons.classList.contains('hidden');
 

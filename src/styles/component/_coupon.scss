@@ -20,16 +20,13 @@
     }
 
     &__coupon-info {
-        @include mixin.flex-center(flex-start, center);
+        @include mixin.flex-center(flex-start, center, column);
         width: func.pixel-to-rem-convertor(200);
-        flex-direction: column;
     }
 
     &__coupon-time {
-        font-family: font.$font-inter;
-        font-size: func.pixel-to-rem-convertor(12);
         color: color.$color-primary;
-
+        @include mixin.responsive-font-apply(font.$deals-coupon-font);
         &--blocked {
             color: color.$color-gray-dark;
         }
@@ -38,7 +35,7 @@
     &__coupon-code {
         background-color: color.$color-white;
         border: 1px solid color.$color-gray;
-        width: func.pixel-to-rem-convertor(150);
+        width: func.pixel-to-rem-convertor(170);
         border-radius: 10px;
         padding: func.pixel-to-rem-convertor(5) func.pixel-to-rem-convertor(10);
         font-size: func.pixel-to-rem-convertor(12);

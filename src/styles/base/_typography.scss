@@ -84,6 +84,14 @@ $footer-description-font: (
     ),
 );
 
+$deals-coupon-font: (
+    'font-family': $font-inter,
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(12),
+        'font-line-height': 1.6,
+    ),
+);
+
 @font-face {
     font-family: 'Circular-Std';
     src: url('/assets/fonts/circular-std-font-family/CircularStd-Bold.woff2')

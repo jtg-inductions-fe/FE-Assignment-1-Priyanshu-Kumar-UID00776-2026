@@ -4,8 +4,7 @@
 @use '../base/typography' as font;
 
 .deals {
-    @include mixin.flex-center;
-    flex-direction: column;
+    @include mixin.flex-center(center, center, column);
     position: fixed;
     background-color: color.$color-white;
     max-width: calc(100vw - func.pixel-to-rem-convertor(32));
@@ -16,14 +15,14 @@
     bottom: 0;
     z-index: 10;
     left: 50%;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 180%);
     visibility: hidden;
     transition:
         transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         visibility 0.4s ease;
 
     &--active {
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 80%);
         visibility: visible;
     }
 
@@ -196,14 +195,14 @@
 
     &__coupon-wrapper {
         gap: func.pixel-to-rem-convertor(10);
-        flex-direction: column;
         width: 100%;
         margin-top: func.pixel-to-rem-convertor(20);
         max-height: func.pixel-to-rem-convertor(330);
+        min-height: func.pixel-to-rem-convertor(320);
         overflow: auto;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
         overscroll-behavior: contain;
-        @include mixin.flex-center(center, flex-start);
+        @include mixin.flex-center(center, flex-start, column);
     }
 
     &__button {
@@ -216,6 +215,11 @@
         width: func.pixel-to-rem-convertor(500);
         border-radius: 20px;
 
+        &--active {
+            transform: translate(-50%, 50%);
+            visibility: visible;
+        }
+
         &__button {
             width: 100%;
         }
@@ -226,5 +230,10 @@
         bottom: func.pixel-to-rem-convertor(200);
         width: func.pixel-to-rem-convertor(500);
         border-radius: 20px;
+
+        &--active {
+            transform: translate(-50%, 50%);
+            visibility: visible;
+        }
     }
 }

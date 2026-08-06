@@ -5,9 +5,8 @@
 
 .testimonial {
     &__card {
-        @include mixin.flex-center;
+        @include mixin.flex-center(center, center, column);
         padding-top: func.pixel-to-rem-convertor(40);
-        flex-direction: column;
         text-align: center;
         gap: func.pixel-to-rem-convertor(40);
     }
