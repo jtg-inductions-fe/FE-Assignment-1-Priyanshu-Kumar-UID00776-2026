@@ -22,7 +22,7 @@
         visibility 0.4s ease;
 
     &--active {
-        transform: translate(-50%, 48%);
+        transform: translate(-50%, 76%);
         visibility: visible;
     }
 
@@ -104,11 +104,6 @@
         background-color: color.$color-gray;
         overflow: hidden;
         transition: transform 4s cubic-bezier(0.15, 0.9, 0.2, 1);
-        box-shadow: 0px 7px 34px 8px rgba(color.$color-dark, 0.3);
-    }
-
-    &__latest-win {
-        width: 100%;
     }
 
     &__spin-button {
@@ -136,7 +131,6 @@
         color: color.$color-white;
         padding: func.pixel-to-rem-convertor(10);
         box-sizing: border-box;
-        font-size: func.pixel-to-rem-convertor(13);
         @include mixin.flex-center;
 
         &--top-left {
@@ -192,8 +186,7 @@
     }
 
     &__button-notification {
-        width: func.pixel-to-rem-convertor(20);
-        height: func.pixel-to-rem-convertor(20);
+        padding: func.pixel-to-rem-convertor(5) func.pixel-to-rem-convertor(9);
         background-color: color.$color-primary;
         border-radius: 50%;
         color: color.$color-white;
@@ -207,7 +200,6 @@
         max-height: func.pixel-to-rem-convertor(330);
         min-height: func.pixel-to-rem-convertor(330);
         overflow: auto;
-        width: 100%;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
         overscroll-behavior: contain;
         @include mixin.flex-center(center, flex-start, column);
@@ -215,11 +207,6 @@
 
     &__button {
         margin-top: func.pixel-to-rem-convertor(20);
-    }
-
-    &__empty-state {
-        @include mixin.flex-center(center, center, column);
-        text-align: center;
     }
 
     @include mixin.media-query('md') {
