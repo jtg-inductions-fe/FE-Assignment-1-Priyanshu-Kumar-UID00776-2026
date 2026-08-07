@@ -126,7 +126,7 @@
 
         &__nav {
             gap: func.pixel-to-rem-convertor(38);
-            @include mixin.flex-center(flex-start, space-between, row);
+            @include mixin.flex-center(flex-start, space-between);
         }
 
         &__group {
@@ -163,7 +163,7 @@
         }
 
         &__container {
-            @include mixin.flex-center(flex-start, space-between, row);
+            @include mixin.flex-center(flex-start, space-between);
         }
 
         &__logo-img {

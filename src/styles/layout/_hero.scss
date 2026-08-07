@@ -385,12 +385,12 @@
         }
 
         &__info-actions {
-            @include mixin.flex-center(center, center, row);
+            @include mixin.flex-center;
             gap: func.pixel-to-rem-convertor(20);
         }
 
         &__info-button-wrapper {
-            @include mixin.flex-center(center, center, row);
+            @include mixin.flex-center;
             margin-top: func.pixel-to-rem-convertor(0);
             gap: func.pixel-to-rem-convertor(15);
         }
