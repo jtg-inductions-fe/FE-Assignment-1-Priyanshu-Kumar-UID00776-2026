@@ -22,7 +22,7 @@
     }
 
     &__user-info {
-        font-size: func.pixel-to-rem-convertor(25);
+        @include mixin.responsive-font-apply(font.$info-font);
     }
 
     &__user-info-name {
@@ -37,7 +37,7 @@
         display: flex;
         gap: func.pixel-to-rem-convertor(18);
         margin-bottom: func.pixel-to-rem-convertor(10);
-        font-size: func.pixel-to-rem-convertor(30);
+        @include mixin.responsive-font-apply(font.$stars-font);
     }
 
     &__text {
@@ -57,12 +57,10 @@
         }
 
         &__user-info {
-            font-size: func.pixel-to-rem-convertor(28);
             padding-top: func.pixel-to-rem-convertor(20);
         }
 
         &__stars {
-            font-size: func.pixel-to-rem-convertor(40);
             gap: func.pixel-to-rem-convertor(15);
         }
 
@@ -76,10 +74,6 @@
         &__card {
             padding-top: func.pixel-to-rem-convertor(30);
             padding-left: func.pixel-to-rem-convertor(40);
-        }
-
-        &__user-info {
-            font-size: func.pixel-to-rem-convertor(30);
         }
     }
 }

@@ -26,7 +26,7 @@
 
     &__coupon-time {
         color: color.$color-primary;
-        @include mixin.responsive-font-apply(font.$deals-coupon-font);
+        @include mixin.responsive-font-apply(font.$mini-font);
         &--blocked {
             color: color.$color-gray-dark;
         }
