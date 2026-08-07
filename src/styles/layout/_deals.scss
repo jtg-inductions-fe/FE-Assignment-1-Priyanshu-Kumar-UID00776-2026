@@ -15,14 +15,14 @@
     bottom: 0;
     z-index: 10;
     left: 50%;
-    transform: translate(-50%, 180%);
+    transform: translate(-50%, 100%);
     visibility: hidden;
     transition:
         transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         visibility 0.4s ease;
 
     &--active {
-        transform: translate(-50%, 31%);
+        transform: translate(-50%, 1%);
         visibility: visible;
     }
 
@@ -207,8 +207,7 @@
         gap: func.pixel-to-rem-convertor(10);
         width: 100%;
         margin-top: func.pixel-to-rem-convertor(20);
-        max-height: func.pixel-to-rem-convertor(480);
-        min-height: func.pixel-to-rem-convertor(480);
+        max-height: func.pixel-to-rem-convertor(400);
         overflow: auto;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
         overscroll-behavior: contain;
@@ -222,7 +221,6 @@
     &__latest-win {
         @include mixin.flex-center(center, center, column);
         width: 100%;
-        height: func.pixel-to-rem-convertor(150);
     }
 
     &__win-title {
@@ -248,7 +246,7 @@
         border-radius: 20px;
 
         &--active {
-            transform: translate(-50%, 20%);
+            transform: translate(-50%, 10%);
             visibility: visible;
         }
 
@@ -264,7 +262,7 @@
         border-radius: 20px;
 
         &--active {
-            transform: translate(-50%, 20%);
+            transform: translate(-50%, 10%);
             visibility: visible;
         }
     }

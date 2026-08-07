@@ -67,14 +67,12 @@ const setDealsModalState = (shouldOpen) => {
         overlay.classList.add('overlay--active');
         dealsModal.classList.add('deals--active');
         document.body.classList.add('no-scroll');
-        dealsModal.showModal();
         initSpinner();
     }
     // Overlay is removed and modal is closed
     else {
         overlay.classList.remove('overlay--active');
         dealsModal.classList.remove('deals--active');
-        dealsModal.close();
 
         // No scroll removed when modal is closed
         if (!isMenuOpenState) {
