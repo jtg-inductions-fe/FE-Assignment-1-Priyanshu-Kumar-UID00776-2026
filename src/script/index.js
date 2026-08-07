@@ -15,6 +15,7 @@ const dealsTitle = document.getElementById('deals-title');
 const dealsDesc = document.getElementById('deals-description');
 const dealsCloseBtn = document.getElementById('deals-close-btn');
 const wonCouponContainer = document.getElementById('latest-win-banner');
+const navLinks = document.querySelectorAll('.link');
 
 const openIcon = document.getElementById('toggle-icon-open');
 const closeIcon = document.getElementById('toggle-icon-close');
@@ -213,6 +214,14 @@ document.querySelectorAll('.footer__heading').forEach((button) => {
             const isOpen = list.classList.toggle('footer__list--is-open');
             button.setAttribute('aria-expanded', String(isOpen));
         }
+    });
+});
+
+// Makes the current selected link as black
+navLinks.forEach((clickedLink) => {
+    clickedLink.addEventListener('click', function () {
+        navLinks.forEach((link) => link.classList.remove('link--active'));
+        this.classList.add('link--active');
     });
 });
 
