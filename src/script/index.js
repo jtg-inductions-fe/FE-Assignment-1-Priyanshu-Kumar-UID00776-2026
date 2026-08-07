@@ -1,5 +1,6 @@
 import { cardMockData } from '../MOCK_DATA/cardsMock.js';
 import { initTestimonialSwiper } from './swiper.js';
+import { initSpinner } from './spinner.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
@@ -13,6 +14,8 @@ const dealsBtnBadge = document.getElementById('deals-btn-badge');
 const dealsTitle = document.getElementById('deals-title');
 const dealsDesc = document.getElementById('deals-description');
 const dealsCloseBtn = document.getElementById('deals-close-btn');
+const wonCouponContainer = document.getElementById('latest-win-banner');
+const navHeader = document.getElementById('header-nav');
 
 const openIcon = document.getElementById('toggle-icon-open');
 const closeIcon = document.getElementById('toggle-icon-close');
@@ -49,10 +52,23 @@ const setDealsModalState = (shouldOpen) => {
         if (isMenuOpenState) {
             setMenuState(false);
         }
+
+        // Reset modal view back to the main "Spin & Win" state on open
+        dealsWheel.classList.remove('hidden');
+        dealsCoupons.classList.add('hidden');
+        wonCouponContainer.classList.remove('hidden');
+
+        // Restore default Spin & Win titles and button text
+        dealsTitle.textContent = 'Spin & Win!';
+        dealsDesc.textContent = 'Tap the center of the wheel to spin';
+        dealsBtnText.textContent = 'View All Unlocked Deals';
+        dealsBtnBadge.classList.remove('hidden');
+
         overlay.classList.add('overlay--active');
         dealsModal.classList.add('deals--active');
         document.body.classList.add('no-scroll');
         dealsModal.showModal();
+        initSpinner();
     }
     // Overlay is removed and modal is closed
     else {
@@ -94,6 +110,7 @@ dealsToggleBtn.addEventListener('click', function () {
         // Show Coupons hide Wheel
         dealsWheel.classList.add('hidden');
         dealsCoupons.classList.remove('hidden');
+        wonCouponContainer.classList.add('hidden');
 
         // Update Text
         dealsTitle.textContent = 'Unlocked Deals';
@@ -104,6 +121,7 @@ dealsToggleBtn.addEventListener('click', function () {
         // Show Wheel hide Coupons
         dealsWheel.classList.remove('hidden');
         dealsCoupons.classList.add('hidden');
+        wonCouponContainer.classList.remove('hidden');
 
         // Restore Text
         dealsTitle.textContent = 'Spin & Win!';
@@ -210,6 +228,22 @@ document.querySelectorAll('.footer__heading').forEach((button) => {
             button.setAttribute('aria-expanded', String(isOpen));
         }
     });
+});
+
+// Makes the current selected link as black
+navHeader.addEventListener('click', (event) => {
+    const clickedLink = event.target.closest('.link');
+
+    // Return early if the click wasn't on a link within this container
+    if (!clickedLink) return;
+
+    // Remove active class from all nav links
+    navHeader.querySelectorAll('.link').forEach((link) => {
+        link.classList.remove('link--active');
+    });
+
+    // Add active class to the clicked link
+    clickedLink.classList.add('link--active');
 });
 
 renderStats();

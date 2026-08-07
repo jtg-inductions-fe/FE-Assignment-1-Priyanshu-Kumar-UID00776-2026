@@ -7,6 +7,7 @@
 
 .footer {
     width: 100%;
+    max-width: func.pixel-to-rem-convertor(1850);
     padding: func.pixel-to-rem-convertor(35);
     background-color: color.$color-white;
     margin-top: func.pixel-to-rem-convertor(110);
@@ -61,10 +62,10 @@
     }
 
     &__social-link {
-        @include mixin.responsive-font-apply(font.$social-links-font);
         color: color.$color-white;
         transition: transform 0.2s ease;
         @include mixin.flex-center;
+        @include mixin.responsive-font-apply(font.$social-links-font);
     }
 
     &__nav {
@@ -116,7 +117,8 @@
         margin-top: func.pixel-to-rem-convertor(100);
 
         &__image-wrapper {
-            display: flex;
+            @include mixin.flex-center;
+            position: absolute;
             bottom: func.pixel-to-rem-convertor(80);
         }
 
@@ -157,7 +159,7 @@
         padding-right: func.pixel-to-rem-convertor(40);
 
         &__image-wrapper {
-            display: flex;
+            @include mixin.flex-center;
             bottom: func.pixel-to-rem-convertor(0);
             height: func.pixel-to-rem-convertor(420);
         }

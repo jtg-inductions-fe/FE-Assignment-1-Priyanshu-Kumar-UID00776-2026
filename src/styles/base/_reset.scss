@@ -1,8 +1,6 @@
-@use 'sass:map';
 @use '../abstracts/colors' as color;
 @use '../abstracts/mixins' as mixin;
 @use '../base/typography' as font;
-@use '../abstracts/functions' as func;
 
 * {
     box-sizing: border-box;
