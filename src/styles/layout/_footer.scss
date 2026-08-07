@@ -62,10 +62,10 @@
     }
 
     &__social-link {
-        @include mixin.responsive-font-apply(font.$social-links-font);
         color: color.$color-white;
         transition: transform 0.2s ease;
         @include mixin.flex-center;
+        @include mixin.responsive-font-apply(font.$social-links-font);
     }
 
     &__nav {

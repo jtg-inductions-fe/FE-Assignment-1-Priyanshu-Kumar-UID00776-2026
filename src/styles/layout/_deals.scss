@@ -190,7 +190,7 @@
         height: 100%;
         border-radius: 50%;
         background-color: color.$color-gray-darker;
-        @include mixin.flex-center();
+        @include mixin.flex-center;
         @include mixin.responsive-font-apply(font.$mini-font);
     }
 
