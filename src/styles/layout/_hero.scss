@@ -134,12 +134,12 @@
         height: func.pixel-to-rem-convertor(30);
         width: func.pixel-to-rem-convertor(100);
         border-radius: 15px;
-        font-size: func.pixel-to-rem-convertor(14);
+        @include mixin.responsive-font-apply(font.$icon-font);
     }
 
     &__design-right-detail {
         color: color.$color-dark;
-        font-size: func.pixel-to-rem-convertor(10);
+        @include mixin.responsive-font-apply(font.$detail-font);
     }
 
     &__design-right-person {
@@ -152,9 +152,9 @@
         color: color.$color-white;
         height: func.pixel-to-rem-convertor(36);
         width: func.pixel-to-rem-convertor(36);
-        font-size: func.pixel-to-rem-convertor(14);
         top: 90%;
         left: 25%;
+        @include mixin.responsive-font-apply(font.$icon-font);
     }
 
     &__info {
@@ -316,7 +316,7 @@
             height: func.pixel-to-rem-convertor(60);
             width: func.pixel-to-rem-convertor(60);
             right: 29vw;
-            font-size: func.pixel-to-rem-convertor(35);
+            @include mixin.responsive-font-apply(font.$send-font);
         }
 
         &__design-images-right {
@@ -347,11 +347,6 @@
             );
             border-radius: 30px;
             gap: func.pixel-to-rem-convertor(8);
-            font-size: func.pixel-to-rem-convertor(21);
-        }
-
-        &__design-right-detail {
-            font-size: func.pixel-to-rem-convertor(14);
         }
 
         &__design-right-person {
@@ -365,7 +360,6 @@
                 6vw,
                 func.pixel-to-rem-convertor(64)
             );
-            font-size: func.pixel-to-rem-convertor(35);
             top: func.pixel-to-rem-convertor(490);
             left: func.pixel-to-rem-convertor(75);
         }
@@ -391,12 +385,12 @@
         }
 
         &__info-actions {
-            @include mixin.flex-center(center, center, row);
+            @include mixin.flex-center;
             gap: func.pixel-to-rem-convertor(20);
         }
 
         &__info-button-wrapper {
-            @include mixin.flex-center(center, center, row);
+            @include mixin.flex-center;
             margin-top: func.pixel-to-rem-convertor(0);
             gap: func.pixel-to-rem-convertor(15);
         }
@@ -505,7 +499,6 @@
             height: func.pixel-to-rem-convertor(80);
             width: func.pixel-to-rem-convertor(80);
             right: 15vw;
-            font-size: func.pixel-to-rem-convertor(40);
         }
 
         &__design-images-right {
@@ -536,7 +529,6 @@
             );
             border-radius: 30px;
             gap: func.pixel-to-rem-convertor(10);
-            font-size: func.pixel-to-rem-convertor(28);
         }
 
         &__design-right-person {
@@ -550,7 +542,6 @@
                 6vw,
                 func.pixel-to-rem-convertor(70)
             );
-            font-size: func.pixel-to-rem-convertor(28);
             top: 90%;
             left: 18%;
         }

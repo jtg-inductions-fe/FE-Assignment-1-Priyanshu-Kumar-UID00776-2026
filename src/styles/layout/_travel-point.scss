@@ -92,7 +92,7 @@
     /* ------- Large Breakpoint (lg) ------- */
 
     @include mixin.media-query('lg') {
-        @include mixin.flex-center(center, center, row);
+        @include mixin.flex-center;
         padding: func.pixel-to-rem-convertor(60) 0;
         margin-top: func.pixel-to-rem-convertor(20);
 

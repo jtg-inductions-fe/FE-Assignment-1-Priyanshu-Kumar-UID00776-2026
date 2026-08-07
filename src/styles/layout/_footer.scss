@@ -52,7 +52,7 @@
     }
 
     &__logo-title {
-        font-size: func.pixel-to-rem-convertor(24);
+        @include mixin.responsive-font-apply(font.$logo-title-font);
         color: color.$color-dark;
     }
 
@@ -62,7 +62,7 @@
     }
 
     &__social-link {
-        font-size: func.pixel-to-rem-convertor(30);
+        @include mixin.responsive-font-apply(font.$social-links-font);
         color: color.$color-white;
         transition: transform 0.2s ease;
         @include mixin.flex-center;
@@ -109,7 +109,7 @@
     }
 
     &__item {
-        font-size: func.pixel-to-rem-convertor(16);
+        @include mixin.responsive-font-apply(font.$item-font);
     }
 
     @include mixin.media-query('md') {
@@ -128,7 +128,7 @@
 
         &__nav {
             gap: func.pixel-to-rem-convertor(38);
-            @include mixin.flex-center(flex-start, space-between, row);
+            @include mixin.flex-center(flex-start, space-between);
         }
 
         &__group {
@@ -165,24 +165,16 @@
         }
 
         &__container {
-            @include mixin.flex-center(flex-start, space-between, row);
+            @include mixin.flex-center(flex-start, space-between);
         }
 
         &__logo-img {
             width: func.pixel-to-rem-convertor(50);
         }
 
-        &__logo-title {
-            font-size: func.pixel-to-rem-convertor(30);
-        }
-
         &__socials {
             padding-top: func.pixel-to-rem-convertor(40);
             gap: func.pixel-to-rem-convertor(40);
-        }
-
-        &__social-link {
-            font-size: func.pixel-to-rem-convertor(40);
         }
 
         &__brand {
@@ -206,10 +198,6 @@
             @include mixin.flex-center(flex-start, center, column);
             max-width: func.pixel-to-rem-convertor(144);
             gap: func.pixel-to-rem-convertor(50);
-        }
-
-        &__item {
-            font-size: func.pixel-to-rem-convertor(20);
         }
 
         &__heading {

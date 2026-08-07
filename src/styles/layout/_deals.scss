@@ -45,8 +45,7 @@
     }
 
     &__tagline {
-        font-family: font.$font-circular-std;
-        font-size: func.pixel-to-rem-convertor(16);
+        @include mixin.responsive-font-apply(font.$tagline-medium);
         padding: func.pixel-to-rem-convertor(10) func.pixel-to-rem-convertor(10);
         letter-spacing: func.pixel-to-rem-convertor(1);
         color: color.$color-pink;
@@ -55,15 +54,13 @@
     }
 
     &__title {
-        font-family: font.$font-inter;
-        font-size: func.pixel-to-rem-convertor(20);
+        @include mixin.responsive-font-apply(font.$title-micro);
         color: color.$color-dark;
         margin-top: func.pixel-to-rem-convertor(10);
     }
 
     &__description {
-        font-family: font.$font-inter;
-        font-size: func.pixel-to-rem-convertor(14);
+        @include mixin.responsive-font-apply(font.$description-micro);
         color: color.$color-description;
         margin-top: func.pixel-to-rem-convertor(10);
         text-align: center;
