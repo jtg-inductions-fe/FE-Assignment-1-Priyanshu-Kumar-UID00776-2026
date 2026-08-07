@@ -43,6 +43,11 @@
     &__no-deals {
         @include mixin.flex-center;
         font-size: func.pixel-to-rem-convertor(18);
+        padding: func.pixel-to-rem-convertor(20);
+        border: 1px solid color.$color-gradient-border;
+        background: color.$color-gradient;
+        border-radius: 20px;
+        width: 100%;
     }
 
     &__copy {

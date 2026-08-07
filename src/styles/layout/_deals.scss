@@ -130,7 +130,7 @@
         color: color.$color-white;
         padding: func.pixel-to-rem-convertor(10);
         box-sizing: border-box;
-        font-size: func.pixel-to-rem-convertor(13);
+        font-size: func.pixel-to-rem-convertor(14);
         @include mixin.flex-center;
 
         &--top-left {
@@ -234,6 +234,11 @@
         @include mixin.flex-center(center, space-between, column);
         text-align: center;
         gap: func.pixel-to-rem-convertor(20);
+        padding: func.pixel-to-rem-convertor(20);
+        border: 1px solid color.$color-gradient-border;
+        background: color.$color-gradient;
+        border-radius: 20px;
+        width: 100%;
     }
 
     @include mixin.media-query('md') {
