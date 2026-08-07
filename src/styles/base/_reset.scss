@@ -1,8 +1,6 @@
-@use 'sass:map';
 @use '../abstracts/colors' as color;
 @use '../abstracts/mixins' as mixin;
 @use '../base/typography' as font;
-@use '../abstracts/functions' as func;
 
 * {
     box-sizing: border-box;
@@ -15,9 +13,8 @@ html {
 }
 
 body {
-    @include mixin.flex-center;
+    @include mixin.flex-center(center, center, column);
     background-color: color.$color-white;
-    flex-direction: column;
     font-family: font.$font-circular-std;
 }
 

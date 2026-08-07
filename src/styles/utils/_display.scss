@@ -1,4 +1,6 @@
 @use '../abstracts/functions' as func;
+@use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
 
 .no-scroll {
     overflow: hidden;
@@ -16,6 +18,25 @@
     width: 100%;
     max-width: func.pixel-to-rem-convertor(1850);
     height: fit-content;
-    flex-direction: column;
+    @include mixin.flex-center(center, center, column);
     gap: func.pixel-to-rem-convertor(30);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: color.$color-black-transparent;
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    height: 100%;
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    &--active {
+        opacity: 1;
+        visibility: visible;
+    }
 }

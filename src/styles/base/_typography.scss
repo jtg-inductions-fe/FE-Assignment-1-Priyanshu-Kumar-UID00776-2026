@@ -84,6 +84,147 @@ $footer-description-font: (
     ),
 );
 
+$mini-font: (
+    'font-family': $font-inter,
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(12),
+        'font-line-height': 1.6,
+    ),
+);
+
+$description-micro: (
+    'font-family': $font-inter,
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(14),
+        'font-line-height': 1.6,
+    ),
+);
+
+$title-micro: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(25),
+        'font-line-height': 1.6,
+    ),
+);
+
+$info-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(25),
+        'font-line-height': 1.6,
+    ),
+    'md': (
+        'font-size': func.pixel-to-rem-convertor(28),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(30),
+        'font-line-height': 1.6,
+    ),
+);
+
+$stars-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(30),
+        'font-line-height': 1.6,
+    ),
+    'md': (
+        'font-size': func.pixel-to-rem-convertor(40),
+        'font-line-height': 1.6,
+    ),
+);
+
+$description-medium: (
+    'font-family': $font-inter,
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(18),
+        'font-line-height': 1.6,
+    ),
+);
+
+$tagline-medium: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(18),
+        'font-line-height': 1.6,
+    ),
+);
+
+$item-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(16),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(20),
+        'font-line-height': 1.6,
+    ),
+);
+
+$social-links-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(30),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(40),
+        'font-line-height': 1.6,
+    ),
+);
+
+$logo-title-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(24),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(30),
+        'font-line-height': 1.6,
+    ),
+);
+
+$icon-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(14),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(40),
+        'font-line-height': 1.6,
+    ),
+);
+
+$detail-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(10),
+        'font-line-height': 1.6,
+    ),
+    'md': (
+        'font-size': func.pixel-to-rem-convertor(14),
+        'font-line-height': 1.6,
+    ),
+);
+
+$send-font: (
+    'md': (
+        'font-size': func.pixel-to-rem-convertor(35),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(40),
+        'font-line-height': 1.6,
+    ),
+);
+
+$nav-font: (
+    'sm': (
+        'font-size': func.pixel-to-rem-convertor(15),
+        'font-line-height': 1.6,
+    ),
+    'lg': (
+        'font-size': func.pixel-to-rem-convertor(35),
+        'font-line-height': 1.6,
+    ),
+);
+
 @font-face {
     font-family: 'Circular-Std';
     src: url('/assets/fonts/circular-std-font-family/CircularStd-Bold.woff2')

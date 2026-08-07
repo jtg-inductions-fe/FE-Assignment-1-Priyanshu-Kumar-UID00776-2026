@@ -1,26 +1,42 @@
 import { cardMockData } from '../MOCK_DATA/cardsMock.js';
 import { initTestimonialSwiper } from './swiper.js';
+import { initSpinner } from './spinner.js';
 
 const toggleButton = document.getElementById('header-toggle');
 const dropdown = document.getElementById('header-dropdown');
+const overlay = document.getElementById('overlay-area');
+const dealsModal = document.getElementById('deals-modal');
+const dealsWheel = document.getElementById('deals-wheel-wrapper');
+const dealsCoupons = document.getElementById('deals-coupon-wrapper');
+const dealsToggleBtn = document.getElementById('deals-toggle-btn');
+const dealsBtnText = document.getElementById('deals-btn-text');
+const dealsBtnBadge = document.getElementById('deals-btn-badge');
+const dealsTitle = document.getElementById('deals-title');
+const dealsDesc = document.getElementById('deals-description');
+const dealsCloseBtn = document.getElementById('deals-close-btn');
+const wonCouponContainer = document.getElementById('latest-win-banner');
+const navHeader = document.getElementById('header-nav');
 
 const openIcon = document.getElementById('toggle-icon-open');
 const closeIcon = document.getElementById('toggle-icon-close');
 const DESKTOP_MIN_WIDTH = 1025;
 
+let isMenuOpenState = false;
+
 // Handling the dropdown menu state
 const setMenuState = (shouldOpen) => {
+    isMenuOpenState = shouldOpen;
     toggleButton.setAttribute('aria-expanded', shouldOpen);
 
     if (shouldOpen) {
-        // Open menu: reveal dropdown layout, lock page scroll, and swap to close icon
+        // Open menu reveal dropdown layout, lock page scroll, and swap to close icon
         dropdown.classList.remove('hidden');
         dropdown.classList.add('display-flex');
         document.body.classList.add('no-scroll');
         openIcon.classList.add('hidden');
         closeIcon.classList.remove('hidden');
     } else {
-        // Close menu: hide dropdown layout, restore page scroll, and swap back to open icon
+        // Close menu hide dropdown layout, restore page scroll, and swap back to open icon
         dropdown.classList.add('hidden');
         dropdown.classList.remove('display-flex');
         document.body.classList.remove('no-scroll');
@@ -37,6 +53,90 @@ dropdown.addEventListener('keydown', function (event) {
         if (document.activeElement === lastButton) {
             setMenuState(false);
         }
+    }
+});
+
+// Handles the Special deals modal state
+const setDealsModalState = (shouldOpen) => {
+    // Checks the shoulOpen and applies the overlay and opens modal
+    if (shouldOpen) {
+        if (isMenuOpenState) {
+            setMenuState(false);
+        }
+
+        // Reset modal view back to the main "Spin & Win" state on open
+        dealsWheel.classList.remove('hidden');
+        dealsCoupons.classList.add('hidden');
+        wonCouponContainer.classList.remove('hidden');
+
+        // Restore default Spin & Win titles and button text
+        dealsTitle.textContent = 'Spin & Win!';
+        dealsDesc.textContent = 'Tap the center of the wheel to spin';
+        dealsBtnText.textContent = 'View All Unlocked Deals';
+        dealsBtnBadge.classList.remove('hidden');
+
+        overlay.classList.add('overlay--active');
+        dealsModal.classList.add('deals--active');
+        document.body.classList.add('no-scroll');
+        initSpinner();
+    }
+    // Overlay is removed and modal is closed
+    else {
+        overlay.classList.remove('overlay--active');
+        dealsModal.classList.remove('deals--active');
+
+        // No scroll removed when modal is closed
+        if (!isMenuOpenState) {
+            document.body.classList.remove('no-scroll');
+        }
+    }
+};
+
+// Event listeners for Special deals links
+document.body.addEventListener('click', (event) => {
+    const trigger = event.target.closest('.deals-modal');
+    if (trigger) {
+        event.preventDefault();
+        setDealsModalState(true);
+    }
+});
+
+// If user clicks on area other than modal closes the modal
+overlay.addEventListener('click', function () {
+    setDealsModalState(false);
+});
+
+// Handles the modal state by the close button
+dealsCloseBtn.addEventListener('click', function () {
+    setDealsModalState(false);
+});
+
+dealsToggleBtn.addEventListener('click', function () {
+    // Check if coupons are currently hidden
+    const isShowingWheel = dealsCoupons.classList.contains('hidden');
+
+    if (isShowingWheel) {
+        // Show Coupons hide Wheel
+        dealsWheel.classList.add('hidden');
+        dealsCoupons.classList.remove('hidden');
+        wonCouponContainer.classList.add('hidden');
+
+        // Update Text
+        dealsTitle.textContent = 'Unlocked Deals';
+        dealsDesc.textContent = 'All the deals you’ve unlocked yet!';
+        dealsBtnText.textContent = 'Go Back';
+        dealsBtnBadge.classList.add('hidden');
+    } else {
+        // Show Wheel hide Coupons
+        dealsWheel.classList.remove('hidden');
+        dealsCoupons.classList.add('hidden');
+        wonCouponContainer.classList.remove('hidden');
+
+        // Restore Text
+        dealsTitle.textContent = 'Spin & Win!';
+        dealsDesc.textContent = 'Tap the center of the wheel to spin';
+        dealsBtnText.textContent = 'View All Unlocked Deals';
+        dealsBtnBadge.classList.remove('hidden');
     }
 });
 
@@ -78,10 +178,18 @@ document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         const isMenuOpen =
             toggleButton.getAttribute('aria-expanded') === 'true';
+        const isDealsModalOpen = dealsModal.classList.contains('deals--active');
 
+        // Closes the menu when Escape key is pressed
         if (isMenuOpen) {
             setMenuState(false);
             toggleButton.focus();
+        }
+
+        // Closes the deals modal when Escape key is pressed
+        if (isDealsModalOpen) {
+            setDealsModalState(false);
+            return;
         }
     }
 });
@@ -91,6 +199,7 @@ const createStatCard = (stat) => {
     const card = document.createElement('div');
     card.className = 'cards';
 
+    // If badge is found then applied the badge class
     if (stat.badge) {
         card.classList.add('cards--badge');
     }
@@ -122,11 +231,28 @@ document.querySelectorAll('.footer__heading').forEach((button) => {
     button.addEventListener('click', () => {
         const list = button.parentElement.querySelector('.footer__list');
 
+        // If list is found then only add the toggle class to open the accordian
         if (list) {
             const isOpen = list.classList.toggle('footer__list--is-open');
             button.setAttribute('aria-expanded', String(isOpen));
         }
     });
+});
+
+// Makes the current selected link as black
+navHeader.addEventListener('click', (event) => {
+    const clickedLink = event.target.closest('.link');
+
+    // Return early if the click wasn't on a link within this container
+    if (!clickedLink) return;
+
+    // Remove active class from all nav links
+    navHeader.querySelectorAll('.link').forEach((link) => {
+        link.classList.remove('link--active');
+    });
+
+    // Add active class to the clicked link
+    clickedLink.classList.add('link--active');
 });
 
 renderStats();

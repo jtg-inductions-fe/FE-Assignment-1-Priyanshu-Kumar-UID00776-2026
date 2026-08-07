@@ -2,6 +2,17 @@
 @use 'variables' as var;
 @use '../base/typography' as font;
 
+@mixin flex-center(
+    $align-items-value: center,
+    $justify-content-value: center,
+    $flex-direction-value: row
+) {
+    display: flex;
+    justify-content: $justify-content-value;
+    flex-direction: $flex-direction-value;
+    align-items: $align-items-value;
+}
+
 @mixin media-query($name) {
     @media (min-width: #{map.get(var.$breakpoints, $name)}) {
         @content;
@@ -20,10 +31,4 @@
             line-height: map.get($font-map, $name, 'font-line-height');
         }
     }
-}
-
-@mixin flex-center($align-items-value: center, $justify-content-value: center) {
-    display: flex;
-    align-items: $align-items-value;
-    justify-content: $justify-content-value;
 }

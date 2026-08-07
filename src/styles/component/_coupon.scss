@@ -1,0 +1,62 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../base/typography' as font;
+
+.coupon {
+    padding: func.pixel-to-rem-convertor(20);
+    border: 1px solid color.$color-gradient-border;
+    background: color.$color-gradient;
+    border-radius: 20px;
+    width: 98%;
+    gap: func.pixel-to-rem-convertor(35);
+    @include mixin.flex-center(flex-start, space-between);
+
+    &--blocked {
+        background: color.$color-gray;
+        border: 1px solid color.$color-gray-dark;
+    }
+
+    &__info {
+        width: func.pixel-to-rem-convertor(200);
+        @include mixin.flex-center(flex-start, center, column);
+    }
+
+    &__time {
+        @include mixin.responsive-font-apply(font.$mini-font);
+        color: color.$color-primary;
+        &--blocked {
+            color: color.$color-gray-dark;
+        }
+    }
+
+    &__code {
+        background-color: color.$color-white;
+        border: 1px solid color.$color-gray;
+        width: func.pixel-to-rem-convertor(170);
+        border-radius: 10px;
+        padding: func.pixel-to-rem-convertor(5) func.pixel-to-rem-convertor(10);
+        font-size: func.pixel-to-rem-convertor(12);
+        @include mixin.flex-center;
+    }
+
+    &__no-deals {
+        @include mixin.flex-center;
+        font-size: func.pixel-to-rem-convertor(18);
+        padding: func.pixel-to-rem-convertor(20);
+        border: 1px solid color.$color-gradient-border;
+        background: color.$color-gradient;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    &__copy {
+        height: fit-content;
+        width: fit-content;
+
+        &:focus-visible {
+            outline: 2px solid color.$color-primary;
+            outline-offset: 2px;
+        }
+    }
+}

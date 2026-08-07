@@ -1,0 +1,269 @@
+@use '../abstracts/mixins' as mixin;
+@use '../abstracts/functions' as func;
+@use '../abstracts/colors' as color;
+@use '../base/typography' as font;
+
+.deals {
+    @include mixin.flex-center(center, center, column);
+    position: fixed;
+    background-color: color.$color-white;
+    max-width: calc(100vw - func.pixel-to-rem-convertor(32));
+    width: func.pixel-to-rem-convertor(400);
+    padding: func.pixel-to-rem-convertor(17);
+    border-top-left-radius: func.pixel-to-rem-convertor(20);
+    border-top-right-radius: func.pixel-to-rem-convertor(20);
+    bottom: 0;
+    z-index: 10;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    visibility: hidden;
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.4s ease;
+
+    &--active {
+        transform: translate(-50%, 1%);
+        visibility: visible;
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: func.pixel-to-rem-convertor(20);
+        right: func.pixel-to-rem-convertor(20);
+        background: none;
+        border: none;
+        font-size: func.pixel-to-rem-convertor(28);
+        color: color.$color-dark;
+        cursor: pointer;
+        padding: func.pixel-to-rem-convertor(5);
+        @include mixin.flex-center;
+
+        &:focus-visible {
+            outline: 2px solid color.$color-primary;
+            outline-offset: 2px;
+        }
+    }
+
+    &__tagline {
+        padding: func.pixel-to-rem-convertor(10) func.pixel-to-rem-convertor(10);
+        letter-spacing: func.pixel-to-rem-convertor(1);
+        color: color.$color-pink;
+        gap: func.pixel-to-rem-convertor(10);
+        @include mixin.responsive-font-apply(font.$tagline-medium);
+        @include mixin.flex-center;
+    }
+
+    &__title {
+        @include mixin.responsive-font-apply(font.$title-micro);
+        color: color.$color-dark;
+        margin-top: func.pixel-to-rem-convertor(10);
+    }
+
+    &__description {
+        @include mixin.responsive-font-apply(font.$description-micro);
+        color: color.$color-description;
+        margin-top: func.pixel-to-rem-convertor(10);
+        text-align: center;
+    }
+
+    &__wheel-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: func.pixel-to-rem-convertor(300);
+        height: auto;
+        aspect-ratio: 1;
+        margin-top: func.pixel-to-rem-convertor(40);
+        @include mixin.flex-center;
+    }
+
+    &__wheel-pointer {
+        position: absolute;
+        top: 0;
+        transform: rotate(180deg);
+        z-index: 1;
+        width: func.pixel-to-rem-convertor(20);
+        height: func.pixel-to-rem-convertor(20);
+        background-color: color.$color-pink;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+
+    &__wheel {
+        display: grid;
+        place-items: center;
+        position: relative;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        padding: func.pixel-to-rem-convertor(5);
+        width: 90%;
+        height: 90%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        box-shadow: 0 0 func.pixel-to-rem-convertor(15) 10px
+            color.$color-gray-dark;
+        background-color: color.$color-white;
+        overflow: hidden;
+        transition: transform 4s cubic-bezier(0.15, 0.9, 0.2, 1);
+    }
+
+    &__spin-button {
+        position: absolute;
+        background-color: color.$color-white;
+        font-family: inherit;
+        color: color.$color-pink-dark;
+        border: 5px solid color.$color-pink-dark;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: func.pixel-to-rem-convertor(15) func.pixel-to-rem-convertor(15);
+        aspect-ratio: 1;
+
+        &:focus-visible {
+            outline: 2px solid color.$color-primary;
+            outline-offset: 2px;
+        }
+    }
+
+    &__wheel-content {
+        width: 97%;
+        height: 97%;
+        text-align: center;
+        color: color.$color-white;
+        padding: func.pixel-to-rem-convertor(10);
+        box-sizing: border-box;
+        font-size: func.pixel-to-rem-convertor(14);
+        @include mixin.flex-center;
+
+        &--top-left {
+            border-top-left-radius: 100%;
+            background-color: color.$color-pink-dark;
+            padding-left: func.pixel-to-rem-convertor(25);
+            padding-top: func.pixel-to-rem-convertor(20);
+            order: 1;
+        }
+
+        &--top-right {
+            background-color: color.$color-purple;
+            border-top-right-radius: 100%;
+            padding-top: func.pixel-to-rem-convertor(25);
+            padding-left: func.pixel-to-rem-convertor(5);
+            padding-right: func.pixel-to-rem-convertor(20);
+            order: 2;
+        }
+
+        &--bottom-right {
+            background-color: color.$color-blue;
+            border-bottom-right-radius: 100%;
+            padding-right: func.pixel-to-rem-convertor(25);
+            padding-bottom: func.pixel-to-rem-convertor(20);
+            order: 4;
+        }
+
+        &--bottom-left {
+            background-color: color.$color-yellow-dark;
+            border-bottom-left-radius: 100%;
+            padding-bottom: func.pixel-to-rem-convertor(25);
+            padding-right: func.pixel-to-rem-convertor(5);
+            order: 3;
+        }
+    }
+
+    &__wheel-label {
+        &--top-left {
+            transform: rotate(-45deg);
+        }
+
+        &--top-right {
+            transform: rotate(45deg);
+        }
+
+        &--bottom-right {
+            transform: rotate(135deg);
+        }
+
+        &--bottom-left {
+            transform: rotate(-135deg);
+        }
+    }
+
+    &__wheel-loading {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: color.$color-gray-darker;
+        @include mixin.flex-center;
+        @include mixin.responsive-font-apply(font.$mini-font);
+    }
+
+    &__button-notification {
+        height: func.pixel-to-rem-convertor(30);
+        width: func.pixel-to-rem-convertor(30);
+        background-color: color.$color-primary;
+        border-radius: 50%;
+        color: color.$color-white;
+        @include mixin.flex-center;
+    }
+
+    &__coupon-wrapper {
+        gap: func.pixel-to-rem-convertor(10);
+        width: 100%;
+        margin-top: func.pixel-to-rem-convertor(20);
+        max-height: func.pixel-to-rem-convertor(400);
+        overflow: auto;
+        padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
+        overscroll-behavior: contain;
+        @include mixin.flex-center(center, flex-start, column);
+    }
+
+    &__button {
+        margin-top: func.pixel-to-rem-convertor(20);
+    }
+
+    &__latest-win {
+        @include mixin.flex-center(center, center, column);
+        width: 100%;
+    }
+
+    &__win-title {
+        font-size: func.pixel-to-rem-convertor(18);
+        margin-bottom: func.pixel-to-rem-convertor(8);
+    }
+
+    &__empty-state {
+        @include mixin.flex-center(center, space-between, column);
+        text-align: center;
+        gap: func.pixel-to-rem-convertor(20);
+        padding: func.pixel-to-rem-convertor(20);
+        border: 1px solid color.$color-gradient-border;
+        background: color.$color-gradient;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    @include mixin.media-query('md') {
+        position: absolute;
+        bottom: func.pixel-to-rem-convertor(200);
+        width: func.pixel-to-rem-convertor(500);
+        border-radius: 20px;
+
+        &--active {
+            transform: translate(-50%, 10%);
+            visibility: visible;
+        }
+
+        &__button {
+            width: 100%;
+        }
+    }
+
+    @include mixin.media-query('lg') {
+        position: absolute;
+        bottom: func.pixel-to-rem-convertor(200);
+        width: func.pixel-to-rem-convertor(500);
+        border-radius: 20px;
+
+        &--active {
+            transform: translate(-50%, 10%);
+            visibility: visible;
+        }
+    }
+}

@@ -15,6 +15,7 @@
         />
     </head>
     <body>
+        <div class="overlay" id="overlay-area"></div>
         <header class="header">
             <div class="header__background"></div>
 
@@ -47,7 +48,11 @@
                 ></span>
             </button>
 
-            <nav class="header__nav" aria-label="Navigation Links">
+            <nav
+                class="header__nav"
+                aria-label="Navigation Links"
+                id="header-nav"
+            >
                 <ul class="header__nav-list">
                     <li class="header__nav-item">
                         <a href="#" class="header__link link link--primary"
@@ -64,7 +69,7 @@
                     <li class="header__nav-item">
                         <a
                             href="#testimonial"
-                            class="header__link link link--primary"
+                            class="header__link link link--primary deals-modal"
                             >Special Deals</a
                         >
                     </li>
@@ -112,7 +117,7 @@
                         <li class="header__dropdown-item">
                             <a
                                 href="#testimonial"
-                                class="header__dropdown-link link link--primary"
+                                class="header__dropdown-link link link--primary deals-modal"
                                 >Special Deals</a
                             >
                         </li>
@@ -329,7 +334,7 @@
                     <div class="travel-point__cards-wrapper"></div>
                 </div>
             </section>
-            <section class="testimonial" id="testimonial">
+            <section class="testimonial">
                 <div class="testimonial__info">
                     <span class="testimonial__tagline">TESTIMONIALS</span>
                     <h2 class="testimonial__heading">Trust our clients</h2>
@@ -545,6 +550,86 @@
                 </div>
             </div>
         </footer>
+
+        <div class="deals" id="deals-modal" aria-labelledby="deals-title">
+            <button
+                type="button"
+                class="deals__close-btn"
+                id="deals-close-btn"
+                aria-label="Close deals modal"
+            >
+                <span class="icon-close" aria-hidden="true"></span>
+            </button>
+
+            <div class="deals__tagline">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <g clip-path="url(#clip0_2456_25)">
+                        <path
+                            d="M13.3333 8.00016V14.6668H2.66659V8.00016M7.99992 14.6668V4.66683M7.99992 4.66683H4.99992C4.55789 4.66683 4.13397 4.49123 3.82141 4.17867C3.50885 3.86611 3.33325 3.44219 3.33325 3.00016C3.33325 2.55814 3.50885 2.13421 3.82141 1.82165C4.13397 1.50909 4.55789 1.3335 4.99992 1.3335C7.33325 1.3335 7.99992 4.66683 7.99992 4.66683ZM7.99992 4.66683H10.9999C11.4419 4.66683 11.8659 4.49123 12.1784 4.17867C12.491 3.86611 12.6666 3.44219 12.6666 3.00016C12.6666 2.55814 12.491 2.13421 12.1784 1.82165C11.8659 1.50909 11.4419 1.3335 10.9999 1.3335C8.66659 1.3335 7.99992 4.66683 7.99992 4.66683ZM1.33325 4.66683H14.6666V8.00016H1.33325V4.66683Z"
+                            stroke="#F4436C"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_2456_25">
+                            <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+                <span>SPECIAL DEALS</span>
+            </div>
+
+            <h3 class="deals__title" id="deals-title">Spin and Win!</h3>
+
+            <p class="deals__description" id="deals-description">
+                Tap the center of the wheel to spin
+            </p>
+
+            <div class="deals__wheel-wrapper" id="deals-wheel-wrapper">
+                <div class="deals__wheel-pointer"></div>
+                <div class="deals__wheel" id="deals-wheel"></div>
+                <button
+                    type="button"
+                    class="deals__spin-button btn--circle"
+                    id="spin-button"
+                >
+                    Spin
+                </button>
+            </div>
+            <div
+                class="deals__latest-win"
+                id="latest-win-banner"
+                role="status"
+                aria-atomic="true"
+            ></div>
+
+            <div
+                class="deals__coupon-wrapper hidden"
+                id="deals-coupon-wrapper"
+            ></div>
+
+            <button
+                type="button"
+                class="deals__button btn btn--transparent btn--outline btn--full-width"
+                id="deals-toggle-btn"
+            >
+                <span id="deals-btn-text">View All Unlocked Deals</span>
+                <span
+                    class="deals__button-notification"
+                    id="deals-btn-badge"
+                ></span>
+            </button>
+        </div>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
