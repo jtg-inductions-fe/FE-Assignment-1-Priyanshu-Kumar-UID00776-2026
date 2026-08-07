@@ -30,7 +30,7 @@ let winningBannerContainer;
 let dealsCounterBadge;
 
 // Checks the coupon array is it valid or not
-function isValidCouponArray(data) {
+const isValidCouponArray = (data) => {
     if (!Array.isArray(data)) return false;
 
     for (const coupon of data) {
@@ -46,7 +46,7 @@ function isValidCouponArray(data) {
     }
 
     return true;
-}
+};
 
 // Util function to validate the coupon getting from teh localStorage
 const getLocalStorageItem = (
