@@ -15,7 +15,7 @@ const dealsTitle = document.getElementById('deals-title');
 const dealsDesc = document.getElementById('deals-description');
 const dealsCloseBtn = document.getElementById('deals-close-btn');
 const wonCouponContainer = document.getElementById('latest-win-banner');
-const navLinks = document.querySelectorAll('.link');
+const navHeader = document.getElementById('header-nav');
 
 const openIcon = document.getElementById('toggle-icon-open');
 const closeIcon = document.getElementById('toggle-icon-close');
@@ -231,11 +231,19 @@ document.querySelectorAll('.footer__heading').forEach((button) => {
 });
 
 // Makes the current selected link as black
-navLinks.forEach((clickedLink) => {
-    clickedLink.addEventListener('click', function () {
-        navLinks.forEach((link) => link.classList.remove('link--active'));
-        this.classList.add('link--active');
+navHeader.addEventListener('click', (event) => {
+    const clickedLink = event.target.closest('.link');
+
+    // Return early if the click wasn't on a link within this container
+    if (!clickedLink) return;
+
+    // Remove active class from all nav links
+    navHeader.querySelectorAll('.link').forEach((link) => {
+        link.classList.remove('link--active');
     });
+
+    // Add active class to the clicked link
+    clickedLink.classList.add('link--active');
 });
 
 renderStats();
