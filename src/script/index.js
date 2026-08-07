@@ -52,10 +52,23 @@ const setDealsModalState = (shouldOpen) => {
         if (isMenuOpenState) {
             setMenuState(false);
         }
+
+        // Reset modal view back to the main "Spin & Win" state on open
+        dealsWheel.classList.remove('hidden');
+        dealsCoupons.classList.add('hidden');
+        wonCouponContainer.classList.remove('hidden');
+
+        // Restore default Spin & Win titles and button text
+        dealsTitle.textContent = 'Spin & Win!';
+        dealsDesc.textContent = 'Tap the center of the wheel to spin';
+        dealsBtnText.textContent = 'View All Unlocked Deals';
+        dealsBtnBadge.classList.remove('hidden');
+
         overlay.classList.add('overlay--active');
         dealsModal.classList.add('deals--active');
         document.body.classList.add('no-scroll');
         dealsModal.showModal();
+        initSpinner();
     }
     // Overlay is removed and modal is closed
     else {
@@ -227,4 +240,3 @@ navLinks.forEach((clickedLink) => {
 
 renderStats();
 initTestimonialSwiper();
-initSpinner();

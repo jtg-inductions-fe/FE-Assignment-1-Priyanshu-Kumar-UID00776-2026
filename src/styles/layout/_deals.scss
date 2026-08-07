@@ -22,7 +22,7 @@
         visibility 0.4s ease;
 
     &--active {
-        transform: translate(-50%, 44%);
+        transform: translate(-50%, 31%);
         visibility: visible;
     }
 
@@ -45,11 +45,11 @@
     }
 
     &__tagline {
-        @include mixin.responsive-font-apply(font.$tagline-medium);
         padding: func.pixel-to-rem-convertor(10) func.pixel-to-rem-convertor(10);
         letter-spacing: func.pixel-to-rem-convertor(1);
         color: color.$color-pink;
         gap: func.pixel-to-rem-convertor(10);
+        @include mixin.responsive-font-apply(font.$tagline-medium);
         @include mixin.flex-center;
     }
 
@@ -98,7 +98,9 @@
         height: 90%;
         aspect-ratio: 1;
         border-radius: 50%;
-        background-color: color.$color-gray;
+        box-shadow: 0 0 func.pixel-to-rem-convertor(15) 10px
+            color.$color-gray-dark;
+        background-color: color.$color-white;
         overflow: hidden;
         transition: transform 4s cubic-bezier(0.15, 0.9, 0.2, 1);
     }
@@ -183,8 +185,18 @@
         }
     }
 
+    &__wheel-loading {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: color.$color-gray-darker;
+        @include mixin.flex-center();
+        @include mixin.responsive-font-apply(font.$mini-font);
+    }
+
     &__button-notification {
-        padding: func.pixel-to-rem-convertor(5) func.pixel-to-rem-convertor(9);
+        height: func.pixel-to-rem-convertor(30);
+        width: func.pixel-to-rem-convertor(30);
         background-color: color.$color-primary;
         border-radius: 50%;
         color: color.$color-white;
@@ -195,8 +207,8 @@
         gap: func.pixel-to-rem-convertor(10);
         width: 100%;
         margin-top: func.pixel-to-rem-convertor(20);
-        max-height: func.pixel-to-rem-convertor(460);
-        min-height: func.pixel-to-rem-convertor(460);
+        max-height: func.pixel-to-rem-convertor(480);
+        min-height: func.pixel-to-rem-convertor(480);
         overflow: auto;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(0);
         overscroll-behavior: contain;
@@ -210,6 +222,13 @@
     &__latest-win {
         @include mixin.flex-center(center, center, column);
         width: 100%;
+        height: func.pixel-to-rem-convertor(150);
+    }
+
+    &__empty-state {
+        @include mixin.flex-center(center, space-between, column);
+        text-align: center;
+        gap: func.pixel-to-rem-convertor(20);
     }
 
     @include mixin.media-query('md') {
@@ -219,7 +238,7 @@
         border-radius: 20px;
 
         &--active {
-            transform: translate(-50%, 30%);
+            transform: translate(-50%, 20%);
             visibility: visible;
         }
 
@@ -235,7 +254,7 @@
         border-radius: 20px;
 
         &--active {
-            transform: translate(-50%, 30%);
+            transform: translate(-50%, 20%);
             visibility: visible;
         }
     }

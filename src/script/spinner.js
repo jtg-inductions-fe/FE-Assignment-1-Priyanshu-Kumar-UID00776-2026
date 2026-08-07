@@ -6,27 +6,40 @@ const COUPON_API_URL =
 const STORAGE_KEY_COUPONS = 'coupons';
 const STORAGE_KEY_UNLOCKED = 'unlockedCoupons';
 const STORAGE_KEY_ANGLE = 'wheelAngle';
+const DEFAULT_DAYS = 7;
+const MILLI_SECONDS_IN_ONE_SECOND = 1000;
+const SECONDS_IN_ONE_MINUTE = 60;
+const MINUTES_IN_ONE_HOUR = 60;
+const HOURS_IN_ONE_DAY = 24;
+const FULL_ROTATION_ANGLE = 360;
+const NUMBER_OF_ROTATIONS = 5;
+const COUPON_SETTING_TIME = 6000;
 
+// Arrays and variables declaration
 let coupons = [];
 let unlockedCoupons = [];
 let isSpinning = false;
 let currentAngle = 0;
+let isInitialized = false;
 
+// Document elements declaration to be used anywhere
 let wheelWrapper;
 let dealsWheelContent;
 let dealsWrapperContent;
 let winningBannerContainer;
 let dealsCounterBadge;
 
+// Checks the coupon array is it valid or not
 function isValidCouponArray(data) {
     if (!Array.isArray(data)) return false;
 
-    for (const c of data) {
+    for (const coupon of data) {
+        // Checks if the coupon is object and also does it have the labe and promoCode if not return false
         if (
-            !c ||
-            typeof c !== 'object' ||
-            !('label' in c) ||
-            !('promoCode' in c)
+            !coupon ||
+            typeof coupon !== 'object' ||
+            !('label' in coupon) ||
+            !('promoCode' in coupon)
         ) {
             return false;
         }
@@ -35,44 +48,58 @@ function isValidCouponArray(data) {
     return true;
 }
 
-export function initSpinner() {
+// Util function to validate the coupon getting from teh localStorage
+const getLocalStorageItem = (
+    key,
+    validatorFunction = null,
+    fallback = null,
+) => {
+    const item = localStorage.getItem(key);
+    if (!item) return fallback;
+
+    try {
+        const parsed = JSON.parse(item);
+        if (validatorFunction && !validatorFunction(parsed)) {
+            return fallback;
+        }
+        return parsed;
+    } catch {
+        return fallback;
+    }
+};
+
+// Initializes the spinner
+export const initSpinner = () => {
+    // Targetting the particular elements which are needed for spinner
     wheelWrapper = document.getElementById('deals-wheel-wrapper');
     dealsWheelContent = document.getElementById('deals-wheel');
     dealsWrapperContent = document.getElementById('deals-coupon-wrapper');
     winningBannerContainer = document.getElementById('latest-win-banner');
     dealsCounterBadge = document.getElementById('deals-btn-badge');
 
-    // Directly read and parse from localStorage on initialization
-    const storedCoupons = localStorage.getItem(STORAGE_KEY_COUPONS);
-    const storedUnlocked = localStorage.getItem(STORAGE_KEY_UNLOCKED);
-    const storedAngle = localStorage.getItem(STORAGE_KEY_ANGLE);
+    // Reset winning banner container on modal open/initialization
+    if (winningBannerContainer) {
+        winningBannerContainer.innerHTML = '';
+    }
+
+    // Set default count to 0 for the counter badge
+    if (dealsCounterBadge) {
+        dealsCounterBadge.innerHTML = '0';
+    }
 
     // If coupons from localstorage are available then parse them also verify them using the function isValidCouponArray so that the array fetched is valid
-    if (storedCoupons) {
-        try {
-            const parsed = JSON.parse(storedCoupons);
-            coupons = isValidCouponArray(parsed) ? parsed : [];
-        } catch {
-            coupons = [];
-        }
-    }
+    coupons = getLocalStorageItem(STORAGE_KEY_COUPONS, isValidCouponArray, []);
     // If unlockedCoupons from localstorage are available then parse them also verify them using the function isValidCouponArray so that the array fetched is valid
-    if (storedUnlocked) {
-        try {
-            const parsed = JSON.parse(storedUnlocked);
-            unlockedCoupons = isValidCouponArray(parsed) ? parsed : [];
-        } catch {
-            unlockedCoupons = [];
-        }
-    }
+
+    unlockedCoupons = getLocalStorageItem(
+        STORAGE_KEY_UNLOCKED,
+        isValidCouponArray,
+        [],
+    );
+
     // If rotationAngle from localstorage are available then parse them
-    if (storedAngle) {
-        try {
-            currentAngle = JSON.parse(storedAngle);
-        } catch {
-            currentAngle = 0;
-        }
-    }
+
+    currentAngle = getLocalStorageItem(STORAGE_KEY_ANGLE, null, 0);
 
     // Position the wheel at its saved angle
     if (dealsWheelContent && currentAngle > 0) {
@@ -80,22 +107,28 @@ export function initSpinner() {
         dealsWheelContent.style.transform = `rotate(${currentAngle % 360}deg)`;
     }
 
-    setupSpinListener();
+    // Setup listeners the very first time the spinner initializes
+    if (!isInitialized) {
+        setupSpinListener();
+        setupCopyListener();
+        isInitialized = true;
+    }
 
     // Render spinner from cache or fetch from API
     if (coupons.length > 0) {
         setSpinnerCoupons();
     } else {
         renderLoadingState(true);
-        fetchCoupons();
     }
 
+    // Fetches the coupons if there are new changes in teh coupons from the API
+    fetchCoupons();
+
     updateCouponExpiryStatus();
-    setupCopyListener();
-}
+};
 
 // Promocode copy function
-function setupCopyListener() {
+const setupCopyListener = () => {
     document.addEventListener('click', function (e) {
         const btn = e.target.closest('.coupon__copy');
         if (!btn) return;
@@ -107,17 +140,24 @@ function setupCopyListener() {
 
         // If we get the code then it copies
         if (code) {
-            navigator.clipboard
-                .writeText(code)
-                .then(() => alert('Code copied!'));
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+	<path d="M 33 78 c -2.303 0 -4.606 -0.879 -6.364 -2.636 l -24 -24 c -3.515 -3.515 -3.515 -9.213 0 -12.728 c 3.515 -3.515 9.213 -3.515 12.728 0 L 33 56.272 l 41.636 -41.636 c 3.516 -3.515 9.213 -3.515 12.729 0 c 3.515 3.515 3.515 9.213 0 12.728 l -48 48 C 37.606 77.121 35.303 78 33 78 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(54,206,61); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+</g>
+</svg>`;
+            });
         }
     });
-}
+};
 
-function validTime(coupon) {
+// Create a valid time for the coupon
+const validTime = (coupon) => {
     // Check if validFor exists to convert it to a number, or fallback to 7 days default
     const days =
-        coupon && coupon.validFor != null ? Number(coupon.validFor) : 7;
+        coupon && coupon.validFor != null
+            ? Number(coupon.validFor)
+            : DEFAULT_DAYS;
 
     // Check if issuedAt timestamp exists to parse it into Date object, or fallback to current time
     const issueDate = coupon.issuedAt ? new Date(coupon.issuedAt) : new Date();
@@ -125,7 +165,13 @@ function validTime(coupon) {
 
     // Calculate time difference in days
     const elapsedMs = now - issueDate;
-    const elapsedDays = Math.floor(elapsedMs / (1000 * 60 * 60 * 24));
+    const elapsedDays = Math.floor(
+        elapsedMs /
+            (MILLI_SECONDS_IN_ONE_SECOND *
+                SECONDS_IN_ONE_MINUTE *
+                MINUTES_IN_ONE_HOUR *
+                HOURS_IN_ONE_DAY),
+    );
     const remainingDays = days - elapsedDays;
 
     // Check if remaining validity days reached zero or less
@@ -140,27 +186,42 @@ function validTime(coupon) {
         text: `Expires in ${remainingDays}d`,
         isExpired: false,
     };
-}
+};
 
-function renderLoadingState(state, errorMessage = null) {
-    // Check if loading state is true or shows loading
-    if (state) {
-        dealsWheelContent.innerHTML = `
-            <div class="deals__wheel-content">
-                <span>Loading...</span>
-            </div>
-        `;
+// Loading state renderer
+const renderLoadingState = (isLoading, errorMessage = null) => {
+    const spinButton = wheelWrapper?.querySelector('.deals__spin-button');
+
+    if (isLoading) {
+        // Hide the spin button if present
+        if (spinButton) spinButton.style.display = 'none';
+
+        // Clear existing slice markup and display simple centered loading text
+        if (dealsWheelContent) {
+            dealsWheelContent.innerHTML = `
+                <div class="deals__wheel-loading">
+                    Loading...
+                </div>
+            `;
+        }
     } else if (errorMessage) {
-        // Show error message if no coupons are found
-        dealsWheelContent.innerHTML = `
-            <div class="deals__wheel-content">
-                <span>${errorMessage}</span>
-            </div>
-        `;
-    }
-}
+        if (spinButton) spinButton.style.display = 'none';
 
-function updateCouponExpiryStatus() {
+        if (dealsWheelContent) {
+            dealsWheelContent.innerHTML = `
+                <div class="deals__wheel-loading">
+                    ${errorMessage}
+                </div>
+            `;
+        }
+    } else {
+        // Restore spin button display when loading is complete
+        if (spinButton) spinButton.style.display = 'block';
+    }
+};
+
+// Updates the coupon expiry whenever user open the website
+const updateCouponExpiryStatus = () => {
     // Exit early if user has no unlocked coupons
     if (unlockedCoupons.length === 0) return;
 
@@ -174,32 +235,45 @@ function updateCouponExpiryStatus() {
     localStorage.setItem(STORAGE_KEY_UNLOCKED, JSON.stringify(unlockedCoupons));
 
     setUnlockedCoupons();
-}
+};
 
-async function fetchCoupons() {
+// Fetches the coupon
+const fetchCoupons = async () => {
     try {
-        renderLoadingState(true);
         const response = await fetch(COUPON_API_URL);
         const data = await response.json();
 
-        // Checks and sets the valid coupon array when fetched from the API
         if (isValidCouponArray(data)) {
-            coupons = data;
+            // Compare stringified versions to see if data actually changed
+            const hasChanged = JSON.stringify(coupons) !== JSON.stringify(data);
+
+            // Refreshes UI with new coupons dynamically if there is changes
+            if (hasChanged) {
+                coupons = data;
+                localStorage.setItem(
+                    STORAGE_KEY_COUPONS,
+                    JSON.stringify(coupons),
+                );
+                setSpinnerCoupons();
+            }
             renderLoadingState(false);
-            localStorage.setItem(STORAGE_KEY_COUPONS, JSON.stringify(coupons));
-            setSpinnerCoupons();
         } else {
             throw new Error('Invalid coupon schema returned from API');
         }
     } catch {
         renderLoadingState(false, 'No coupons found');
     }
-}
+};
 
-function setSpinnerCoupons() {
+// Sets the coupons for each slice of the spinner
+const setSpinnerCoupons = () => {
     // Filter master coupons array to keep only unclaimed coupons
     const validCoupons = coupons.filter(
-        (c) => !unlockedCoupons.some((u) => u.promoCode === c.promoCode),
+        (coupon) =>
+            !unlockedCoupons.some(
+                (unlockedCoupon) =>
+                    unlockedCoupon.promoCode === coupon.promoCode,
+            ),
     );
 
     // Check if master list is populated and all coupons have been unlocked
@@ -213,6 +287,7 @@ function setSpinnerCoupons() {
         return;
     }
 
+    // Array declared for the proper assigning of the class for each particular slice of the spinner
     const arr = ['top-left', 'top-right', 'bottom-right', 'bottom-left'];
     let index = 0;
 
@@ -227,7 +302,10 @@ function setSpinnerCoupons() {
             </div>`,
             )
             .join('');
-    } else {
+    }
+
+    // When less than 4 coupons are available count the remainig coupon and adds the no deals available coupon also
+    else {
         const remainingCoupon = validCoupons
             .map(
                 (coupon) => `
@@ -247,11 +325,13 @@ function setSpinnerCoupons() {
                 `;
         }
 
+        // Adds up the both type of coupon and show in the spinner
         dealsWheelContent.innerHTML = remainingCoupon + noDealCoupon;
     }
-}
+};
 
-function setUnlockedCoupons() {
+// Sets up the unlockedCoupon array for the user
+const setUnlockedCoupons = () => {
     dealsWrapperContent.innerHTML = unlockedCoupons
         .map((coupon) => {
             // Check if coupon is expired to apply blocked styling modifier
@@ -292,12 +372,24 @@ function setUnlockedCoupons() {
     if (dealsCounterBadge) {
         dealsCounterBadge.innerHTML = unlockedCoupons.length;
     }
-}
+};
 
-function renderLatestWinner(wonCoupon) {
-    // Exit early if winning banner container or wonCoupon is missing
-    if (!winningBannerContainer || !wonCoupon) return;
+// Renders the win coupon box when the users wins any coupon
+const renderLatestWinner = (wonCoupon) => {
+    // Exit early if winning banner container is missing
+    if (!winningBannerContainer) return;
 
+    // Handle No deals available state
+    if (!wonCoupon) {
+        winningBannerContainer.innerHTML = `
+            <div class="coupon__no-deals">
+                <span">No deal available for this spin.</span>
+            </div>
+        `;
+        return;
+    }
+
+    // Handle winning coupon state
     winningBannerContainer.innerHTML = `
         <h4 class="deals__win-title" style="margin-top: 15px; text-align: center;">You Won!</h4>
         <div class="coupon">
@@ -320,9 +412,10 @@ function renderLatestWinner(wonCoupon) {
             </button>
         </div>
     `;
-}
+};
 
-function indexBasedAngleGenerator(index) {
+// Provides the angle based on the randomIndex generation
+const indexBasedAngleGenerator = (index) => {
     let targetAngle;
     // Angle generation for index 0
     if (index === 0) {
@@ -341,13 +434,21 @@ function indexBasedAngleGenerator(index) {
         targetAngle = 225;
     }
     return targetAngle;
-}
+};
 
-function setupSpinListener() {
+// Rotation Logic for the spinner
+const setupSpinListener = () => {
     wheelWrapper.addEventListener('click', function (event) {
         const spinBtn = event.target.closest('.deals__spin-button');
         // Ignore clicks if not on spin button OR wheel is currently spinning
         if (!spinBtn || isSpinning) return;
+
+        // Clear the latest win banner when a new spin begins
+        if (winningBannerContainer) {
+            winningBannerContainer.innerHTML = '';
+        }
+
+        setSpinnerCoupons();
 
         // Filter master coupons array to get currently unclaimed coupons
         const validCoupons = coupons.filter(
@@ -355,9 +456,11 @@ function setupSpinListener() {
         );
         isSpinning = true;
 
+        // Random number generation between 0 to 3
         const randomDegreeIndex = Math.floor(Math.random() * 4);
 
-        const fullRotations = 360 * 5;
+        // Angle creation for the rotation
+        const fullRotations = FULL_ROTATION_ANGLE * NUMBER_OF_ROTATIONS;
         const totalRotation =
             fullRotations - indexBasedAngleGenerator(randomDegreeIndex);
 
@@ -366,33 +469,40 @@ function setupSpinListener() {
         // Check if wheel has spun before to perform reset animation first
         if (hadPreviousAngle) {
             setSpinnerCoupons();
-            const remainder = currentAngle % 360;
+            const remainder = currentAngle % FULL_ROTATION_ANGLE;
             // Check if wheel is aligned at 0, otherwise calculate shortest distance to 360
-            const distanceToZero = remainder === 0 ? 0 : 360 - remainder;
+            const distanceToZero =
+                remainder === 0 ? 0 : FULL_ROTATION_ANGLE - remainder;
             currentAngle += distanceToZero;
 
+            // Reset the spinner back to its original position with animation
             dealsWheelContent.style.transition =
                 'transform 0.4s cubic-bezier(0.05, 0.7, 0.1, 1)';
             dealsWheelContent.style.transform = `rotate(${currentAngle}deg)`;
 
             setTimeout(() => {
+                // Resets the transition and degree for the spinner to prevent the issue of overflow of the degree angle addition
                 dealsWheelContent.style.transition = 'none';
                 dealsWheelContent.style.transform = 'rotate(0deg)';
                 currentAngle = totalRotation;
 
+                // Spins the wheel to the target angle
                 setTimeout(() => {
                     dealsWheelContent.style.transition =
                         'transform 5s cubic-bezier(0.1, 0.7, 0.1, 1)';
                     dealsWheelContent.style.transform = `rotate(${totalRotation}deg)`;
                 }, 50);
             }, 50);
-        } else {
+        }
+        // Runs for the first spin done by the user
+        else {
             currentAngle = totalRotation;
             dealsWheelContent.style.transition =
                 'transform 5s cubic-bezier(0.1, 0.7, 0.1, 1)';
             dealsWheelContent.style.transform = `rotate(${totalRotation}deg)`;
         }
 
+        // Sets up wonCoupon and issuedDate for the unlockedCoupon
         setTimeout(() => {
             const wonCoupon = validCoupons[randomDegreeIndex];
             // Check if selected segment index corresponds to a valid unclaimed coupon
@@ -415,11 +525,10 @@ function setupSpinListener() {
                 );
 
                 setUnlockedCoupons();
-                renderLatestWinner(wonCoupon);
-                setSpinnerCoupons();
             }
 
+            renderLatestWinner(wonCoupon);
             isSpinning = false;
-        }, 6000);
+        }, COUPON_SETTING_TIME);
     });
-}
+};

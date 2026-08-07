@@ -101,9 +101,8 @@ $description-micro: (
 );
 
 $title-micro: (
-    'font-family': $font-inter,
     'sm': (
-        'font-size': func.pixel-to-rem-convertor(20),
+        'font-size': func.pixel-to-rem-convertor(25),
         'font-line-height': 1.6,
     ),
 );
@@ -143,7 +142,6 @@ $description-medium: (
 );
 
 $tagline-medium: (
-    'font-family': $font-inter,
     'sm': (
         'font-size': func.pixel-to-rem-convertor(18),
         'font-line-height': 1.6,
