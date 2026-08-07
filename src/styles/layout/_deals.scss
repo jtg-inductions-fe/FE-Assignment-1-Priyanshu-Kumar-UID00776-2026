@@ -225,6 +225,11 @@
         height: func.pixel-to-rem-convertor(150);
     }
 
+    &__win-title {
+        font-size: func.pixel-to-rem-convertor(18);
+        margin-bottom: func.pixel-to-rem-convertor(8);
+    }
+
     &__empty-state {
         @include mixin.flex-center(center, space-between, column);
         text-align: center;

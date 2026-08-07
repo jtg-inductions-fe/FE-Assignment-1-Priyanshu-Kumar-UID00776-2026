@@ -14,6 +14,7 @@ const HOURS_IN_ONE_DAY = 24;
 const FULL_ROTATION_ANGLE = 360;
 const NUMBER_OF_ROTATIONS = 5;
 const COUPON_SETTING_TIME = 6000;
+const COUPON_COPY_GREENTICK_TIME = 1500;
 
 // Arrays and variables declaration
 let coupons = [];
@@ -140,12 +141,21 @@ const setupCopyListener = () => {
 
         // If we get the code then it copies
         if (code) {
+            const originalContent = btn.innerHTML;
+
+            btn.style.pointerEvents = 'none';
+
             navigator.clipboard.writeText(code).then(() => {
-                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="28" height="28" viewBox="0 0 256 256" xml:space="preserve">
 <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
 	<path d="M 33 78 c -2.303 0 -4.606 -0.879 -6.364 -2.636 l -24 -24 c -3.515 -3.515 -3.515 -9.213 0 -12.728 c 3.515 -3.515 9.213 -3.515 12.728 0 L 33 56.272 l 41.636 -41.636 c 3.516 -3.515 9.213 -3.515 12.729 0 c 3.515 3.515 3.515 9.213 0 12.728 l -48 48 C 37.606 77.121 35.303 78 33 78 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(54,206,61); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
 </g>
 </svg>`;
+                // Revert back to original icon
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.pointerEvents = 'auto';
+                }, COUPON_COPY_GREENTICK_TIME);
             });
         }
     });
@@ -391,7 +401,7 @@ const renderLatestWinner = (wonCoupon) => {
 
     // Handle winning coupon state
     winningBannerContainer.innerHTML = `
-        <h4 class="deals__win-title" style="margin-top: 15px; text-align: center;">You Won!</h4>
+        <h4 class="deals__win-title">You Won!</h4>
         <div class="coupon">
             <div class="coupon__info">
                 <span class="coupon__title">${wonCoupon.label}</span>
