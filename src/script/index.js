@@ -29,6 +29,17 @@ const setMenuState = (shouldOpen) => {
     }
 };
 
+// Close dropdown if Tab is pressed while the last button is focused in the dropdown
+dropdown.addEventListener('keydown', function (event) {
+    if (event.key === 'Tab' && !event.shiftKey) {
+        const lastButton = document.getElementById('sign-up');
+
+        if (document.activeElement === lastButton) {
+            setMenuState(false);
+        }
+    }
+});
+
 // Removing the menu state when goes into the lg mode
 const desktopQuery = window.matchMedia(`(min-width: ${DESKTOP_MIN_WIDTH}px)`);
 desktopQuery.addEventListener('change', function (event) {
