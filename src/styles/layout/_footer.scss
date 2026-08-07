@@ -24,16 +24,14 @@
     }
 
     &__container {
-        display: flex;
+        @include mixin.flex-center(center, center, column);
         max-width: func.pixel-to-rem-convertor(1500);
         margin: 0 auto;
-        flex-direction: column;
         gap: func.pixel-to-rem-convertor(60);
     }
 
     &__brand {
-        display: flex;
-        flex-direction: column;
+        @include mixin.flex-center(flex-start, center, column);
         gap: func.pixel-to-rem-convertor(33);
     }
 
@@ -53,7 +51,7 @@
     }
 
     &__logo-title {
-        font-size: func.pixel-to-rem-convertor(24);
+        @include mixin.responsive-font-apply(font.$logo-title-font);
         color: color.$color-dark;
     }
 
@@ -63,17 +61,17 @@
     }
 
     &__social-link {
-        font-size: func.pixel-to-rem-convertor(30);
+        @include mixin.responsive-font-apply(font.$social-links-font);
         color: color.$color-white;
         transition: transform 0.2s ease;
         @include mixin.flex-center;
     }
 
     &__nav {
-        flex-direction: column;
+        width: 100%;
         gap: func.pixel-to-rem-convertor(40);
         margin-top: func.pixel-to-rem-convertor(8);
-        @include mixin.flex-center;
+        @include mixin.flex-center(flex-start, center, column);
     }
 
     &__group {
@@ -100,18 +98,17 @@
 
     &__list {
         display: none;
-        flex-direction: column;
         gap: func.pixel-to-rem-convertor(16);
         width: func.pixel-to-rem-convertor(180);
         font-family: font.$font-inter;
 
         &--is-open {
-            display: flex;
+            @include mixin.flex-center(flex-start, center, column);
         }
     }
 
     &__item {
-        font-size: func.pixel-to-rem-convertor(16);
+        @include mixin.responsive-font-apply(font.$item-font);
     }
 
     @include mixin.media-query('md') {
@@ -128,7 +125,6 @@
         }
 
         &__nav {
-            flex-direction: row;
             gap: func.pixel-to-rem-convertor(38);
             @include mixin.flex-center(flex-start, space-between);
         }
@@ -148,6 +144,7 @@
         }
 
         &__list {
+            @include mixin.flex-center(flex-start, center, column);
             max-width: func.pixel-to-rem-convertor(112);
             gap: func.pixel-to-rem-convertor(30);
             display: flex;
@@ -166,7 +163,6 @@
         }
 
         &__container {
-            flex-direction: row;
             @include mixin.flex-center(flex-start, space-between);
         }
 
@@ -174,17 +170,9 @@
             width: func.pixel-to-rem-convertor(50);
         }
 
-        &__logo-title {
-            font-size: func.pixel-to-rem-convertor(30);
-        }
-
         &__socials {
             padding-top: func.pixel-to-rem-convertor(40);
             gap: func.pixel-to-rem-convertor(40);
-        }
-
-        &__social-link {
-            font-size: func.pixel-to-rem-convertor(40);
         }
 
         &__brand {
@@ -205,12 +193,9 @@
         }
 
         &__list {
+            @include mixin.flex-center(flex-start, center, column);
             max-width: func.pixel-to-rem-convertor(144);
             gap: func.pixel-to-rem-convertor(50);
-        }
-
-        &__item {
-            font-size: func.pixel-to-rem-convertor(20);
         }
 
         &__heading {

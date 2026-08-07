@@ -6,8 +6,7 @@
 /* ------- Travel Point Section -------- */
 
 .travel-point {
-    @include mixin.flex-center(center, space-evenly);
-    flex-direction: column;
+    @include mixin.flex-center(center, space-evenly, column);
     height: fit-content;
     position: relative;
     width: 100%;
@@ -21,12 +20,11 @@
     }
 
     &__info {
-        flex-direction: column;
         height: fit-content;
         width: 100%;
         padding: func.pixel-to-rem-convertor(25) func.pixel-to-rem-convertor(20);
         gap: func.pixel-to-rem-convertor(22);
-        @include mixin.flex-center(center, space-between);
+        @include mixin.flex-center(center, space-between, column);
     }
 
     &__tagline {
@@ -63,7 +61,7 @@
     /* ------- Medium Breakpoint (md) ------- */
 
     @include mixin.media-query('md') {
-        flex-direction: column;
+        @include mixin.flex-center(center, center, column);
         padding: func.pixel-to-rem-convertor(10) 0;
         margin-top: 0;
 
@@ -94,7 +92,7 @@
     /* ------- Large Breakpoint (lg) ------- */
 
     @include mixin.media-query('lg') {
-        flex-direction: row;
+        @include mixin.flex-center;
         padding: func.pixel-to-rem-convertor(60) 0;
         margin-top: func.pixel-to-rem-convertor(20);
 

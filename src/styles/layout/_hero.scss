@@ -7,18 +7,16 @@
 /* ------- Hero Section -------- */
 
 .hero {
-    @include mixin.flex-center;
+    @include mixin.flex-center(center, center, column);
     width: 100%;
     max-width: func.pixel-to-rem-convertor(1850);
     height: fit-content;
-    flex-direction: column;
     gap: func.pixel-to-rem-convertor(30);
     position: relative;
 
     &__design-info-wrapper {
-        @include mixin.flex-center;
+        @include mixin.flex-center(center, center, column);
         max-width: func.pixel-to-rem-convertor(1500);
-        flex-direction: column;
         padding: func.pixel-to-rem-convertor(20);
         position: relative;
         width: 100%;
@@ -56,18 +54,16 @@
         inset: func.pixel-to-rem-convertor(5) 0;
         width: 100%;
         height: 100%;
-        flex-direction: row;
         gap: func.pixel-to-rem-convertor(16);
         top: func.pixel-to-rem-convertor(50);
         padding: 0 func.pixel-to-rem-convertor(32);
     }
 
     &__design-images-left {
-        @include mixin.flex-center(center, center);
+        @include mixin.flex-center(center, center, column);
         gap: func.pixel-to-rem-convertor(14);
         width: func.pixel-to-rem-convertor(250);
         z-index: 1;
-        flex-direction: column;
         padding: func.pixel-to-rem-convertor(8) 0;
         margin-bottom: func.pixel-to-rem-convertor(50);
         position: relative;
@@ -138,12 +134,12 @@
         height: func.pixel-to-rem-convertor(30);
         width: func.pixel-to-rem-convertor(100);
         border-radius: 15px;
-        font-size: func.pixel-to-rem-convertor(14);
+        @include mixin.responsive-font-apply(font.$icon-font);
     }
 
     &__design-right-detail {
         color: color.$color-dark;
-        font-size: func.pixel-to-rem-convertor(10);
+        @include mixin.responsive-font-apply(font.$detail-font);
     }
 
     &__design-right-person {
@@ -156,14 +152,13 @@
         color: color.$color-white;
         height: func.pixel-to-rem-convertor(36);
         width: func.pixel-to-rem-convertor(36);
-        font-size: func.pixel-to-rem-convertor(14);
         top: 90%;
         left: 25%;
+        @include mixin.responsive-font-apply(font.$icon-font);
     }
 
     &__info {
-        @include mixin.flex-center;
-        flex-direction: column;
+        @include mixin.flex-center(center, center, column);
         position: relative;
         width: 100%;
         text-align: center;
@@ -210,18 +205,16 @@
     }
 
     &__info-actions {
-        @include mixin.flex-center;
-        flex-direction: column;
+        @include mixin.flex-center(center, center, column);
         gap: func.pixel-to-rem-convertor(16);
         width: 100%;
         margin-top: func.pixel-to-rem-convertor(10);
     }
 
     &__info-button-wrapper {
-        @include mixin.flex-center;
+        @include mixin.flex-center(center, center, column);
         height: fit-content;
         width: 100%;
-        flex-direction: column;
         margin-top: func.pixel-to-rem-convertor(10);
         gap: func.pixel-to-rem-convertor(33);
     }
@@ -323,7 +316,7 @@
             height: func.pixel-to-rem-convertor(60);
             width: func.pixel-to-rem-convertor(60);
             right: 29vw;
-            font-size: func.pixel-to-rem-convertor(35);
+            @include mixin.responsive-font-apply(font.$send-font);
         }
 
         &__design-images-right {
@@ -354,11 +347,6 @@
             );
             border-radius: 30px;
             gap: func.pixel-to-rem-convertor(8);
-            font-size: func.pixel-to-rem-convertor(21);
-        }
-
-        &__design-right-detail {
-            font-size: func.pixel-to-rem-convertor(14);
         }
 
         &__design-right-person {
@@ -372,7 +360,6 @@
                 6vw,
                 func.pixel-to-rem-convertor(64)
             );
-            font-size: func.pixel-to-rem-convertor(35);
             top: func.pixel-to-rem-convertor(490);
             left: func.pixel-to-rem-convertor(75);
         }
@@ -398,12 +385,12 @@
         }
 
         &__info-actions {
-            flex-direction: row;
+            @include mixin.flex-center;
             gap: func.pixel-to-rem-convertor(20);
         }
 
         &__info-button-wrapper {
-            flex-direction: row;
+            @include mixin.flex-center;
             margin-top: func.pixel-to-rem-convertor(0);
             gap: func.pixel-to-rem-convertor(15);
         }
@@ -457,7 +444,7 @@
             height: func.pixel-to-rem-convertor(600);
             width: 95vw;
             gap: func.pixel-to-rem-convertor(80);
-            flex-direction: row-reverse;
+            @include mixin.flex-center(center, center, row-reverse);
         }
 
         &__design {
@@ -512,7 +499,6 @@
             height: func.pixel-to-rem-convertor(80);
             width: func.pixel-to-rem-convertor(80);
             right: 15vw;
-            font-size: func.pixel-to-rem-convertor(40);
         }
 
         &__design-images-right {
@@ -543,7 +529,6 @@
             );
             border-radius: 30px;
             gap: func.pixel-to-rem-convertor(10);
-            font-size: func.pixel-to-rem-convertor(28);
         }
 
         &__design-right-person {
@@ -557,7 +542,6 @@
                 6vw,
                 func.pixel-to-rem-convertor(70)
             );
-            font-size: func.pixel-to-rem-convertor(28);
             top: 90%;
             left: 18%;
         }

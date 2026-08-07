@@ -4,8 +4,7 @@
 @use '../base/typography' as font;
 
 .cards {
-    @include mixin.flex-center;
-    justify-content: center;
+    @include mixin.flex-center(center, center, column);
     position: relative;
     gap: func.pixel-to-rem-convertor(20);
     height: func.pixel-to-rem-convertor(150);
@@ -13,7 +12,6 @@
     padding: func.pixel-to-rem-convertor(20);
     border: 1px solid color.$color-grey-light;
     border-radius: 32px;
-    flex-direction: column;
 
     &--badge::after {
         content: '';
@@ -34,8 +32,7 @@
     }
 
     &__description {
-        font-size: func.pixel-to-rem-convertor(18);
-        font-family: font.$font-inter;
+        @include mixin.responsive-font-apply(font.$description-medium);
         color: color.$color-dark;
     }
 

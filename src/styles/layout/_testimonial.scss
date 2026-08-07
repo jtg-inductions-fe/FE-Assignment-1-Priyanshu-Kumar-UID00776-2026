@@ -6,8 +6,7 @@
 /*----------Testimonial section------------*/
 
 .testimonial {
-    @include mixin.flex-center;
-    flex-direction: column;
+    @include mixin.flex-center(center, center, column);
     width: 100%;
     margin-top: func.pixel-to-rem-convertor(70);
     padding: func.pixel-to-rem-convertor(20);
@@ -49,7 +48,7 @@
         z-index: 2;
         border-radius: 50%;
         padding: func.pixel-to-rem-convertor(20) func.pixel-to-rem-convertor(20);
-        font-size: func.pixel-to-rem-convertor(15);
+        @include mixin.responsive-font-apply(font.$nav-font);
 
         &:focus-visible {
             outline: 2px solid color.$color-primary;
@@ -135,7 +134,6 @@
         &__nav {
             padding: func.pixel-to-rem-convertor(45)
                 func.pixel-to-rem-convertor(45);
-            font-size: func.pixel-to-rem-convertor(35);
             top: 30%;
         }
 
