@@ -162,7 +162,7 @@
         position: relative;
         width: 100%;
         text-align: center;
-        top: func.pixel-to-rem-convertor(20);
+        top: func.pixel-to-rem-convertor(25);
         gap: clamp(
             func.pixel-to-rem-convertor(20),
             4vw,
@@ -367,7 +367,7 @@
         &__info {
             width: 60vw;
             margin: 0 auto;
-            top: func.pixel-to-rem-convertor(120);
+            top: func.pixel-to-rem-convertor(130);
             gap: clamp(
                 func.pixel-to-rem-convertor(20),
                 4vw,
@@ -542,8 +542,8 @@
                 6vw,
                 func.pixel-to-rem-convertor(70)
             );
-            top: 90%;
-            left: 18%;
+            top: 92%;
+            left: 30%;
         }
 
         &__info {
@@ -575,10 +575,10 @@
         }
 
         &__triangular-wrapper {
-            top: func.pixel-to-rem-convertor(880);
+            top: func.pixel-to-rem-convertor(890);
             width: fit-content;
             height: fit-content;
-            left: func.pixel-to-rem-convertor(30);
+            left: func.pixel-to-rem-convertor(50);
             position: absolute;
         }
 
@@ -590,7 +590,7 @@
 
         &__brand-wrapper {
             width: 85%;
-            margin-top: func.pixel-to-rem-convertor(180);
+            margin-top: func.pixel-to-rem-convertor(190);
         }
 
         &__brand-list {

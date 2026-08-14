@@ -32,15 +32,13 @@
         "sharp": "0.33.5",
         "vite": "5.4.1",
         "vite-plugin-html": "3.2.2",
-        "vite-plugin-image-optimizer": "1.1.8"
+        "vite-plugin-image-optimizer": "1.1.8",
+        "swiper": "^14.0.7"
     },
     "lint-staged": {
         "*.js": [
             "eslint --max-warnings=0"
         ],
         "*.{html,scss,json}": "prettier --check"
-    },
-    "dependencies": {
-        "swiper": "^14.0.7"
     }
 }

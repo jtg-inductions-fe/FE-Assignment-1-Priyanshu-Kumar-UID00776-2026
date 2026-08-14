@@ -30,7 +30,7 @@
     &__logo {
         @include mixin.flex-center;
 
-        z-index: 3;
+        z-index: 13;
         flex-shrink: 0;
         display: block;
         right: func.pixel-to-rem-convertor(4);
@@ -48,7 +48,7 @@
         @include mixin.flex-center;
 
         background-color: transparent;
-        z-index: 3;
+        z-index: 13;
         font-size: func.pixel-to-rem-convertor(47);
         order: 2;
 
@@ -84,7 +84,7 @@
         height: 100%;
         width: 100%;
         overflow: hidden auto;
-        z-index: 3;
+        z-index: 12;
         height: 100%;
     }
 

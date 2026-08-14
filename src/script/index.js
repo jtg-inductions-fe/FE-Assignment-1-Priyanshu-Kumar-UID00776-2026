@@ -45,6 +45,17 @@ const setMenuState = (shouldOpen) => {
     }
 };
 
+// Close dropdown if Tab is pressed while the last button is focused in the dropdown
+dropdown.addEventListener('keydown', function (event) {
+    if (event.key === 'Tab' && !event.shiftKey) {
+        const lastButton = document.getElementById('sign-up');
+
+        if (document.activeElement === lastButton) {
+            setMenuState(false);
+        }
+    }
+});
+
 // Handles the Special deals modal state
 const setDealsModalState = (shouldOpen) => {
     // Checks the shoulOpen and applies the overlay and opens modal

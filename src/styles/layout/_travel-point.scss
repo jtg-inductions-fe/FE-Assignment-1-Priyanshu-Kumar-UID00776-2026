@@ -12,7 +12,7 @@
     width: 100%;
     overflow: hidden;
     padding: func.pixel-to-rem-convertor(20) 0;
-    margin-top: func.pixel-to-rem-convertor(105);
+    margin-top: func.pixel-to-rem-convertor(80);
 
     &__main-image {
         z-index: 1;
@@ -72,7 +72,7 @@
         }
 
         &__main-image {
-            margin-top: func.pixel-to-rem-convertor(120);
+            margin-top: func.pixel-to-rem-convertor(110);
             height: 80vw;
             width: 100%;
         }
@@ -94,7 +94,7 @@
     @include mixin.media-query('lg') {
         @include mixin.flex-center;
         padding: func.pixel-to-rem-convertor(60) 0;
-        margin-top: func.pixel-to-rem-convertor(20);
+        margin-top: func.pixel-to-rem-convertor(0);
 
         &__main-image {
             margin-top: func.pixel-to-rem-convertor(80);
@@ -125,7 +125,8 @@
         }
 
         &__cards-wrapper {
-            max-width: func.pixel-to-rem-convertor(550);
+            max-width: func.pixel-to-rem-convertor(590);
+            // margin-top: func.pixel-to-rem-convertor(100);
             gap: 2rem;
             place-items: flex-start;
             padding: 0;

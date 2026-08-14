@@ -8,7 +8,7 @@
 .testimonial {
     @include mixin.flex-center(center, center, column);
     width: 100%;
-    margin-top: func.pixel-to-rem-convertor(70);
+    margin-top: func.pixel-to-rem-convertor(30);
     padding: func.pixel-to-rem-convertor(20);
     background: none;
 
@@ -83,6 +83,11 @@
                 background-color: color.$color-pink;
                 transform: scale(1.1);
             }
+
+            &:focus-visible {
+                outline: 2px solid color.$color-primary;
+                outline-offset: 2px;
+            }
         }
     }
 
@@ -116,7 +121,7 @@
         background: url('/assets/images/testimonial-desktop-background.png')
             no-repeat center center / cover;
         background-size: 100% auto;
-        background-position: 45% 30%;
+        background-position: 45% 40%;
 
         &__info {
             padding-left: func.pixel-to-rem-convertor(40);
@@ -124,7 +129,6 @@
 
         &__tagline {
             margin-bottom: func.pixel-to-rem-convertor(20);
-            padding-top: func.pixel-to-rem-convertor(35);
         }
 
         &__pagination {
