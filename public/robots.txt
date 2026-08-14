@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luxury-creponne-c0b98c.netlify.app/

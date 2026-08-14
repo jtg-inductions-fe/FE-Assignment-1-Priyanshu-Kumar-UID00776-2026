@@ -10,7 +10,7 @@
     max-width: func.pixel-to-rem-convertor(1850);
     padding: func.pixel-to-rem-convertor(35);
     background-color: color.$color-white;
-    margin-top: func.pixel-to-rem-convertor(110);
+    margin-top: func.pixel-to-rem-convertor(85);
     position: relative;
 
     &__image-wrapper {
@@ -160,7 +160,7 @@
     }
 
     @include mixin.media-query('lg') {
-        margin-top: func.pixel-to-rem-convertor(215);
+        margin-top: func.pixel-to-rem-convertor(225);
         padding-right: func.pixel-to-rem-convertor(40);
 
         &__image-wrapper {
